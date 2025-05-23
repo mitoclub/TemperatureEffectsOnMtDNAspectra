@@ -1,0 +1,150 @@
+---
+title: "MutSpec and TrophLevel"
+author: "Konstantin Popadin"
+date: "23/05/2025"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+rm(list=ls(all=TRUE))
+library(knitr)
+library(tidyverse)
+library(kableExtra)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(Biostrings)
+library(lsa) # install.packages("lsa"); install.packages("SnowballC")
+library(factoextra) #  install.packages("factoextra")
+library(MASS)
+library(reshape2) # install.packages("reshape2")
+
+```
+## Background
+<br>
+read data
+<br><br>
+
+## 1. A>G ~ CLIMATE. works
+
+***
+```{r}
+
+### CLIMATE
+Mut = read.table("../data/MutSpecVertebrates12fish.csv", head = TRUE, sep = ',')  
+names(Mut)
+head(Mut)
+dim(Mut)
+
+Eco = read.table("../output/tables/Full_fish_ecology_table_2025.csv", head = TRUE, sep = ',')  
+dim(Eco)
+Eco <- Eco[!is.na(Eco$Climate_zone), c(1, 11)]  # Filter and select columns
+
+MutEco = merge(Mut,Eco)
+
+MutEco$WarmClimate <- ifelse(MutEco$Climate_zone %in% c("tropical", "subtropical"), 1, 0)
+table(MutEco$Gene)
+MutEco = MutEco[MutEco$Gene == 'Cytb',]
+MutEco = MutEco[MutEco$Mut == 'T>C',]
+cor.test(MutEco$MutSpec,MutEco$WarmClimate, method = 'spearman')
+
+boxplot(MutEco$MutSpec[MutEco$WarmClimate == 0],MutEco$MutSpec[MutEco$WarmClimate == 1], notch = TRUE)
+wilcox.test(MutEco$MutSpec[MutEco$WarmClimate == 0],MutEco$MutSpec[MutEco$WarmClimate == 1])
+
+```
+<br>
+
+<br><br>
+
+## 2. A>G ~ FoodTroph (Doesn't work. may be because Climate is shaping more?)
+
+```{r}
+Mut = read.table("../data/MutSpecVertebrates12fish.csv", head = TRUE, sep = ',')  
+names(Mut)
+head(Mut)
+dim(Mut)
+
+Eco = read.table("../output/tables/Full_fish_ecology_table_2025.csv", head = TRUE, sep = ',')  
+dim(Eco)
+summary(Eco$FoodTroph)
+str(Eco$FoodTroph)
+Eco <- Eco[!is.na(Eco$FoodTroph), c(1, 6)]  # Filter and select columns
+
+MutEco = merge(Mut,Eco)
+table(MutEco$Gene)
+MutEco = MutEco[MutEco$Gene == 'Cytb',]
+MutEco = MutEco[MutEco$Mut == 'T>C',]
+cor.test(MutEco$MutSpec,MutEco$FoodTroph, method = 'spearman')
+
+```
+
+<br>
+
+<br><br>
+
+## 3 A>G ~ Climate + FoodTroph 
+
+```{r}
+Mut = read.table("../data/MutSpecVertebrates12fish.csv", head = TRUE, sep = ',')  
+names(Mut)
+head(Mut)
+dim(Mut)
+
+Eco = read.table("../output/tables/Full_fish_ecology_table_2025.csv", head = TRUE, sep = ',')  
+dim(Eco)
+summary(Eco$FoodTroph)
+str(Eco$FoodTroph)
+Eco <- Eco[!is.na(Eco$FoodTroph) & !is.na(Eco$Climate_zone), c(1, 6,11)]  # Filter and select columns
+table(Eco$Climate_zone)
+
+MutEco = merge(Mut,Eco)
+MutEco$WarmClimate <- ifelse(MutEco$Climate_zone %in% c("tropical", "subtropical"), 1, 0)
+MutEco$Predator <- ifelse(MutEco$FoodTroph >= 3.5, 1, 0) # recommendation from chatGPT
+MutEco = MutEco[MutEco$Gene == 'Cytb',]
+MutEco = MutEco[MutEco$Mut == 'T>C',]
+
+model <- lm(MutSpec ~ FoodTroph + WarmClimate, data = MutEco)
+summary(model)
+
+model <- lm(MutSpec ~ scale(FoodTroph) + scale(WarmClimate), data = MutEco)
+summary(model)
+
+cor.test(MutEco$MutSpec[MutEco$WarmClimate == 1],MutEco$FoodTroph[MutEco$WarmClimate == 1], method = 'spearman') # only predators in tropcs are super oxidized!
+cor.test(MutEco$MutSpec[MutEco$WarmClimate == 0],MutEco$FoodTroph[MutEco$WarmClimate == 0], method = 'spearman')
+
+# since the effect of Food and Climate is similar in scale model - I add together! 
+
+# Prepare data groups
+group1 <- na.omit(MutEco$MutSpec[MutEco$WarmClimate == 0 & MutEco$Predator == 0])
+group2 <- na.omit(MutEco$MutSpec[MutEco$WarmClimate == 0 & MutEco$Predator == 1])
+group3 <- na.omit(MutEco$MutSpec[MutEco$WarmClimate == 1 & MutEco$Predator == 0])
+group4 <- na.omit(MutEco$MutSpec[MutEco$WarmClimate == 1 & MutEco$Predator == 1])
+
+# Combine into list
+groups <- list(group1, group2, group3, group4)
+labels <- c("Cold\nNonPredat", "Cold\nPredat", "Warm\nNonPredat", "Warm\nPredat")
+
+# Run boxplot with notches and vertical labels
+bp <- boxplot(
+  groups,
+  names = labels,
+  notch = TRUE,
+  col = c("lightblue", "skyblue", "lightcoral", "salmon"),
+  ylab = "MutSpec",
+  las = 2,
+  main = "MutSpec (Ah>Gh) by Climate and Predator Status"
+)
+
+# Add sample sizes above each box
+sample_sizes <- sapply(groups, length)
+text(
+  x = 1:4,
+  y = bp$stats[5, ] + 0.02,  # slightly above top whisker
+  labels = paste0("n = ", sample_sizes),
+  cex = 0.8
+)
+
+```
