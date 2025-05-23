@@ -1,0 +1,27 @@
+---
+title: "Supplementary Material"
+author: "Alina Mikhailova et al."
+format: docx
+editor: visual
+---
+
+## Chapter 1
+
+#a) Corrtests
+
+```{r}
+```
+
+{{< embed I_Polymorphic_Data_Analysis.Rmd#tbl-corr-mutspec-with-temper >}}
+
+{{< embed I_Polymorphic_Data_Analysis.Rmd#fig-AverageMutSpecColdAndWarm >}}
+
+Quarto enables you to
+
+## Chapter 2
+
+You can add options to executable code like this
+
+```{r}
+
+```

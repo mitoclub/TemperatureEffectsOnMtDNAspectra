@@ -3,15 +3,26 @@ output_dir: ../docs
 navbar:
   title: "TemperatureEffectsOnMtDNAspectra"
   left:
-  - text: Home
-    href: index.html
-  - text: About
-    href: about.html
-  - text: License
-    href: license.html
+    - text: Home
+      href: index.html
+    - text: About
+      href: about.html
+    - text: Analysis
+      menu:
+        - text: "Analysis of the polymorphic data in Fishes obtained by NeMu pipeline"
+          href: I_Polymorphic_Data_Analysis.html
+    - text: "Methods"
+      href: methods.html
+  right:
+    - text: "License"
+      href: license.html
+    - icon: fa-github
+      href: https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra
 output:
   workflowr::wflow_html:
     toc: yes
     toc_float: yes
     theme: cosmo
     highlight: textmate
+    code_folding: hide
+    df_print: paged

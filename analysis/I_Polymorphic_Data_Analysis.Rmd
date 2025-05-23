@@ -1,0 +1,413 @@
+---
+title: "Analysis of the polymorphic data in Fishes obtained by NeMu pipeline"
+author: "Alina G. Mikhailova"
+date: "`r Sys.Date()`"
+output:
+    workflowr::wflow_html:
+    toc: true
+knitr:
+  opts_chunk:
+    echo: false
+---
+
+```{r setup, echo=FALSE, include=FALSE}
+docname <- "I_Polymorphic_Data_Analysis"
+now <- Sys.time()
+# Time chunks during knitting
+knitr::knit_hooks$set(timeit = function(before) {
+  if (before) {
+    print(paste("Start:", Sys.time()))
+    now <<- Sys.time()
+  } else {
+    print(paste("Stop:", Sys.time()))
+    print(Sys.time() - now)
+  }
+})
+
+knitr::opts_chunk$set(
+  autodep        = TRUE,
+  cache          = FALSE,
+  cache.path     = paste0("cache/", docname, "/"),
+  cache.comments = FALSE,
+  cache.lazy     = FALSE,
+  dev            = c("png", "pdf"),
+  echo           = TRUE,
+  error          = FALSE,
+  fig.align      = "center",
+  fig.width      = 14,
+  fig.height     = 12,
+  message        = FALSE,
+  warning        = FALSE,
+  timeit         = TRUE
+)
+# Load packages
+suppressPackageStartupMessages({
+  library(here)
+  library(knitr)
+  library(tidyverse)
+  library(magrittr)
+  library(caper)
+  library(geiger)
+  library(ggExtra)
+  library(ggpubr)
+  library(broom)
+  library(phytools)
+  library(ggstatsplot)
+  library(rfishbase)
+})
+
+# Set paths
+src_dir <- here("code")
+data_dir <- here("data")
+output_dir <- here("output")
+plots_dir <- here(output_dir, "figures")
+tables_dir <- here(output_dir, "tables")
+
+# parallelisation
+n_cores <- 4
+
+# set seed
+reseed <- 13
+set.seed(seed = reseed)
+```
+
+# Reading mutation spectra database (L-strand) and ecological databases
+
+```{r spectra, message=FALSE}
+#mutSpec12all <- read_csv(here(data_dir, "MutSpecVertebrates12all.csv.gz"))
+mutSpec12 <- read_csv(here(data_dir, "MutSpecVertebrates12fish.csv"))
+cat("N species =", length(unique(mutSpec12$Species)))
+head(mutSpec12)
+
+MutSpecForAnalysis <- mutSpec12 %>% dplyr::select(Class, Species, Mut, MutSpec)
+MutSpecForAnalysis$Mut <- gsub(">", "_", MutSpecForAnalysis$Mut)
+MutSpecForAnalysis <- MutSpecForAnalysis %>% pivot_wider(names_from = Mut, values_from = MutSpec, , values_fn = median) 
+colnames(MutSpecForAnalysis) <- c("Class",
+                                  "Species", 
+                                  "T_G.H", 
+                                  "T_C.H", 
+                                  "T_A.H", 
+                                  "G_T.H", 
+                                  "G_C.H", 
+                                  "G_A.H", 
+                                  "C_T.H", 
+                                  "C_G.H", 
+                                  "C_A.H", 
+                                  "A_T.H", 
+                                  "A_G.H", 
+                                  "A_C.H")
+```
+
+```{r ecology}
+fishEcology <- read.csv(here(tables_dir, "Full_fish_ecology_table_2025.csv"))
+head(fishEcology)
+```
+
+# Calculating of average MutSpec for Fisches
+
+```{r plots average, message=FALSE}
+AverageMutSpec <- mutSpec12 %>% group_by(Mut) %>% summarise(meanmutspec = mean(MutSpec, na.rm = TRUE))
+AverageMutSpec$Mut.H <- c("T_G.H", 
+                          "T_C.H", 
+                          "T_A.H", 
+                          "G_T.H", 
+                          "G_C.H", 
+                          "G_A.H", 
+                          "C_T.H", 
+                          "C_G.H", 
+                          "C_A.H", 
+                          "A_T.H", 
+                          "A_G.H", 
+                          "A_C.H")
+
+f1a = ggplot(AverageMutSpec,
+  aes(
+    x = AverageMutSpec$Mut.H,
+    y = AverageMutSpec$meanmutspec,
+    fill = AverageMutSpec$Mut.H
+    )
+  ) +
+  geom_bar(stat = "identity") +
+  scale_fill_manual(
+    values = c(
+      "#bdbdbd",
+      "#00a426",
+      "#bdbdbd",
+      "#bdbdbd",
+      "#bdbdbd",
+      "#ff0000",
+      "#900000",
+      "#bdbdbd",
+      "#bdbdbd",
+      "#bdbdbd",
+      "#005213",
+      "#bdbdbd"
+    )
+  ) +
+  labs(title = "Average mitochondrial mutational spectrum in Fishes", x = "Substitution types", y = "Normalised Frequencies") + theme(
+    legend.position = "none",
+    # Remove legend
+    panel.background = element_blank(),
+    axis.line = element_line(color = "black")# Remove background
+  )
+
+ggsave(here(plots_dir,"PolymorphicData.Actinopterygii.AverageMutSpec.pdf"),
+  plot = f1a,
+  width = 6,
+  height = 6
+)
+f1a
+```
+
+# Comparison of average MutSpec between cold and warm fisches
+
+```{r preparation of groups, message=FALSE, warning= FALSE}
+merging <- list(MutSpecForAnalysis, fishEcology)
+MutAndEco <- merging %>% reduce(left_join, by= "Species")
+temperaturestat <- summary (MutAndEco$Temp_avg)
+
+WarmFishes <- filter(MutAndEco, Temp_avg > as.numeric(temperaturestat["3rd Qu."]))
+WarmFishes <- pivot_longer(WarmFishes, cols = c("T_G.H", 
+                                  "T_C.H", 
+                                  "T_A.H", 
+                                  "G_T.H", 
+                                  "G_C.H", 
+                                  "G_A.H", 
+                                  "C_T.H", 
+                                  "C_G.H", 
+                                  "C_A.H", 
+                                  "A_T.H", 
+                                  "A_G.H", 
+                                  "A_C.H"), names_to = "Mut", values_to = "MutSpec" )
+AverageMutSpecWarm <- WarmFishes %>% group_by(Mut) %>% summarise(meanmutspec = mean(MutSpec, na.rm = TRUE))
+Nwarm <- length(unique(WarmFishes$Species))
+
+ColdFishes <- filter(MutAndEco, Temp_avg < as.numeric(temperaturestat["1st Qu."]))
+ColdFishes <- pivot_longer(ColdFishes, cols = c("T_G.H", 
+                                  "T_C.H", 
+                                  "T_A.H", 
+                                  "G_T.H", 
+                                  "G_C.H", 
+                                  "G_A.H", 
+                                  "C_T.H", 
+                                  "C_G.H", 
+                                  "C_A.H", 
+                                  "A_T.H", 
+                                  "A_G.H", 
+                                  "A_C.H"), names_to = "Mut", values_to = "MutSpec" )
+AverageMutSpecCold <- ColdFishes %>% group_by(Mut) %>% summarise(meanmutspec = mean(MutSpec, na.rm = TRUE))
+Ncold <- length(unique(ColdFishes$Species))
+
+f1bbw = ggplot(AverageMutSpecWarm,
+  aes(
+    x = AverageMutSpecWarm$Mut,
+    y = AverageMutSpecWarm$meanmutspec,
+    fill = AverageMutSpecWarm$Mut
+    )
+  ) +
+  geom_bar(stat = "identity") +
+  scale_fill_manual(
+    values = c(
+      "#bdbdbd",
+      "#00a426",
+      "#bdbdbd",
+      "#bdbdbd",
+      "#bdbdbd",
+      "#ff0000",
+      "#900000",
+      "#bdbdbd",
+      "#bdbdbd",
+      "#bdbdbd",
+      "#005213",
+      "#bdbdbd"
+    )
+  ) +
+  labs(title = "Average mitochondrial mutational spectrum in Warm Fishes, <23C", x = "Substitution types", y = "Normalised Frequencies") + theme(
+    legend.position = "none",
+    # Remove legend
+    panel.background = element_blank(),
+    axis.line = element_line(color = "black")# Remove background
+  ) + 
+  geom_text(x=2, y=0.3, label=paste("N warm =", Nwarm), size = 7)
+
+
+f1bbc = ggplot(AverageMutSpecCold,
+  aes(
+    x = AverageMutSpecCold$Mut,
+    y = AverageMutSpecCold$meanmutspec,
+    fill = AverageMutSpecCold$Mut
+    )
+  ) +
+  geom_bar(stat = "identity") +
+  scale_fill_manual(
+    values = c(
+      "#bdbdbd",
+      "#00a426",
+      "#bdbdbd",
+      "#bdbdbd",
+      "#bdbdbd",
+      "#ff0000",
+      "#900000",
+      "#bdbdbd",
+      "#bdbdbd",
+      "#bdbdbd",
+      "#005213",
+      "#bdbdbd"
+    )
+  ) +
+  labs(title = "Average mitochondrial mutational spectrum in Cold Fishes, > 13C ", x = "Substitution types", y = "Normalised Frequencies") + theme(
+    legend.position = "none",
+    # Remove legend
+    panel.background = element_blank(),
+    axis.line = element_line(color = "black")# Remove background
+  )+ 
+  geom_text(x=2, y=0.3, label=paste("N cold =", Ncold), size = 7)
+
+both <- ggarrange(f1bbc, f1bbw, ncol = 2)
+ggsave(here(plots_dir,"PolymorphicData.Actinopterygii.AverageMutSpecColdAndWarm.pdf"),
+  plot = both,
+  width = 12,
+  height = 6
+)
+both
+```
+
+# Studies of A\>G spectra with temperature and other parameters in fishes
+
+## A\>G freqs dependence on climate zones
+
+```{r}
+ClimateZonetest <- na.omit(data.frame(subset(MutAndEco, select = c(A_G.H, Climate_zone))))
+ClimateZonetest$Climate_zone <- as.factor(ClimateZonetest$Climate_zone)
+AGmedian <- median(ClimateZonetest$A_G.H)
+ClimateZonetest$A_G.Freq <- "low"
+ClimateZonetest[ClimateZonetest$A_G.H >= AGmedian,]$A_G.Freq <- "high"
+ClimateZonetest$A_G.Freq <- as.factor(ClimateZonetest$A_G.Freq)
+ClimateZonetest <- ClimateZonetest[,2-3]
+ggpiestats(data = ClimateZonetest, x = A_G.Freq, y = Climate_zone)
+ggpiestats(data = ClimateZonetest, x = Climate_zone, y = A_G.Freq)
+chisq.test(ClimateZonetest$A_G.Freq, ClimateZonetest$Climate_zone)
+```
+
+```{r}
+ClimateZonetest <- na.omit(data.frame(subset(MutAndEco, select = c(A_G.H, Climate_zone))))
+cold <- c("boreal", "polar", "temperate")
+warm <- c("subtropical", "tropical")
+wilcox.test(ClimateZonetest[ClimateZonetest$Climate_zone %in% cold,]$A_G.H, 
+            ClimateZonetest[ClimateZonetest$Climate_zone %in% warm,]$A_G.H)
+f1bb <- ggplot(MutAndEco, aes(x=Temp_avg, y=A_G.H, shape = Climate_zone, colour = Climate_zone)) + 
+    geom_point() +
+    labs(x = "Median annual water temperature, ?C", y = "AH>GH") +   # Axis labels
+    theme_minimal()                                  # Theme customization
+f1bb
+```
+
+## A\>G freqs dependence on temperature
+
+```{r statistics with temp, message = FALSE, warning = FALSE}
+tidy(cor.test(MutAndEco$A_G.H, MutAndEco$Temp_avg, method = 'spearman'))
+tidy(cor.test(MutAndEco$A_T.H, MutAndEco$Temp_avg, method = 'spearman'))
+tidy(cor.test(MutAndEco$A_C.H, MutAndEco$Temp_avg, method = 'spearman'))
+tidy(cor.test(MutAndEco$T_A.H, MutAndEco$Temp_avg, method = 'spearman'))
+tidy(cor.test(MutAndEco$T_G.H, MutAndEco$Temp_avg, method = 'spearman'))
+tidy(cor.test(MutAndEco$T_C.H, MutAndEco$Temp_avg, method = 'spearman'))
+tidy(cor.test(MutAndEco$C_A.H, MutAndEco$Temp_avg, method = 'spearman'))
+tidy(cor.test(MutAndEco$C_T.H, MutAndEco$Temp_avg, method = 'spearman'))
+tidy(cor.test(MutAndEco$C_G.H, MutAndEco$Temp_avg, method = 'spearman'))
+tidy(cor.test(MutAndEco$G_T.H, MutAndEco$Temp_avg, method = 'spearman'))
+tidy(cor.test(MutAndEco$G_A.H, MutAndEco$Temp_avg, method = 'spearman'))
+tidy(cor.test(MutAndEco$G_C.H, MutAndEco$Temp_avg, method = 'spearman'))
+
+SubsetClass<- unique(MutAndEco$Class)
+spN <- nrow(MutAndEco[!is.na(MutAndEco$Temp_avg),])
+cat("N species =", spN, "Taxa =", SubsetClass)
+
+f1b <- ggplot(MutAndEco, aes(x=Temp_avg, y=A_G.H)) + 
+    geom_point(color="#73514f") +                  # Scatter plot
+    geom_smooth(method = "lm", color = "black",        # Regression line + CI
+                fill = "lightgray", se = TRUE) +     # Set se=TRUE for confidence interval
+    stat_cor(method = "spearman",                    # Spearman correlation stats
+            aes(label = paste(..r.label.., ..p.label.., "N", spN, sep = "~"))) +  # Include n
+    labs(x = "Median annual water temperature, ?C", y = "AH>GH") +   # Axis labels
+    theme_minimal()                                  # Theme customization
+ 
+ggsave(here(plots_dir,"PolymorphicData.Actinopterygii.A_GwitnTemperature.pdf"),
+  plot = f1b,
+  width = 6,
+  height = 6
+) 
+f1b
+
+```
+
+```{r statistics with temp 2, message = FALSE, warning = FALSE}
+taxonomy <- rfishbase::species_names()
+taxonomy$Species <- gsub(" ", "_", taxonomy$Species)
+MutAndEco <- merge(MutAndEco, taxonomy, by="Species", all.x = TRUE)
+temp <- MutAndEco[!is.na(MutAndEco$Temp_avg),]
+table(temp$Order)
+my <- c("Acanthuriformes", "Anabantiformes", "Centrarchiformes", "Cypriniformes", "Cyprinodontiformes", "Gobiiformes",
+        "Perciformes/Percoidei", "Salmoniformes", "Scombriformes", "Siluriformes")
+temp <- temp[temp$Order %in% my,]
+table(temp$Order)
+temp$Group <- "Cold"
+
+for (i in my) {
+  imean = mean(temp[temp$Order == i,]$Temp_avg, na.rm=TRUE)
+  temp[temp$Order == i & temp[temp$Order == i,]$Temp_avg >= imean,]$Group = "Warm"
+  boxplot(temp[temp$Order == i,]$A_G.H ~ temp[temp$Order == i,]$Group, main=i)
+}
+```
+
+## LM
+
+```{r message=FALSE, warning=FALSE}
+MutAndEco$DeltaT <- MutAndEco$Temp_max - MutAndEco$Temp_min
+summary(lm(A_G.H ~ Temp_avg + DeltaT + Wmax + tmax + tm + FoodTroph, data = MutAndEco))
+summary(lm(A_G.H ~ Temp_avg + FoodTroph + Wmax, data = MutAndEco))
+summary(lm(A_G.H ~ Temp_avg + tmax + tm, data = MutAndEco))
+summary(lm(A_G.H ~ Temp_avg + DeltaT, data = MutAndEco))
+
+```
+
+## PGLS
+
+```{r message=FALSE, warning=FALSE}
+tree = read.tree(file = here(data_dir, "chordates_species.nwk"))
+tree <- ape::drop.tip(tree, "Tenebrosternarchus_preto")
+MutAndEco <- MutAndEco %>% dplyr::select(Species, A_G.H, C_T.H, G_A.H, T_C.H, Temp_avg)
+
+MutAndEco[duplicated(MutAndEco$Species),]
+row.names(MutAndEco) = MutAndEco$Species
+
+tree_pruned = treedata(tree, MutAndEco, sort=T, warnings=T)$phy
+data<-as.data.frame(treedata(tree_pruned, MutAndEco, sort=T, warnings=T)$data)
+data$Species = as.character(data$Species)
+data$A_G.H = as.numeric(data$A_G.H)
+data$C_T.H = as.numeric(data$C_T.H)
+data$G_A.H = as.numeric(data$G_A.H)
+data$T_C.H = as.numeric(data$T_C.H)
+data$Temp_avg = as.numeric(data$Temp_avg)
+data_comp <- comparative.data(tree_pruned, data, Species, vcv=TRUE)
+
+#la.A_G <- phylosig(tree_pruned, data$A_G.H, method = "lambda", test = TRUE)
+#la.temp <- phylosig(tree_pruned, data$Temp_avg, method = "lambda", test = TRUE)
+summary(pgls(A_G.H ~ Temp_avg, data_comp, lambda="ML"))
+
+#la.C_T <- phylosig(tree_pruned, data$C_T.H, method = "lambda", test = TRUE)
+#la.G_A <- phylosig(tree_pruned, data$G_A.H, method = "lambda", test = TRUE)
+#la.T_C <- phylosig(tree_pruned, data$T_C.H, method = "lambda", test = TRUE)
+
+#data$Tv <- 1-(data$A_G.H + data$G_A.H + data$T_C.H + data$C_T.H)
+#la.Tv <- phylosig(tree_pruned, data$Tv, method = "lambda", test = TRUE)
+
+```
+
+# Expanding temperature data
+
+```{r message=FALSE, warning=FALSE}
+
+
+
+
+```
