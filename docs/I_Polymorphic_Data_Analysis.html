@@ -308,7 +308,7 @@ obtained by NeMu pipeline</h1>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
+workflowr <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -319,8 +319,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> </a>
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -333,9 +333,9 @@ aria-hidden="true"></span> </a>
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 1
+aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong>
@@ -359,21 +359,18 @@ versions</em> tab lists the development history.
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
-<span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
-changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges"
+<div id="strongRMarkdownfilestronguptodate"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown is untracked by Git. To know which version of the R
-Markdown file created these results, you’ll want to first commit it to
-the Git repo. If you’re still working on the analysis, you can ignore
-this warning. When you’re finished, you can run
-<code>wflow_publish</code> to commit the R Markdown file and build the
-HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
 </div>
 </div>
 </div>
@@ -464,15 +461,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree798bbe9d1b6953da274f342ef4c022d2467d28f0targetblank798bbe9a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree27e35c43fb537215c44b39d9a072adb002f9c517targetblank27e35c4a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/798bbe9d1b6953da274f342ef4c022d2467d28f0" target="_blank">798bbe9</a>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/27e35c43fb537215c44b39d9a072adb002f9c517" target="_blank">27e35c4</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree798bbe9d1b6953da274f342ef4c022d2467d28f0targetblank798bbe9a"
+id="strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree27e35c43fb537215c44b39d9a072adb002f9c517targetblank27e35c4a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -482,7 +479,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/798bbe9d1b6953da274f342ef4c022d2467d28f0" target="_blank">798bbe9</a>.
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/27e35c43fb537215c44b39d9a072adb002f9c517" target="_blank">27e35c4</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -506,33 +503,6 @@ Ignored files:
     Ignored:    data/.DS_Store
     Ignored:    output/.DS_Store
 
-Untracked files:
-    Untracked:  analysis/I_Polymorphic_Data_Analysis.Rmd
-    Untracked:  analysis/SupplMat.qmd
-    Untracked:  code/Fish_base_downloader.R
-    Untracked:  code/Fish_base_downloader_multiplex.R
-    Untracked:  code/Fish_base_parser.R
-    Untracked:  code/Fish_base_table_parser.R
-    Untracked:  code/Growth_parser.R
-    Untracked:  code/Maturation_parser.R
-    Untracked:  code/OxygenConsum_parser.R
-    Untracked:  data/Fish_taxonomy.txt
-    Untracked:  data/MutSpecVertebrates12all.csv.gz
-    Untracked:  data/MutSpecVertebrates12fish.csv
-    Untracked:  data/VertebratePolymorphisms.MutSpecDataWithEcology.txt
-    Untracked:  data/chordates_species.nwk
-    Untracked:  data/environment_data.txt
-    Untracked:  data/growth_data.txt
-    Untracked:  data/maturation_data.txt
-    Untracked:  data/meta.csv
-    Untracked:  data/oxygen_consumption_data.txt
-    Untracked:  output/figures/
-    Untracked:  output/tables/
-
-Unstaged changes:
-    Modified:   TemperatureEffectsOnMtDNAspectra.Rproj
-    Modified:   analysis/_site.yml
-
 </code></pre>
 <p>
 Note that any generated files, e.g. HTML, png, CSS, etc., are not
@@ -547,9 +517,73 @@ have uncommitted changes.
 </div>
 <div id="versions" class="tab-pane fade">
 <p>
-There are no past versions. Publish this analysis with
-<code>wflow_publish()</code> to start tracking its development.
+These are the previous versions of the repository in which changes were
+made to the R Markdown
+(<code>analysis/I_Polymorphic_Data_Analysis.Rmd</code>) and HTML
+(<code>docs/I_Polymorphic_Data_Analysis.html</code>) files. If you’ve
+configured a remote Git repository (see <code>?wflow_git_remote</code>),
+click on the hyperlinks in the table below to view the files as they
+were in that past version.
 </p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/analysis/I_Polymorphic_Data_Analysis.Rmd" target="_blank">27e35c4</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-05-23
+</td>
+<td>
+Presentation at lab meeting Chapter 1
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mitoclub/TemperatureEffectsOnMtDNAspectra/27e35c43fb537215c44b39d9a072adb002f9c517/docs/I_Polymorphic_Data_Analysis.html" target="_blank">27e35c4</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-05-23
+</td>
+<td>
+Presentation at lab meeting Chapter 1
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr>
 </div>
 </div>
@@ -669,6 +703,43 @@ ggsave(here(plots_dir,&quot;PolymorphicData.Actinopterygii.AverageMutSpec.pdf&qu
 )
 f1a</code></pre>
 <p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/plots%20average-1.png" width="1344" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-plots-average-1">
+Past versions of "plots average-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-plots-average-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/docs/figure/I_Polymorphic_Data_Analysis.Rmd/plots average-1.png" target="_blank">27e35c4</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-05-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="comparison-of-average-mutspec-between-cold-and-warm-fisches"
 class="section level1">
@@ -782,6 +853,43 @@ ggsave(here(plots_dir,&quot;PolymorphicData.Actinopterygii.AverageMutSpecColdAnd
 )
 both</code></pre>
 <p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/preparation%20of%20groups-1.png" width="1344" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-preparation-of-groups-1">
+Past versions of "preparation of groups-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-preparation-of-groups-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/docs/figure/I_Polymorphic_Data_Analysis.Rmd/preparation of groups-1.png" target="_blank">27e35c4</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-05-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div
 id="studies-of-ag-spectra-with-temperature-and-other-parameters-in-fishes"
@@ -799,8 +907,82 @@ ClimateZonetest$A_G.Freq &lt;- as.factor(ClimateZonetest$A_G.Freq)
 ClimateZonetest &lt;- ClimateZonetest[,2-3]
 ggpiestats(data = ClimateZonetest, x = A_G.Freq, y = Climate_zone)</code></pre>
 <p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/unnamed-chunk-1-1.png" width="1344" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-1-1">
+Past versions of unnamed-chunk-1-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-1-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/docs/figure/I_Polymorphic_Data_Analysis.Rmd/unnamed-chunk-1-1.png" target="_blank">27e35c4</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-05-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>ggpiestats(data = ClimateZonetest, x = Climate_zone, y = A_G.Freq)</code></pre>
 <p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/unnamed-chunk-1-2.png" width="1344" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-1-2">
+Past versions of unnamed-chunk-1-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-1-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/docs/figure/I_Polymorphic_Data_Analysis.Rmd/unnamed-chunk-1-2.png" target="_blank">27e35c4</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-05-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>chisq.test(ClimateZonetest$A_G.Freq, ClimateZonetest$Climate_zone)</code></pre>
 <pre><code>
     Pearson&#39;s Chi-squared test
@@ -824,6 +1006,43 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
     theme_minimal()                                  # Theme customization
 f1bb</code></pre>
 <p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/unnamed-chunk-2-1.png" width="1344" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-2-1">
+Past versions of unnamed-chunk-2-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-2-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/docs/figure/I_Polymorphic_Data_Analysis.Rmd/unnamed-chunk-2-1.png" target="_blank">27e35c4</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-05-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="ag-freqs-dependence-on-temperature" class="section level2">
 <h2>A&gt;G freqs dependence on temperature</h2>
@@ -907,6 +1126,43 @@ ggsave(here(plots_dir,&quot;PolymorphicData.Actinopterygii.A_GwitnTemperature.pd
 ) 
 f1b</code></pre>
 <p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp-1.png" width="1344" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-statistics-with-temp-1">
+Past versions of "statistics with temp-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-statistics-with-temp-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/docs/figure/I_Polymorphic_Data_Analysis.Rmd/statistics with temp-1.png" target="_blank">27e35c4</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-05-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>taxonomy &lt;- rfishbase::species_names()
 taxonomy$Species &lt;- gsub(&quot; &quot;, &quot;_&quot;, taxonomy$Species)
 MutAndEco &lt;- merge(MutAndEco, taxonomy, by=&quot;Species&quot;, all.x = TRUE)
@@ -965,9 +1221,388 @@ Perciformes/Percoidei         Salmoniformes         Scombriformes
 for (i in my) {
   imean = mean(temp[temp$Order == i,]$Temp_avg, na.rm=TRUE)
   temp[temp$Order == i &amp; temp[temp$Order == i,]$Temp_avg &gt;= imean,]$Group = &quot;Warm&quot;
-  boxplot(temp[temp$Order == i,]$Temp_avg ~ temp[temp$Order == i,]$Group, main=i)
+  boxplot(temp[temp$Order == i,]$A_G.H ~ temp[temp$Order == i,]$Group, main=i)
 }</code></pre>
-<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%202-1.png" width="1344" style="display: block; margin: auto;" /><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%202-2.png" width="1344" style="display: block; margin: auto;" /><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%202-3.png" width="1344" style="display: block; margin: auto;" /><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%202-4.png" width="1344" style="display: block; margin: auto;" /><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%202-5.png" width="1344" style="display: block; margin: auto;" /><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%202-6.png" width="1344" style="display: block; margin: auto;" /><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%202-7.png" width="1344" style="display: block; margin: auto;" /><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%202-8.png" width="1344" style="display: block; margin: auto;" /><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%202-9.png" width="1344" style="display: block; margin: auto;" /><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%202-10.png" width="1344" style="display: block; margin: auto;" /></p>
+<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%202-1.png" width="1344" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-statistics-with-temp-2-1">
+Past versions of "statistics with temp 2-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-statistics-with-temp-2-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/docs/figure/I_Polymorphic_Data_Analysis.Rmd/statistics with temp 2-1.png" target="_blank">27e35c4</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-05-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%202-2.png" width="1344" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-statistics-with-temp-2-2">
+Past versions of "statistics with temp 2-2.png"
+</button>
+</p>
+<div id="fig-no-spaces-statistics-with-temp-2-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/docs/figure/I_Polymorphic_Data_Analysis.Rmd/statistics with temp 2-2.png" target="_blank">27e35c4</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-05-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%202-3.png" width="1344" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-statistics-with-temp-2-3">
+Past versions of "statistics with temp 2-3.png"
+</button>
+</p>
+<div id="fig-no-spaces-statistics-with-temp-2-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/docs/figure/I_Polymorphic_Data_Analysis.Rmd/statistics with temp 2-3.png" target="_blank">27e35c4</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-05-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%202-4.png" width="1344" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-statistics-with-temp-2-4">
+Past versions of "statistics with temp 2-4.png"
+</button>
+</p>
+<div id="fig-no-spaces-statistics-with-temp-2-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/docs/figure/I_Polymorphic_Data_Analysis.Rmd/statistics with temp 2-4.png" target="_blank">27e35c4</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-05-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%202-5.png" width="1344" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-statistics-with-temp-2-5">
+Past versions of "statistics with temp 2-5.png"
+</button>
+</p>
+<div id="fig-no-spaces-statistics-with-temp-2-5" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/docs/figure/I_Polymorphic_Data_Analysis.Rmd/statistics with temp 2-5.png" target="_blank">27e35c4</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-05-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%202-6.png" width="1344" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-statistics-with-temp-2-6">
+Past versions of "statistics with temp 2-6.png"
+</button>
+</p>
+<div id="fig-no-spaces-statistics-with-temp-2-6" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/docs/figure/I_Polymorphic_Data_Analysis.Rmd/statistics with temp 2-6.png" target="_blank">27e35c4</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-05-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%202-7.png" width="1344" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-statistics-with-temp-2-7">
+Past versions of "statistics with temp 2-7.png"
+</button>
+</p>
+<div id="fig-no-spaces-statistics-with-temp-2-7" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/docs/figure/I_Polymorphic_Data_Analysis.Rmd/statistics with temp 2-7.png" target="_blank">27e35c4</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-05-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%202-8.png" width="1344" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-statistics-with-temp-2-8">
+Past versions of "statistics with temp 2-8.png"
+</button>
+</p>
+<div id="fig-no-spaces-statistics-with-temp-2-8" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/docs/figure/I_Polymorphic_Data_Analysis.Rmd/statistics with temp 2-8.png" target="_blank">27e35c4</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-05-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%202-9.png" width="1344" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-statistics-with-temp-2-9">
+Past versions of "statistics with temp 2-9.png"
+</button>
+</p>
+<div id="fig-no-spaces-statistics-with-temp-2-9" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/docs/figure/I_Polymorphic_Data_Analysis.Rmd/statistics with temp 2-9.png" target="_blank">27e35c4</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-05-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%202-10.png" width="1344" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-statistics-with-temp-2-10">
+Past versions of "statistics with temp 2-10.png"
+</button>
+</p>
+<div id="fig-no-spaces-statistics-with-temp-2-10" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/docs/figure/I_Polymorphic_Data_Analysis.Rmd/statistics with temp 2-10.png" target="_blank">27e35c4</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-05-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="lm" class="section level2">
 <h2>LM</h2>
