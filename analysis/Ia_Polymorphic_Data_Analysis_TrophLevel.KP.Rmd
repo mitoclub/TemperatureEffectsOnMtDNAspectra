@@ -12,7 +12,6 @@ knitr::opts_chunk$set(echo = TRUE)
 rm(list=ls(all=TRUE))
 library(knitr)
 library(tidyverse)
-library(kableExtra)
 library(dplyr)
 library(tidyr)
 library(ggplot2)
@@ -21,7 +20,16 @@ library(lsa) # install.packages("lsa"); install.packages("SnowballC")
 library(factoextra) #  install.packages("factoextra")
 library(MASS)
 library(reshape2) # install.packages("reshape2")
+library(here)
+library(caper)
+library(geiger)
 
+# Set paths
+src_dir <- here("code")
+data_dir <- here("data")
+output_dir <- here("output")
+plots_dir <- here(output_dir, "figures")
+tables_dir <- here(output_dir, "tables")
 ```
 ## Background
 <br>
@@ -34,12 +42,12 @@ read data
 ```{r}
 
 ### CLIMATE
-Mut = read.table("../data/MutSpecVertebrates12fish.csv", head = TRUE, sep = ',')  
+Mut = read_csv(here(data_dir, "MutSpecVertebrates12fish.csv"))
 names(Mut)
 head(Mut)
 dim(Mut)
 
-Eco = read.table("../output/tables/Full_fish_ecology_table_2025.csv", head = TRUE, sep = ',')  
+Eco = read.csv(here(tables_dir, "Full_fish_ecology_table_2025.csv"))
 dim(Eco)
 Eco <- Eco[!is.na(Eco$Climate_zone), c(1, 11)]  # Filter and select columns
 
@@ -55,9 +63,29 @@ cor.test(MutEco$MutSpec,MutEco$WarmClimate, method = 'spearman')
 boxplot(MutEco$MutSpec[MutEco$WarmClimate == 0],MutEco$MutSpec[MutEco$WarmClimate == 1], notch = TRUE)
 wilcox.test(MutEco$MutSpec[MutEco$WarmClimate == 0],MutEco$MutSpec[MutEco$WarmClimate == 1])
 
-# PGLS1: A>G ~ WarmClimate for 333 fishes
+```
+## PGLS1: A>G ~ WarmClimate for 333 fishes
+
+```{r}
+
+tree = read.tree(file = here(data_dir, "chordates_species.nwk"))
+tree <- ape::drop.tip(tree, "Tenebrosternarchus_preto")
+MutEcoPGLS <- MutEco %>% dplyr::select(Species, MutSpec, WarmClimate)
+
+row.names(MutEcoPGLS) = MutEcoPGLS$Species
+tree_pruned = treedata(tree, MutEcoPGLS, sort=T, warnings=T)$phy
+data<-as.data.frame(treedata(tree_pruned, MutEcoPGLS, sort=T, warnings=T)$data)
+data$Species = as.character(data$Species)
+data$WarmClimate = as.numeric(data$WarmClimate)
+data$MutSpec = as.numeric(data$MutSpec)
+data_comp <- comparative.data(tree_pruned, data, Species, vcv=TRUE)
+
+
+summary(pgls(MutSpec ~ WarmClimate, data_comp, lambda="ML"))
+
 
 ```
+
 <br>
 
 <br><br>
@@ -65,12 +93,12 @@ wilcox.test(MutEco$MutSpec[MutEco$WarmClimate == 0],MutEco$MutSpec[MutEco$WarmCl
 ## 2. A>G ~ FoodTroph (Doesn't work. may be because Climate is shaping more?)
 
 ```{r}
-Mut = read.table("../data/MutSpecVertebrates12fish.csv", head = TRUE, sep = ',')  
+Mut = read_csv(here(data_dir, "MutSpecVertebrates12fish.csv")) 
 names(Mut)
 head(Mut)
 dim(Mut)
 
-Eco = read.table("../output/tables/Full_fish_ecology_table_2025.csv", head = TRUE, sep = ',')  
+Eco = read.csv(here(tables_dir, "Full_fish_ecology_table_2025.csv"))
 dim(Eco)
 summary(Eco$FoodTroph)
 str(Eco$FoodTroph)
@@ -87,6 +115,27 @@ wilcox.test(MutEco$MutSpec[MutEco$FoodTroph >= 3.5],MutEco$MutSpec[MutEco$FoodTr
 # PGLS2: A>G ~ FoodTroph for 381 fishes
 ```
 
+## PGLS2: A>G ~ FoodTroph for 381 fishes
+
+```{r warning=FALSE}
+
+tree = read.tree(file = here(data_dir, "chordates_species.nwk"))
+tree <- ape::drop.tip(tree, "Tenebrosternarchus_preto")
+MutEcoPGLS <- MutEco %>% dplyr::select(Species, MutSpec, FoodTroph)
+
+row.names(MutEcoPGLS) = MutEcoPGLS$Species
+tree_pruned = treedata(tree, MutEcoPGLS, sort=T, warnings=T)$phy
+data<-as.data.frame(treedata(tree_pruned, MutEcoPGLS, sort=T, warnings=T)$data)
+data$Species = as.character(data$Species)
+data$FoodTroph = as.numeric(data$FoodTroph)
+data$MutSpec = as.numeric(data$MutSpec)
+data_comp <- comparative.data(tree_pruned, data, Species, vcv=TRUE)
+
+
+summary(pgls(MutSpec ~ FoodTroph, data_comp, lambda="ML"))
+
+
+```
 <br>
 
 <br><br>
@@ -94,12 +143,12 @@ wilcox.test(MutEco$MutSpec[MutEco$FoodTroph >= 3.5],MutEco$MutSpec[MutEco$FoodTr
 ## 3 A>G ~ Climate + FoodTroph 
 
 ```{r}
-Mut = read.table("../data/MutSpecVertebrates12fish.csv", head = TRUE, sep = ',')  
+Mut = read_csv(here(data_dir, "MutSpecVertebrates12fish.csv"))
 names(Mut)
 head(Mut)
 dim(Mut)
 
-Eco = read.table("../output/tables/Full_fish_ecology_table_2025.csv", head = TRUE, sep = ',')  
+Eco = read.csv(here(tables_dir, "Full_fish_ecology_table_2025.csv"))
 dim(Eco)
 summary(Eco$FoodTroph)
 str(Eco$FoodTroph)
@@ -159,5 +208,30 @@ text(
 
 # PGLS3: A>G ~ WarmClimate + Predator for 264 species
 # PGLS4: A>G ~ ClimateAndTroph   # little hope for 264 
+
+```
+
+## PGLS3-4: A>G ~ WarmClimate + Predator for 264 species; A>G ~ ClimateAndTroph   # little hope for 264 
+
+```{r warning=FALSE}
+
+tree = read.tree(file = here(data_dir, "chordates_species.nwk"))
+tree <- ape::drop.tip(tree, "Tenebrosternarchus_preto")
+MutEcoPGLS <- MutEco %>% dplyr::select(Species, MutSpec, WarmClimate, Predator, ClimateAndTroph)
+
+row.names(MutEcoPGLS) = MutEcoPGLS$Species
+tree_pruned = treedata(tree, MutEcoPGLS, sort=T, warnings=T)$phy
+data<-as.data.frame(treedata(tree_pruned, MutEcoPGLS, sort=T, warnings=T)$data)
+data$Species = as.character(data$Species)
+data$WarmClimate = as.numeric(data$WarmClimate)
+data$Predator = as.numeric(data$Predator)
+data$ClimateAndTroph = as.numeric(data$ClimateAndTroph)
+data$MutSpec = as.numeric(data$MutSpec)
+data_comp <- comparative.data(tree_pruned, data, Species, vcv=TRUE)
+
+
+summary(pgls(MutSpec ~ WarmClimate + Predator, data_comp, lambda="ML"))
+summary(pgls(MutSpec ~ ClimateAndTroph, data_comp, lambda="ML"))
+
 
 ```

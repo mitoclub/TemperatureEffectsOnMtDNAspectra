@@ -11,7 +11,7 @@
 
 <meta name="author" content="Alina G. Mikhailova" />
 
-<meta name="date" content="2025-05-23" />
+<meta name="date" content="2025-05-26" />
 
 <title>Analysis of the polymorphic data in Fishes obtained by NeMu pipeline</title>
 
@@ -34,8 +34,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
 
 <link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
 <!-- Add a small amount of space between sections. -->
@@ -300,7 +300,7 @@ $(document).ready(function () {
 <h1 class="title toc-ignore">Analysis of the polymorphic data in Fishes
 obtained by NeMu pipeline</h1>
 <h4 class="author">Alina G. Mikhailova</h4>
-<h4 class="date">2025-05-23</h4>
+<h4 class="date">2025-05-26</h4>
 
 </div>
 
@@ -308,7 +308,7 @@ obtained by NeMu pipeline</h1>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-ok text-success"
+workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -319,8 +319,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
-</a>
+class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -329,13 +329,13 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2025-05-23
+<strong>Last updated:</strong> 2025-05-26
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 0
+aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong>
@@ -359,18 +359,21 @@ versions</em> tab lists the development history.
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
-</a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
+changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate"
+<div id="strongRMarkdownfilestronguncommittedchanges"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git
-repository, you know the exact version of the code that produced these
-results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of
+the R Markdown file created these results, you’ll want to first commit
+it to the Git repo. If you’re still working on the analysis, you can
+ignore this warning. When you’re finished, you can run
+<code>wflow_publish</code> to commit the R Markdown file and build the
+HTML.</p>
 </div>
 </div>
 </div>
@@ -461,15 +464,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree8f5f58cd988819a2c2bbb481846483a95022eaf9targetblank8f5f58ca">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree9f3b04b8ea3c9eaed366ab7bd27c9ecf65608657targetblank9f3b04ba">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/8f5f58cd988819a2c2bbb481846483a95022eaf9" target="_blank">8f5f58c</a>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/9f3b04b8ea3c9eaed366ab7bd27c9ecf65608657" target="_blank">9f3b04b</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree8f5f58cd988819a2c2bbb481846483a95022eaf9targetblank8f5f58ca"
+id="strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree9f3b04b8ea3c9eaed366ab7bd27c9ecf65608657targetblank9f3b04ba"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -479,7 +482,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/8f5f58cd988819a2c2bbb481846483a95022eaf9" target="_blank">8f5f58c</a>.
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/9f3b04b8ea3c9eaed366ab7bd27c9ecf65608657" target="_blank">9f3b04b</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -502,6 +505,20 @@ Ignored files:
     Ignored:    code/.DS_Store
     Ignored:    data/.DS_Store
     Ignored:    output/.DS_Store
+
+Untracked files:
+    Untracked:  analysis/Ia_Polymorphic_Data_Analysis_TrophLevel.KP.Rmd
+    Untracked:  analysis/figure/
+    Untracked:  output/figures/PolymorphicData.Actinopterygii.A_GwitnTemperatureCytB.pdf
+    Untracked:  output/figures/PolymorphicData.Actinopterygii.AverageMutSpecCytB.pdf
+
+Unstaged changes:
+    Modified:   analysis/I_Polymorphic_Data_Analysis.Rmd
+    Deleted:    code/MutSpec-TrophLevel.KP.Rmd
+    Deleted:    code/MutSpec-TrophLevel.KP.html
+    Modified:   output/figures/PolymorphicData.Actinopterygii.A_GwitnTemperature.pdf
+    Modified:   output/figures/PolymorphicData.Actinopterygii.AverageMutSpec.pdf
+    Modified:   output/figures/PolymorphicData.Actinopterygii.AverageMutSpecColdAndWarm.pdf
 
 </code></pre>
 <p>
@@ -547,6 +564,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mitoclub/TemperatureEffectsOnMtDNAspectra/1bd7c34389d68ab36e344b3cb575d13fdee9c036/docs/I_Polymorphic_Data_Analysis.html" target="_blank">1bd7c34</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-05-23
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -612,9 +646,10 @@ class="section level1">
 databases</h1>
 <pre class="r"><code>#mutSpec12all &lt;- read_csv(here(data_dir, &quot;MutSpecVertebrates12all.csv.gz&quot;))
 mutSpec12 &lt;- read_csv(here(data_dir, &quot;MutSpecVertebrates12fish.csv&quot;))
-cat(&quot;N species =&quot;, length(unique(mutSpec12$Species)))</code></pre>
-<pre><code>N species = 1035</code></pre>
-<pre class="r"><code>head(mutSpec12)</code></pre>
+mutSpec12Cb &lt;- dplyr::filter(mutSpec12, Gene == &quot;Cytb&quot;)
+cat(&quot;N species =&quot;, length(unique(mutSpec12Cb$Species)))</code></pre>
+<pre><code>N species = 840</code></pre>
+<pre class="r"><code>head(mutSpec12Cb)</code></pre>
 <pre><code># A tibble: 6 × 9
   Gene  Class       Species   Mut   Observed TreeLeaves MSAsize Expected MutSpec
   &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;    &lt;dbl&gt;      &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
@@ -624,7 +659,25 @@ cat(&quot;N species =&quot;, length(unique(mutSpec12$Species)))</code></pre>
 4 Cytb  Actinopteri Scombrop… C&gt;A        3           68    1140     86.3  0.0201
 5 Cytb  Actinopteri Scombrop… C&gt;G        0           68    1140     86.3  0     
 6 Cytb  Actinopteri Scombrop… C&gt;T       10.7         68    1140    182.   0.0340</code></pre>
-<pre class="r"><code>MutSpecForAnalysis &lt;- mutSpec12 %&gt;% dplyr::select(Class, Species, Mut, MutSpec)
+<pre class="r"><code>MutSpecForAnalysisCb &lt;- mutSpec12Cb %&gt;% dplyr::select(Class, Species, Mut, MutSpec)
+MutSpecForAnalysisCb$Mut &lt;- gsub(&quot;&gt;&quot;, &quot;_&quot;, MutSpecForAnalysisCb$Mut)
+MutSpecForAnalysisCb &lt;- MutSpecForAnalysisCb %&gt;% pivot_wider(names_from = Mut, values_from = MutSpec, , values_fn = median) 
+colnames(MutSpecForAnalysisCb) &lt;- c(&quot;Class&quot;,
+                                  &quot;Species&quot;, 
+                                  &quot;T_G.H&quot;, 
+                                  &quot;T_C.H&quot;, 
+                                  &quot;T_A.H&quot;, 
+                                  &quot;G_T.H&quot;, 
+                                  &quot;G_C.H&quot;, 
+                                  &quot;G_A.H&quot;, 
+                                  &quot;C_T.H&quot;, 
+                                  &quot;C_G.H&quot;, 
+                                  &quot;C_A.H&quot;, 
+                                  &quot;A_T.H&quot;, 
+                                  &quot;A_G.H&quot;, 
+                                  &quot;A_C.H&quot;)
+
+MutSpecForAnalysis &lt;- mutSpec12 %&gt;% dplyr::select(Class, Species, Mut, MutSpec)
 MutSpecForAnalysis$Mut &lt;- gsub(&quot;&gt;&quot;, &quot;_&quot;, MutSpecForAnalysis$Mut)
 MutSpecForAnalysis &lt;- MutSpecForAnalysis %&gt;% pivot_wider(names_from = Mut, values_from = MutSpec, , values_fn = median) 
 colnames(MutSpecForAnalysis) &lt;- c(&quot;Class&quot;,
@@ -668,6 +721,61 @@ head(fishEcology)</code></pre>
 <div id="calculating-of-average-mutspec-for-fisches"
 class="section level1">
 <h1>Calculating of average MutSpec for Fisches</h1>
+<div id="cytb" class="section level2">
+<h2>Cytb</h2>
+<pre class="r"><code>AverageMutSpecCb &lt;- mutSpec12Cb %&gt;% group_by(Mut) %&gt;% summarise(meanmutspec = mean(MutSpec, na.rm = TRUE))
+AverageMutSpecCb$Mut.H &lt;- c(&quot;T_G.H&quot;, 
+                          &quot;T_C.H&quot;, 
+                          &quot;T_A.H&quot;, 
+                          &quot;G_T.H&quot;, 
+                          &quot;G_C.H&quot;, 
+                          &quot;G_A.H&quot;, 
+                          &quot;C_T.H&quot;, 
+                          &quot;C_G.H&quot;, 
+                          &quot;C_A.H&quot;, 
+                          &quot;A_T.H&quot;, 
+                          &quot;A_G.H&quot;, 
+                          &quot;A_C.H&quot;)
+
+f1a = ggplot(AverageMutSpecCb,
+  aes(
+    x = AverageMutSpecCb$Mut.H,
+    y = AverageMutSpecCb$meanmutspec,
+    fill = AverageMutSpecCb$Mut.H
+    )
+  ) +
+  geom_bar(stat = &quot;identity&quot;) +
+  scale_fill_manual(
+    values = c(
+      &quot;#bdbdbd&quot;,
+      &quot;#00a426&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#ff0000&quot;,
+      &quot;#900000&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#005213&quot;,
+      &quot;#bdbdbd&quot;
+    )
+  ) +
+  labs(title = &quot;Average mitochondrial mutational spectrum in Fishes&quot;, x = &quot;Substitution types&quot;, y = &quot;Normalised Frequencies&quot;) + theme(
+    legend.position = &quot;none&quot;,
+    # Remove legend
+    panel.background = element_blank(),
+    axis.line = element_line(color = &quot;black&quot;)# Remove background
+  )
+
+ggsave(here(plots_dir,&quot;PolymorphicData.Actinopterygii.AverageMutSpecCytB.pdf&quot;),
+  plot = f1a,
+  width = 6,
+  height = 6
+)
+f1a</code></pre>
+<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/plots%20average%20cytb-1.png" width="1344" style="display: block; margin: auto;" />
+## Cytb+COX1</p>
 <pre class="r"><code>AverageMutSpec &lt;- mutSpec12 %&gt;% group_by(Mut) %&gt;% summarise(meanmutspec = mean(MutSpec, na.rm = TRUE))
 AverageMutSpec$Mut.H &lt;- c(&quot;T_G.H&quot;, 
                           &quot;T_C.H&quot;, 
@@ -682,7 +790,7 @@ AverageMutSpec$Mut.H &lt;- c(&quot;T_G.H&quot;,
                           &quot;A_G.H&quot;, 
                           &quot;A_C.H&quot;)
 
-f1a = ggplot(AverageMutSpec,
+sf1 = ggplot(AverageMutSpec,
   aes(
     x = AverageMutSpec$Mut.H,
     y = AverageMutSpec$meanmutspec,
@@ -713,59 +821,24 @@ f1a = ggplot(AverageMutSpec,
     axis.line = element_line(color = &quot;black&quot;)# Remove background
   )
 
-ggsave(here(plots_dir,&quot;PolymorphicData.Actinopterygii.AverageMutSpec.pdf&quot;),
-  plot = f1a,
-  width = 6,
-  height = 6
-)
-f1a</code></pre>
-<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/plots%20average-1.png" width="1344" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-plots-average-1">
-Past versions of "plots average-1.png"
-</button>
-</p>
-<div id="fig-no-spaces-plots-average-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/docs/figure/I_Polymorphic_Data_Analysis.Rmd/plots average-1.png" target="_blank">27e35c4</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-05-23
-</td>
-</tr>
-</tbody>
-</table>
-</div>
+#ggsave(here(plots_dir,&quot;PolymorphicData.Actinopterygii.AverageMutSpec.pdf&quot;),
+#  plot = sf1,
+#  width = 6,
+#  height = 6
+#)
+sf1</code></pre>
+<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/plots%20average%20all-1.png" width="1344" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="comparison-of-average-mutspec-between-cold-and-warm-fisches"
 class="section level1">
 <h1>Comparison of average MutSpec between cold and warm fisches</h1>
-<pre class="r"><code>merging &lt;- list(MutSpecForAnalysis, fishEcology)
-MutAndEco &lt;- merging %&gt;% reduce(left_join, by= &quot;Species&quot;)
-temperaturestat &lt;- summary (MutAndEco$Temp_avg)
+<p>##Cytb</p>
+<pre class="r"><code>merging &lt;- list(MutSpecForAnalysisCb, fishEcology)
+MutAndEcoCb &lt;- merging %&gt;% reduce(left_join, by= &quot;Species&quot;)
+temperaturestat &lt;- summary (MutAndEcoCb$Temp_avg)
 
-WarmFishes &lt;- filter(MutAndEco, Temp_avg &gt; as.numeric(temperaturestat[&quot;3rd Qu.&quot;]))
+WarmFishes &lt;- filter(MutAndEcoCb, Temp_avg &gt; as.numeric(temperaturestat[&quot;3rd Qu.&quot;]))
 WarmFishes &lt;- pivot_longer(WarmFishes, cols = c(&quot;T_G.H&quot;, 
                                   &quot;T_C.H&quot;, 
                                   &quot;T_A.H&quot;, 
@@ -781,7 +854,7 @@ WarmFishes &lt;- pivot_longer(WarmFishes, cols = c(&quot;T_G.H&quot;,
 AverageMutSpecWarm &lt;- WarmFishes %&gt;% group_by(Mut) %&gt;% summarise(meanmutspec = mean(MutSpec, na.rm = TRUE))
 Nwarm &lt;- length(unique(WarmFishes$Species))
 
-ColdFishes &lt;- filter(MutAndEco, Temp_avg &lt; as.numeric(temperaturestat[&quot;1st Qu.&quot;]))
+ColdFishes &lt;- filter(MutAndEcoCb, Temp_avg &lt; as.numeric(temperaturestat[&quot;1st Qu.&quot;]))
 ColdFishes &lt;- pivot_longer(ColdFishes, cols = c(&quot;T_G.H&quot;, 
                                   &quot;T_C.H&quot;, 
                                   &quot;T_A.H&quot;, 
@@ -869,43 +942,118 @@ ggsave(here(plots_dir,&quot;PolymorphicData.Actinopterygii.AverageMutSpecColdAnd
   height = 6
 )
 both</code></pre>
-<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/preparation%20of%20groups-1.png" width="1344" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-preparation-of-groups-1">
-Past versions of "preparation of groups-1.png"
-</button>
-</p>
-<div id="fig-no-spaces-preparation-of-groups-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/docs/figure/I_Polymorphic_Data_Analysis.Rmd/preparation of groups-1.png" target="_blank">27e35c4</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-05-23
-</td>
-</tr>
-</tbody>
-</table>
-</div>
+<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/barplots%20cold%20warm%20cytb-1.png" width="1344" style="display: block; margin: auto;" /></p>
+<div id="cytbcox1" class="section level2">
+<h2>Cytb+COX1</h2>
+<pre class="r"><code>merging &lt;- list(MutSpecForAnalysis, fishEcology)
+MutAndEco &lt;- merging %&gt;% reduce(left_join, by= &quot;Species&quot;)
+temperaturestat &lt;- summary (MutAndEco$Temp_avg)
+
+WarmFishes &lt;- filter(MutAndEco, Temp_avg &gt; as.numeric(temperaturestat[&quot;3rd Qu.&quot;]))
+WarmFishes &lt;- pivot_longer(WarmFishes, cols = c(&quot;T_G.H&quot;, 
+                                  &quot;T_C.H&quot;, 
+                                  &quot;T_A.H&quot;, 
+                                  &quot;G_T.H&quot;, 
+                                  &quot;G_C.H&quot;, 
+                                  &quot;G_A.H&quot;, 
+                                  &quot;C_T.H&quot;, 
+                                  &quot;C_G.H&quot;, 
+                                  &quot;C_A.H&quot;, 
+                                  &quot;A_T.H&quot;, 
+                                  &quot;A_G.H&quot;, 
+                                  &quot;A_C.H&quot;), names_to = &quot;Mut&quot;, values_to = &quot;MutSpec&quot; )
+AverageMutSpecWarm &lt;- WarmFishes %&gt;% group_by(Mut) %&gt;% summarise(meanmutspec = mean(MutSpec, na.rm = TRUE))
+Nwarm &lt;- length(unique(WarmFishes$Species))
+
+ColdFishes &lt;- filter(MutAndEco, Temp_avg &lt; as.numeric(temperaturestat[&quot;1st Qu.&quot;]))
+ColdFishes &lt;- pivot_longer(ColdFishes, cols = c(&quot;T_G.H&quot;, 
+                                  &quot;T_C.H&quot;, 
+                                  &quot;T_A.H&quot;, 
+                                  &quot;G_T.H&quot;, 
+                                  &quot;G_C.H&quot;, 
+                                  &quot;G_A.H&quot;, 
+                                  &quot;C_T.H&quot;, 
+                                  &quot;C_G.H&quot;, 
+                                  &quot;C_A.H&quot;, 
+                                  &quot;A_T.H&quot;, 
+                                  &quot;A_G.H&quot;, 
+                                  &quot;A_C.H&quot;), names_to = &quot;Mut&quot;, values_to = &quot;MutSpec&quot; )
+AverageMutSpecCold &lt;- ColdFishes %&gt;% group_by(Mut) %&gt;% summarise(meanmutspec = mean(MutSpec, na.rm = TRUE))
+Ncold &lt;- length(unique(ColdFishes$Species))
+
+sf2w = ggplot(AverageMutSpecWarm,
+  aes(
+    x = AverageMutSpecWarm$Mut,
+    y = AverageMutSpecWarm$meanmutspec,
+    fill = AverageMutSpecWarm$Mut
+    )
+  ) +
+  geom_bar(stat = &quot;identity&quot;) +
+  scale_fill_manual(
+    values = c(
+      &quot;#bdbdbd&quot;,
+      &quot;#00a426&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#ff0000&quot;,
+      &quot;#900000&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#005213&quot;,
+      &quot;#bdbdbd&quot;
+    )
+  ) +
+  labs(title = &quot;Average mitochondrial mutational spectrum in Warm Fishes, &lt;23C&quot;, x = &quot;Substitution types&quot;, y = &quot;Normalised Frequencies&quot;) + theme(
+    legend.position = &quot;none&quot;,
+    # Remove legend
+    panel.background = element_blank(),
+    axis.line = element_line(color = &quot;black&quot;)# Remove background
+  ) + 
+  geom_text(x=2, y=0.3, label=paste(&quot;N warm =&quot;, Nwarm), size = 7)
+
+
+sf2c = ggplot(AverageMutSpecCold,
+  aes(
+    x = AverageMutSpecCold$Mut,
+    y = AverageMutSpecCold$meanmutspec,
+    fill = AverageMutSpecCold$Mut
+    )
+  ) +
+  geom_bar(stat = &quot;identity&quot;) +
+  scale_fill_manual(
+    values = c(
+      &quot;#bdbdbd&quot;,
+      &quot;#00a426&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#ff0000&quot;,
+      &quot;#900000&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#005213&quot;,
+      &quot;#bdbdbd&quot;
+    )
+  ) +
+  labs(title = &quot;Average mitochondrial mutational spectrum in Cold Fishes, &gt; 13C &quot;, x = &quot;Substitution types&quot;, y = &quot;Normalised Frequencies&quot;) + theme(
+    legend.position = &quot;none&quot;,
+    # Remove legend
+    panel.background = element_blank(),
+    axis.line = element_line(color = &quot;black&quot;)# Remove background
+  )+ 
+  geom_text(x=2, y=0.3, label=paste(&quot;N cold =&quot;, Ncold), size = 7)
+
+both &lt;- ggarrange(sf2c, sf2w, ncol = 2)
+#ggsave(here(plots_dir,&quot;PolymorphicData.Actinopterygii.AverageMutSpecColdAndWarm.pdf&quot;),
+#  plot = both,
+#  width = 12,
+#  height = 6
+#)
+both</code></pre>
+<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/barplots%20cold%20warm-1.png" width="1344" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div
@@ -915,98 +1063,18 @@ class="section level1">
 fishes</h1>
 <div id="ag-freqs-dependence-on-climate-zones" class="section level2">
 <h2>A&gt;G freqs dependence on climate zones</h2>
-<pre class="r"><code>ClimateZonetest &lt;- na.omit(data.frame(subset(MutAndEco, select = c(A_G.H, Climate_zone))))
+<p>###CytB</p>
+<pre class="r"><code>ClimateZonetest &lt;- na.omit(data.frame(subset(MutAndEcoCb, select = c(A_G.H, Climate_zone))))
 ClimateZonetest$Climate_zone &lt;- as.factor(ClimateZonetest$Climate_zone)
 AGmedian &lt;- median(ClimateZonetest$A_G.H)
 ClimateZonetest$A_G.Freq &lt;- &quot;low&quot;
 ClimateZonetest[ClimateZonetest$A_G.H &gt;= AGmedian,]$A_G.Freq &lt;- &quot;high&quot;
 ClimateZonetest$A_G.Freq &lt;- as.factor(ClimateZonetest$A_G.Freq)
 ClimateZonetest &lt;- ClimateZonetest[,2-3]
-ggpiestats(data = ClimateZonetest, x = A_G.Freq, y = Climate_zone)</code></pre>
-<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/unnamed-chunk-1-1.png" width="1344" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-1-1">
-Past versions of unnamed-chunk-1-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-1-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/docs/figure/I_Polymorphic_Data_Analysis.Rmd/unnamed-chunk-1-1.png" target="_blank">27e35c4</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-05-23
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<pre class="r"><code>ggpiestats(data = ClimateZonetest, x = Climate_zone, y = A_G.Freq)</code></pre>
-<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/unnamed-chunk-1-2.png" width="1344" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-1-2">
-Past versions of unnamed-chunk-1-2.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-1-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/docs/figure/I_Polymorphic_Data_Analysis.Rmd/unnamed-chunk-1-2.png" target="_blank">27e35c4</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-05-23
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<pre class="r"><code>chisq.test(ClimateZonetest$A_G.Freq, ClimateZonetest$Climate_zone)</code></pre>
-<pre><code>
-    Pearson&#39;s Chi-squared test
-
-data:  ClimateZonetest$A_G.Freq and ClimateZonetest$Climate_zone
-X-squared = 14.486, df = 4, p-value = 0.005894</code></pre>
-<pre class="r"><code>ClimateZonetest &lt;- na.omit(data.frame(subset(MutAndEco, select = c(A_G.H, Climate_zone))))
+sf3 &lt;- ggpiestats(data = ClimateZonetest, x = Climate_zone, y = A_G.Freq)
+sf3</code></pre>
+<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/piecharts-1.png" width="1344" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ClimateZonetest &lt;- na.omit(data.frame(subset(MutAndEcoCb, select = c(A_G.H, Climate_zone))))
 cold &lt;- c(&quot;boreal&quot;, &quot;polar&quot;, &quot;temperate&quot;)
 warm &lt;- c(&quot;subtropical&quot;, &quot;tropical&quot;)
 wilcox.test(ClimateZonetest[ClimateZonetest$Climate_zone %in% cold,]$A_G.H, 
@@ -1015,119 +1083,76 @@ wilcox.test(ClimateZonetest[ClimateZonetest$Climate_zone %in% cold,]$A_G.H,
     Wilcoxon rank sum test with continuity correction
 
 data:  ClimateZonetest[ClimateZonetest$Climate_zone %in% cold, ]$A_G.H and ClimateZonetest[ClimateZonetest$Climate_zone %in% warm, ]$A_G.H
-W = 12778, p-value = 6.697e-05
+W = 9602.5, p-value = 4.671e-06
 alternative hypothesis: true location shift is not equal to 0</code></pre>
-<pre class="r"><code>f1bb &lt;- ggplot(MutAndEco, aes(x=Temp_avg, y=A_G.H, shape = Climate_zone, colour = Climate_zone)) + 
-    geom_point() +
-    labs(x = &quot;Median annual water temperature, ?C&quot;, y = &quot;AH&gt;GH&quot;) +   # Axis labels
-    theme_minimal()                                  # Theme customization
-f1bb</code></pre>
-<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/unnamed-chunk-2-1.png" width="1344" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-2-1">
-Past versions of unnamed-chunk-2-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-2-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/docs/figure/I_Polymorphic_Data_Analysis.Rmd/unnamed-chunk-2-1.png" target="_blank">27e35c4</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-05-23
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
 </div>
 <div id="ag-freqs-dependence-on-temperature" class="section level2">
 <h2>A&gt;G freqs dependence on temperature</h2>
-<pre class="r"><code>tidy(cor.test(MutAndEco$A_G.H, MutAndEco$Temp_avg, method = &#39;spearman&#39;))</code></pre>
+<pre class="r"><code>tidy(cor.test(MutAndEcoCb$A_G.H, MutAndEcoCb$Temp_avg, method = &#39;spearman&#39;))</code></pre>
 <pre><code># A tibble: 1 × 5
   estimate statistic   p.value method                          alternative
      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;                           &lt;chr&gt;      
-1    0.307   547372. 0.0000507 Spearman&#39;s rank correlation rho two.sided  </code></pre>
-<pre class="r"><code>tidy(cor.test(MutAndEco$A_T.H, MutAndEco$Temp_avg, method = &#39;spearman&#39;))</code></pre>
+1    0.330   431970. 0.0000240 Spearman&#39;s rank correlation rho two.sided  </code></pre>
+<pre class="r"><code>tidy(cor.test(MutAndEcoCb$A_T.H, MutAndEcoCb$Temp_avg, method = &#39;spearman&#39;))</code></pre>
 <pre><code># A tibble: 1 × 5
   estimate statistic p.value method                          alternative
      &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;                           &lt;chr&gt;      
-1   -0.109   876384.   0.160 Spearman&#39;s rank correlation rho two.sided  </code></pre>
-<pre class="r"><code>tidy(cor.test(MutAndEco$A_C.H, MutAndEco$Temp_avg, method = &#39;spearman&#39;))</code></pre>
+1  -0.0619   684862.   0.441 Spearman&#39;s rank correlation rho two.sided  </code></pre>
+<pre class="r"><code>tidy(cor.test(MutAndEcoCb$A_C.H, MutAndEcoCb$Temp_avg, method = &#39;spearman&#39;))</code></pre>
 <pre><code># A tibble: 1 × 5
   estimate statistic p.value method                          alternative
      &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;                           &lt;chr&gt;      
-1 -0.00446   793767.   0.954 Spearman&#39;s rank correlation rho two.sided  </code></pre>
-<pre class="r"><code>tidy(cor.test(MutAndEco$T_A.H, MutAndEco$Temp_avg, method = &#39;spearman&#39;))</code></pre>
+1   0.0139   636015.   0.863 Spearman&#39;s rank correlation rho two.sided  </code></pre>
+<pre class="r"><code>tidy(cor.test(MutAndEcoCb$T_A.H, MutAndEcoCb$Temp_avg, method = &#39;spearman&#39;))</code></pre>
 <pre><code># A tibble: 1 × 5
   estimate statistic p.value method                          alternative
      &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;                           &lt;chr&gt;      
-1   0.0898   719291.   0.247 Spearman&#39;s rank correlation rho two.sided  </code></pre>
-<pre class="r"><code>tidy(cor.test(MutAndEco$T_G.H, MutAndEco$Temp_avg, method = &#39;spearman&#39;))</code></pre>
+1    0.141   554337.  0.0792 Spearman&#39;s rank correlation rho two.sided  </code></pre>
+<pre class="r"><code>tidy(cor.test(MutAndEcoCb$T_G.H, MutAndEcoCb$Temp_avg, method = &#39;spearman&#39;))</code></pre>
 <pre><code># A tibble: 1 × 5
   estimate statistic p.value method                          alternative
      &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;                           &lt;chr&gt;      
-1   0.0456   754191.   0.557 Spearman&#39;s rank correlation rho two.sided  </code></pre>
-<pre class="r"><code>tidy(cor.test(MutAndEco$T_C.H, MutAndEco$Temp_avg, method = &#39;spearman&#39;))</code></pre>
+1   0.0237   629663.   0.768 Spearman&#39;s rank correlation rho two.sided  </code></pre>
+<pre class="r"><code>tidy(cor.test(MutAndEcoCb$T_C.H, MutAndEcoCb$Temp_avg, method = &#39;spearman&#39;))</code></pre>
 <pre><code># A tibble: 1 × 5
   estimate statistic p.value method                          alternative
      &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;                           &lt;chr&gt;      
-1   -0.214   959054. 0.00543 Spearman&#39;s rank correlation rho two.sided  </code></pre>
-<pre class="r"><code>tidy(cor.test(MutAndEco$C_A.H, MutAndEco$Temp_avg, method = &#39;spearman&#39;))</code></pre>
+1   -0.187   765856.  0.0187 Spearman&#39;s rank correlation rho two.sided  </code></pre>
+<pre class="r"><code>tidy(cor.test(MutAndEcoCb$C_A.H, MutAndEcoCb$Temp_avg, method = &#39;spearman&#39;))</code></pre>
 <pre><code># A tibble: 1 × 5
   estimate statistic p.value method                          alternative
      &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;                           &lt;chr&gt;      
-1   -0.207   953787. 0.00711 Spearman&#39;s rank correlation rho two.sided  </code></pre>
-<pre class="r"><code>tidy(cor.test(MutAndEco$C_T.H, MutAndEco$Temp_avg, method = &#39;spearman&#39;))</code></pre>
+1   -0.196   771323.  0.0139 Spearman&#39;s rank correlation rho two.sided  </code></pre>
+<pre class="r"><code>tidy(cor.test(MutAndEcoCb$C_T.H, MutAndEcoCb$Temp_avg, method = &#39;spearman&#39;))</code></pre>
 <pre><code># A tibble: 1 × 5
   estimate statistic p.value method                          alternative
      &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;                           &lt;chr&gt;      
-1  -0.0342   817299.   0.660 Spearman&#39;s rank correlation rho two.sided  </code></pre>
-<pre class="r"><code>tidy(cor.test(MutAndEco$C_G.H, MutAndEco$Temp_avg, method = &#39;spearman&#39;))</code></pre>
+1 -0.00214   646338.   0.979 Spearman&#39;s rank correlation rho two.sided  </code></pre>
+<pre class="r"><code>tidy(cor.test(MutAndEcoCb$C_G.H, MutAndEcoCb$Temp_avg, method = &#39;spearman&#39;))</code></pre>
 <pre><code># A tibble: 1 × 5
   estimate statistic p.value method                          alternative
      &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;                           &lt;chr&gt;      
-1  -0.0983   867946.   0.205 Spearman&#39;s rank correlation rho two.sided  </code></pre>
-<pre class="r"><code>tidy(cor.test(MutAndEco$G_T.H, MutAndEco$Temp_avg, method = &#39;spearman&#39;))</code></pre>
+1   -0.144   737735.  0.0723 Spearman&#39;s rank correlation rho two.sided  </code></pre>
+<pre class="r"><code>tidy(cor.test(MutAndEcoCb$G_T.H, MutAndEcoCb$Temp_avg, method = &#39;spearman&#39;))</code></pre>
 <pre><code># A tibble: 1 × 5
   estimate statistic p.value method                          alternative
      &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;                           &lt;chr&gt;      
-1  -0.0209   806749.   0.788 Spearman&#39;s rank correlation rho two.sided  </code></pre>
-<pre class="r"><code>tidy(cor.test(MutAndEco$G_A.H, MutAndEco$Temp_avg, method = &#39;spearman&#39;))</code></pre>
+1  -0.0629   685542.   0.434 Spearman&#39;s rank correlation rho two.sided  </code></pre>
+<pre class="r"><code>tidy(cor.test(MutAndEcoCb$G_A.H, MutAndEcoCb$Temp_avg, method = &#39;spearman&#39;))</code></pre>
 <pre><code># A tibble: 1 × 5
   estimate statistic p.value method                          alternative
      &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;                           &lt;chr&gt;      
-1   0.0693   735489.   0.372 Spearman&#39;s rank correlation rho two.sided  </code></pre>
-<pre class="r"><code>tidy(cor.test(MutAndEco$G_C.H, MutAndEco$Temp_avg, method = &#39;spearman&#39;))</code></pre>
+1   0.0938   584432.   0.242 Spearman&#39;s rank correlation rho two.sided  </code></pre>
+<pre class="r"><code>tidy(cor.test(MutAndEcoCb$G_C.H, MutAndEcoCb$Temp_avg, method = &#39;spearman&#39;))</code></pre>
 <pre><code># A tibble: 1 × 5
   estimate statistic p.value method                          alternative
      &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;                           &lt;chr&gt;      
-1  0.00695   784753.   0.929 Spearman&#39;s rank correlation rho two.sided  </code></pre>
-<pre class="r"><code>SubsetClass&lt;- unique(MutAndEco$Class)
-spN &lt;- nrow(MutAndEco[!is.na(MutAndEco$Temp_avg),])
+1  0.00772   639977.   0.924 Spearman&#39;s rank correlation rho two.sided  </code></pre>
+<pre class="r"><code>SubsetClass&lt;- unique(MutAndEcoCb$Class)
+spN &lt;- nrow(MutAndEcoCb[!is.na(MutAndEcoCb$Temp_avg),])
 cat(&quot;N species =&quot;, spN, &quot;Taxa =&quot;, SubsetClass)</code></pre>
-<pre><code>N species = 168 Taxa = Actinopteri Chondrichthyes</code></pre>
-<pre class="r"><code>f1b &lt;- ggplot(MutAndEco, aes(x=Temp_avg, y=A_G.H)) + 
+<pre><code>N species = 157 Taxa = Actinopteri Chondrichthyes</code></pre>
+<pre class="r"><code>f1b &lt;- ggplot(MutAndEcoCb, aes(x=Temp_avg, y=A_G.H)) + 
     geom_point(color=&quot;#73514f&quot;) +                  # Scatter plot
     geom_smooth(method = &quot;lm&quot;, color = &quot;black&quot;,        # Regression line + CI
                 fill = &quot;lightgray&quot;, se = TRUE) +     # Set se=TRUE for confidence interval
@@ -1136,55 +1161,13 @@ cat(&quot;N species =&quot;, spN, &quot;Taxa =&quot;, SubsetClass)</code></pre>
     labs(x = &quot;Median annual water temperature, ?C&quot;, y = &quot;AH&gt;GH&quot;) +   # Axis labels
     theme_minimal()                                  # Theme customization
  
-ggsave(here(plots_dir,&quot;PolymorphicData.Actinopterygii.A_GwitnTemperature.pdf&quot;),
+ggsave(here(plots_dir,&quot;PolymorphicData.Actinopterygii.A_GwitnTemperatureCytB.pdf&quot;),
   plot = f1b,
   width = 6,
   height = 6
 ) 
 f1b</code></pre>
-<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp-1.png" width="1344" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-statistics-with-temp-1">
-Past versions of "statistics with temp-1.png"
-</button>
-</p>
-<div id="fig-no-spaces-statistics-with-temp-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/docs/figure/I_Polymorphic_Data_Analysis.Rmd/statistics with temp-1.png" target="_blank">27e35c4</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-05-23
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<pre class="r"><code>taxonomy &lt;- rfishbase::species_names()
-taxonomy$Species &lt;- gsub(&quot; &quot;, &quot;_&quot;, taxonomy$Species)
-MutAndEco &lt;- merge(MutAndEco, taxonomy, by=&quot;Species&quot;, all.x = TRUE)
-temp &lt;- MutAndEco[!is.na(MutAndEco$Temp_avg),]
-table(temp$Order)</code></pre>
+<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%20cytb-1.png" width="1344" style="display: block; margin: auto;" /></p>
 <pre><code>
             Acanthuriformes            Acipenseriformes 
                           4                           2 
@@ -1220,10 +1203,6 @@ table(temp$Order)</code></pre>
                           7                           1 
            Synbranchiformes 
                           2 </code></pre>
-<pre class="r"><code>my &lt;- c(&quot;Acanthuriformes&quot;, &quot;Anabantiformes&quot;, &quot;Centrarchiformes&quot;, &quot;Cypriniformes&quot;, &quot;Cyprinodontiformes&quot;, &quot;Gobiiformes&quot;,
-        &quot;Perciformes/Percoidei&quot;, &quot;Salmoniformes&quot;, &quot;Scombriformes&quot;, &quot;Siluriformes&quot;)
-temp &lt;- temp[temp$Order %in% my,]
-table(temp$Order)</code></pre>
 <pre><code>
       Acanthuriformes        Anabantiformes      Centrarchiformes 
                     4                     6                    10 
@@ -1233,508 +1212,10 @@ Perciformes/Percoidei         Salmoniformes         Scombriformes
                     7                    11                    10 
          Siluriformes 
                     7 </code></pre>
-<pre class="r"><code>temp$Group &lt;- &quot;Cold&quot;
-
-for (i in my) {
-  imean = mean(temp[temp$Order == i,]$Temp_avg, na.rm=TRUE)
-  temp[temp$Order == i &amp; temp[temp$Order == i,]$Temp_avg &gt;= imean,]$Group = &quot;Warm&quot;
-  boxplot(temp[temp$Order == i,]$A_G.H ~ temp[temp$Order == i,]$Group, main=i)
-}</code></pre>
-<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%202-1.png" width="1344" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-statistics-with-temp-2-1">
-Past versions of "statistics with temp 2-1.png"
-</button>
-</p>
-<div id="fig-no-spaces-statistics-with-temp-2-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/8f5f58cd988819a2c2bbb481846483a95022eaf9/docs/figure/I_Polymorphic_Data_Analysis.Rmd/statistics with temp 2-1.png" target="_blank">8f5f58c</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-05-23
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/docs/figure/I_Polymorphic_Data_Analysis.Rmd/statistics with temp 2-1.png" target="_blank">27e35c4</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-05-23
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%202-2.png" width="1344" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-statistics-with-temp-2-2">
-Past versions of "statistics with temp 2-2.png"
-</button>
-</p>
-<div id="fig-no-spaces-statistics-with-temp-2-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/8f5f58cd988819a2c2bbb481846483a95022eaf9/docs/figure/I_Polymorphic_Data_Analysis.Rmd/statistics with temp 2-2.png" target="_blank">8f5f58c</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-05-23
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/docs/figure/I_Polymorphic_Data_Analysis.Rmd/statistics with temp 2-2.png" target="_blank">27e35c4</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-05-23
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%202-3.png" width="1344" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-statistics-with-temp-2-3">
-Past versions of "statistics with temp 2-3.png"
-</button>
-</p>
-<div id="fig-no-spaces-statistics-with-temp-2-3" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/8f5f58cd988819a2c2bbb481846483a95022eaf9/docs/figure/I_Polymorphic_Data_Analysis.Rmd/statistics with temp 2-3.png" target="_blank">8f5f58c</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-05-23
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/docs/figure/I_Polymorphic_Data_Analysis.Rmd/statistics with temp 2-3.png" target="_blank">27e35c4</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-05-23
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%202-4.png" width="1344" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-statistics-with-temp-2-4">
-Past versions of "statistics with temp 2-4.png"
-</button>
-</p>
-<div id="fig-no-spaces-statistics-with-temp-2-4" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/8f5f58cd988819a2c2bbb481846483a95022eaf9/docs/figure/I_Polymorphic_Data_Analysis.Rmd/statistics with temp 2-4.png" target="_blank">8f5f58c</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-05-23
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/docs/figure/I_Polymorphic_Data_Analysis.Rmd/statistics with temp 2-4.png" target="_blank">27e35c4</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-05-23
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%202-5.png" width="1344" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-statistics-with-temp-2-5">
-Past versions of "statistics with temp 2-5.png"
-</button>
-</p>
-<div id="fig-no-spaces-statistics-with-temp-2-5" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/8f5f58cd988819a2c2bbb481846483a95022eaf9/docs/figure/I_Polymorphic_Data_Analysis.Rmd/statistics with temp 2-5.png" target="_blank">8f5f58c</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-05-23
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/docs/figure/I_Polymorphic_Data_Analysis.Rmd/statistics with temp 2-5.png" target="_blank">27e35c4</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-05-23
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%202-6.png" width="1344" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-statistics-with-temp-2-6">
-Past versions of "statistics with temp 2-6.png"
-</button>
-</p>
-<div id="fig-no-spaces-statistics-with-temp-2-6" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/8f5f58cd988819a2c2bbb481846483a95022eaf9/docs/figure/I_Polymorphic_Data_Analysis.Rmd/statistics with temp 2-6.png" target="_blank">8f5f58c</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-05-23
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/docs/figure/I_Polymorphic_Data_Analysis.Rmd/statistics with temp 2-6.png" target="_blank">27e35c4</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-05-23
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%202-7.png" width="1344" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-statistics-with-temp-2-7">
-Past versions of "statistics with temp 2-7.png"
-</button>
-</p>
-<div id="fig-no-spaces-statistics-with-temp-2-7" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/8f5f58cd988819a2c2bbb481846483a95022eaf9/docs/figure/I_Polymorphic_Data_Analysis.Rmd/statistics with temp 2-7.png" target="_blank">8f5f58c</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-05-23
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/docs/figure/I_Polymorphic_Data_Analysis.Rmd/statistics with temp 2-7.png" target="_blank">27e35c4</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-05-23
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%202-8.png" width="1344" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-statistics-with-temp-2-8">
-Past versions of "statistics with temp 2-8.png"
-</button>
-</p>
-<div id="fig-no-spaces-statistics-with-temp-2-8" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/8f5f58cd988819a2c2bbb481846483a95022eaf9/docs/figure/I_Polymorphic_Data_Analysis.Rmd/statistics with temp 2-8.png" target="_blank">8f5f58c</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-05-23
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/docs/figure/I_Polymorphic_Data_Analysis.Rmd/statistics with temp 2-8.png" target="_blank">27e35c4</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-05-23
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%202-9.png" width="1344" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-statistics-with-temp-2-9">
-Past versions of "statistics with temp 2-9.png"
-</button>
-</p>
-<div id="fig-no-spaces-statistics-with-temp-2-9" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/8f5f58cd988819a2c2bbb481846483a95022eaf9/docs/figure/I_Polymorphic_Data_Analysis.Rmd/statistics with temp 2-9.png" target="_blank">8f5f58c</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-05-23
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/docs/figure/I_Polymorphic_Data_Analysis.Rmd/statistics with temp 2-9.png" target="_blank">27e35c4</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-05-23
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%202-10.png" width="1344" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-statistics-with-temp-2-10">
-Past versions of "statistics with temp 2-10.png"
-</button>
-</p>
-<div id="fig-no-spaces-statistics-with-temp-2-10" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/8f5f58cd988819a2c2bbb481846483a95022eaf9/docs/figure/I_Polymorphic_Data_Analysis.Rmd/statistics with temp 2-10.png" target="_blank">8f5f58c</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-05-23
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/27e35c43fb537215c44b39d9a072adb002f9c517/docs/figure/I_Polymorphic_Data_Analysis.Rmd/statistics with temp 2-10.png" target="_blank">27e35c4</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-05-23
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%20orders-1.png" width="1344" style="display: block; margin: auto;" /><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%20orders-2.png" width="1344" style="display: block; margin: auto;" /><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%20orders-3.png" width="1344" style="display: block; margin: auto;" /><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%20orders-4.png" width="1344" style="display: block; margin: auto;" /><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%20orders-5.png" width="1344" style="display: block; margin: auto;" /><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%20orders-6.png" width="1344" style="display: block; margin: auto;" /><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%20orders-7.png" width="1344" style="display: block; margin: auto;" /><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%20orders-8.png" width="1344" style="display: block; margin: auto;" /><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%20orders-9.png" width="1344" style="display: block; margin: auto;" /><img src="figure/I_Polymorphic_Data_Analysis.Rmd/statistics%20with%20temp%20orders-10.png" width="1344" style="display: block; margin: auto;" /></p>
 </div>
 <div id="lm" class="section level2">
 <h2>LM</h2>
-<pre class="r"><code>MutAndEco$DeltaT &lt;- MutAndEco$Temp_max - MutAndEco$Temp_min
-summary(lm(A_G.H ~ Temp_avg + DeltaT + Wmax + tmax + tm + FoodTroph, data = MutAndEco))</code></pre>
 <pre><code>
 Call:
 lm(formula = A_G.H ~ Temp_avg + DeltaT + Wmax + tmax + tm + FoodTroph, 
@@ -1760,7 +1241,6 @@ Residual standard error: 0.05295 on 43 degrees of freedom
   (985 observations deleted due to missingness)
 Multiple R-squared:  0.3125,    Adjusted R-squared:  0.2166 
 F-statistic: 3.257 on 6 and 43 DF,  p-value: 0.009945</code></pre>
-<pre class="r"><code>summary(lm(A_G.H ~ Temp_avg + FoodTroph + Wmax, data = MutAndEco))</code></pre>
 <pre><code>
 Call:
 lm(formula = A_G.H ~ Temp_avg + FoodTroph + Wmax, data = MutAndEco)
@@ -1782,7 +1262,6 @@ Residual standard error: 0.07724 on 85 degrees of freedom
   (946 observations deleted due to missingness)
 Multiple R-squared:  0.1491,    Adjusted R-squared:  0.119 
 F-statistic: 4.963 on 3 and 85 DF,  p-value: 0.003193</code></pre>
-<pre class="r"><code>summary(lm(A_G.H ~ Temp_avg + tmax + tm, data = MutAndEco))</code></pre>
 <pre><code>
 Call:
 lm(formula = A_G.H ~ Temp_avg + tmax + tm, data = MutAndEco)
@@ -1804,7 +1283,6 @@ Residual standard error: 0.06375 on 70 degrees of freedom
   (961 observations deleted due to missingness)
 Multiple R-squared:  0.1517,    Adjusted R-squared:  0.1153 
 F-statistic: 4.172 on 3 and 70 DF,  p-value: 0.008905</code></pre>
-<pre class="r"><code>summary(lm(A_G.H ~ Temp_avg + DeltaT, data = MutAndEco))</code></pre>
 <pre><code>
 Call:
 lm(formula = A_G.H ~ Temp_avg + DeltaT, data = MutAndEco)
@@ -1830,25 +1308,21 @@ F-statistic: 8.628 on 2 and 158 DF,  p-value: 0.0002777</code></pre>
 <h2>PGLS</h2>
 <pre class="r"><code>tree = read.tree(file = here(data_dir, &quot;chordates_species.nwk&quot;))
 tree &lt;- ape::drop.tip(tree, &quot;Tenebrosternarchus_preto&quot;)
-MutAndEco &lt;- MutAndEco %&gt;% dplyr::select(Species, A_G.H, C_T.H, G_A.H, T_C.H, Temp_avg)
+MutAndEcoPGLS &lt;- MutAndEco %&gt;% dplyr::select(Species, A_G.H, C_T.H, G_A.H, T_C.H, Temp_avg)
 
-MutAndEco[duplicated(MutAndEco$Species),]</code></pre>
-<pre><code>[1] Species  A_G.H    C_T.H    G_A.H    T_C.H    Temp_avg
-&lt;0 rows&gt; (or 0-length row.names)</code></pre>
-<pre class="r"><code>row.names(MutAndEco) = MutAndEco$Species
-
-tree_pruned = treedata(tree, MutAndEco, sort=T, warnings=T)$phy
-data&lt;-as.data.frame(treedata(tree_pruned, MutAndEco, sort=T, warnings=T)$data)
+row.names(MutAndEcoPGLS) = MutAndEco$Species
+tree_pruned = treedata(tree, MutAndEcoPGLS, sort=T, warnings=T)$phy
+data&lt;-as.data.frame(treedata(tree_pruned, MutAndEcoPGLS, sort=T, warnings=T)$data)
 data$Species = as.character(data$Species)
 data$A_G.H = as.numeric(data$A_G.H)
 data$C_T.H = as.numeric(data$C_T.H)
 data$G_A.H = as.numeric(data$G_A.H)
 data$T_C.H = as.numeric(data$T_C.H)
 data$Temp_avg = as.numeric(data$Temp_avg)
+data$Tv &lt;- 1-(data$A_G.H + data$G_A.H + data$T_C.H + data$C_T.H)
 data_comp &lt;- comparative.data(tree_pruned, data, Species, vcv=TRUE)
 
-#la.A_G &lt;- phylosig(tree_pruned, data$A_G.H, method = &quot;lambda&quot;, test = TRUE)
-#la.temp &lt;- phylosig(tree_pruned, data$Temp_avg, method = &quot;lambda&quot;, test = TRUE)
+
 summary(pgls(A_G.H ~ Temp_avg, data_comp, lambda=&quot;ML&quot;))</code></pre>
 <pre><code>
 Call:
@@ -1877,16 +1351,12 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 Residual standard error: 0.00386 on 158 degrees of freedom
 Multiple R-squared: 0.09171,    Adjusted R-squared: 0.08596 
 F-statistic: 15.95 on 1 and 158 DF,  p-value: 9.924e-05 </code></pre>
-<pre class="r"><code>#la.C_T &lt;- phylosig(tree_pruned, data$C_T.H, method = &quot;lambda&quot;, test = TRUE)
-#la.G_A &lt;- phylosig(tree_pruned, data$G_A.H, method = &quot;lambda&quot;, test = TRUE)
-#la.T_C &lt;- phylosig(tree_pruned, data$T_C.H, method = &quot;lambda&quot;, test = TRUE)
-
-#data$Tv &lt;- 1-(data$A_G.H + data$G_A.H + data$T_C.H + data$C_T.H)
-#la.Tv &lt;- phylosig(tree_pruned, data$Tv, method = &quot;lambda&quot;, test = TRUE)</code></pre>
-</div>
-</div>
-<div id="expanding-temperature-data" class="section level1">
-<h1>Expanding temperature data</h1>
+<pre class="r"><code>#la.A_G &lt;- phylosig(tree_pruned, data$A_G.H, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.280122 
+#la.C_T &lt;- phylosig(tree_pruned, data$C_T.H, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.119451 
+#la.G_A &lt;- phylosig(tree_pruned, data$G_A.H, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.719915 
+#la.T_C &lt;- phylosig(tree_pruned, data$T_C.H, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.813846 
+#la.Tv &lt;- phylosig(tree_pruned, data$Tv, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.113722
+#la.temp &lt;- phylosig(tree_pruned, data$Temp_avg, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.92032</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -1916,53 +1386,54 @@ attached base packages:
 other attached packages:
  [1] rfishbase_5.0.1    ggstatsplot_0.13.1 broom_1.0.8        ggpubr_0.6.0      
  [5] ggExtra_0.10.1     geiger_2.0.11      phytools_2.4-4     maps_3.4.2.1      
- [9] caper_1.0.3        mvtnorm_1.3-2      MASS_7.3-61        ape_5.8-1         
-[13] magrittr_2.0.3     lubridate_1.9.3    forcats_1.0.0      stringr_1.5.1     
+ [9] caper_1.0.3        mvtnorm_1.3-3      MASS_7.3-65        ape_5.8-1         
+[13] magrittr_2.0.3     lubridate_1.9.4    forcats_1.0.0      stringr_1.5.1     
 [17] dplyr_1.1.4        purrr_1.0.4        readr_2.1.5        tidyr_1.3.1       
-[21] tibble_3.2.1       ggplot2_3.5.2      tidyverse_2.0.0    knitr_1.49        
+[21] tibble_3.2.1       ggplot2_3.5.2      tidyverse_2.0.0    knitr_1.50        
 [25] here_1.0.1         workflowr_1.7.1   
 
 loaded via a namespace (and not attached):
-  [1] rstudioapi_0.17.1       jsonlite_1.8.9          datawizard_1.1.0       
-  [4] correlation_0.8.7       subplex_1.9             farver_2.1.2           
-  [7] rmarkdown_2.29          fs_1.6.5                ragg_1.3.3             
- [10] vctrs_0.6.5             memoise_2.0.1           paletteer_1.6.0        
- [13] effectsize_1.0.0        rstatix_0.7.2           htmltools_0.5.8.1      
- [16] curl_6.0.0              DEoptim_2.2-8           deSolve_1.40           
- [19] Formula_1.2-5           sass_0.4.9              bslib_0.8.0            
- [22] cachem_1.1.0            whisker_0.4.1           igraph_2.1.4           
- [25] mime_0.12               lifecycle_1.0.4         iterators_1.0.14       
- [28] pkgconfig_2.0.3         Matrix_1.7-1            R6_2.5.1               
- [31] fastmap_1.2.0           shiny_1.10.0            BayesFactor_0.9.12-4.7 
- [34] digest_0.6.37           numDeriv_2016.8-1.1     colorspace_2.1-1       
- [37] rematch2_2.1.2          patchwork_1.3.0         ps_1.8.1               
- [40] rprojroot_2.0.4         prismatic_1.1.2         textshaping_0.4.0      
- [43] labeling_0.4.3          clusterGeneration_1.3.8 fansi_1.0.6            
- [46] timechange_0.3.0        mgcv_1.9-1              httr_1.4.7             
- [49] abind_1.4-8             compiler_4.4.2          bit64_4.5.2            
- [52] withr_3.0.2             doParallel_1.0.17       duckdbfs_0.1.0         
- [55] backports_1.5.0         optimParallel_1.0-2     DBI_1.2.3              
- [58] carData_3.0-5           duckdb_1.2.2            ggsignif_0.6.4         
- [61] scatterplot3d_0.3-44    tools_4.4.2             httpuv_1.6.16          
- [64] statsExpressions_1.7.0  glue_1.8.0              quadprog_1.5-8         
- [67] callr_3.7.6             nlme_3.1-166            promises_1.3.2         
- [70] grid_4.4.2              getPass_0.2-4           generics_0.1.3         
- [73] gtable_0.3.6            tzdb_0.4.0              hms_1.1.3              
- [76] car_3.1-3               utf8_1.2.4              foreach_1.5.2          
- [79] pillar_1.9.0            vroom_1.6.5             later_1.3.2            
- [82] splines_4.4.2           lattice_0.22-6          bit_4.5.0              
- [85] tidyselect_1.2.1        pbapply_1.7-2           miniUI_0.1.2           
- [88] git2r_0.36.2            xfun_0.49               expm_1.0-0             
- [91] stringi_1.8.4           yaml_2.3.10             evaluate_1.0.1         
- [94] codetools_0.2-20        cli_3.6.3               RcppParallel_5.1.10    
- [97] xtable_1.8-4            parameters_0.25.0       systemfonts_1.1.0      
-[100] munsell_0.5.1           processx_3.8.4          jquerylib_0.1.4        
-[103] Rcpp_1.0.13-1           dbplyr_2.5.0            zeallot_0.1.0          
-[106] coda_0.19-4.1           parallel_4.4.2          MatrixModels_0.5-3     
-[109] rstantools_2.4.0        blob_1.2.4              bayestestR_0.15.3      
-[112] phangorn_2.12.1         scales_1.3.0            insight_1.2.0          
+  [1] RColorBrewer_1.1-3      rstudioapi_0.17.1       jsonlite_2.0.0         
+  [4] datawizard_1.1.0        correlation_0.8.7       subplex_1.9            
+  [7] estimability_1.5.1      farver_2.1.2            rmarkdown_2.29         
+ [10] fs_1.6.6                ragg_1.4.0              vctrs_0.6.5            
+ [13] memoise_2.0.1           paletteer_1.6.0         effectsize_1.0.0       
+ [16] rstatix_0.7.2           htmltools_0.5.8.1       curl_6.2.3             
+ [19] DEoptim_2.2-8           deSolve_1.40            Formula_1.2-5          
+ [22] sass_0.4.10             bslib_0.9.0             emmeans_1.11.1         
+ [25] cachem_1.1.0            whisker_0.4.1           igraph_2.1.4           
+ [28] mime_0.13               lifecycle_1.0.4         iterators_1.0.14       
+ [31] pkgconfig_2.0.3         Matrix_1.7-3            R6_2.6.1               
+ [34] fastmap_1.2.0           shiny_1.10.0            BayesFactor_0.9.12-4.7 
+ [37] digest_0.6.37           numDeriv_2016.8-1.1     rematch2_2.1.2         
+ [40] patchwork_1.3.0         ps_1.9.1                rprojroot_2.0.4        
+ [43] prismatic_1.1.2         textshaping_1.0.1       labeling_0.4.3         
+ [46] clusterGeneration_1.3.8 timechange_0.3.0        mgcv_1.9-3             
+ [49] httr_1.4.7              abind_1.4-8             compiler_4.4.2         
+ [52] bit64_4.6.0-1           withr_3.0.2             doParallel_1.0.17      
+ [55] duckdbfs_0.1.0          backports_1.5.0         optimParallel_1.0-2    
+ [58] DBI_1.2.3               carData_3.0-5           duckdb_1.2.2           
+ [61] ggsignif_0.6.4          scatterplot3d_0.3-44    tools_4.4.2            
+ [64] httpuv_1.6.16           statsExpressions_1.7.0  glue_1.8.0             
+ [67] quadprog_1.5-8          callr_3.7.6             nlme_3.1-168           
+ [70] promises_1.3.2          grid_4.4.2              getPass_0.2-4          
+ [73] generics_0.1.4          gtable_0.3.6            tzdb_0.5.0             
+ [76] hms_1.1.3               car_3.1-3               utf8_1.2.5             
+ [79] foreach_1.5.2           pillar_1.10.2           vroom_1.6.5            
+ [82] later_1.4.2             splines_4.4.2           lattice_0.22-7         
+ [85] bit_4.6.0               tidyselect_1.2.1        pbapply_1.7-2          
+ [88] miniUI_0.1.2            git2r_0.36.2            xfun_0.52              
+ [91] expm_1.0-0              stringi_1.8.7           yaml_2.3.10            
+ [94] evaluate_1.0.3          codetools_0.2-20        cli_3.6.5              
+ [97] RcppParallel_5.1.10     xtable_1.8-4            parameters_0.26.0      
+[100] systemfonts_1.2.3       processx_3.8.6          jquerylib_0.1.4        
+[103] Rcpp_1.0.14             dbplyr_2.5.0            zeallot_0.1.0          
+[106] coda_0.19-4.1           parallel_4.4.2          MatrixModels_0.5-4     
+[109] rstantools_2.4.0        blob_1.2.4              bayestestR_0.16.0      
+[112] phangorn_2.12.1         scales_1.4.0            insight_1.3.0          
 [115] crayon_1.5.3            combinat_0.0-8          rlang_1.1.6            
 [118] cowplot_1.1.3           fastmatch_1.1-6         mnormt_2.1.1           </code></pre>
+</div>
 </div>
 </div>
 </div>
