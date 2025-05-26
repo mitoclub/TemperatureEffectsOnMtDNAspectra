@@ -49,10 +49,13 @@ MutEco$WarmClimate <- ifelse(MutEco$Climate_zone %in% c("tropical", "subtropical
 table(MutEco$Gene)
 MutEco = MutEco[MutEco$Gene == 'Cytb',]
 MutEco = MutEco[MutEco$Mut == 'T>C',]
+dim(MutEco)
 cor.test(MutEco$MutSpec,MutEco$WarmClimate, method = 'spearman')
 
 boxplot(MutEco$MutSpec[MutEco$WarmClimate == 0],MutEco$MutSpec[MutEco$WarmClimate == 1], notch = TRUE)
 wilcox.test(MutEco$MutSpec[MutEco$WarmClimate == 0],MutEco$MutSpec[MutEco$WarmClimate == 1])
+
+# PGLS1: A>G ~ WarmClimate for 333 fishes
 
 ```
 <br>
@@ -77,8 +80,11 @@ MutEco = merge(Mut,Eco)
 table(MutEco$Gene)
 MutEco = MutEco[MutEco$Gene == 'Cytb',]
 MutEco = MutEco[MutEco$Mut == 'T>C',]
+dim(MutEco)
 cor.test(MutEco$MutSpec,MutEco$FoodTroph, method = 'spearman')
+wilcox.test(MutEco$MutSpec[MutEco$FoodTroph >= 3.5],MutEco$MutSpec[MutEco$FoodTroph < 3.5])
 
+# PGLS2: A>G ~ FoodTroph for 381 fishes
 ```
 
 <br>
@@ -105,6 +111,7 @@ MutEco$WarmClimate <- ifelse(MutEco$Climate_zone %in% c("tropical", "subtropical
 MutEco$Predator <- ifelse(MutEco$FoodTroph >= 3.5, 1, 0) # recommendation from chatGPT
 MutEco = MutEco[MutEco$Gene == 'Cytb',]
 MutEco = MutEco[MutEco$Mut == 'T>C',]
+dim(MutEco)
 
 model <- lm(MutSpec ~ FoodTroph + WarmClimate, data = MutEco)
 summary(model)
@@ -114,6 +121,9 @@ summary(model)
 
 cor.test(MutEco$MutSpec[MutEco$WarmClimate == 1],MutEco$FoodTroph[MutEco$WarmClimate == 1], method = 'spearman') # only predators in tropcs are super oxidized!
 cor.test(MutEco$MutSpec[MutEco$WarmClimate == 0],MutEco$FoodTroph[MutEco$WarmClimate == 0], method = 'spearman')
+
+MutEco$ClimateAndTroph = MutEco$WarmClimate +  MutEco$Predator
+table(MutEco$ClimateAndTroph)
 
 # since the effect of Food and Climate is similar in scale model - I add together! 
 
@@ -146,5 +156,8 @@ text(
   labels = paste0("n = ", sample_sizes),
   cex = 0.8
 )
+
+# PGLS3: A>G ~ WarmClimate + Predator for 264 species
+# PGLS4: A>G ~ ClimateAndTroph   # little hope for 264 
 
 ```
