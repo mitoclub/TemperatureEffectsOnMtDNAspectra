@@ -142,7 +142,7 @@ plt
 
 # Comparison A>G of all Classes
 
-```{r violin A>G, message=FALSE, warning= FALSE}
+```{r violin-A2G, message=FALSE, warning= FALSE}
 merging <- list(MutSpecForAnalysisCbAll, allEcologyNOCLASS)
 MutSpecForAnalysisCbAll <- merging %>% purrr::reduce(left_join, by= "Species")
 MutSpecForAnalysisCbAll[MutSpecForAnalysisCbAll$Class == "Actinopteri",]$Class <- "Fishes"
