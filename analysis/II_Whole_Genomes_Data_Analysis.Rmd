@@ -1,0 +1,258 @@
+---
+title: "Analysis of the whole genomes data in Fishes from Mikhailova et al. 2022"
+author: "Alina G. Mikhailova"
+date: "`r Sys.Date()`"
+output:
+    workflowr::wflow_html:
+    toc: true
+knitr:
+  opts_chunk:
+    echo: false
+---
+
+```{r setup, echo=FALSE, include=FALSE}
+docname <- "II_Whole_Genomes_Data_Analysis"
+now <- Sys.time()
+# Time chunks during knitting
+knitr::knit_hooks$set(timeit = function(before) {
+  if (before) {
+    print(paste("Start:", Sys.time()))
+    now <<- Sys.time()
+  } else {
+    print(paste("Stop:", Sys.time()))
+    print(Sys.time() - now)
+  }
+})
+
+knitr::opts_chunk$set(
+  autodep        = TRUE,
+  cache          = FALSE,
+  cache.path     = paste0("cache/", docname, "/"),
+  cache.comments = FALSE,
+  cache.lazy     = FALSE,
+  dev            = c("png", "pdf"),
+  echo           = TRUE,
+  error          = FALSE,
+  fig.align      = "center",
+  fig.width      = 14,
+  fig.height     = 12,
+  message        = FALSE,
+  warning        = FALSE,
+  timeit         = TRUE
+)
+# Load packages
+suppressPackageStartupMessages({
+  library(here)
+  library(knitr)
+  library(tidyverse)
+  library(magrittr)
+  library(caper)
+  library(geiger)
+  library(ggExtra)
+  library(ggpubr)
+  library(broom)
+  library(phytools)
+  library(ggstatsplot)
+  library(rfishbase)
+  library(ape)
+})
+
+# Set paths
+src_dir <- here("code")
+data_dir <- here("data")
+output_dir <- here("output")
+plots_dir <- here(output_dir, "figures")
+tables_dir <- here(output_dir, "tables")
+
+# parallelisation
+n_cores <- 4
+
+# set seed
+reseed <- 13
+set.seed(seed = reseed)
+```
+
+# Reading codon usage database (L-strand), calculating neutral nucleotide content and reading ecology
+
+```{r codon usage, message=FALSE}
+mtDNAcodonUsage <- read.table(here(data_dir, "AllGenesCodonUsageNoOverlap.txt"), header = TRUE, sep = '\t')
+mtDNAcodonUsage = mtDNAcodonUsage[mtDNAcodonUsage$Gene != 'ND6' & mtDNAcodonUsage$Gene == 'CytB',] # check Cyt B
+
+mtDNAcodonUsage = aggregate(list(mtDNAcodonUsage$NeutralA,mtDNAcodonUsage$NeutralT,mtDNAcodonUsage$NeutralG,mtDNAcodonUsage$NeutralC), by = list(mtDNAcodonUsage$Species), FUN = sum)
+names(mtDNAcodonUsage) = c('Species','NeutralA','NeutralT','NeutralG','NeutralC')
+mtDNAcodonUsage$FrT.H = mtDNAcodonUsage$NeutralA / (mtDNAcodonUsage$NeutralA + mtDNAcodonUsage$NeutralT +
+                                                    mtDNAcodonUsage$NeutralG + mtDNAcodonUsage$NeutralC)
+mtDNAcodonUsage$FrA.H = mtDNAcodonUsage$NeutralT / (mtDNAcodonUsage$NeutralA + mtDNAcodonUsage$NeutralT + 
+                                                    mtDNAcodonUsage$NeutralG + mtDNAcodonUsage$NeutralC) 
+mtDNAcodonUsage$FrC.H = mtDNAcodonUsage$NeutralG / (mtDNAcodonUsage$NeutralA + mtDNAcodonUsage$NeutralT + 
+                                                    mtDNAcodonUsage$NeutralG + mtDNAcodonUsage$NeutralC) 
+mtDNAcodonUsage$FrG.H = mtDNAcodonUsage$NeutralC / (mtDNAcodonUsage$NeutralA + mtDNAcodonUsage$NeutralT + 
+                                                    mtDNAcodonUsage$NeutralG + mtDNAcodonUsage$NeutralC) 
+
+head(mtDNAcodonUsage)
+```
+
+```{r ecology}
+fishEcology <- read.csv(here(data_dir, "Full_fish_ecology_table_2025.csv"))
+head(fishEcology)
+```
+
+# Studies of neutral nucleotide content with temperature
+
+##Correlating neutral nucleotide content and nucleotide skews with temperature
+```{r statistics with temperature, message=FALSE, warning= FALSE}
+merging <- list(mtDNAcodonUsage, fishEcology)
+NucAndEco <- merging %>% purrr::reduce(left_join, by= "Species")
+taxonomy <- rfishbase::species_names()
+taxonomy$Species <- gsub(" ", "_", taxonomy$Species)
+NucAndEco <- merge(NucAndEco, taxonomy, by="Species", all.x = TRUE)
+spN <- nrow(NucAndEco[!is.na(NucAndEco$Temp_avg),])
+spN
+
+tidy(cor.test(NucAndEco$FrA.H, NucAndEco$Temp_avg, method = 'spearman'))
+tidy(cor.test(NucAndEco$FrG.H, NucAndEco$Temp_avg, method = 'spearman'))
+tidy(cor.test(NucAndEco$FrT.H, NucAndEco$Temp_avg, method = 'spearman'))
+tidy(cor.test(NucAndEco$FrC.H, NucAndEco$Temp_avg, method = 'spearman')) #tree?
+
+```
+
+```{r statistics skews, message=FALSE, warning= FALSE}
+NucAndEco$AGskew <- (NucAndEco$FrA.H - NucAndEco$FrG.H)/(NucAndEco$FrG.H + NucAndEco$FrA.H)
+NucAndEco$CTskew <- (NucAndEco$FrC.H - NucAndEco$FrT.H)/(NucAndEco$FrT.H + NucAndEco$FrC.H)
+
+tidy(cor.test(NucAndEco$AGskew, NucAndEco$Temp_avg, method = 'spearman'))
+tidy(cor.test(NucAndEco$CTskew, NucAndEco$Temp_avg, method = 'spearman'))
+
+```
+##Correlating neutral nucleotide content and nucleotide skews with time of maturation
+
+```{r statistics with tm, message=FALSE, warning= FALSE}
+nrow(NucAndEco[!is.na(NucAndEco$tm),])
+
+tidy(cor.test(NucAndEco$FrA.H, NucAndEco$tm, method = 'spearman'))
+tidy(cor.test(NucAndEco$FrG.H, NucAndEco$tm, method = 'spearman'))
+tidy(cor.test(NucAndEco$FrT.H, NucAndEco$tm, method = 'spearman'))
+tidy(cor.test(NucAndEco$FrC.H, NucAndEco$tm, method = 'spearman'))
+
+```
+## Figures
+
+```{r}
+
+sf4 <- ggplot(NucAndEco, aes(x=Temp_avg, y=AGskew)) + 
+    geom_point(color="#c99bc9") +                  # Scatter plot
+    geom_smooth(method = "lm", color = "black",        # Regression line + CI
+                fill = "lightgray", se = TRUE) +     # Set se=TRUE for confidence interval
+    stat_cor(method = "spearman",                    # Spearman correlation stats
+            aes(label = paste(..r.label.., ..p.label.., "N", spN, sep = "~"))) +  # Include n
+    labs(x = "Median annual water temperature, ?C", y = "AGskew") +   # Axis labels
+    theme_minimal()                                  # Theme customization
+ 
+#ggsave(here(plots_dir,".pdf"),
+#  plot = f1b,
+#  width = 6,
+#  height = 6
+#) 
+sf4
+
+```
+
+```{r}
+
+MaturationMedian <- median(NucAndEco$tm, na.rm = TRUE)
+TemperatureMedian <- median(NucAndEco$Temp_avg, na.rm = TRUE)
+NucAndEco$TemperatureGroup <- ifelse(NucAndEco$Temp_avg >= TemperatureMedian, "Warm", "Cold")
+NucAndEco$LongevityGroup <- ifelse(NucAndEco$tm >= MaturationMedian, "LongLived", "ShortLived")
+NucAndEco <- NucAndEco[!is.na(NucAndEco$TemperatureGroup) & !is.na(NucAndEco$LongevityGroup),]
+
+sf6 <- ggplot(data = NucAndEco, aes(x = TemperatureGroup, y = AGskew))+
+  geom_boxplot()+
+  facet_wrap(~LongevityGroup)+
+  theme_test()+
+  labs(y = 'AGskew')
+sf6
+```
+##LM
+
+```{r}
+summary(lm(AGskew ~ Temp_avg + tm, data = NucAndEco))
+summary(lm(CTskew ~ Temp_avg + tm, data = NucAndEco))
+summary(lm(FrA.H ~ Temp_avg + tm, data = NucAndEco))
+summary(lm(FrG.H ~ Temp_avg + tm, data = NucAndEco))
+
+```
+
+
+## PGLS
+
+```{r inertia analysis, message=FALSE, warning=FALSE}
+tree = read.tree(file = here(data_dir, "chordates_species.nwk"))
+tree <- ape::drop.tip(tree, "Tenebrosternarchus_preto")
+NucAndEcoPGLS <- NucAndEco %>% dplyr::select(Species, FrA.H, FrG.H, FrT.H, FrC.H, AGskew, CTskew, Temp_avg)
+NucAndEcoPGLS <- NucAndEcoPGLS[!is.na(NucAndEcoPGLS$Temp_avg),]
+
+row.names(NucAndEcoPGLS) = NucAndEcoPGLS$Species
+tree_pruned = treedata(tree, NucAndEcoPGLS, sort=T, warnings=T)$phy
+data<-as.data.frame(treedata(tree_pruned, NucAndEcoPGLS, sort=T, warnings=T)$data)
+data$Species = as.character(data$Species)
+data$FrA.H = as.numeric(data$FrA.H)
+data$FrG.H = as.numeric(data$FrG.H)
+data$FrT.H = as.numeric(data$FrT.H)
+data$FrC.H = as.numeric(data$FrC.H)
+data$AGskew = as.numeric(data$AGskew)
+data$CTskew = as.numeric(data$CTskew)
+data$Temp_avg = as.numeric(data$Temp_avg)
+data_comp <- comparative.data(tree_pruned, data, Species, vcv=TRUE)
+
+if (exists("tree_pruned") && inherits(tree_pruned, "phylo")) {
+  # Check for zero-length branches
+  num_zero_branches <- sum(tree_pruned$edge.length == 0)
+  cat("Number of zero-length branches in tree_pruned:", num_zero_branches, "\n")
+  if (num_zero_branches > 0) {
+    cat("Some branch lengths are exactly zero.\n")
+  }
+
+  # Check for very small branch lengths (can also cause numerical instability)
+  min_branch_length <- min(tree_pruned$edge.length[tree_pruned$edge.length > 0]) # Smallest non-zero
+  cat("Smallest non-zero branch length:", min_branch_length, "\n")
+  cat("Number of branches < 1e-8 (a very small number):", sum(tree_pruned$edge.length < 1e-8), "\n")
+
+  # Check if the tree is binary (no polytomies)
+  is_binary_tree <- is.binary(tree_pruned)
+  cat("Is tree_pruned binary (no polytomies)?", is_binary_tree, "\n")
+  if (!is_binary_tree) {
+    cat("Tree_pruned contains polytomies.\n")
+  }
+  
+  # Basic tree summary
+  # summary(tree_pruned) # Provides a general overview
+  
+} else {
+  cat("The 'tree_pruned' object doesn't exist or is not a valid phylo object.\n")
+}
+
+if (exists("tree_pruned") && inherits(tree_pruned, "phylo")) {
+    if(any(tree_pruned$edge.length == 0)) {
+    cat("Adding a tiny value to zero-length branches...\n")
+    tree_pruned$edge.length[tree_pruned$edge.length == 0] <- 1e-8 # Or a similar small value
+     # After this, you would need to recreate data_comp with the modified tree_pruned
+    data_comp <- comparative.data(tree_pruned, data, Species, vcv=TRUE)
+   }
+ }
+
+
+
+summary(pgls(FrA.H ~ Temp_avg, data_comp, lambda="ML"))
+
+summary(pgls(AGskew ~ Temp_avg, data_comp, lambda="ML"))
+
+
+summary(pgls(FrG.H ~ Temp_avg, data_comp, lambda="ML"))
+
+#summary(pgls(FrT.H ~ Temp_avg, data_comp, lambda="ML"))
+summary(pgls(FrC.H ~ Temp_avg, data_comp, lambda="ML"))
+
+summary(pgls(CTskew ~ Temp_avg, data_comp, lambda="ML"))
+
+```
+

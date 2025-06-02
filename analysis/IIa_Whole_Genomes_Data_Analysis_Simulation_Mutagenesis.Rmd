@@ -1,0 +1,539 @@
+---
+title: "Simulation of the mutagenesis in the whole genomes in Fishes"
+author: "Alina G. Mikhailova"
+date: "`r Sys.Date()`"
+output:
+    workflowr::wflow_html:
+    toc: true
+knitr:
+  opts_chunk:
+    echo: false
+---
+
+```{r setup, echo=FALSE, include=FALSE}
+docname <- "IIa_Whole_Genomes_Data_Analysis_Simulation_Mutagenesis"
+now <- Sys.time()
+# Time chunks during knitting
+knitr::knit_hooks$set(timeit = function(before) {
+  if (before) {
+    print(paste("Start:", Sys.time()))
+    now <<- Sys.time()
+  } else {
+    print(paste("Stop:", Sys.time()))
+    print(Sys.time() - now)
+  }
+})
+
+knitr::opts_chunk$set(
+  autodep        = TRUE,
+  cache          = FALSE,
+  cache.path     = paste0("cache/", docname, "/"),
+  cache.comments = FALSE,
+  cache.lazy     = FALSE,
+  dev            = c("png", "pdf"),
+  echo           = TRUE,
+  error          = FALSE,
+  fig.align      = "center",
+  fig.width      = 14,
+  fig.height     = 12,
+  message        = FALSE,
+  warning        = FALSE,
+  timeit         = TRUE
+)
+# Load packages
+suppressPackageStartupMessages({
+  library(here)
+  library(knitr)
+  library(tidyverse)
+  library(magrittr)
+  library(caper)
+  library(geiger)
+  library(ggExtra)
+  library(ggpubr)
+  library(broom)
+  library(phytools)
+  library(ggstatsplot)
+  library(rfishbase)
+  library(ape)
+  library(purrr)
+})
+
+# Set paths
+src_dir <- here("code")
+data_dir <- here("data")
+output_dir <- here("output")
+plots_dir <- here(output_dir, "figures")
+tables_dir <- here(output_dir, "tables")
+
+# parallelisation
+n_cores <- 4
+
+# set seed
+reseed <- 13
+set.seed(seed = reseed)
+```
+
+# Reading mutation spectra database (L-strand) and ecological databases
+
+```{r spectra, message=FALSE}
+#mutSpec12all <- read_csv(here(data_dir, "MutSpecVertebrates12all.csv.gz"))
+mutSpec12 <- read_csv(here(data_dir, "MutSpecVertebrates12fish.csv"))
+mutSpec12Cb <- dplyr::filter(mutSpec12, Gene == "Cytb")
+head(mutSpec12Cb)
+
+MutSpecForAnalysisCb <- mutSpec12Cb %>% dplyr::select(Class, Species, Mut, MutSpec)
+MutSpecForAnalysisCb$Mut <- gsub(">", "_", MutSpecForAnalysisCb$Mut)
+MutSpecForAnalysisCb <- MutSpecForAnalysisCb %>% pivot_wider(names_from = Mut, values_from = MutSpec, , values_fn = median) 
+colnames(MutSpecForAnalysisCb) <- c("Class",
+                                  "Species", 
+                                  "T_G.H", 
+                                  "T_C.H", 
+                                  "T_A.H", 
+                                  "G_T.H", 
+                                  "G_C.H", 
+                                  "G_A.H", 
+                                  "C_T.H", 
+                                  "C_G.H", 
+                                  "C_A.H", 
+                                  "A_T.H", 
+                                  "A_G.H", 
+                                  "A_C.H")
+```
+
+```{r ecology}
+fishEcology <- read.csv(here(data_dir, "Full_fish_ecology_table_2025.csv"))
+tibble(head(fishEcology))
+```
+
+# Obtaining average MutSpec for cold and warm fisches
+
+```{r}
+merging <- list(MutSpecForAnalysisCb, fishEcology)
+MutAndEcoCb <- merging %>% purrr::reduce(left_join, by= "Species")
+temperaturestat <- summary(MutAndEcoCb$Temp_avg)
+
+WarmFishes <- filter(MutAndEcoCb, Temp_avg > as.numeric(temperaturestat["3rd Qu."]))
+Nwarm <- length(unique(WarmFishes$Species))
+Nwarm
+WarmFishes <- WarmFishes %>% dplyr::select(c(3:14))
+WarmFishes <- WarmFishes %>% summarise_all(mean)
+
+ColdFishes <- filter(MutAndEcoCb, Temp_avg < as.numeric(temperaturestat["1st Qu."]))
+Ncold <- length(unique(ColdFishes$Species))
+Ncold
+ColdFishes <- ColdFishes %>% dplyr::select(c(3:14))
+ColdFishes <- ColdFishes %>% summarise_all(mean)
+
+CompWarmFishes <- WarmFishes
+CompColdFishes <- ColdFishes
+CompWarmFishes$Group <- "WarmFishes"
+CompColdFishes$Group <- "ColdFishes"
+CompMutspec <- rbind(CompColdFishes, CompWarmFishes)
+```
+
+#Simulation 
+##Starting 
+
+```{r}
+SimulationData = data.frame() # Initialize results dataframe
+GenomeLength = 10000 # Make sure GenomeLength is defined
+SimulationLengthNumberOfGenerations = 600000 # Make sure SimulationLengthNumberOfGenerations is defined
+```
+
+```{r}
+# Define the total number of iterations for the progress display
+total_iterations_manual <- length(c('cold-water fish', 'warm-water fish')) * 10
+current_iteration_manual <- 0 # Initialize iteration counter
+progress_bar_width <- 50 # Width of the text progress bar in characters
+
+if (file.exists(here(data_dir, "SimulationData.csv"))) {
+  SimulationData <- read.csv(here(data_dir, "SimulationData.csv"))
+} else {
+  cat("Starting simulation...\n") # Initial message
+  
+  for (MutSpecProb in c('cold-water fish', 'warm-water fish'))
+  {
+    ### choose initial nucleotide frequencies: equal to 25% if InitGenome == 1 or random if InitGenome > 1
+    for (InitGenome in 1:10)
+    {
+      # --- Manual Progress Bar Update ---
+      current_iteration_manual <- current_iteration_manual + 1
+      percent_done <- (current_iteration_manual / total_iterations_manual) * 100
+      filled_length <- round(progress_bar_width * current_iteration_manual / total_iterations_manual)
+      bar <- paste0(rep("=", filled_length), collapse = "")
+      empty <- paste0(rep("-", progress_bar_width - filled_length), collapse = "")
+      
+      # Use \r to return to the beginning of the line for overwrite
+      # Use flush.console() to ensure immediate printing
+      cat(
+        sprintf(
+          "\rProgress: [%s%s] %3.0f%% (%d/%d)",
+          bar,
+          empty,
+          percent_done,
+          current_iteration_manual,
+          total_iterations_manual
+        )
+      )
+      flush.console()
+      # --- End Manual Progress Bar Update ---
+      
+      if (InitGenome == 1) {
+        frA = frG = frC = frT = 0.25
+      }
+      if (InitGenome >  1)
+      {
+        frA = runif(1)
+        frG = runif(1)
+        frC = runif(1)
+        frT = runif(1)
+        
+        Summa = frA + frT + frG + frC
+        frA = frA / Summa
+        frG = frG / Summa
+        frC = frC / Summa
+        frT = frT / Summa
+      }
+      
+      ### make a genome
+      if (!exists("GenomeLength")) {
+        stop("GenomeLength is not defined. Please define it before running the script.")
+      }
+      genome = sample(c(
+        rep('A', round(frA * GenomeLength)),
+        rep('T', round(frT * GenomeLength)),
+        rep('G', round(frG * GenomeLength)),
+        rep('C', round(frC * GenomeLength))
+      ))
+      
+      ##### B: DEFINE MUTATIONAL SPECTRUM
+      if (MutSpecProb == 'cold-water fish')
+      {
+        if (!exists("ColdFishes") || !is.data.frame(ColdFishes)) {
+          stop("ColdFishes is not defined or not a dataframe. Please define it correctly.")
+        }
+        VecMutSpec = c(
+          "T",
+          "A",
+          ColdFishes[['T_A.H']],
+          "T",
+          "C",
+          ColdFishes[['T_C.H']],
+          "T",
+          "G",
+          ColdFishes[['T_G.H']],
+          "A",
+          "T",
+          ColdFishes[['A_T.H']],
+          "A",
+          "C",
+          ColdFishes[['A_C.H']],
+          "A",
+          "G",
+          ColdFishes[['A_G.H']],
+          "C",
+          "T",
+          ColdFishes[['C_T.H']],
+          "C",
+          "A",
+          ColdFishes[['C_A.H']],
+          "C",
+          "G",
+          ColdFishes[['C_G.H']],
+          "G",
+          "T",
+          ColdFishes[['G_T.H']],
+          "G",
+          "A",
+          ColdFishes[['G_A.H']],
+          "G",
+          "C",
+          ColdFishes[['G_C.H']]
+        )
+      }
+      
+      if (MutSpecProb == 'warm-water fish')
+      {
+        if (!exists("WarmFishes") || !is.data.frame(WarmFishes)) {
+          stop("WarmFishes is not defined or not a dataframe. Please define it correctly.")
+        }
+        VecMutSpec = c(
+          "T",
+          "A",
+          WarmFishes[['T_A.H']],
+          "T",
+          "C",
+          WarmFishes[['T_C.H']],
+          "T",
+          "G",
+          WarmFishes[['T_G.H']],
+          "A",
+          "T",
+          WarmFishes[['A_T.H']],
+          "A",
+          "C",
+          WarmFishes[['A_C.H']],
+          "A",
+          "G",
+          WarmFishes[['A_G.H']],
+          "C",
+          "T",
+          WarmFishes[['C_T.H']],
+          "C",
+          "A",
+          WarmFishes[['C_A.H']],
+          "C",
+          "G",
+          WarmFishes[['C_G.H']],
+          "G",
+          "T",
+          WarmFishes[['G_T.H']],
+          "G",
+          "A",
+          WarmFishes[['G_A.H']],
+          "G",
+          "C",
+          WarmFishes[['G_C.H']]
+        )
+      }
+      
+      MutSpec = data.frame(matrix(
+        VecMutSpec,
+        ncol = 3,
+        nrow = 12,
+        byrow = TRUE
+      ))
+      names(MutSpec) = c('From', 'To', 'Prob')
+      MutSpec$Prob = as.numeric(as.character(MutSpec$Prob))
+      
+      ExpectedFrA = sum(MutSpec[MutSpec$To == 'A', ]$Prob) / sum(MutSpec[MutSpec$From == 'A', ]$Prob)
+      ExpectedFrT = sum(MutSpec[MutSpec$To == 'T', ]$Prob) / sum(MutSpec[MutSpec$From == 'T', ]$Prob)
+      ExpectedFrG = sum(MutSpec[MutSpec$To == 'G', ]$Prob) / sum(MutSpec[MutSpec$From == 'G', ]$Prob)
+      ExpectedFrC = sum(MutSpec[MutSpec$To == 'C', ]$Prob) / sum(MutSpec[MutSpec$From == 'C', ]$Prob)
+      Summa = ExpectedFrA + ExpectedFrT + ExpectedFrG + ExpectedFrC
+      ExpectedFrA = ExpectedFrA / Summa
+      ExpectedFrT = ExpectedFrT / Summa
+      ExpectedFrG = ExpectedFrG / Summa
+      ExpectedFrC = ExpectedFrC / Summa
+      
+      for (i in 1:nrow(MutSpec))
+      {
+        if (i == 1) {
+          MutSpec$RulletFrom[i] = 0
+        }
+        MutSpec$RulletTo[i] = sum(MutSpec[seq(1:i), ]$Prob)
+        if (i  > 1) {
+          MutSpec$RulletFrom[i] = MutSpec$RulletTo[i - 1]
+        }
+      }
+      
+      ##### C: MUTATE AND SAVE NUCLEOTIDE CONTENT EVERY 1000 GENERATIONS
+      if (!exists("SimulationLengthNumberOfGenerations")) {
+        stop("SimulationLengthNumberOfGenerations is not defined. Please define it.")
+      }
+      for (gener in 1:SimulationLengthNumberOfGenerations)
+      {
+        RandomPos = sample(1:length(genome), 1)
+        NucInRandomPos = genome[RandomPos]
+        
+        Rullet = runif(1)
+        PotentialSubstitution = MutSpec[MutSpec$RulletFrom <= Rullet &
+                                          MutSpec$RulletTo > Rullet, ]
+        PotentialSubstitution$To = as.character(PotentialSubstitution$To)
+        
+        if (nrow(PotentialSubstitution) == 1)
+        {
+          if (NucInRandomPos == PotentialSubstitution$From) {
+            genome[RandomPos] = PotentialSubstitution$To
+          }
+        }
+        
+        if ((gener %% 1000) == 0)
+        {
+          Res_table <- table(genome)
+          # Create a dataframe with all possible nucleotides to ensure consistent structure
+          all_nucs_df <- data.frame(genome = factor(c('A', 'C', 'G', 'T'), levels = c('A', 'C', 'G', 'T')))
+          current_res_df <- data.frame(genome = names(Res_table),
+                                       Freq = as.integer(Res_table))
+          
+          # Merge to ensure all A,C,G,T are present, filling missing with 0
+          merged_res <- merge(all_nucs_df,
+                              current_res_df,
+                              by = "genome",
+                              all.x = TRUE)
+          merged_res$Freq[is.na(merged_res$Freq)] <- 0
+          
+          Res_final_counts <- merged_res$Freq
+          names(Res_final_counts) <- merged_res$genome
+          
+          Res <- data.frame(
+            A = Res_final_counts['A'],
+            C = Res_final_counts['C'],
+            G = Res_final_counts['G'],
+            T = Res_final_counts['T'],
+            Gener = gener,
+            InitGenome = InitGenome,
+            MutSpecProb = MutSpecProb
+          )
+          
+          if (!exists("SimulationData")) {
+            # Initialize SimulationData if it doesn't exist
+            SimulationData <- data.frame()
+          }
+          SimulationData = rbind(SimulationData, Res)
+        }
+      }
+    }
+  }
+  # Print a newline character at the end to move to the next line in the console
+  cat("\nSimulation complete!\n")
+}
+```
+
+## Counting expected fractions of Neutral nucleotides 
+
+```{r}
+if (file.exists(here(data_dir, "SimulationData.csv"))) {
+  print("All done")
+} else {
+row.names(SimulationData) = 1:nrow(SimulationData)
+SimulationData$FrA.H = as.numeric(as.character(SimulationData$A))/length(genome)
+SimulationData$FrT.H = as.numeric(as.character(SimulationData$T))/length(genome)
+SimulationData$FrG.H = as.numeric(as.character(SimulationData$G))/length(genome)
+SimulationData$FrC.H = as.numeric(as.character(SimulationData$C))/length(genome)
+}
+#write.csv(SimulationData, here(data_dir, "SimulationData.csv"))
+```
+
+
+```{r}
+ColorA = "red"
+ColorT = "blue"
+ColorG = "darkgrey"
+ColorC = "darkgreen"
+
+SimulationData  = SimulationData[SimulationData$Gener <= 600000,]
+simulation_data_long <- pivot_longer(
+  SimulationData,
+  cols = c(FrA.H, FrT.H, FrG.H, FrC.H), # Columns to pivot
+  names_to = "Nucleotide_Fr",          # New column for original column names
+  values_to = "Frequency"              # New column for the values
+)
+
+# Extract Nucleotide type (A, T, G, C) from "Nucleotide_Fr"
+simulation_data_long$Nucleotide <- gsub("Fr|.H", "", simulation_data_long$Nucleotide_Fr)
+simulation_data_long$Nucleotide <- factor(simulation_data_long$Nucleotide, levels = c("A", "T", "G", "C"))
+
+
+# Define custom colors for ggplot2
+nucleotide_colors <- c("A" = ColorA, "T" = ColorT, "G" = ColorG, "C" = ColorC)
+
+# Horizontal line data
+hlines_cold <- data.frame(
+  Nucleotide = factor(c("A", "G", "T", "C"), levels = c("A", "T", "G", "C")),
+  value = c(0.1843125066, 0.2036486321, 0.5415029364, 0.07053592541)
+)
+
+hlines_warm <- data.frame(
+  Nucleotide = factor(c("A", "G", "T", "C"), levels = c("A", "T", "G", "C")),
+  value = c(0.1570029522, 0.2119039825, 0.5186136993, 0.1124793649)
+)
+
+
+# 2. Create Plot for Cold-Water Fish
+
+# Filter data for cold-water fish
+cold_fish_data <- simulation_data_long[simulation_data_long$MutSpecProb == 'cold-water fish', ]
+
+plot_cold_water <- ggplot(cold_fish_data, aes(x = Gener, y = Frequency, color = Nucleotide)) +
+  # Plot points for each simulation run (InitGenome). Alpha for transparency.
+  geom_point(aes(group = interaction(InitGenome, Nucleotide)), shape = ".", alpha = 0.3) +
+  # Add horizontal lines for target frequencies
+  geom_hline(data = hlines_cold, aes(yintercept = value, color = Nucleotide), linetype = "dashed", linewidth = 1) +
+  # Apply custom colors
+  scale_color_manual(values = nucleotide_colors) +
+  # Set labels and title
+  labs(
+    title = "Cold-Water Fish: Nucleotide Frequencies Over Generations",
+    x = "Generation",
+    y = "Frequency",
+    color = "Nucleotide"
+  ) +
+  # Set y-axis limits
+  coord_cartesian(ylim = c(0, 0.6)) +
+  # A clean theme
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5)) # Center title
+
+# Print the plot (optional, will display in RStudio Plots pane)
+# print(plot_cold_water)
+
+# Save the plot
+ggsave(filename = "cold_water_fish_frequencies.png", plot = plot_cold_water, width = 10, height = 6, dpi = 300)
+message("Saved cold-water fish plot to cold_water_fish_frequencies.png")
+
+
+# 3. Create Plot for Warm-Water Fish
+
+# Filter data for warm-water fish
+warm_fish_data <- simulation_data_long[simulation_data_long$MutSpecProb == 'warm-water fish', ]
+
+plot_warm_water <- ggplot(warm_fish_data, aes(x = Gener, y = Frequency, color = Nucleotide)) +
+  geom_point(aes(group = interaction(InitGenome, Nucleotide)), shape = ".", alpha = 0.3) +
+  geom_hline(data = hlines_warm, aes(yintercept = value, color = Nucleotide), linetype = "dashed", linewidth = 1) +
+  scale_color_manual(values = nucleotide_colors) +
+  labs(
+    title = "Warm-Water Fish: Nucleotide Frequencies Over Generations",
+    x = "Generation",
+    y = "Frequency",
+    color = "Nucleotide"
+  ) +
+  coord_cartesian(ylim = c(0, 0.6)) +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5))
+
+both <- ggarrange(plot_cold_water, plot_warm_water, ncol = 2)
+both
+ggsave(here(plots_dir,"Simulation_plot.pdf"), plot = both, width = 20, height = 6, dpi = 300)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

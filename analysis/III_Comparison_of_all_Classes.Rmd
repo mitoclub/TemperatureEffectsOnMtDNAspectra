@@ -1,0 +1,171 @@
+---
+title: "Analysis of the mitochondrial mutational spectra between different classes"
+author: "Alina G. Mikhailova"
+date: "`r Sys.Date()`"
+output:
+    workflowr::wflow_html:
+    toc: true
+knitr:
+  opts_chunk:
+    echo: false
+---
+
+```{r setup, echo=FALSE, include=FALSE}
+docname <- "III_Comparison_of_all_Classes"
+now <- Sys.time()
+# Time chunks during knitting
+knitr::knit_hooks$set(timeit = function(before) {
+  if (before) {
+    print(paste("Start:", Sys.time()))
+    now <<- Sys.time()
+  } else {
+    print(paste("Stop:", Sys.time()))
+    print(Sys.time() - now)
+  }
+})
+
+knitr::opts_chunk$set(
+  autodep        = TRUE,
+  cache          = FALSE,
+  cache.path     = paste0("cache/", docname, "/"),
+  cache.comments = FALSE,
+  cache.lazy     = FALSE,
+  dev            = c("png", "pdf"),
+  echo           = TRUE,
+  error          = FALSE,
+  fig.align      = "center",
+  fig.width      = 14,
+  fig.height     = 12,
+  message        = FALSE,
+  warning        = FALSE,
+  timeit         = TRUE
+)
+# Load packages
+suppressPackageStartupMessages({
+  library(here)
+  library(knitr)
+  library(tidyverse)
+  library(magrittr)
+  library(caper)
+  library(geiger)
+  library(ggExtra)
+  library(ggpubr)
+  library(broom)
+  library(phytools)
+  library(ggstatsplot)
+  library(skimr)
+})
+
+# Set paths
+src_dir <- here("code")
+data_dir <- here("data")
+output_dir <- here("output")
+plots_dir <- here(output_dir, "figures")
+tables_dir <- here(output_dir, "tables")
+
+# parallelisation
+n_cores <- 4
+
+# set seed
+reseed <- 13
+set.seed(seed = reseed)
+```
+
+# Reading mutation spectra database (L-strand) and ecological databases
+
+```{r spectra, message=FALSE}
+mutSpec12all <- read_csv(here(data_dir, "MutSpecVertebrates12all.csv.gz"))
+mutSpec12allCb <- dplyr::filter(mutSpec12all, Gene == "Cytb")
+
+MutSpecForAnalysisCbAll <- mutSpec12allCb %>% dplyr::select(Class, Species, Mut, MutSpec)
+MutSpecForAnalysisCbAll$Mut <- gsub(">", "_", MutSpecForAnalysisCbAll$Mut)
+MutSpecForAnalysisCbAll <- MutSpecForAnalysisCbAll %>% pivot_wider(names_from = Mut, values_from = MutSpec, , values_fn = median) 
+colnames(MutSpecForAnalysisCbAll) <- c("Class",
+                                  "Species", 
+                                  "T_G.H", 
+                                  "T_C.H", 
+                                  "T_A.H", 
+                                  "G_T.H", 
+                                  "G_C.H", 
+                                  "G_A.H", 
+                                  "C_T.H", 
+                                  "C_G.H", 
+                                  "C_A.H", 
+                                  "A_T.H", 
+                                  "A_G.H", 
+                                  "A_C.H")
+```
+
+```{r ecology}
+fishEcology <- read.csv(here(data_dir, "Full_fish_ecology_table_2025.csv"))
+head(fishEcology)
+fishEcologyTemp <- fishEcology %>% dplyr::select(Species, Temp_avg)
+fishEcologyTemp <- na.omit(fishEcologyTemp)
+fishEcologyTemp$Class <- "Fishes"
+allEcology <-read.csv(here(data_dir, "Dataset_S1.csv"), sep=";")
+allEcology$Temp_avg <- as.numeric(gsub(",", ".", allEcology$Tb))
+allEcology$Tb <- NULL
+allEcology <- rbind(allEcology, fishEcologyTemp)
+todelete <- c(
+    "Testudines",
+    "Crocodylia")
+allEcology <- allEcology[!allEcology$Class %in% todelete,]
+allEcology <- allEcology %>% mutate(
+  Class = fct_relevel(
+    Class,
+    "Fishes",
+    "Amphibia",
+    "Lepidosauria",
+    "Mammalia", 
+    "Aves"
+  )
+)
+
+allEcologyNOCLASS <- allEcology 
+allEcologyNOCLASS$Class <- NULL
+```
+
+# Comparison temperatures of all Classes
+
+```{r violin temperature, message=FALSE}
+plt <- ggbetweenstats(data = allEcology, x = Class, y = Temp_avg) +
+  labs(x = "Classes", y = "Temp_avg") +
+  scale_color_manual(values = c(
+      "#6760db",
+      "#7849bf",
+      "#9145c4",
+      "#c73a69",
+      "#c2464c"))
+
+plt
+```
+
+# Comparison A>G of all Classes
+
+```{r violin A>G, message=FALSE, warning= FALSE}
+merging <- list(MutSpecForAnalysisCbAll, allEcologyNOCLASS)
+MutSpecForAnalysisCbAll <- merging %>% purrr::reduce(left_join, by= "Species")
+MutSpecForAnalysisCbAll[MutSpecForAnalysisCbAll$Class == "Actinopteri",]$Class <- "Fishes"
+MutSpecForAnalysisCbAll <- MutSpecForAnalysisCbAll %>% mutate(Class = fct_relevel(
+  Class,
+  "Fishes",
+  "Amphibia",
+  "Lepidosauria",
+  "Mammalia",
+  "Aves"
+))
+
+str(MutSpecForAnalysisCbAll$Class)
+
+
+plt2 <- ggbetweenstats(data = MutSpecForAnalysisCbAll, x = Class, y = A_G.H) +
+  labs(x = "Classes", y = "A>G.heavy") +
+  scale_color_manual(values = c(
+      "#6760db",
+      "#7849bf",
+      "#9145c4",
+      "#c73a69",
+      "red"))
+
+plt2
+```

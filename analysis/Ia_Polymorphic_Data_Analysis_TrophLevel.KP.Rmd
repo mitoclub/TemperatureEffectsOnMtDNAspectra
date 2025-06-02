@@ -47,7 +47,7 @@ names(Mut)
 head(Mut)
 dim(Mut)
 
-Eco = read.csv(here(tables_dir, "Full_fish_ecology_table_2025.csv"))
+Eco = read.csv(here(data_dir, "Full_fish_ecology_table_2025.csv"))
 dim(Eco)
 Eco <- Eco[!is.na(Eco$Climate_zone), c(1, 11)]  # Filter and select columns
 
@@ -66,7 +66,7 @@ wilcox.test(MutEco$MutSpec[MutEco$WarmClimate == 0],MutEco$MutSpec[MutEco$WarmCl
 ```
 ## PGLS1: A>G ~ WarmClimate for 333 fishes
 
-```{r}
+```{r warning=FALSE}
 
 tree = read.tree(file = here(data_dir, "chordates_species.nwk"))
 tree <- ape::drop.tip(tree, "Tenebrosternarchus_preto")
@@ -98,7 +98,7 @@ names(Mut)
 head(Mut)
 dim(Mut)
 
-Eco = read.csv(here(tables_dir, "Full_fish_ecology_table_2025.csv"))
+Eco = read.csv(here(data_dir, "Full_fish_ecology_table_2025.csv"))
 dim(Eco)
 summary(Eco$FoodTroph)
 str(Eco$FoodTroph)
@@ -148,7 +148,7 @@ names(Mut)
 head(Mut)
 dim(Mut)
 
-Eco = read.csv(here(tables_dir, "Full_fish_ecology_table_2025.csv"))
+Eco = read.csv(here(data_dir, "Full_fish_ecology_table_2025.csv"))
 dim(Eco)
 summary(Eco$FoodTroph)
 str(Eco$FoodTroph)
@@ -214,7 +214,6 @@ text(
 ## PGLS3-4: A>G ~ WarmClimate + Predator for 264 species; A>G ~ ClimateAndTroph   # little hope for 264 
 
 ```{r warning=FALSE}
-
 tree = read.tree(file = here(data_dir, "chordates_species.nwk"))
 tree <- ape::drop.tip(tree, "Tenebrosternarchus_preto")
 MutEcoPGLS <- MutEco %>% dplyr::select(Species, MutSpec, WarmClimate, Predator, ClimateAndTroph)
@@ -229,9 +228,21 @@ data$ClimateAndTroph = as.numeric(data$ClimateAndTroph)
 data$MutSpec = as.numeric(data$MutSpec)
 data_comp <- comparative.data(tree_pruned, data, Species, vcv=TRUE)
 
-
 summary(pgls(MutSpec ~ WarmClimate + Predator, data_comp, lambda="ML"))
 summary(pgls(MutSpec ~ ClimateAndTroph, data_comp, lambda="ML"))
 
+MutEcoPGLS <- MutEcoPGLS[MutEcoPGLS$WarmClimate == 0,] # if WarmClimate == 1, Predator: est = 0.0088876,  p =  0.5845   
+
+row.names(MutEcoPGLS) = MutEcoPGLS$Species
+tree_pruned = treedata(tree, MutEcoPGLS, sort=T, warnings=T)$phy
+data<-as.data.frame(treedata(tree_pruned, MutEcoPGLS, sort=T, warnings=T)$data)
+data$Species = as.character(data$Species)
+data$WarmClimate = as.numeric(data$WarmClimate)
+data$Predator = as.numeric(data$Predator)
+data$ClimateAndTroph = as.numeric(data$ClimateAndTroph)
+data$MutSpec = as.numeric(data$MutSpec)
+data_comp <- comparative.data(tree_pruned, data, Species, vcv=TRUE)
+
+summary(pgls(MutSpec ~ Predator, data_comp, lambda="ML"))
 
 ```
