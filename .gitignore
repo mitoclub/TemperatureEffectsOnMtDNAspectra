@@ -4,7 +4,9 @@
 .Ruserdata
 data/*.fasta
 data/*.fasta.fai
-data/*.txt
-data/*.csv
+# data/*.txt
+# data/*.csv
 data/*.nwk
 *.gz
+data/MutSpecVertebrates192fish.csv
+!data/MutSpecVertebrates192fish.csv.gz
