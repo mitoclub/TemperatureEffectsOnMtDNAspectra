@@ -71,7 +71,7 @@ reseed <- 13
 set.seed(seed = reseed)
 ```
 
-# Reading mutation spectra database (L-strand) and ecological databases
+# Reading mutation spectra database (L-strand), CytB nucleotide database (L-strand, only Actinopteri) and ecological databases
 
 ```{r spectra, message=FALSE}
 mutSpec12all <- read_csv(here(data_dir, "MutSpecVertebrates12all.csv.gz"))
@@ -125,6 +125,30 @@ allEcologyNOCLASS <- allEcology
 allEcologyNOCLASS$Class <- NULL
 ```
 
+```{r codon usage, message=FALSE}
+mtDNAcodonUsage <- read.table(here(data_dir, "Codons_of_CytB_gene_Chordata.txt"), header = TRUE)
+Classes <- c("Actinopteri", "Amphibia", "Lepidosauria", "Mammalia", "Aves")
+mtDNAcodonUsage = mtDNAcodonUsage[mtDNAcodonUsage$Class %in% Classes,]
+ToMerge <- mtDNAcodonUsage %>% dplyr::select(Species, Class)
+
+mtDNAcodonUsage = aggregate(list(mtDNAcodonUsage$NeutralA,mtDNAcodonUsage$NeutralT,mtDNAcodonUsage$NeutralG,mtDNAcodonUsage$NeutralC), by = list(mtDNAcodonUsage$Species), FUN = sum)
+names(mtDNAcodonUsage) = c('Species','NeutralA','NeutralT','NeutralG','NeutralC')
+mtDNAcodonUsage$FrT.H = mtDNAcodonUsage$NeutralA / (mtDNAcodonUsage$NeutralA + mtDNAcodonUsage$NeutralT +
+                                                    mtDNAcodonUsage$NeutralG + mtDNAcodonUsage$NeutralC)
+mtDNAcodonUsage$FrA.H = mtDNAcodonUsage$NeutralT / (mtDNAcodonUsage$NeutralA + mtDNAcodonUsage$NeutralT + 
+                                                    mtDNAcodonUsage$NeutralG + mtDNAcodonUsage$NeutralC) 
+mtDNAcodonUsage$FrC.H = mtDNAcodonUsage$NeutralG / (mtDNAcodonUsage$NeutralA + mtDNAcodonUsage$NeutralT + 
+                                                    mtDNAcodonUsage$NeutralG + mtDNAcodonUsage$NeutralC) 
+mtDNAcodonUsage$FrG.H = mtDNAcodonUsage$NeutralC / (mtDNAcodonUsage$NeutralA + mtDNAcodonUsage$NeutralT + 
+                                                    mtDNAcodonUsage$NeutralG + mtDNAcodonUsage$NeutralC) 
+mtDNAcodonUsage <- merge(mtDNAcodonUsage, ToMerge)
+
+mtDNAcodonUsage$AGskew <- (mtDNAcodonUsage$FrA.H - mtDNAcodonUsage$FrG.H)/(mtDNAcodonUsage$FrG.H + mtDNAcodonUsage$FrA.H)
+mtDNAcodonUsage$CTskew <- (mtDNAcodonUsage$FrC.H - mtDNAcodonUsage$FrT.H)/(mtDNAcodonUsage$FrT.H + mtDNAcodonUsage$FrC.H)
+
+```
+
+
 # Comparison temperatures of all Classes
 
 ```{r violin temperature, message=FALSE}
@@ -160,6 +184,59 @@ str(MutSpecForAnalysisCbAll$Class)
 
 plt2 <- ggbetweenstats(data = MutSpecForAnalysisCbAll, x = Class, y = A_G.H) +
   labs(x = "Classes", y = "A>G.heavy") +
+  scale_color_manual(values = c(
+      "#6760db",
+      "#7849bf",
+      "#9145c4",
+      "#c73a69",
+      "red"))
+
+plt2
+```
+
+# Comparison AGskew of all Classes
+
+```{r violin-AGskew, message=FALSE, warning= FALSE}
+mtDNAcodonUsage[mtDNAcodonUsage$Class == "Actinopteri",]$Class <- "Fishes"
+mtDNAcodonUsage <- mtDNAcodonUsage %>% mutate(Class = fct_relevel(
+  Class,
+  "Fishes",
+  "Amphibia",
+  "Lepidosauria",
+  "Mammalia",
+  "Aves"
+))
+
+str(mtDNAcodonUsage$Class)
+
+
+plt2 <- ggbetweenstats(data = mtDNAcodonUsage, x = Class, y = AGskew) +
+  labs(x = "Classes", y = "AGskew") +
+  scale_color_manual(values = c(
+      "#6760db",
+      "#7849bf",
+      "#9145c4",
+      "#c73a69",
+      "red"))
+
+plt2
+```
+# Comparison A.H of all Classes
+
+```{r violin-Aheavy, message=FALSE, warning= FALSE}
+plt2 <- ggbetweenstats(data = mtDNAcodonUsage, x = Class, y = FrA.H) +
+  labs(x = "Classes", y = "Fraction of A.H") +
+  scale_color_manual(values = c(
+      "#6760db",
+      "#7849bf",
+      "#9145c4",
+      "#c73a69",
+      "red"))
+
+plt2
+
+plt2 <- ggbetweenstats(data = mtDNAcodonUsage, x = Class, y = FrG.H) +
+  labs(x = "Classes", y = "Fraction of G.H") +
   scale_color_manual(values = c(
       "#6760db",
       "#7849bf",

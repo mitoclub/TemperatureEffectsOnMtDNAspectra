@@ -461,15 +461,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratreee4425434bcea2d6fb98caa88392505f3064ba422targetblanke442543a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree530b2a62fc373b56fd5e6ef0b3970c3a6d4e274ctargetblank530b2a6a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/e4425434bcea2d6fb98caa88392505f3064ba422" target="_blank">e442543</a>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/530b2a62fc373b56fd5e6ef0b3970c3a6d4e274c" target="_blank">530b2a6</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratreee4425434bcea2d6fb98caa88392505f3064ba422targetblanke442543a"
+id="strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree530b2a62fc373b56fd5e6ef0b3970c3a6d4e274ctargetblank530b2a6a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -479,7 +479,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/e4425434bcea2d6fb98caa88392505f3064ba422" target="_blank">e442543</a>.
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/530b2a62fc373b56fd5e6ef0b3970c3a6d4e274c" target="_blank">530b2a6</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -516,6 +516,11 @@ Ignored files:
     Ignored:    data/SimulationData.csv
     Ignored:    output/.DS_Store
     Ignored:    output/tables/
+
+Unstaged changes:
+    Modified:   output/figures/PolymorphicData.Actinopterygii.A_GwitnTemperatureCytB.pdf
+    Modified:   output/figures/PolymorphicData.Actinopterygii.AverageMutSpecColdAndWarmCytB.pdf
+    Modified:   output/figures/PolymorphicData.Actinopterygii.AverageMutSpecCytB.pdf
 
 </code></pre>
 <p>
@@ -566,7 +571,24 @@ Message
 Rmd
 </td>
 <td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/e4425434bcea2d6fb98caa88392505f3064ba422/analysis/II_Whole_Genomes_Data_Analysis.Rmd" target="_blank">e442543</a>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/ad28257961a99798122a3b968b1be129307f6f34/analysis/II_Whole_Genomes_Data_Analysis.Rmd" target="_blank">ad28257</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-06-02
+</td>
+<td>
+Violin plots for tempersture and A&gt;G
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mitoclub/TemperatureEffectsOnMtDNAspectra/ad28257961a99798122a3b968b1be129307f6f34/docs/II_Whole_Genomes_Data_Analysis.html" target="_blank">ad28257</a>
 </td>
 <td>
 Alya Mikhailova
@@ -731,6 +753,43 @@ time of maturation</p>
 #) 
 sf4</code></pre>
 <p><img src="figure/II_Whole_Genomes_Data_Analysis.Rmd/unnamed-chunk-1-1.png" width="1344" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-1-1">
+Past versions of unnamed-chunk-1-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-1-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/ad28257961a99798122a3b968b1be129307f6f34/docs/figure/II_Whole_Genomes_Data_Analysis.Rmd/unnamed-chunk-1-1.png" target="_blank">ad28257</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-06-02
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>MaturationMedian &lt;- median(NucAndEco$tm, na.rm = TRUE)
 TemperatureMedian &lt;- median(NucAndEco$Temp_avg, na.rm = TRUE)
 NucAndEco$TemperatureGroup &lt;- ifelse(NucAndEco$Temp_avg &gt;= TemperatureMedian, &quot;Warm&quot;, &quot;Cold&quot;)
@@ -743,8 +802,45 @@ sf6 &lt;- ggplot(data = NucAndEco, aes(x = TemperatureGroup, y = AGskew))+
   theme_test()+
   labs(y = &#39;AGskew&#39;)
 sf6</code></pre>
-<p><img src="figure/II_Whole_Genomes_Data_Analysis.Rmd/unnamed-chunk-2-1.png" width="1344" style="display: block; margin: auto;" />
-##LM</p>
+<p><img src="figure/II_Whole_Genomes_Data_Analysis.Rmd/unnamed-chunk-2-1.png" width="1344" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-2-1">
+Past versions of unnamed-chunk-2-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-2-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/ad28257961a99798122a3b968b1be129307f6f34/docs/figure/II_Whole_Genomes_Data_Analysis.Rmd/unnamed-chunk-2-1.png" target="_blank">ad28257</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-06-02
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>##LM</p>
 <pre class="r"><code>summary(lm(AGskew ~ Temp_avg + tm, data = NucAndEco))</code></pre>
 <pre><code>
 Call:

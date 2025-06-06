@@ -1,5 +1,5 @@
 ---
-title: "Analysis of the whole genomes data in Fishes from Mikhailova et al. 2022"
+title: "Analysis of the Cyt B neutral nucleotide data in Fishes"
 author: "Alina G. Mikhailova"
 date: "`r Sys.Date()`"
 output:
@@ -11,7 +11,7 @@ knitr:
 ---
 
 ```{r setup, echo=FALSE, include=FALSE}
-docname <- "II_Whole_Genomes_Data_Analysis"
+docname <- "II_Cytb_Data_Analysis"
 now <- Sys.time()
 # Time chunks during knitting
 knitr::knit_hooks$set(timeit = function(before) {
@@ -72,11 +72,11 @@ reseed <- 13
 set.seed(seed = reseed)
 ```
 
-# Reading codon usage database (L-strand), calculating neutral nucleotide content and reading ecology
+# Reading cytB codon usage database (L-strand), calculating neutral nucleotide content and reading ecology
 
 ```{r codon usage, message=FALSE}
-mtDNAcodonUsage <- read.table(here(data_dir, "AllGenesCodonUsageNoOverlap.txt"), header = TRUE, sep = '\t')
-mtDNAcodonUsage = mtDNAcodonUsage[mtDNAcodonUsage$Gene != 'ND6' & mtDNAcodonUsage$Gene == 'CytB',] # check Cyt B
+mtDNAcodonUsage <- read.table(here(data_dir, "Codons_of_CytB_gene_Chordata.txt"), header = TRUE)
+mtDNAcodonUsage = mtDNAcodonUsage[mtDNAcodonUsage$Class == 'Actinopteri' | mtDNAcodonUsage$Class == 'Chondrichthyes',]
 
 mtDNAcodonUsage = aggregate(list(mtDNAcodonUsage$NeutralA,mtDNAcodonUsage$NeutralT,mtDNAcodonUsage$NeutralG,mtDNAcodonUsage$NeutralC), by = list(mtDNAcodonUsage$Species), FUN = sum)
 names(mtDNAcodonUsage) = c('Species','NeutralA','NeutralT','NeutralG','NeutralC')
@@ -157,21 +157,6 @@ sf4
 
 ```
 
-```{r}
-
-MaturationMedian <- median(NucAndEco$tm, na.rm = TRUE)
-TemperatureMedian <- median(NucAndEco$Temp_avg, na.rm = TRUE)
-NucAndEco$TemperatureGroup <- ifelse(NucAndEco$Temp_avg >= TemperatureMedian, "Warm", "Cold")
-NucAndEco$LongevityGroup <- ifelse(NucAndEco$tm >= MaturationMedian, "LongLived", "ShortLived")
-NucAndEco <- NucAndEco[!is.na(NucAndEco$TemperatureGroup) & !is.na(NucAndEco$LongevityGroup),]
-
-sf6 <- ggplot(data = NucAndEco, aes(x = TemperatureGroup, y = AGskew))+
-  geom_boxplot()+
-  facet_wrap(~LongevityGroup)+
-  theme_test()+
-  labs(y = 'AGskew')
-sf6
-```
 ##LM
 
 ```{r}
@@ -249,7 +234,7 @@ summary(pgls(AGskew ~ Temp_avg, data_comp, lambda="ML"))
 
 summary(pgls(FrG.H ~ Temp_avg, data_comp, lambda="ML"))
 
-#summary(pgls(FrT.H ~ Temp_avg, data_comp, lambda="ML"))
+summary(pgls(FrT.H ~ Temp_avg, data_comp, lambda="ML"))
 summary(pgls(FrC.H ~ Temp_avg, data_comp, lambda="ML"))
 
 summary(pgls(CTskew ~ Temp_avg, data_comp, lambda="ML"))

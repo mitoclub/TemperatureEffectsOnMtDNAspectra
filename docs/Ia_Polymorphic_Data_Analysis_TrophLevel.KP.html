@@ -396,7 +396,7 @@ div.tocify {
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
+workflowr <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -407,8 +407,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> </a>
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -421,9 +421,9 @@ aria-hidden="true"></span> </a>
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 1
+aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong>
@@ -447,21 +447,18 @@ versions</em> tab lists the development history.
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
-<span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
-changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges"
+<div id="strongRMarkdownfilestronguptodate"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of
-the R Markdown file created these results, you’ll want to first commit
-it to the Git repo. If you’re still working on the analysis, you can
-ignore this warning. When you’re finished, you can run
-<code>wflow_publish</code> to commit the R Markdown file and build the
-HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
 </div>
 </div>
 </div>
@@ -552,15 +549,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratreebdaf5f7622b912b7dda1a29557c923639eef7177targetblankbdaf5f7a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree530b2a62fc373b56fd5e6ef0b3970c3a6d4e274ctargetblank530b2a6a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/bdaf5f7622b912b7dda1a29557c923639eef7177" target="_blank">bdaf5f7</a>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/530b2a62fc373b56fd5e6ef0b3970c3a6d4e274c" target="_blank">530b2a6</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratreebdaf5f7622b912b7dda1a29557c923639eef7177targetblankbdaf5f7a"
+id="strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree530b2a62fc373b56fd5e6ef0b3970c3a6d4e274ctargetblank530b2a6a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -570,7 +567,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/bdaf5f7622b912b7dda1a29557c923639eef7177" target="_blank">bdaf5f7</a>.
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/530b2a62fc373b56fd5e6ef0b3970c3a6d4e274c" target="_blank">530b2a6</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -593,40 +590,25 @@ Ignored files:
     Ignored:    analysis/.Rhistory
     Ignored:    code/.DS_Store
     Ignored:    data/.DS_Store
+    Ignored:    data/AllGenesCodonUsageNoOverlap.txt
+    Ignored:    data/ColdAndWarmFishesSpectra.txt
+    Ignored:    data/Dataset_S1.csv
+    Ignored:    data/ExpectedFractions.txt
+    Ignored:    data/Extra_climate_data_2025.csv
+    Ignored:    data/Extra_temperature_grow_data_2025.csv
+    Ignored:    data/Extra_temperature_popQB_data_2025.csv
+    Ignored:    data/Full_fish_ecology_table_2025.csv
+    Ignored:    data/MIDORI2_LONGEST_NUC_GB265_Cytb_BLAST.fasta
+    Ignored:    data/MIDORI2_LONGEST_NUC_GB265_Cytb_BLAST.fasta.fai
+    Ignored:    data/MIDORI_WG_CYTB_FISHES.csv
+    Ignored:    data/SimulationData.csv
     Ignored:    output/.DS_Store
-    Ignored:    output/tables/.DS_Store
-
-Untracked files:
-    Untracked:  analysis/III_Comparison_of_all_Classes.Rmd
-    Untracked:  analysis/II_Whole_Genomes_Data_Analysis.Rmd
-    Untracked:  analysis/IIa_Whole_Genomes_Data_Analysis_Simulation_Mutagenesis.Rmd
-    Untracked:  code/Obtaining_codon_usage_from_MIDORI.R
-    Untracked:  data/AllGenesCodonUsageNoOverlap.txt
-    Untracked:  data/ColdAndWarmFishesSpectra.txt
-    Untracked:  data/Dataset_S1.csv
-    Untracked:  data/Dataset_S1.xlsx
-    Untracked:  data/ExpectedFractions.txt
-    Untracked:  data/Extra_climate_data_2025.csv
-    Untracked:  data/Extra_temperature_grow_data_2025.csv
-    Untracked:  data/Extra_temperature_popQB_data_2025.csv
-    Untracked:  data/Full_fish_ecology_table_2025.csv
-    Untracked:  data/MIDORI2_LONGEST_NUC_GB265_Cytb_BLAST.fasta
-    Untracked:  data/MIDORI2_LONGEST_NUC_GB265_Cytb_BLAST.fasta.fai
-    Untracked:  data/MIDORI_WG_CYTB_FISHES.csv
-    Untracked:  data/SimulationData.csv
-    Untracked:  output/figures/PolymorphicData.Actinopterygii.AverageMutSpecColdAndWarmCytB.pdf
-    Untracked:  output/figures/Simulation_plot.pdf
+    Ignored:    output/tables/
 
 Unstaged changes:
-    Modified:   analysis/I_Polymorphic_Data_Analysis.Rmd
-    Modified:   analysis/Ia_Polymorphic_Data_Analysis_TrophLevel.KP.Rmd
     Modified:   output/figures/PolymorphicData.Actinopterygii.A_GwitnTemperatureCytB.pdf
-    Modified:   output/figures/PolymorphicData.Actinopterygii.AverageMutSpecColdAndWarm.pdf
+    Modified:   output/figures/PolymorphicData.Actinopterygii.AverageMutSpecColdAndWarmCytB.pdf
     Modified:   output/figures/PolymorphicData.Actinopterygii.AverageMutSpecCytB.pdf
-    Deleted:    output/tables/Extra_climate_data_2025.csv
-    Deleted:    output/tables/Extra_temperature_grow_data_2025.csv
-    Deleted:    output/tables/Extra_temperature_popQB_data_2025.csv
-    Deleted:    output/tables/Full_fish_ecology_table_2025.csv
 
 </code></pre>
 <p>
@@ -673,6 +655,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/ad28257961a99798122a3b968b1be129307f6f34/analysis/Ia_Polymorphic_Data_Analysis_TrophLevel.KP.Rmd" target="_blank">ad28257</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-06-02
+</td>
+<td>
+Violin plots for tempersture and A&gt;G
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mitoclub/TemperatureEffectsOnMtDNAspectra/ad28257961a99798122a3b968b1be129307f6f34/docs/Ia_Polymorphic_Data_Analysis_TrophLevel.KP.html" target="_blank">ad28257</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-06-02
+</td>
+<td>
+Violin plots for tempersture and A&gt;G
+</td>
+</tr>
 <tr>
 <td>
 Rmd

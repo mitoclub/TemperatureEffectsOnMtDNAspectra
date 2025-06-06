@@ -1,5 +1,5 @@
 ---
-title: "Simulation of the mutagenesis in the whole genomes in Fishes"
+title: "Simulation of the mutagenesis in the Cyt B gene in Fishes"
 author: "Alina G. Mikhailova"
 date: "`r Sys.Date()`"
 output:
@@ -11,7 +11,7 @@ knitr:
 ---
 
 ```{r setup, echo=FALSE, include=FALSE}
-docname <- "IIa_Whole_Genomes_Data_Analysis_Simulation_Mutagenesis"
+docname <- "IIa_Cytb_Data_Analysis_Simulation_Mutagenesis"
 now <- Sys.time()
 # Time chunks during knitting
 knitr::knit_hooks$set(timeit = function(before) {
