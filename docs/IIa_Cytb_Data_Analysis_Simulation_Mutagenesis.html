@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Alina G. Mikhailova" />
+
+<meta name="date" content="2025-06-06" />
+
+<title>Simulation of the mutagenesis in the Cyt B gene in Fishes</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">TemperatureEffectsOnMtDNAspectra</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Analysis
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="I_Polymorphic_Data_Analysis.html">Analysis of the polymorphic data in Fishes obtained by NeMu pipeline</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="methods.html">Methods</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="license.html">License</a>
+</li>
+<li>
+  <a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Simulation of the mutagenesis in the Cyt B
+gene in Fishes</h1>
+<h4 class="author">Alina G. Mikhailova</h4>
+<h4 class="date">2025-06-06</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+workflowr <span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2025-06-06
+</p>
+<p>
+<strong>Checks:</strong> <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> 0
+</p>
+<p>
+<strong>Knit directory:</strong>
+<code>TemperatureEffectsOnMtDNAspectra/</code> <span
+class="glyphicon glyphicon-question-sign" aria-hidden="true"
+title="This is the local directory in which the code in this file was executed.">
+</span>
+</p>
+<p>
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a>
+analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version
+1.7.1). The <em>Checks</em> tab describes the reproducibility checks
+that were applied when the results were created. The <em>Past
+versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the
+global environment can affect the analysis in your R Markdown file in
+unknown ways. For reproduciblity it’s best to always run the code in an
+empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20240719code">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Seed:</strong>
+<code>set.seed(20240719)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20240719code"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20240719)</code> was run prior to running
+the code in the R Markdown file. Setting a seed ensures that any results
+that rely on randomness, e.g. subsampling or permutations, are
+reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Session information:</strong>
+recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package
+versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be
+confident that you successfully produced the results during this
+run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr
+project makes it easier to run your code on other machines.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree3359d519bdd35636ba19e81d7f4b626cbf814c0ftargetblank3359d51a">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Repository version:</strong>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/3359d519bdd35636ba19e81d7f4b626cbf814c0f" target="_blank">3359d51</a>
+</a>
+</p>
+</div>
+<div
+id="strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree3359d519bdd35636ba19e81d7f4b626cbf814c0ftargetblank3359d51a"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development
+and connecting the code version to the results is critical for
+reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/3359d519bdd35636ba19e81d7f4b626cbf814c0f" target="_blank">3359d51</a>.
+See the <em>Past versions</em> tab to see a history of the changes made
+to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for
+the analysis have been committed to Git prior to generating the results
+(you can use <code>wflow_publish</code> or
+<code>wflow_git_commit</code>). workflowr only checks the R Markdown
+file, but you know if there are other scripts or data files that it
+depends on. Below is the status of the Git repository when the results
+were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .DS_Store
+    Ignored:    .Rhistory
+    Ignored:    .Rproj.user/
+    Ignored:    analysis/.DS_Store
+    Ignored:    analysis/.RData
+    Ignored:    analysis/.Rhistory
+    Ignored:    code/.DS_Store
+    Ignored:    data/.DS_Store
+    Ignored:    data/Codons_of_CytB_gene_Chordata.txt
+    Ignored:    data/ColdAndWarmFishesSpectra.txt
+    Ignored:    data/Dataset_S1.csv
+    Ignored:    data/ExpectedFractions.txt
+    Ignored:    data/Extra_climate_data_2025.csv
+    Ignored:    data/Extra_temperature_grow_data_2025.csv
+    Ignored:    data/Extra_temperature_popQB_data_2025.csv
+    Ignored:    data/Full_fish_ecology_table_2025.csv
+    Ignored:    data/MIDORI2_LONGEST_NUC_GB265_Cytb_BLAST.fasta
+    Ignored:    data/MIDORI2_LONGEST_NUC_GB265_Cytb_BLAST.fasta.fai
+    Ignored:    data/MIDORI_WG_CYTB_FISHES.csv
+    Ignored:    data/SimulationData.csv
+    Ignored:    output/.DS_Store
+    Ignored:    output/tables/
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not
+included in this status report because it is ok for generated content to
+have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+<p>
+These are the previous versions of the repository in which changes were
+made to the R Markdown
+(<code>analysis/IIa_Cytb_Data_Analysis_Simulation_Mutagenesis.Rmd</code>)
+and HTML
+(<code>docs/IIa_Cytb_Data_Analysis_Simulation_Mutagenesis.html</code>)
+files. If you’ve configured a remote Git repository (see
+<code>?wflow_git_remote</code>), click on the hyperlinks in the table
+below to view the files as they were in that past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/3359d519bdd35636ba19e81d7f4b626cbf814c0f/analysis/IIa_Cytb_Data_Analysis_Simulation_Mutagenesis.Rmd" target="_blank">3359d51</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-06-06
+</td>
+<td>
+Analyses of neutral nuc content only on CYT B
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<div
+id="reading-mutation-spectra-database-l-strand-and-ecological-databases"
+class="section level1">
+<h1>Reading mutation spectra database (L-strand) and ecological
+databases</h1>
+<pre class="r"><code>#mutSpec12all &lt;- read_csv(here(data_dir, &quot;MutSpecVertebrates12all.csv.gz&quot;))
+mutSpec12 &lt;- read_csv(here(data_dir, &quot;MutSpecVertebrates12fish.csv&quot;))
+mutSpec12Cb &lt;- dplyr::filter(mutSpec12, Gene == &quot;Cytb&quot;)
+head(mutSpec12Cb)</code></pre>
+<pre><code># A tibble: 6 × 9
+  Gene  Class       Species   Mut   Observed TreeLeaves MSAsize Expected MutSpec
+  &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;    &lt;dbl&gt;      &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
+1 Cytb  Actinopteri Scombrop… A&gt;C        4           68    1140     71.0  0.0326
+2 Cytb  Actinopteri Scombrop… A&gt;G       21.6         68    1140    111.   0.113 
+3 Cytb  Actinopteri Scombrop… A&gt;T        2           68    1140     71.0  0.0163
+4 Cytb  Actinopteri Scombrop… C&gt;A        3           68    1140     86.3  0.0201
+5 Cytb  Actinopteri Scombrop… C&gt;G        0           68    1140     86.3  0     
+6 Cytb  Actinopteri Scombrop… C&gt;T       10.7         68    1140    182.   0.0340</code></pre>
+<pre class="r"><code>MutSpecForAnalysisCb &lt;- mutSpec12Cb %&gt;% dplyr::select(Class, Species, Mut, MutSpec)
+MutSpecForAnalysisCb$Mut &lt;- gsub(&quot;&gt;&quot;, &quot;_&quot;, MutSpecForAnalysisCb$Mut)
+MutSpecForAnalysisCb &lt;- MutSpecForAnalysisCb %&gt;% pivot_wider(names_from = Mut, values_from = MutSpec, , values_fn = median) 
+colnames(MutSpecForAnalysisCb) &lt;- c(&quot;Class&quot;,
+                                  &quot;Species&quot;, 
+                                  &quot;T_G.H&quot;, 
+                                  &quot;T_C.H&quot;, 
+                                  &quot;T_A.H&quot;, 
+                                  &quot;G_T.H&quot;, 
+                                  &quot;G_C.H&quot;, 
+                                  &quot;G_A.H&quot;, 
+                                  &quot;C_T.H&quot;, 
+                                  &quot;C_G.H&quot;, 
+                                  &quot;C_A.H&quot;, 
+                                  &quot;A_T.H&quot;, 
+                                  &quot;A_G.H&quot;, 
+                                  &quot;A_C.H&quot;)</code></pre>
+<pre class="r"><code>fishEcology &lt;- read.csv(here(data_dir, &quot;Full_fish_ecology_table_2025.csv&quot;))
+tibble(head(fishEcology))</code></pre>
+<pre><code># A tibble: 6 × 12
+  Species  Wmax   Lmax  tmax FeedingType FoodTroph    tm    Lm Temp_min Temp_max
+  &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;int&gt;    &lt;int&gt;
+1 Abbott…   NA    9.10  2    &lt;NA&gt;            NA     1      4.5       NA       NA
+2 Abrami… 4112.  46.9  14.4  hunting ma…      3.15  4.12  28.8       10       24
+3 Abudef…   NA   19.0  NA    grazing on…      3.39 NA     12         NA       NA
+4 Acanth…   NA    3     4    hunting ma…      3.12 NA     NA         NA       NA
+5 Acanth… 7200  178.    9.30 hunting ma…      4.45  2     99.3       NA       NA
+6 Acanth…  660   56    12.5  hunting ma…      3.5  NA     21         NA       NA
+# ℹ 2 more variables: Climate_zone &lt;chr&gt;, Temp_avg &lt;dbl&gt;</code></pre>
+</div>
+<div id="obtaining-average-mutspec-for-cold-and-warm-fisches"
+class="section level1">
+<h1>Obtaining average MutSpec for cold and warm fisches</h1>
+<pre class="r"><code>merging &lt;- list(MutSpecForAnalysisCb, fishEcology)
+MutAndEcoCb &lt;- merging %&gt;% purrr::reduce(left_join, by= &quot;Species&quot;)
+temperaturestat &lt;- summary(MutAndEcoCb$Temp_avg)
+
+WarmFishes &lt;- filter(MutAndEcoCb, Temp_avg &gt; as.numeric(temperaturestat[&quot;3rd Qu.&quot;]))
+Nwarm &lt;- length(unique(WarmFishes$Species))
+Nwarm</code></pre>
+<pre><code>[1] 32</code></pre>
+<pre class="r"><code>WarmFishes &lt;- WarmFishes %&gt;% dplyr::select(c(3:14))
+WarmFishes &lt;- WarmFishes %&gt;% summarise_all(mean)
+
+ColdFishes &lt;- filter(MutAndEcoCb, Temp_avg &lt; as.numeric(temperaturestat[&quot;1st Qu.&quot;]))
+Ncold &lt;- length(unique(ColdFishes$Species))
+Ncold</code></pre>
+<pre><code>[1] 39</code></pre>
+<pre class="r"><code>ColdFishes &lt;- ColdFishes %&gt;% dplyr::select(c(3:14))
+ColdFishes &lt;- ColdFishes %&gt;% summarise_all(mean)
+
+CompWarmFishes &lt;- WarmFishes
+CompColdFishes &lt;- ColdFishes
+CompWarmFishes$Group &lt;- &quot;WarmFishes&quot;
+CompColdFishes$Group &lt;- &quot;ColdFishes&quot;
+CompMutspec &lt;- rbind(CompColdFishes, CompWarmFishes)</code></pre>
+<p>#Simulation ##Starting</p>
+<pre class="r"><code>SimulationData = data.frame() # Initialize results dataframe
+GenomeLength = 10000 # Make sure GenomeLength is defined
+SimulationLengthNumberOfGenerations = 600000 # Make sure SimulationLengthNumberOfGenerations is defined</code></pre>
+<pre class="r"><code># Define the total number of iterations for the progress display
+total_iterations_manual &lt;- length(c(&#39;cold-water fish&#39;, &#39;warm-water fish&#39;)) * 10
+current_iteration_manual &lt;- 0 # Initialize iteration counter
+progress_bar_width &lt;- 50 # Width of the text progress bar in characters
+
+if (file.exists(here(data_dir, &quot;SimulationData.csv&quot;))) {
+  SimulationData &lt;- read.csv(here(data_dir, &quot;SimulationData.csv&quot;))
+} else {
+  cat(&quot;Starting simulation...\n&quot;) # Initial message
+  
+  for (MutSpecProb in c(&#39;cold-water fish&#39;, &#39;warm-water fish&#39;))
+  {
+    ### choose initial nucleotide frequencies: equal to 25% if InitGenome == 1 or random if InitGenome &gt; 1
+    for (InitGenome in 1:10)
+    {
+      # --- Manual Progress Bar Update ---
+      current_iteration_manual &lt;- current_iteration_manual + 1
+      percent_done &lt;- (current_iteration_manual / total_iterations_manual) * 100
+      filled_length &lt;- round(progress_bar_width * current_iteration_manual / total_iterations_manual)
+      bar &lt;- paste0(rep(&quot;=&quot;, filled_length), collapse = &quot;&quot;)
+      empty &lt;- paste0(rep(&quot;-&quot;, progress_bar_width - filled_length), collapse = &quot;&quot;)
+      
+      # Use \r to return to the beginning of the line for overwrite
+      # Use flush.console() to ensure immediate printing
+      cat(
+        sprintf(
+          &quot;\rProgress: [%s%s] %3.0f%% (%d/%d)&quot;,
+          bar,
+          empty,
+          percent_done,
+          current_iteration_manual,
+          total_iterations_manual
+        )
+      )
+      flush.console()
+      # --- End Manual Progress Bar Update ---
+      
+      if (InitGenome == 1) {
+        frA = frG = frC = frT = 0.25
+      }
+      if (InitGenome &gt;  1)
+      {
+        frA = runif(1)
+        frG = runif(1)
+        frC = runif(1)
+        frT = runif(1)
+        
+        Summa = frA + frT + frG + frC
+        frA = frA / Summa
+        frG = frG / Summa
+        frC = frC / Summa
+        frT = frT / Summa
+      }
+      
+      ### make a genome
+      if (!exists(&quot;GenomeLength&quot;)) {
+        stop(&quot;GenomeLength is not defined. Please define it before running the script.&quot;)
+      }
+      genome = sample(c(
+        rep(&#39;A&#39;, round(frA * GenomeLength)),
+        rep(&#39;T&#39;, round(frT * GenomeLength)),
+        rep(&#39;G&#39;, round(frG * GenomeLength)),
+        rep(&#39;C&#39;, round(frC * GenomeLength))
+      ))
+      
+      ##### B: DEFINE MUTATIONAL SPECTRUM
+      if (MutSpecProb == &#39;cold-water fish&#39;)
+      {
+        if (!exists(&quot;ColdFishes&quot;) || !is.data.frame(ColdFishes)) {
+          stop(&quot;ColdFishes is not defined or not a dataframe. Please define it correctly.&quot;)
+        }
+        VecMutSpec = c(
+          &quot;T&quot;,
+          &quot;A&quot;,
+          ColdFishes[[&#39;T_A.H&#39;]],
+          &quot;T&quot;,
+          &quot;C&quot;,
+          ColdFishes[[&#39;T_C.H&#39;]],
+          &quot;T&quot;,
+          &quot;G&quot;,
+          ColdFishes[[&#39;T_G.H&#39;]],
+          &quot;A&quot;,
+          &quot;T&quot;,
+          ColdFishes[[&#39;A_T.H&#39;]],
+          &quot;A&quot;,
+          &quot;C&quot;,
+          ColdFishes[[&#39;A_C.H&#39;]],
+          &quot;A&quot;,
+          &quot;G&quot;,
+          ColdFishes[[&#39;A_G.H&#39;]],
+          &quot;C&quot;,
+          &quot;T&quot;,
+          ColdFishes[[&#39;C_T.H&#39;]],
+          &quot;C&quot;,
+          &quot;A&quot;,
+          ColdFishes[[&#39;C_A.H&#39;]],
+          &quot;C&quot;,
+          &quot;G&quot;,
+          ColdFishes[[&#39;C_G.H&#39;]],
+          &quot;G&quot;,
+          &quot;T&quot;,
+          ColdFishes[[&#39;G_T.H&#39;]],
+          &quot;G&quot;,
+          &quot;A&quot;,
+          ColdFishes[[&#39;G_A.H&#39;]],
+          &quot;G&quot;,
+          &quot;C&quot;,
+          ColdFishes[[&#39;G_C.H&#39;]]
+        )
+      }
+      
+      if (MutSpecProb == &#39;warm-water fish&#39;)
+      {
+        if (!exists(&quot;WarmFishes&quot;) || !is.data.frame(WarmFishes)) {
+          stop(&quot;WarmFishes is not defined or not a dataframe. Please define it correctly.&quot;)
+        }
+        VecMutSpec = c(
+          &quot;T&quot;,
+          &quot;A&quot;,
+          WarmFishes[[&#39;T_A.H&#39;]],
+          &quot;T&quot;,
+          &quot;C&quot;,
+          WarmFishes[[&#39;T_C.H&#39;]],
+          &quot;T&quot;,
+          &quot;G&quot;,
+          WarmFishes[[&#39;T_G.H&#39;]],
+          &quot;A&quot;,
+          &quot;T&quot;,
+          WarmFishes[[&#39;A_T.H&#39;]],
+          &quot;A&quot;,
+          &quot;C&quot;,
+          WarmFishes[[&#39;A_C.H&#39;]],
+          &quot;A&quot;,
+          &quot;G&quot;,
+          WarmFishes[[&#39;A_G.H&#39;]],
+          &quot;C&quot;,
+          &quot;T&quot;,
+          WarmFishes[[&#39;C_T.H&#39;]],
+          &quot;C&quot;,
+          &quot;A&quot;,
+          WarmFishes[[&#39;C_A.H&#39;]],
+          &quot;C&quot;,
+          &quot;G&quot;,
+          WarmFishes[[&#39;C_G.H&#39;]],
+          &quot;G&quot;,
+          &quot;T&quot;,
+          WarmFishes[[&#39;G_T.H&#39;]],
+          &quot;G&quot;,
+          &quot;A&quot;,
+          WarmFishes[[&#39;G_A.H&#39;]],
+          &quot;G&quot;,
+          &quot;C&quot;,
+          WarmFishes[[&#39;G_C.H&#39;]]
+        )
+      }
+      
+      MutSpec = data.frame(matrix(
+        VecMutSpec,
+        ncol = 3,
+        nrow = 12,
+        byrow = TRUE
+      ))
+      names(MutSpec) = c(&#39;From&#39;, &#39;To&#39;, &#39;Prob&#39;)
+      MutSpec$Prob = as.numeric(as.character(MutSpec$Prob))
+      
+      ExpectedFrA = sum(MutSpec[MutSpec$To == &#39;A&#39;, ]$Prob) / sum(MutSpec[MutSpec$From == &#39;A&#39;, ]$Prob)
+      ExpectedFrT = sum(MutSpec[MutSpec$To == &#39;T&#39;, ]$Prob) / sum(MutSpec[MutSpec$From == &#39;T&#39;, ]$Prob)
+      ExpectedFrG = sum(MutSpec[MutSpec$To == &#39;G&#39;, ]$Prob) / sum(MutSpec[MutSpec$From == &#39;G&#39;, ]$Prob)
+      ExpectedFrC = sum(MutSpec[MutSpec$To == &#39;C&#39;, ]$Prob) / sum(MutSpec[MutSpec$From == &#39;C&#39;, ]$Prob)
+      Summa = ExpectedFrA + ExpectedFrT + ExpectedFrG + ExpectedFrC
+      ExpectedFrA = ExpectedFrA / Summa
+      ExpectedFrT = ExpectedFrT / Summa
+      ExpectedFrG = ExpectedFrG / Summa
+      ExpectedFrC = ExpectedFrC / Summa
+      
+      for (i in 1:nrow(MutSpec))
+      {
+        if (i == 1) {
+          MutSpec$RulletFrom[i] = 0
+        }
+        MutSpec$RulletTo[i] = sum(MutSpec[seq(1:i), ]$Prob)
+        if (i  &gt; 1) {
+          MutSpec$RulletFrom[i] = MutSpec$RulletTo[i - 1]
+        }
+      }
+      
+      ##### C: MUTATE AND SAVE NUCLEOTIDE CONTENT EVERY 1000 GENERATIONS
+      if (!exists(&quot;SimulationLengthNumberOfGenerations&quot;)) {
+        stop(&quot;SimulationLengthNumberOfGenerations is not defined. Please define it.&quot;)
+      }
+      for (gener in 1:SimulationLengthNumberOfGenerations)
+      {
+        RandomPos = sample(1:length(genome), 1)
+        NucInRandomPos = genome[RandomPos]
+        
+        Rullet = runif(1)
+        PotentialSubstitution = MutSpec[MutSpec$RulletFrom &lt;= Rullet &amp;
+                                          MutSpec$RulletTo &gt; Rullet, ]
+        PotentialSubstitution$To = as.character(PotentialSubstitution$To)
+        
+        if (nrow(PotentialSubstitution) == 1)
+        {
+          if (NucInRandomPos == PotentialSubstitution$From) {
+            genome[RandomPos] = PotentialSubstitution$To
+          }
+        }
+        
+        if ((gener %% 1000) == 0)
+        {
+          Res_table &lt;- table(genome)
+          # Create a dataframe with all possible nucleotides to ensure consistent structure
+          all_nucs_df &lt;- data.frame(genome = factor(c(&#39;A&#39;, &#39;C&#39;, &#39;G&#39;, &#39;T&#39;), levels = c(&#39;A&#39;, &#39;C&#39;, &#39;G&#39;, &#39;T&#39;)))
+          current_res_df &lt;- data.frame(genome = names(Res_table),
+                                       Freq = as.integer(Res_table))
+          
+          # Merge to ensure all A,C,G,T are present, filling missing with 0
+          merged_res &lt;- merge(all_nucs_df,
+                              current_res_df,
+                              by = &quot;genome&quot;,
+                              all.x = TRUE)
+          merged_res$Freq[is.na(merged_res$Freq)] &lt;- 0
+          
+          Res_final_counts &lt;- merged_res$Freq
+          names(Res_final_counts) &lt;- merged_res$genome
+          
+          Res &lt;- data.frame(
+            A = Res_final_counts[&#39;A&#39;],
+            C = Res_final_counts[&#39;C&#39;],
+            G = Res_final_counts[&#39;G&#39;],
+            T = Res_final_counts[&#39;T&#39;],
+            Gener = gener,
+            InitGenome = InitGenome,
+            MutSpecProb = MutSpecProb
+          )
+          
+          if (!exists(&quot;SimulationData&quot;)) {
+            # Initialize SimulationData if it doesn&#39;t exist
+            SimulationData &lt;- data.frame()
+          }
+          SimulationData = rbind(SimulationData, Res)
+        }
+      }
+    }
+  }
+  # Print a newline character at the end to move to the next line in the console
+  cat(&quot;\nSimulation complete!\n&quot;)
+}</code></pre>
+<div id="counting-expected-fractions-of-neutral-nucleotides"
+class="section level2">
+<h2>Counting expected fractions of Neutral nucleotides</h2>
+<pre class="r"><code>if (file.exists(here(data_dir, &quot;SimulationData.csv&quot;))) {
+  print(&quot;All done&quot;)
+} else {
+row.names(SimulationData) = 1:nrow(SimulationData)
+SimulationData$FrA.H = as.numeric(as.character(SimulationData$A))/length(genome)
+SimulationData$FrT.H = as.numeric(as.character(SimulationData$T))/length(genome)
+SimulationData$FrG.H = as.numeric(as.character(SimulationData$G))/length(genome)
+SimulationData$FrC.H = as.numeric(as.character(SimulationData$C))/length(genome)
+}</code></pre>
+<pre><code>[1] &quot;All done&quot;</code></pre>
+<pre class="r"><code>#write.csv(SimulationData, here(data_dir, &quot;SimulationData.csv&quot;))</code></pre>
+<pre class="r"><code>ColorA = &quot;red&quot;
+ColorT = &quot;blue&quot;
+ColorG = &quot;darkgrey&quot;
+ColorC = &quot;darkgreen&quot;
+
+SimulationData  = SimulationData[SimulationData$Gener &lt;= 600000,]
+simulation_data_long &lt;- pivot_longer(
+  SimulationData,
+  cols = c(FrA.H, FrT.H, FrG.H, FrC.H), # Columns to pivot
+  names_to = &quot;Nucleotide_Fr&quot;,          # New column for original column names
+  values_to = &quot;Frequency&quot;              # New column for the values
+)
+
+# Extract Nucleotide type (A, T, G, C) from &quot;Nucleotide_Fr&quot;
+simulation_data_long$Nucleotide &lt;- gsub(&quot;Fr|.H&quot;, &quot;&quot;, simulation_data_long$Nucleotide_Fr)
+simulation_data_long$Nucleotide &lt;- factor(simulation_data_long$Nucleotide, levels = c(&quot;A&quot;, &quot;T&quot;, &quot;G&quot;, &quot;C&quot;))
+
+
+# Define custom colors for ggplot2
+nucleotide_colors &lt;- c(&quot;A&quot; = ColorA, &quot;T&quot; = ColorT, &quot;G&quot; = ColorG, &quot;C&quot; = ColorC)
+
+# Horizontal line data
+hlines_cold &lt;- data.frame(
+  Nucleotide = factor(c(&quot;A&quot;, &quot;G&quot;, &quot;T&quot;, &quot;C&quot;), levels = c(&quot;A&quot;, &quot;T&quot;, &quot;G&quot;, &quot;C&quot;)),
+  value = c(0.1843125066, 0.2036486321, 0.5415029364, 0.07053592541)
+)
+
+hlines_warm &lt;- data.frame(
+  Nucleotide = factor(c(&quot;A&quot;, &quot;G&quot;, &quot;T&quot;, &quot;C&quot;), levels = c(&quot;A&quot;, &quot;T&quot;, &quot;G&quot;, &quot;C&quot;)),
+  value = c(0.1570029522, 0.2119039825, 0.5186136993, 0.1124793649)
+)
+
+
+# 2. Create Plot for Cold-Water Fish
+
+# Filter data for cold-water fish
+cold_fish_data &lt;- simulation_data_long[simulation_data_long$MutSpecProb == &#39;cold-water fish&#39;, ]
+
+plot_cold_water &lt;- ggplot(cold_fish_data, aes(x = Gener, y = Frequency, color = Nucleotide)) +
+  # Plot points for each simulation run (InitGenome). Alpha for transparency.
+  geom_point(aes(group = interaction(InitGenome, Nucleotide)), shape = &quot;.&quot;, alpha = 0.3) +
+  # Add horizontal lines for target frequencies
+  geom_hline(data = hlines_cold, aes(yintercept = value, color = Nucleotide), linetype = &quot;dashed&quot;, linewidth = 1) +
+  # Apply custom colors
+  scale_color_manual(values = nucleotide_colors) +
+  # Set labels and title
+  labs(
+    title = &quot;Cold-Water Fish: Nucleotide Frequencies Over Generations&quot;,
+    x = &quot;Generation&quot;,
+    y = &quot;Frequency&quot;,
+    color = &quot;Nucleotide&quot;
+  ) +
+  # Set y-axis limits
+  coord_cartesian(ylim = c(0, 0.6)) +
+  # A clean theme
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5)) # Center title
+
+# Print the plot (optional, will display in RStudio Plots pane)
+# print(plot_cold_water)
+
+# Save the plot
+ggsave(filename = &quot;cold_water_fish_frequencies.png&quot;, plot = plot_cold_water, width = 10, height = 6, dpi = 300)
+message(&quot;Saved cold-water fish plot to cold_water_fish_frequencies.png&quot;)
+
+
+# 3. Create Plot for Warm-Water Fish
+
+# Filter data for warm-water fish
+warm_fish_data &lt;- simulation_data_long[simulation_data_long$MutSpecProb == &#39;warm-water fish&#39;, ]
+
+plot_warm_water &lt;- ggplot(warm_fish_data, aes(x = Gener, y = Frequency, color = Nucleotide)) +
+  geom_point(aes(group = interaction(InitGenome, Nucleotide)), shape = &quot;.&quot;, alpha = 0.3) +
+  geom_hline(data = hlines_warm, aes(yintercept = value, color = Nucleotide), linetype = &quot;dashed&quot;, linewidth = 1) +
+  scale_color_manual(values = nucleotide_colors) +
+  labs(
+    title = &quot;Warm-Water Fish: Nucleotide Frequencies Over Generations&quot;,
+    x = &quot;Generation&quot;,
+    y = &quot;Frequency&quot;,
+    color = &quot;Nucleotide&quot;
+  ) +
+  coord_cartesian(ylim = c(0, 0.6)) +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5))
+
+both &lt;- ggarrange(plot_cold_water, plot_warm_water, ncol = 2)
+both</code></pre>
+<p><img src="figure/IIa_Cytb_Data_Analysis_Simulation_Mutagenesis.Rmd/unnamed-chunk-5-1.png" width="1344" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggsave(here(plots_dir,&quot;Simulation_plot.pdf&quot;), plot = both, width = 20, height = 6, dpi = 300)</code></pre>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.5.0 (2025-04-11)
+Platform: aarch64-apple-darwin20
+Running under: macOS Sequoia 15.5
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRblas.0.dylib 
+LAPACK: /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.1
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+time zone: Europe/Vienna
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] rfishbase_5.0.1    ggstatsplot_0.13.1 broom_1.0.8        ggpubr_0.6.0      
+ [5] ggExtra_0.10.1     geiger_2.0.11      phytools_2.4-4     maps_3.4.3        
+ [9] caper_1.0.3        mvtnorm_1.3-3      MASS_7.3-65        ape_5.8-1         
+[13] magrittr_2.0.3     lubridate_1.9.4    forcats_1.0.0      stringr_1.5.1     
+[17] dplyr_1.1.4        purrr_1.0.4        readr_2.1.5        tidyr_1.3.1       
+[21] tibble_3.2.1       ggplot2_3.5.2      tidyverse_2.0.0    knitr_1.50        
+[25] here_1.0.1         workflowr_1.7.1   
+
+loaded via a namespace (and not attached):
+  [1] RColorBrewer_1.1-3      rstudioapi_0.17.1       jsonlite_2.0.0         
+  [4] datawizard_1.1.0        correlation_0.8.7       subplex_1.9            
+  [7] estimability_1.5.1      farver_2.1.2            rmarkdown_2.29         
+ [10] fs_1.6.6                ragg_1.4.0              vctrs_0.6.5            
+ [13] paletteer_1.6.0         effectsize_1.0.1        rstatix_0.7.2          
+ [16] htmltools_0.5.8.1       DEoptim_2.2-8           deSolve_1.40           
+ [19] Formula_1.2-5           sass_0.4.10             bslib_0.9.0            
+ [22] emmeans_1.11.1          cachem_1.1.0            whisker_0.4.1          
+ [25] igraph_2.1.4            mime_0.13               lifecycle_1.0.4        
+ [28] iterators_1.0.14        pkgconfig_2.0.3         Matrix_1.7-3           
+ [31] R6_2.6.1                fastmap_1.2.0           shiny_1.10.0           
+ [34] digest_0.6.37           numDeriv_2016.8-1.1     rematch2_2.1.2         
+ [37] patchwork_1.3.0         ps_1.9.1                rprojroot_2.0.4        
+ [40] textshaping_1.0.1       labeling_0.4.3          clusterGeneration_1.3.8
+ [43] timechange_0.3.0        httr_1.4.7              abind_1.4-8            
+ [46] compiler_4.5.0          bit64_4.6.0-1           withr_3.0.2            
+ [49] doParallel_1.0.17       backports_1.5.0         optimParallel_1.0-2    
+ [52] carData_3.0-5           ggsignif_0.6.4          scatterplot3d_0.3-44   
+ [55] tools_4.5.0             httpuv_1.6.16           statsExpressions_1.7.0 
+ [58] glue_1.8.0              quadprog_1.5-8          callr_3.7.6            
+ [61] nlme_3.1-168            promises_1.3.3          grid_4.5.0             
+ [64] getPass_0.2-4           generics_0.1.4          gtable_0.3.6           
+ [67] tzdb_0.5.0              hms_1.1.3               car_3.1-3              
+ [70] utf8_1.2.5              foreach_1.5.2           pillar_1.10.2          
+ [73] vroom_1.6.5             later_1.4.2             lattice_0.22-7         
+ [76] bit_4.6.0               tidyselect_1.2.1        miniUI_0.1.2           
+ [79] git2r_0.36.2            xfun_0.52               expm_1.0-0             
+ [82] stringi_1.8.7           yaml_2.3.10             evaluate_1.0.3         
+ [85] codetools_0.2-20        cli_3.6.5               RcppParallel_5.1.10    
+ [88] xtable_1.8-4            parameters_0.26.0       systemfonts_1.2.3      
+ [91] processx_3.8.6          jquerylib_0.1.4         Rcpp_1.0.14            
+ [94] zeallot_0.2.0           coda_0.19-4.1           parallel_4.5.0         
+ [97] rstantools_2.4.0        bayestestR_0.16.0       phangorn_2.12.1        
+[100] scales_1.4.0            insight_1.3.0           crayon_1.5.3           
+[103] combinat_0.0-8          rlang_1.1.6             cowplot_1.1.3          
+[106] fastmatch_1.1-6         mnormt_2.1.1           </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+https://docs.mathjax.org/en/latest/web/configuration.html. This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
