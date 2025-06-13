@@ -74,7 +74,6 @@ set.seed(seed = reseed)
 # Reading mutation spectra database (L-strand) and ecological databases
 
 ```{r spectra, message=FALSE}
-#mutSpec12all <- read_csv(here(data_dir, "MutSpecVertebrates12all.csv.gz"))
 mutSpec12 <- read_csv(here(data_dir, "MutSpecVertebrates12fish.csv"))
 mutSpec12Cb <- dplyr::filter(mutSpec12, Gene == "Cytb")
 cat("N species =", length(unique(mutSpec12Cb$Species)))
@@ -97,10 +96,6 @@ colnames(MutSpecForAnalysisCb) <- c("Class",
                                   "A_T.H", 
                                   "A_G.H", 
                                   "A_C.H")
-
-sortedCytB <- MutSpecForAnalysisCb %>% arrange(desc(A_G.H))
-#write.table(sortedCytB, file = here(output_dir, "Sortet_by_A_G.H.txt"), col.names = TRUE, row.names = FALSE)
-
 
 MutSpecForAnalysis <- mutSpec12 %>% dplyr::select(Class, Species, Mut, MutSpec)
 MutSpecForAnalysis <- mutSpec12 %>% dplyr::select(Class, Species, Mut, MutSpec)
@@ -245,9 +240,12 @@ sf1
 ##Cytb
 
 ```{r barplots cold warm cytb, message=FALSE, warning= FALSE}
-merging <- list(MutSpecForAnalysisCb, fishEcology)
+distances <- read.table(here(data_dir, "Cytb.nm.Mafft_L-INS-i.pr.Bs.mtVer-F-I-G8.treefile.cut-c0.0001-rr.dist"), header = FALSE)
+colnames(distances) <- c("Species", "Rates")
+
+merging <- list(MutSpecForAnalysisCb, fishEcology, distances)
 MutAndEcoCb <- merging %>% reduce(left_join, by= "Species")
-temperaturestat <- summary (MutAndEcoCb$Temp_avg)
+temperaturestat <- summary(MutAndEcoCb$Temp_avg)
 
 WarmFishes <- filter(MutAndEcoCb, Temp_avg > as.numeric(temperaturestat["3rd Qu."]))
 WarmFishes <- pivot_longer(WarmFishes, cols = c("T_G.H", 
@@ -496,6 +494,10 @@ cold <- c("boreal", "polar", "temperate")
 warm <- c("subtropical", "tropical")
 wilcox.test(ClimateZonetest[ClimateZonetest$Climate_zone %in% cold,]$A_G.H, 
             ClimateZonetest[ClimateZonetest$Climate_zone %in% warm,]$A_G.H)
+ClimateZoneSP <- na.omit(data.frame(subset(MutAndEcoCb, select = c(Species, Climate_zone))))
+ClimateZoneSP$Group <- ifelse(ClimateZonetest$Climate_zone %in% cold, "Cold", "Warm")
+
+#write.table(ClimateZoneSP, here(data_dir, "Species_by_climate_zones.txt"), row.names = F)
 ```
 
 ## A\>G freqs dependence on temperature
@@ -513,6 +515,9 @@ tidy(cor.test(MutAndEcoCb$C_G.H, MutAndEcoCb$Temp_avg, method = 'spearman'))
 tidy(cor.test(MutAndEcoCb$G_T.H, MutAndEcoCb$Temp_avg, method = 'spearman'))
 tidy(cor.test(MutAndEcoCb$G_A.H, MutAndEcoCb$Temp_avg, method = 'spearman'))
 tidy(cor.test(MutAndEcoCb$G_C.H, MutAndEcoCb$Temp_avg, method = 'spearman'))
+
+cor.test(MutAndEcoCb$Temp_avg, MutAndEcoCb$Rates, method="spearman")
+
 
 SubsetClass<- unique(MutAndEcoCb$Class)
 spN <- nrow(MutAndEcoCb[!is.na(MutAndEcoCb$Temp_avg),])
@@ -602,10 +607,38 @@ summary(lm(A_G.H ~ Temp_avg + DeltaT, data = MutAndEcoCb))
 
 ## PGLS
 
-```{r inertia analysis cytb, message=FALSE, warning=FALSE}
-tree = read.tree(file = here(data_dir, "chordates_species.nwk"))
-tree <- ape::drop.tip(tree, "Tenebrosternarchus_preto")
-MutAndEcoPGLS <- MutAndEco %>% dplyr::select(Species, A_G.H, C_T.H, G_A.H, T_C.H, Temp_avg)
+```{r PGLS_rates, message=FALSE, warning=FALSE}
+tree = read.tree(file = here(data_dir, "Cytb.nm.Mafft_L-INS-i.pr.Bs.mtVer-F-I-G8.treefile.cut-c0.0001-rr"))
+MutAndEcoPGLS <- MutAndEcoCb %>% dplyr::select(Species, A_G.H, C_T.H, G_A.H, T_C.H, Rates)
+
+row.names(MutAndEcoPGLS) = MutAndEcoPGLS$Species
+tree_pruned = treedata(tree, MutAndEcoPGLS, sort=T, warnings=T)$phy
+data<-as.data.frame(treedata(tree_pruned, MutAndEcoPGLS, sort=T, warnings=T)$data)
+data$Species = as.character(data$Species)
+data$A_G.H = as.numeric(data$A_G.H)
+data$C_T.H = as.numeric(data$C_T.H)
+data$G_A.H = as.numeric(data$G_A.H)
+data$T_C.H = as.numeric(data$T_C.H)
+data$Rates = as.numeric(data$Rates)
+data$Tv <- 1-(data$A_G.H + data$G_A.H + data$T_C.H + data$C_T.H)
+data_comp <- comparative.data(tree_pruned, data, Species, vcv=TRUE)
+
+
+summary(pgls(A_G.H ~ Rates, data_comp, lambda="ML"))
+summary(pgls(C_T.H ~ Rates, data_comp, lambda="ML"))
+summary(pgls(G_A.H ~ Rates, data_comp, lambda="ML"))
+summary(pgls(T_C.H ~ Rates, data_comp, lambda="ML"))
+
+#la.A_G <- phylosig(tree_pruned, data$A_G.H, method = "lambda", test = TRUE) #Phylogenetic signal lambda : 0.280122 
+#la.C_T <- phylosig(tree_pruned, data$C_T.H, method = "lambda", test = TRUE) #Phylogenetic signal lambda : 0.119451 
+#la.G_A <- phylosig(tree_pruned, data$G_A.H, method = "lambda", test = TRUE) #Phylogenetic signal lambda : 0.719915 
+#la.T_C <- phylosig(tree_pruned, data$T_C.H, method = "lambda", test = TRUE) #Phylogenetic signal lambda : 0.813846 
+#la.Tv <- phylosig(tree_pruned, data$Tv, method = "lambda", test = TRUE) #Phylogenetic signal lambda : 0.113722
+#la.temp <- phylosig(tree_pruned, data$Temp_avg, method = "lambda", test = TRUE) #Phylogenetic signal lambda : 0.92032
+```
+```{r PGLS_temperature, message=FALSE, warning=FALSE}
+tree = read.tree(file = here(data_dir, "Cytb.nm.Mafft_L-INS-i.pr.Bs.mtVer-F-I-G8.treefile.cut-c0.0001-rr"))
+MutAndEcoPGLS <- MutAndEcoCb %>% dplyr::select(Species, A_G.H, C_T.H, G_A.H, T_C.H, Temp_avg)
 
 row.names(MutAndEcoPGLS) = MutAndEcoPGLS$Species
 tree_pruned = treedata(tree, MutAndEcoPGLS, sort=T, warnings=T)$phy
@@ -621,13 +654,9 @@ data_comp <- comparative.data(tree_pruned, data, Species, vcv=TRUE)
 
 
 summary(pgls(A_G.H ~ Temp_avg, data_comp, lambda="ML"))
-
-#la.A_G <- phylosig(tree_pruned, data$A_G.H, method = "lambda", test = TRUE) #Phylogenetic signal lambda : 0.280122 
-#la.C_T <- phylosig(tree_pruned, data$C_T.H, method = "lambda", test = TRUE) #Phylogenetic signal lambda : 0.119451 
-#la.G_A <- phylosig(tree_pruned, data$G_A.H, method = "lambda", test = TRUE) #Phylogenetic signal lambda : 0.719915 
-#la.T_C <- phylosig(tree_pruned, data$T_C.H, method = "lambda", test = TRUE) #Phylogenetic signal lambda : 0.813846 
-#la.Tv <- phylosig(tree_pruned, data$Tv, method = "lambda", test = TRUE) #Phylogenetic signal lambda : 0.113722
-#la.temp <- phylosig(tree_pruned, data$Temp_avg, method = "lambda", test = TRUE) #Phylogenetic signal lambda : 0.92032
+summary(pgls(C_T.H ~ Temp_avg, data_comp, lambda="ML"))
+summary(pgls(G_A.H ~ Temp_avg, data_comp, lambda="ML"))
+summary(pgls(T_C.H ~ Temp_avg, data_comp, lambda="ML"))
 
 ```
 

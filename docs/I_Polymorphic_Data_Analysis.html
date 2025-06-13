@@ -11,7 +11,7 @@
 
 <meta name="author" content="Alina G. Mikhailova" />
 
-<meta name="date" content="2025-06-02" />
+<meta name="date" content="2025-06-13" />
 
 <title>Analysis of the polymorphic data in Fishes obtained by NeMu pipeline</title>
 
@@ -300,7 +300,7 @@ $(document).ready(function () {
 <h1 class="title toc-ignore">Analysis of the polymorphic data in Fishes
 obtained by NeMu pipeline</h1>
 <h4 class="author">Alina G. Mikhailova</h4>
-<h4 class="date">2025-06-02</h4>
+<h4 class="date">2025-06-13</h4>
 
 </div>
 
@@ -308,7 +308,7 @@ obtained by NeMu pipeline</h1>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-ok text-success"
+workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -319,8 +319,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
-</a>
+class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -329,13 +329,13 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2025-06-02
+<strong>Last updated:</strong> 2025-06-13
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 0
+aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong>
@@ -359,18 +359,21 @@ versions</em> tab lists the development history.
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
-</a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
+changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate"
+<div id="strongRMarkdownfilestronguncommittedchanges"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git
-repository, you know the exact version of the code that produced these
-results.</p>
+<p>The R Markdown file has staged changes. To know which version of the
+R Markdown file created these results, you’ll want to first commit it to
+the Git repo. If you’re still working on the analysis, you can ignore
+this warning. When you’re finished, you can run
+<code>wflow_publish</code> to commit the R Markdown file and build the
+HTML.</p>
 </div>
 </div>
 </div>
@@ -461,15 +464,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree530b2a62fc373b56fd5e6ef0b3970c3a6d4e274ctargetblank530b2a6a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree51c225065db00737702e5c6604d9cf9b58a71101targetblank51c2250a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/530b2a62fc373b56fd5e6ef0b3970c3a6d4e274c" target="_blank">530b2a6</a>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/51c225065db00737702e5c6604d9cf9b58a71101" target="_blank">51c2250</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree530b2a62fc373b56fd5e6ef0b3970c3a6d4e274ctargetblank530b2a6a"
+id="strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree51c225065db00737702e5c6604d9cf9b58a71101targetblank51c2250a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -479,7 +482,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/530b2a62fc373b56fd5e6ef0b3970c3a6d4e274c" target="_blank">530b2a6</a>.
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/51c225065db00737702e5c6604d9cf9b58a71101" target="_blank">51c2250</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -502,7 +505,7 @@ Ignored files:
     Ignored:    analysis/.Rhistory
     Ignored:    code/.DS_Store
     Ignored:    data/.DS_Store
-    Ignored:    data/AllGenesCodonUsageNoOverlap.txt
+    Ignored:    data/Codons_of_CytB_gene_Chordata.txt
     Ignored:    data/ColdAndWarmFishesSpectra.txt
     Ignored:    data/Dataset_S1.csv
     Ignored:    data/ExpectedFractions.txt
@@ -514,8 +517,32 @@ Ignored files:
     Ignored:    data/MIDORI2_LONGEST_NUC_GB265_Cytb_BLAST.fasta.fai
     Ignored:    data/MIDORI_WG_CYTB_FISHES.csv
     Ignored:    data/SimulationData.csv
+    Ignored:    data/Species_by_climate_zones.txt
     Ignored:    output/.DS_Store
-    Ignored:    output/tables/
+    Ignored:    output/figures/.DS_Store
+    Ignored:    output/tables/.DS_Store
+
+Unstaged changes:
+    Deleted:    output/tables/Mitochondrial_matational_spectra_and_ecology_Fishes.txt
+    Deleted:    output/tables/Mitochondrial_mutational_spectra_and_ecology_Fishes.txt
+
+Staged changes:
+    Modified:   analysis/II_Cytb_Data_Analysis.Rmd
+    Modified:   analysis/IIa_Cytb_Data_Analysis_Simulation_Mutagenesis.Rmd
+    Modified:   analysis/I_Polymorphic_Data_Analysis.Rmd
+    Deleted:    cold_water_fish_frequencies.png
+    New:        data/Cytb.nm.Mafft_L-INS-i.pr.Bs.mtVer-F-I-G8.treefile.cut-c0.0001-rr
+    New:        data/Cytb.nm.Mafft_L-INS-i.pr.Bs.mtVer-F-I-G8.treefile.cut-c0.0001-rr.dist
+    New:        data/Cytb.nm.famsa.nj.refine.pr.Bs.mtVer-F-I-G8.treefile.cut-c0.0001-rr.dist
+    Deleted:    output/figures/PolymorphicData.Actinopterygii.A_GwitnTemperature.pdf
+    Deleted:    output/figures/PolymorphicData.Actinopterygii.A_GwitnTemperatureCytB.pdf
+    Deleted:    output/figures/PolymorphicData.Actinopterygii.AverageMutSpec.pdf
+    Deleted:    output/figures/PolymorphicData.Actinopterygii.AverageMutSpecColdAndWarm.pdf
+    Deleted:    output/figures/PolymorphicData.Actinopterygii.AverageMutSpecColdAndWarmCytB.pdf
+    Deleted:    output/figures/PolymorphicData.Actinopterygii.AverageMutSpecCytB.pdf
+    Deleted:    output/figures/Simulation_plot.pdf
+    New:        output/tables/Mitochondrial_matational_spectra_and_ecology_Fishes.txt
+    New:        output/tables/Mitochondrial_mutational_spectra_and_ecology_Fishes.txt
 
 </code></pre>
 <p>
@@ -561,6 +588,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mitoclub/TemperatureEffectsOnMtDNAspectra/3359d519bdd35636ba19e81d7f4b626cbf814c0f/docs/I_Polymorphic_Data_Analysis.html" target="_blank">3359d51</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-06-06
+</td>
+<td>
+Analyses of neutral nuc content only on CYT B
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -709,8 +753,7 @@ id="reading-mutation-spectra-database-l-strand-and-ecological-databases"
 class="section level1">
 <h1>Reading mutation spectra database (L-strand) and ecological
 databases</h1>
-<pre class="r"><code>#mutSpec12all &lt;- read_csv(here(data_dir, &quot;MutSpecVertebrates12all.csv.gz&quot;))
-mutSpec12 &lt;- read_csv(here(data_dir, &quot;MutSpecVertebrates12fish.csv&quot;))
+<pre class="r"><code>mutSpec12 &lt;- read_csv(here(data_dir, &quot;MutSpecVertebrates12fish.csv&quot;))
 mutSpec12Cb &lt;- dplyr::filter(mutSpec12, Gene == &quot;Cytb&quot;)
 cat(&quot;N species =&quot;, length(unique(mutSpec12Cb$Species)))</code></pre>
 <pre><code>N species = 840</code></pre>
@@ -741,10 +784,6 @@ colnames(MutSpecForAnalysisCb) &lt;- c(&quot;Class&quot;,
                                   &quot;A_T.H&quot;, 
                                   &quot;A_G.H&quot;, 
                                   &quot;A_C.H&quot;)
-
-sortedCytB &lt;- MutSpecForAnalysisCb %&gt;% arrange(desc(A_G.H))
-#write.table(sortedCytB, file = here(output_dir, &quot;Sortet_by_A_G.H.txt&quot;), col.names = TRUE, row.names = FALSE)
-
 
 MutSpecForAnalysis &lt;- mutSpec12 %&gt;% dplyr::select(Class, Species, Mut, MutSpec)
 MutSpecForAnalysis &lt;- mutSpec12 %&gt;% dplyr::select(Class, Species, Mut, MutSpec)
@@ -992,9 +1031,12 @@ Alya Mikhailova
 class="section level1">
 <h1>Comparison of average MutSpec between cold and warm fisches</h1>
 <p>##Cytb</p>
-<pre class="r"><code>merging &lt;- list(MutSpecForAnalysisCb, fishEcology)
+<pre class="r"><code>distances &lt;- read.table(here(data_dir, &quot;Cytb.nm.Mafft_L-INS-i.pr.Bs.mtVer-F-I-G8.treefile.cut-c0.0001-rr.dist&quot;), header = FALSE)
+colnames(distances) &lt;- c(&quot;Species&quot;, &quot;Rates&quot;)
+
+merging &lt;- list(MutSpecForAnalysisCb, fishEcology, distances)
 MutAndEcoCb &lt;- merging %&gt;% reduce(left_join, by= &quot;Species&quot;)
-temperaturestat &lt;- summary (MutAndEcoCb$Temp_avg)
+temperaturestat &lt;- summary(MutAndEcoCb$Temp_avg)
 
 WarmFishes &lt;- filter(MutAndEcoCb, Temp_avg &gt; as.numeric(temperaturestat[&quot;3rd Qu.&quot;]))
 WarmFishes &lt;- pivot_longer(WarmFishes, cols = c(&quot;T_G.H&quot;, 
@@ -1370,6 +1412,10 @@ wilcox.test(ClimateZonetest[ClimateZonetest$Climate_zone %in% cold,]$A_G.H,
 data:  ClimateZonetest[ClimateZonetest$Climate_zone %in% cold, ]$A_G.H and ClimateZonetest[ClimateZonetest$Climate_zone %in% warm, ]$A_G.H
 W = 9602.5, p-value = 4.671e-06
 alternative hypothesis: true location shift is not equal to 0</code></pre>
+<pre class="r"><code>ClimateZoneSP &lt;- na.omit(data.frame(subset(MutAndEcoCb, select = c(Species, Climate_zone))))
+ClimateZoneSP$Group &lt;- ifelse(ClimateZonetest$Climate_zone %in% cold, &quot;Cold&quot;, &quot;Warm&quot;)
+
+#write.table(ClimateZoneSP, here(data_dir, &quot;Species_by_climate_zones.txt&quot;), row.names = F)</code></pre>
 </div>
 <div id="ag-freqs-dependence-on-temperature" class="section level2">
 <h2>A&gt;G freqs dependence on temperature</h2>
@@ -1433,6 +1479,16 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   estimate statistic p.value method                          alternative
      &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;                           &lt;chr&gt;      
 1  0.00772   639977.   0.924 Spearman&#39;s rank correlation rho two.sided  </code></pre>
+<pre class="r"><code>cor.test(MutAndEcoCb$Temp_avg, MutAndEcoCb$Rates, method=&quot;spearman&quot;)</code></pre>
+<pre><code>
+    Spearman&#39;s rank correlation rho
+
+data:  MutAndEcoCb$Temp_avg and MutAndEcoCb$Rates
+S = 345452, p-value = 1.082e-06
+alternative hypothesis: true rho is not equal to 0
+sample estimates:
+      rho 
+0.3858364 </code></pre>
 <pre class="r"><code>SubsetClass&lt;- unique(MutAndEcoCb$Class)
 spN &lt;- nrow(MutAndEcoCb[!is.na(MutAndEcoCb$Temp_avg),])
 cat(&quot;N species =&quot;, spN, &quot;Taxa =&quot;, SubsetClass)</code></pre>
@@ -1719,9 +1775,142 @@ F-statistic:  9.37 on 2 and 147 DF,  p-value: 0.0001479</code></pre>
 </div>
 <div id="pgls" class="section level2">
 <h2>PGLS</h2>
-<pre class="r"><code>tree = read.tree(file = here(data_dir, &quot;chordates_species.nwk&quot;))
-tree &lt;- ape::drop.tip(tree, &quot;Tenebrosternarchus_preto&quot;)
-MutAndEcoPGLS &lt;- MutAndEco %&gt;% dplyr::select(Species, A_G.H, C_T.H, G_A.H, T_C.H, Temp_avg)
+<pre class="r"><code>tree = read.tree(file = here(data_dir, &quot;Cytb.nm.Mafft_L-INS-i.pr.Bs.mtVer-F-I-G8.treefile.cut-c0.0001-rr&quot;))
+MutAndEcoPGLS &lt;- MutAndEcoCb %&gt;% dplyr::select(Species, A_G.H, C_T.H, G_A.H, T_C.H, Rates)
+
+row.names(MutAndEcoPGLS) = MutAndEcoPGLS$Species
+tree_pruned = treedata(tree, MutAndEcoPGLS, sort=T, warnings=T)$phy
+data&lt;-as.data.frame(treedata(tree_pruned, MutAndEcoPGLS, sort=T, warnings=T)$data)
+data$Species = as.character(data$Species)
+data$A_G.H = as.numeric(data$A_G.H)
+data$C_T.H = as.numeric(data$C_T.H)
+data$G_A.H = as.numeric(data$G_A.H)
+data$T_C.H = as.numeric(data$T_C.H)
+data$Rates = as.numeric(data$Rates)
+data$Tv &lt;- 1-(data$A_G.H + data$G_A.H + data$T_C.H + data$C_T.H)
+data_comp &lt;- comparative.data(tree_pruned, data, Species, vcv=TRUE)
+
+
+summary(pgls(A_G.H ~ Rates, data_comp, lambda=&quot;ML&quot;))</code></pre>
+<pre><code>
+Call:
+pgls(formula = A_G.H ~ Rates, data = data_comp, lambda = &quot;ML&quot;)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.13816 -0.04363 -0.01115  0.02517  0.35632 
+
+Branch length transformations:
+
+kappa  [Fix]  : 1.000
+lambda [ ML]  : 0.241
+   lower bound : 0.000, p = 3.0598e-06
+   upper bound : 1.000, p = &lt; 2.22e-16
+   95.0% CI   : (0.113, 0.390)
+delta  [Fix]  : 1.000
+
+Coefficients:
+             Estimate Std. Error t value  Pr(&gt;|t|)    
+(Intercept)  0.206851   0.032251  6.4137 2.549e-10 ***
+Rates       -0.017745   0.011738 -1.5118     0.131    
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.06942 on 731 degrees of freedom
+Multiple R-squared: 0.003117,   Adjusted R-squared: 0.001753 
+F-statistic: 2.286 on 1 and 731 DF,  p-value: 0.131 </code></pre>
+<pre class="r"><code>summary(pgls(C_T.H ~ Rates, data_comp, lambda=&quot;ML&quot;))</code></pre>
+<pre><code>
+Call:
+pgls(formula = C_T.H ~ Rates, data = data_comp, lambda = &quot;ML&quot;)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.41928 -0.07490  0.00769  0.07942  0.34106 
+
+Branch length transformations:
+
+kappa  [Fix]  : 1.000
+lambda [ ML]  : 0.197
+   lower bound : 0.000, p = 0.0003347
+   upper bound : 1.000, p = &lt; 2.22e-16
+   95.0% CI   : (0.056, 0.393)
+delta  [Fix]  : 1.000
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 0.476018   0.054951  8.6626   &lt;2e-16 ***
+Rates       0.010350   0.020462  0.5058   0.6131    
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.1239 on 731 degrees of freedom
+Multiple R-squared: 0.0003499,  Adjusted R-squared: -0.001018 
+F-statistic: 0.2558 on 1 and 731 DF,  p-value: 0.6131 </code></pre>
+<pre class="r"><code>summary(pgls(G_A.H ~ Rates, data_comp, lambda=&quot;ML&quot;))</code></pre>
+<pre><code>
+Call:
+pgls(formula = G_A.H ~ Rates, data = data_comp, lambda = &quot;ML&quot;)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.09046 -0.03274 -0.01180  0.01808  0.40076 
+
+Branch length transformations:
+
+kappa  [Fix]  : 1.000
+lambda [ ML]  : 0.364
+   lower bound : 0.000, p = 1.9185e-05
+   upper bound : 1.000, p = &lt; 2.22e-16
+   95.0% CI   : (0.185, 0.548)
+delta  [Fix]  : 1.000
+
+Coefficients:
+             Estimate Std. Error t value  Pr(&gt;|t|)    
+(Intercept) 0.1108874  0.0259876  4.2669 2.242e-05 ***
+Rates       0.0042439  0.0089229  0.4756    0.6345    
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.05078 on 731 degrees of freedom
+Multiple R-squared: 0.0003094,  Adjusted R-squared: -0.001058 
+F-statistic: 0.2262 on 1 and 731 DF,  p-value: 0.6345 </code></pre>
+<pre class="r"><code>summary(pgls(T_C.H ~ Rates, data_comp, lambda=&quot;ML&quot;))</code></pre>
+<pre><code>
+Call:
+pgls(formula = T_C.H ~ Rates, data = data_comp, lambda = &quot;ML&quot;)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.21471 -0.05232 -0.01090  0.04375  0.43142 
+
+Branch length transformations:
+
+kappa  [Fix]  : 1.000
+lambda [ ML]  : 0.769
+   lower bound : 0.000, p = &lt; 2.22e-16
+   upper bound : 1.000, p = &lt; 2.22e-16
+   95.0% CI   : (0.679, 0.836)
+delta  [Fix]  : 1.000
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)  0.1029073  0.0513767  2.0030  0.04555 *
+Rates       -0.0027604  0.0143844 -0.1919  0.84787  
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.08388 on 731 degrees of freedom
+Multiple R-squared: 5.038e-05,  Adjusted R-squared: -0.001318 
+F-statistic: 0.03683 on 1 and 731 DF,  p-value: 0.8479 </code></pre>
+<pre class="r"><code>#la.A_G &lt;- phylosig(tree_pruned, data$A_G.H, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.280122 
+#la.C_T &lt;- phylosig(tree_pruned, data$C_T.H, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.119451 
+#la.G_A &lt;- phylosig(tree_pruned, data$G_A.H, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.719915 
+#la.T_C &lt;- phylosig(tree_pruned, data$T_C.H, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.813846 
+#la.Tv &lt;- phylosig(tree_pruned, data$Tv, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.113722
+#la.temp &lt;- phylosig(tree_pruned, data$Temp_avg, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.92032</code></pre>
+<pre class="r"><code>tree = read.tree(file = here(data_dir, &quot;Cytb.nm.Mafft_L-INS-i.pr.Bs.mtVer-F-I-G8.treefile.cut-c0.0001-rr&quot;))
+MutAndEcoPGLS &lt;- MutAndEcoCb %&gt;% dplyr::select(Species, A_G.H, C_T.H, G_A.H, T_C.H, Temp_avg)
 
 row.names(MutAndEcoPGLS) = MutAndEcoPGLS$Species
 tree_pruned = treedata(tree, MutAndEcoPGLS, sort=T, warnings=T)$phy
@@ -1742,8 +1931,8 @@ Call:
 pgls(formula = A_G.H ~ Temp_avg, data = data_comp, lambda = &quot;ML&quot;)
 
 Residuals:
-       Min         1Q     Median         3Q        Max 
--0.0080311 -0.0023654 -0.0005517  0.0015528  0.0167251 
+     Min       1Q   Median       3Q      Max 
+-0.12135 -0.03694 -0.01071  0.01669  0.27148 
 
 Branch length transformations:
 
@@ -1751,25 +1940,103 @@ kappa  [Fix]  : 1.000
 lambda [ ML]  : 0.000
    lower bound : 0.000, p = 1    
    upper bound : 1.000, p = &lt; 2.22e-16
-   95.0% CI   : (NA, 0.175)
+   95.0% CI   : (NA, 0.111)
 delta  [Fix]  : 1.000
 
 Coefficients:
              Estimate Std. Error t value  Pr(&gt;|t|)    
-(Intercept) 0.0790861  0.0225661  3.5046 0.0005951 ***
-Temp_avg    0.0046805  0.0011718  3.9942 9.924e-05 ***
+(Intercept) 0.0629352  0.0246430  2.5539   0.01166 *  
+Temp_avg    0.0057696  0.0013193  4.3731 2.298e-05 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Residual standard error: 0.00386 on 158 degrees of freedom
-Multiple R-squared: 0.09171,    Adjusted R-squared: 0.08596 
-F-statistic: 15.95 on 1 and 158 DF,  p-value: 9.924e-05 </code></pre>
-<pre class="r"><code>#la.A_G &lt;- phylosig(tree_pruned, data$A_G.H, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.280122 
-#la.C_T &lt;- phylosig(tree_pruned, data$C_T.H, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.119451 
-#la.G_A &lt;- phylosig(tree_pruned, data$G_A.H, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.719915 
-#la.T_C &lt;- phylosig(tree_pruned, data$T_C.H, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.813846 
-#la.Tv &lt;- phylosig(tree_pruned, data$Tv, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.113722
-#la.temp &lt;- phylosig(tree_pruned, data$Temp_avg, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.92032</code></pre>
+Residual standard error: 0.06029 on 148 degrees of freedom
+Multiple R-squared: 0.1144, Adjusted R-squared: 0.1084 
+F-statistic: 19.12 on 1 and 148 DF,  p-value: 2.298e-05 </code></pre>
+<pre class="r"><code>summary(pgls(C_T.H ~ Temp_avg, data_comp, lambda=&quot;ML&quot;))</code></pre>
+<pre><code>
+Call:
+pgls(formula = C_T.H ~ Temp_avg, data = data_comp, lambda = &quot;ML&quot;)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.314516 -0.057771  0.002863  0.078789  0.217440 
+
+Branch length transformations:
+
+kappa  [Fix]  : 1.000
+lambda [ ML]  : 0.000
+   lower bound : 0.000, p = 1    
+   upper bound : 1.000, p = &lt; 2.22e-16
+   95.0% CI   : (NA, 0.199)
+delta  [Fix]  : 1.000
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  0.4517465  0.0483543  9.3424   &lt;2e-16 ***
+Temp_avg    -0.0019898  0.0025888 -0.7686   0.4434    
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.1183 on 148 degrees of freedom
+Multiple R-squared: 0.003976,   Adjusted R-squared: -0.002754 
+F-statistic: 0.5907 on 1 and 148 DF,  p-value: 0.4434 </code></pre>
+<pre class="r"><code>summary(pgls(G_A.H ~ Temp_avg, data_comp, lambda=&quot;ML&quot;))</code></pre>
+<pre><code>
+Call:
+pgls(formula = G_A.H ~ Temp_avg, data = data_comp, lambda = &quot;ML&quot;)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.069924 -0.024327 -0.007782  0.019822  0.204568 
+
+Branch length transformations:
+
+kappa  [Fix]  : 1.000
+lambda [ ML]  : 0.000
+   lower bound : 0.000, p = 1    
+   upper bound : 1.000, p = &lt; 2.22e-16
+   95.0% CI   : (NA, 0.439)
+delta  [Fix]  : 1.000
+
+Coefficients:
+              Estimate Std. Error t value  Pr(&gt;|t|)    
+(Intercept) 0.06865000 0.01575997  4.3560 2.462e-05 ***
+Temp_avg    0.00154183 0.00084376  1.8273   0.06967 .  
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.03856 on 148 degrees of freedom
+Multiple R-squared: 0.02206,    Adjusted R-squared: 0.01546 
+F-statistic: 3.339 on 1 and 148 DF,  p-value: 0.06967 </code></pre>
+<pre class="r"><code>summary(pgls(T_C.H ~ Temp_avg, data_comp, lambda=&quot;ML&quot;))</code></pre>
+<pre><code>
+Call:
+pgls(formula = T_C.H ~ Temp_avg, data = data_comp, lambda = &quot;ML&quot;)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.094441 -0.029772 -0.006986  0.017268  0.290764 
+
+Branch length transformations:
+
+kappa  [Fix]  : 1.000
+lambda [ ML]  : 0.000
+   lower bound : 0.000, p = 1    
+   upper bound : 1.000, p = &lt; 2.22e-16
+   95.0% CI   : (NA, 0.398)
+delta  [Fix]  : 1.000
+
+Coefficients:
+              Estimate Std. Error t value  Pr(&gt;|t|)    
+(Intercept)  0.1775035  0.0206310  8.6037 1.021e-14 ***
+Temp_avg    -0.0022082  0.0011046 -1.9992   0.04742 *  
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.05048 on 148 degrees of freedom
+Multiple R-squared: 0.0263, Adjusted R-squared: 0.01972 
+F-statistic: 3.997 on 1 and 148 DF,  p-value: 0.04742 </code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -1829,7 +2096,7 @@ loaded via a namespace (and not attached):
  [61] ggsignif_0.6.4          scatterplot3d_0.3-44    tools_4.5.0            
  [64] httpuv_1.6.16           statsExpressions_1.7.0  glue_1.8.0             
  [67] quadprog_1.5-8          callr_3.7.6             nlme_3.1-168           
- [70] promises_1.3.2          grid_4.5.0              getPass_0.2-4          
+ [70] promises_1.3.3          grid_4.5.0              getPass_0.2-4          
  [73] generics_0.1.4          gtable_0.3.6            tzdb_0.5.0             
  [76] hms_1.1.3               car_3.1-3               utf8_1.2.5             
  [79] foreach_1.5.2           pillar_1.10.2           vroom_1.6.5            

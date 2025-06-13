@@ -56,6 +56,7 @@ suppressPackageStartupMessages({
   library(rfishbase)
   library(ape)
   library(purrr)
+  library(ggrepel)
 })
 
 # Set paths
@@ -73,10 +74,9 @@ reseed <- 13
 set.seed(seed = reseed)
 ```
 
-# Reading mutation spectra database (L-strand) and ecological databases
+# Reading databases (mitochondrial mutational spectra, ecology, nucleotide content in cyt B)
 
 ```{r spectra, message=FALSE}
-#mutSpec12all <- read_csv(here(data_dir, "MutSpecVertebrates12all.csv.gz"))
 mutSpec12 <- read_csv(here(data_dir, "MutSpecVertebrates12fish.csv"))
 mutSpec12Cb <- dplyr::filter(mutSpec12, Gene == "Cytb")
 head(mutSpec12Cb)
@@ -105,11 +105,32 @@ fishEcology <- read.csv(here(data_dir, "Full_fish_ecology_table_2025.csv"))
 tibble(head(fishEcology))
 ```
 
+```{r}
+mtDNAcodonUsage <- read.table(here(data_dir, "Codons_of_CytB_gene_Chordata.txt"), header = TRUE)
+mtDNAcodonUsage = mtDNAcodonUsage[mtDNAcodonUsage$Class == 'Actinopteri' | mtDNAcodonUsage$Class == 'Chondrichthyes',]
+
+mtDNAcodonUsage = aggregate(list(mtDNAcodonUsage$NeutralA,mtDNAcodonUsage$NeutralT,mtDNAcodonUsage$NeutralG,mtDNAcodonUsage$NeutralC), by = list(mtDNAcodonUsage$Species), FUN = sum)
+names(mtDNAcodonUsage) = c('Species','NeutralA','NeutralT','NeutralG','NeutralC')
+mtDNAcodonUsage$FrT.H = mtDNAcodonUsage$NeutralA / (mtDNAcodonUsage$NeutralA + mtDNAcodonUsage$NeutralT +
+                                                    mtDNAcodonUsage$NeutralG + mtDNAcodonUsage$NeutralC)
+mtDNAcodonUsage$FrA.H = mtDNAcodonUsage$NeutralT / (mtDNAcodonUsage$NeutralA + mtDNAcodonUsage$NeutralT + 
+                                                    mtDNAcodonUsage$NeutralG + mtDNAcodonUsage$NeutralC) 
+mtDNAcodonUsage$FrC.H = mtDNAcodonUsage$NeutralG / (mtDNAcodonUsage$NeutralA + mtDNAcodonUsage$NeutralT + 
+                                                    mtDNAcodonUsage$NeutralG + mtDNAcodonUsage$NeutralC) 
+mtDNAcodonUsage$FrG.H = mtDNAcodonUsage$NeutralC / (mtDNAcodonUsage$NeutralA + mtDNAcodonUsage$NeutralT + 
+                                                    mtDNAcodonUsage$NeutralG + mtDNAcodonUsage$NeutralC)
+```
+
+
 # Obtaining average MutSpec for cold and warm fisches
 
 ```{r}
 merging <- list(MutSpecForAnalysisCb, fishEcology)
+mergingtest <- list(MutSpecForAnalysisCb, fishEcology, mtDNAcodonUsage)
 MutAndEcoCb <- merging %>% purrr::reduce(left_join, by= "Species")
+MutNucAndEcoCb <- mergingtest %>% purrr::reduce(left_join, by= "Species")
+Warm <- MutNucAndEcoCb[!is.na(MutNucAndEcoCb$FrA.H) & !is.na(MutNucAndEcoCb$Climate_zone) & !is.na(MutNucAndEcoCb$A_G.H) & MutNucAndEcoCb$Climate_zone %in% c("tropical", "subtropical"),]
+
 temperaturestat <- summary(MutAndEcoCb$Temp_avg)
 
 WarmFishes <- filter(MutAndEcoCb, Temp_avg > as.numeric(temperaturestat["3rd Qu."]))
@@ -405,12 +426,35 @@ SimulationData$FrC.H = as.numeric(as.character(SimulationData$C))/length(genome)
 #write.csv(SimulationData, here(data_dir, "SimulationData.csv"))
 ```
 
+## Counting observed fractions of Neutral nucleotides 
 
 ```{r}
+merging <- list(mtDNAcodonUsage, fishEcology)
+NucAndEco <- merging %>% purrr::reduce(left_join, by= "Species")
+temperaturestat <- summary(NucAndEco$Temp_avg)
+
+WarmFishesNuc <- filter(NucAndEco, Temp_avg > as.numeric(temperaturestat["3rd Qu."]))
+NwarmNuc <- length(unique(WarmFishesNuc$Species))
+NwarmNuc
+WarmFishesNuc <- WarmFishesNuc %>% dplyr::select(FrA.H, FrT.H, FrG.H, FrC.H)
+WarmFishesNuc <- WarmFishesNuc %>% summarise_all(mean)
+
+ColdFishesNuc <- filter(NucAndEco, Temp_avg < as.numeric(temperaturestat["1st Qu."]))
+NcoldNuc <- length(unique(ColdFishesNuc$Species))
+NcoldNuc
+ColdFishesNuc <- ColdFishesNuc %>% dplyr::select(FrA.H, FrT.H, FrG.H, FrC.H)
+ColdFishesNuc <- ColdFishesNuc %>% summarise_all(mean)
+
+ObservedWarm <- WarmFishesNuc
+ObservedCold <- ColdFishesNuc
+```
+
+```{r simulation_observed_expected}
 ColorA = "red"
 ColorT = "blue"
 ColorG = "darkgrey"
 ColorC = "darkgreen"
+
 
 SimulationData  = SimulationData[SimulationData$Gener <= 600000,]
 simulation_data_long <- pivot_longer(
@@ -431,12 +475,12 @@ nucleotide_colors <- c("A" = ColorA, "T" = ColorT, "G" = ColorG, "C" = ColorC)
 # Horizontal line data
 hlines_cold <- data.frame(
   Nucleotide = factor(c("A", "G", "T", "C"), levels = c("A", "T", "G", "C")),
-  value = c(0.1843125066, 0.2036486321, 0.5415029364, 0.07053592541)
+  value = c(ColdFishesNuc$FrA.H, ColdFishesNuc$FrT.H, ColdFishesNuc$FrG.H, ColdFishesNuc$FrC.H)
 )
 
 hlines_warm <- data.frame(
   Nucleotide = factor(c("A", "G", "T", "C"), levels = c("A", "T", "G", "C")),
-  value = c(0.1570029522, 0.2119039825, 0.5186136993, 0.1124793649)
+  value = c(ObservedWarm$FrA.H, ObservedWarm$FrT.H, ObservedWarm$FrG.H, ObservedWarm$FrC.H)
 )
 
 
@@ -463,15 +507,7 @@ plot_cold_water <- ggplot(cold_fish_data, aes(x = Gener, y = Frequency, color = 
   coord_cartesian(ylim = c(0, 0.6)) +
   # A clean theme
   theme_bw() +
-  theme(plot.title = element_text(hjust = 0.5)) # Center title
-
-# Print the plot (optional, will display in RStudio Plots pane)
-# print(plot_cold_water)
-
-# Save the plot
-ggsave(filename = "cold_water_fish_frequencies.png", plot = plot_cold_water, width = 10, height = 6, dpi = 300)
-message("Saved cold-water fish plot to cold_water_fish_frequencies.png")
-
+  theme(plot.title = element_text(hjust = 0.5))
 
 # 3. Create Plot for Warm-Water Fish
 
@@ -492,18 +528,140 @@ plot_warm_water <- ggplot(warm_fish_data, aes(x = Gener, y = Frequency, color = 
   theme_bw() +
   theme(plot.title = element_text(hjust = 0.5))
 
-both <- ggarrange(plot_cold_water, plot_warm_water, ncol = 2)
-both
-ggsave(here(plots_dir,"Simulation_plot.pdf"), plot = both, width = 20, height = 6, dpi = 300)
+sfn <- ggarrange(plot_cold_water, plot_warm_water, ncol = 2)
+sfn
+ggsave(here(plots_dir,"Simulation_expected_observed.pdf"), plot = sfn, width = 20, height = 6, dpi = 300)
 ```
 
+## Expected Oberved analysis
 
+```{r}
+exp_warm <- dplyr::filter(SimulationData, X == 12000)
+exp_warm <- exp_warm %>% dplyr::select(FrA.H, FrT.H, FrG.H, FrC.H)
+exp_warm <- rbind (exp_warm, c("warm", "warm", "warm", "warm"))
+exp_warm <- as.data.frame(t(exp_warm))
+colnames(exp_warm) <- c("Expected", "Group")
+exp_warm <- data.frame(
+  Nucleotides = rownames(exp_warm),
+  Expected = as.numeric(exp_warm$Expected),
+  Group = exp_warm$Group,
+  row.names = NULL
+)
+exp_cold <- dplyr::filter(SimulationData, X == 6000)
+exp_cold <- exp_cold %>% dplyr::select(FrA.H, FrT.H, FrG.H, FrC.H)
+exp_cold <- rbind (exp_cold, c("cold", "cold", "cold", "cold"))
+exp_cold <- as.data.frame(t(exp_cold))
+colnames(exp_cold) <- c("Expected", "Group")
+exp_cold <- data.frame(
+  Nucleotides = rownames(exp_cold),
+  Expected = as.numeric(exp_cold$Expected),
+  Group = exp_cold$Group,
+  row.names = NULL
+)
+exp_both <- rbind(exp_cold,exp_warm)
+```
 
+### Observed mutations df
 
+```{r}
+obs_cold <- rbind(ObservedCold, c("cold", "cold", "cold", "cold"))
+obs_cold <- as.data.frame(t(obs_cold))
+colnames(obs_cold) <- c("Observed", "Group")
+obs_cold <- data.frame(
+  Nucleotides = rownames(obs_cold),
+  Observed = as.numeric(obs_cold$Observed),
+  Group = obs_cold$Group,
+  row.names = NULL
+)
+obs_warm <- rbind(ObservedWarm, c("warm", "warm", "warm", "warm"))
+obs_warm <- as.data.frame(t(obs_warm))
+colnames(obs_warm) <- c("Observed", "Group")
+obs_warm <- data.frame(
+  Nucleotides = rownames(obs_warm),
+  Observed = as.numeric(obs_warm$Observed),
+  Group = obs_warm$Group,
+  row.names = NULL
+)
 
+obs_both <- rbind(obs_cold, obs_warm)
 
+both_freqs <- merge(obs_both, exp_both, by=c("Nucleotides", "Group"))
+```
 
+### Merging to draw
 
+```{r}
+f2 <- ggplot(
+  data = both_freqs,
+  # Define main aesthetics. 'color' is preferred over 'col'.
+  # 'group = Group' is automatically inferred from 'color = Group'.
+  aes(x = Observed, y = Expected, color = Group)
+) +
+  
+  # Add the y=x reference line of identity
+  # Use 'linewidth' instead of the deprecated 'size'.
+  geom_abline(color = 'gray30', linetype = "dashed", linewidth = 0.8) +
+  
+  # Add lines connecting the cold and warm fish points for each mutation type
+  # Use aes(group = mutation) here so it doesn't interfere with other geoms.
+  geom_line(aes(group = Nucleotides), color = 'black', linewidth = 0.7) +
+  
+  # Add points for each observation
+  geom_point(size = 4, alpha = 0.8) +
+  
+  # Add non-overlapping text labels using the ggrepel package
+  geom_text_repel(
+    aes(label = Nucleotides),
+    box.padding = 0.5,      # Increase padding around labels
+    point.padding = 0.5,    # Increase padding around points
+    max.overlaps = Inf,     # Allow all labels to be drawn
+    min.segment.length = 0, # Draw segments even for short distances
+    color = "black"         # Set label color
+  ) +
+  
+  # Apply a clean, black-and-white theme
+  theme_bw() +
+  
+  # Manually set the colors and legend labels
+  scale_color_manual(
+    name = "Fish Type",
+    # The names of the vectors ('cold', 'warm') must match the data in the 'Group' column
+    values = c('cold' = 'blue', 'warm' = 'red'),
+    labels = c('cold' = 'Cold-water fish', 'warm' = 'Warm-water fish')
+  ) +
+  
+  # Set titles, subtitles, and axis labels
+  labs(
+    title = "Comparison of Observed vs. Expected Nucleotide Content",
+    subtitle = "Points are paired by mutation type for cold-water and warm-water fish",
+    x = "Observed Nucleotide Content",
+    y = "Expected Nucleotide Content",
+    color = "Fish Type" # This ensures the legend title is consistent
+  ) +
+  
+  # Use coord_fixed() for a 1:1 aspect ratio, which is best for comparison plots
+  # This ensures the grid is square and the y=x line is visually accurate at 45 degrees.
+  coord_fixed(ratio = 1, xlim = c(0, 0.55), ylim = c(0, 0.55), expand = TRUE) +
+  
+  # Further theme adjustments for a cleaner look
+  theme(
+    plot.title = element_text(hjust = 0.5, size = 16, face = "bold"),
+    plot.subtitle = element_text(hjust = 0.5, size = 12),
+    legend.position = "bottom",
+    legend.title = element_text(face = "bold")
+  )
+
+# Print the plot to the RStudio viewer
+print(f2)
+
+ggsave(here(plots_dir, "Observed_vs_Expected_Frequencies.png"),
+  plot = f2, # Explicitly state which plot to save
+  width = 8,          # Width in inches
+  height = 8,         # Height in inches
+  dpi = 300           # Resolution in dots per inch (good for publications)
+)
+
+```
 
 
 

@@ -101,13 +101,23 @@ head(fishEcology)
 
 ##Correlating neutral nucleotide content and nucleotide skews with temperature
 ```{r statistics with temperature, message=FALSE, warning= FALSE}
-merging <- list(mtDNAcodonUsage, fishEcology)
-NucAndEco <- merging %>% purrr::reduce(left_join, by= "Species")
+distances <- read.table(here(data_dir, "Cytb.nm.Mafft_L-INS-i.pr.Bs.mtVer-F-I-G8.treefile.cut-c0.0001-rr.dist"), header = FALSE)
+colnames(distances) <- c("Species", "Rates")
+
 taxonomy <- rfishbase::species_names()
 taxonomy$Species <- gsub(" ", "_", taxonomy$Species)
-NucAndEco <- merge(NucAndEco, taxonomy, by="Species", all.x = TRUE)
+
+merging <- list(mtDNAcodonUsage, fishEcology, distances, taxonomy)
+NucAndEco <- merging %>% purrr::reduce(left_join, by= "Species")
+
 spN <- nrow(NucAndEco[!is.na(NucAndEco$Temp_avg),])
-spN
+cat("N Species with temperature = ", spN)
+
+cor.test(NucAndEco$FrA.H, NucAndEco$Rates, method="spearman")
+cor.test(NucAndEco$FrG.H, NucAndEco$Rates, method="spearman")
+cor.test(NucAndEco$FrC.H, NucAndEco$Rates, method="spearman")
+cor.test(NucAndEco$FrT.H, NucAndEco$Rates, method="spearman")
+
 
 tidy(cor.test(NucAndEco$FrA.H, NucAndEco$Temp_avg, method = 'spearman'))
 tidy(cor.test(NucAndEco$FrG.H, NucAndEco$Temp_avg, method = 'spearman'))
@@ -122,6 +132,9 @@ NucAndEco$CTskew <- (NucAndEco$FrC.H - NucAndEco$FrT.H)/(NucAndEco$FrT.H + NucAn
 
 tidy(cor.test(NucAndEco$AGskew, NucAndEco$Temp_avg, method = 'spearman'))
 tidy(cor.test(NucAndEco$CTskew, NucAndEco$Temp_avg, method = 'spearman'))
+
+cor.test(NucAndEco$AGskew, NucAndEco$Rates, method="spearman")
+cor.test(NucAndEco$CTskew, NucAndEco$Rates, method="spearman")
 
 ```
 ##Correlating neutral nucleotide content and nucleotide skews with time of maturation
@@ -170,11 +183,37 @@ summary(lm(FrG.H ~ Temp_avg + tm, data = NucAndEco))
 
 ## PGLS
 
-```{r inertia analysis, message=FALSE, warning=FALSE}
-tree = read.tree(file = here(data_dir, "chordates_species.nwk"))
-tree <- ape::drop.tip(tree, "Tenebrosternarchus_preto")
+```{r PGLS_rates, message=FALSE, warning=FALSE}
+tree = read.tree(file = here(data_dir, "Cytb.nm.Mafft_L-INS-i.pr.Bs.mtVer-F-I-G8.treefile.cut-c0.0001-rr"))
+NucAndEcoPGLS <- NucAndEco %>% dplyr::select(Species, FrA.H, FrG.H, FrT.H, FrC.H, AGskew, CTskew, Rates)
+#NucAndEcoPGLS <- NucAndEcoPGLS[!is.na(NucAndEcoPGLS$Temp_avg),]
+
+row.names(NucAndEcoPGLS) = NucAndEcoPGLS$Species
+tree_pruned = treedata(tree, NucAndEcoPGLS, sort=T, warnings=T)$phy
+data<-as.data.frame(treedata(tree_pruned, NucAndEcoPGLS, sort=T, warnings=T)$data)
+data$Species = as.character(data$Species)
+data$FrA.H = as.numeric(data$FrA.H)
+data$FrG.H = as.numeric(data$FrG.H)
+data$FrT.H = as.numeric(data$FrT.H)
+data$FrC.H = as.numeric(data$FrC.H)
+data$AGskew = as.numeric(data$AGskew)
+data$CTskew = as.numeric(data$CTskew)
+data$Rates = as.numeric(data$Rates)
+data_comp <- comparative.data(tree_pruned, data, Species, vcv=TRUE)
+
+
+summary(pgls(FrA.H ~ Rates, data_comp, lambda="ML"))
+summary(pgls(FrT.H ~ Rates, data_comp, lambda="ML"))
+summary(pgls(FrG.H ~ Rates, data_comp, lambda="ML"))
+summary(pgls(FrC.H ~ Rates, data_comp, lambda="ML"))
+
+summary(pgls(AGskew ~ Rates, data_comp, lambda="ML"))
+summary(pgls(CTskew ~ Rates, data_comp, lambda="ML"))
+
+```
+```{r PGLS_temperature, message=FALSE, warning=FALSE}
+tree = read.tree(file = here(data_dir, "Cytb.nm.Mafft_L-INS-i.pr.Bs.mtVer-F-I-G8.treefile.cut-c0.0001-rr"))
 NucAndEcoPGLS <- NucAndEco %>% dplyr::select(Species, FrA.H, FrG.H, FrT.H, FrC.H, AGskew, CTskew, Temp_avg)
-NucAndEcoPGLS <- NucAndEcoPGLS[!is.na(NucAndEcoPGLS$Temp_avg),]
 
 row.names(NucAndEcoPGLS) = NucAndEcoPGLS$Species
 tree_pruned = treedata(tree, NucAndEcoPGLS, sort=T, warnings=T)$phy
@@ -189,55 +228,11 @@ data$CTskew = as.numeric(data$CTskew)
 data$Temp_avg = as.numeric(data$Temp_avg)
 data_comp <- comparative.data(tree_pruned, data, Species, vcv=TRUE)
 
-if (exists("tree_pruned") && inherits(tree_pruned, "phylo")) {
-  # Check for zero-length branches
-  num_zero_branches <- sum(tree_pruned$edge.length == 0)
-  cat("Number of zero-length branches in tree_pruned:", num_zero_branches, "\n")
-  if (num_zero_branches > 0) {
-    cat("Some branch lengths are exactly zero.\n")
-  }
-
-  # Check for very small branch lengths (can also cause numerical instability)
-  min_branch_length <- min(tree_pruned$edge.length[tree_pruned$edge.length > 0]) # Smallest non-zero
-  cat("Smallest non-zero branch length:", min_branch_length, "\n")
-  cat("Number of branches < 1e-8 (a very small number):", sum(tree_pruned$edge.length < 1e-8), "\n")
-
-  # Check if the tree is binary (no polytomies)
-  is_binary_tree <- is.binary(tree_pruned)
-  cat("Is tree_pruned binary (no polytomies)?", is_binary_tree, "\n")
-  if (!is_binary_tree) {
-    cat("Tree_pruned contains polytomies.\n")
-  }
-  
-  # Basic tree summary
-  # summary(tree_pruned) # Provides a general overview
-  
-} else {
-  cat("The 'tree_pruned' object doesn't exist or is not a valid phylo object.\n")
-}
-
-if (exists("tree_pruned") && inherits(tree_pruned, "phylo")) {
-    if(any(tree_pruned$edge.length == 0)) {
-    cat("Adding a tiny value to zero-length branches...\n")
-    tree_pruned$edge.length[tree_pruned$edge.length == 0] <- 1e-8 # Or a similar small value
-     # After this, you would need to recreate data_comp with the modified tree_pruned
-    data_comp <- comparative.data(tree_pruned, data, Species, vcv=TRUE)
-   }
- }
-
-
-
 summary(pgls(FrA.H ~ Temp_avg, data_comp, lambda="ML"))
-
 summary(pgls(AGskew ~ Temp_avg, data_comp, lambda="ML"))
-
-
 summary(pgls(FrG.H ~ Temp_avg, data_comp, lambda="ML"))
 
 summary(pgls(FrT.H ~ Temp_avg, data_comp, lambda="ML"))
 summary(pgls(FrC.H ~ Temp_avg, data_comp, lambda="ML"))
-
 summary(pgls(CTskew ~ Temp_avg, data_comp, lambda="ML"))
-
 ```
-
