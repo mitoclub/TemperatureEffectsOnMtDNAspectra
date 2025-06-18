@@ -54,6 +54,7 @@ suppressPackageStartupMessages({
   library(phytools)
   library(ggstatsplot)
   library(skimr)
+  library(RColorBrewer)
 })
 
 # Set paths
@@ -152,14 +153,11 @@ mtDNAcodonUsage$CTskew <- (mtDNAcodonUsage$FrC.H - mtDNAcodonUsage$FrT.H)/(mtDNA
 # Comparison temperatures of all Classes
 
 ```{r violin temperature, message=FALSE}
+blue_red_colors <- colorRampPalette(c("blue", "red"))(5)
+
 plt <- ggbetweenstats(data = allEcology, x = Class, y = Temp_avg) +
   labs(x = "Classes", y = "Temp_avg") +
-  scale_color_manual(values = c(
-      "#6760db",
-      "#7849bf",
-      "#9145c4",
-      "#c73a69",
-      "#c2464c"))
+  scale_color_manual(values = blue_red_colors)
 
 plt
 ```
@@ -184,12 +182,7 @@ str(MutSpecForAnalysisCbAll$Class)
 
 plt2 <- ggbetweenstats(data = MutSpecForAnalysisCbAll, x = Class, y = A_G.H) +
   labs(x = "Classes", y = "A>G.heavy") +
-  scale_color_manual(values = c(
-      "#6760db",
-      "#7849bf",
-      "#9145c4",
-      "#c73a69",
-      "red"))
+  scale_color_manual(values = blue_red_colors)
 
 plt2
 ```
@@ -212,12 +205,7 @@ str(mtDNAcodonUsage$Class)
 
 plt2 <- ggbetweenstats(data = mtDNAcodonUsage, x = Class, y = AGskew) +
   labs(x = "Classes", y = "AGskew") +
-  scale_color_manual(values = c(
-      "#6760db",
-      "#7849bf",
-      "#9145c4",
-      "#c73a69",
-      "red"))
+  scale_color_manual(values = blue_red_colors)
 
 plt2
 ```
@@ -226,23 +214,13 @@ plt2
 ```{r violin-Aheavy, message=FALSE, warning= FALSE}
 plt2 <- ggbetweenstats(data = mtDNAcodonUsage, x = Class, y = FrA.H) +
   labs(x = "Classes", y = "Fraction of A.H") +
-  scale_color_manual(values = c(
-      "#6760db",
-      "#7849bf",
-      "#9145c4",
-      "#c73a69",
-      "red"))
+  scale_color_manual(values = blue_red_colors)
 
 plt2
 
 plt2 <- ggbetweenstats(data = mtDNAcodonUsage, x = Class, y = FrG.H) +
   labs(x = "Classes", y = "Fraction of G.H") +
-  scale_color_manual(values = c(
-      "#6760db",
-      "#7849bf",
-      "#9145c4",
-      "#c73a69",
-      "red"))
+  scale_color_manual(values = blue_red_colors)
 
 plt2
 ```

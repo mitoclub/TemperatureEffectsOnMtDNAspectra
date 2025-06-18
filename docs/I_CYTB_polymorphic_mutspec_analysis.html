@@ -13,7 +13,7 @@
 
 <meta name="date" content="2025-06-18" />
 
-<title>Analysis of the mitochondrial mutational spectra between different classes</title>
+<title>Analysis of cytochrome b mutational spectra in fishes</title>
 
 <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -297,8 +297,8 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Analysis of the mitochondrial mutational
-spectra between different classes</h1>
+<h1 class="title toc-ignore">Analysis of cytochrome b mutational spectra
+in fishes</h1>
 <h4 class="author">Alina G. Mikhailova</h4>
 <h4 class="date">2025-06-18</h4>
 
@@ -415,6 +415,39 @@ Size
 <tbody>
 <tr>
 <td style="text-align:left;">
+allEcology
+</td>
+<td style="text-align:left;">
+data.frame
+</td>
+<td style="text-align:left;">
+393.7 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+allEcologyNOCLASS
+</td>
+<td style="text-align:left;">
+data.frame
+</td>
+<td style="text-align:left;">
+383.1 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+blue_red_colors
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:left;">
+376 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 both_freqs
 </td>
 <td style="text-align:left;">
@@ -422,6 +455,17 @@ data.frame
 </td>
 <td style="text-align:left;">
 1.7 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Classes
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:left;">
+408 bytes
 </td>
 </tr>
 <tr>
@@ -575,7 +619,7 @@ docname
 character
 </td>
 <td style="text-align:left;">
-152 bytes
+136 bytes
 </td>
 </tr>
 <tr>
@@ -635,6 +679,17 @@ data.frame
 </tr>
 <tr>
 <td style="text-align:left;">
+fishEcologyTemp
+</td>
+<td style="text-align:left;">
+data.frame
+</td>
+<td style="text-align:left;">
+335.9 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 GenomeLength
 </td>
 <td style="text-align:left;">
@@ -674,7 +729,7 @@ merging
 list
 </td>
 <td style="text-align:left;">
-1.1 Mb
+699 Kb
 </td>
 </tr>
 <tr>
@@ -696,7 +751,7 @@ mtDNAcodonUsage
 data.frame
 </td>
 <td style="text-align:left;">
-385.2 Kb
+1.5 Mb
 </td>
 </tr>
 <tr>
@@ -734,6 +789,28 @@ spec_tbl_df;tbl_df;tbl;data.frame
 </tr>
 <tr>
 <td style="text-align:left;">
+mutSpec12all
+</td>
+<td style="text-align:left;">
+spec_tbl_df;tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+2 Mb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mutSpec12allCb
+</td>
+<td style="text-align:left;">
+spec_tbl_df;tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+1.2 Mb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 mutSpec12Cb
 </td>
 <td style="text-align:left;">
@@ -752,6 +829,17 @@ tbl_df;tbl;data.frame
 </td>
 <td style="text-align:left;">
 158.2 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MutSpecForAnalysisCbAll
+</td>
+<td style="text-align:left;">
+tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+323 Kb
 </td>
 </tr>
 <tr>
@@ -943,6 +1031,28 @@ character
 </tr>
 <tr>
 <td style="text-align:left;">
+plt
+</td>
+<td style="text-align:left;">
+gg;ggplot
+</td>
+<td style="text-align:left;">
+276.9 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+plt2
+</td>
+<td style="text-align:left;">
+gg;ggplot
+</td>
+<td style="text-align:left;">
+208.2 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 progress_bar_width
 </td>
 <td style="text-align:left;">
@@ -1038,6 +1148,28 @@ summaryDefault;table
 </td>
 <td style="text-align:left;">
 1 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+todelete
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:left;">
+192 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ToMerge
+</td>
+<td style="text-align:left;">
+data.frame
+</td>
+<td style="text-align:left;">
+1.5 Mb
 </td>
 </tr>
 <tr>
@@ -1252,11 +1384,11 @@ have uncommitted changes.
 <p>
 These are the previous versions of the repository in which changes were
 made to the R Markdown
-(<code>analysis/III_Comparison_of_all_Classes.Rmd</code>) and HTML
-(<code>docs/III_Comparison_of_all_Classes.html</code>) files. If you’ve
-configured a remote Git repository (see <code>?wflow_git_remote</code>),
-click on the hyperlinks in the table below to view the files as they
-were in that past version.
+(<code>analysis/I_CYTB_polymorphic_mutspec_analysis.Rmd</code>) and HTML
+(<code>docs/I_CYTB_polymorphic_mutspec_analysis.html</code>) files. If
+you’ve configured a remote Git repository (see
+<code>?wflow_git_remote</code>), click on the hyperlinks in the table
+below to view the files as they were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -1285,7 +1417,7 @@ Message
 Rmd
 </td>
 <td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/77db01ef622b2f1f41cab6356064e0562a9a41e8/analysis/III_Comparison_of_all_Classes.Rmd" target="_blank">77db01e</a>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/77db01ef622b2f1f41cab6356064e0562a9a41e8/analysis/I_CYTB_polymorphic_mutspec_analysis.Rmd" target="_blank">77db01e</a>
 </td>
 <td>
 Alya Mikhailova
@@ -1302,7 +1434,7 @@ First chapter all done
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/mitoclub/TemperatureEffectsOnMtDNAspectra/77db01ef622b2f1f41cab6356064e0562a9a41e8/docs/III_Comparison_of_all_Classes.html" target="_blank">77db01e</a>
+<a href="https://rawcdn.githack.com/mitoclub/TemperatureEffectsOnMtDNAspectra/77db01ef622b2f1f41cab6356064e0562a9a41e8/docs/I_CYTB_polymorphic_mutspec_analysis.html" target="_blank">77db01e</a>
 </td>
 <td>
 Alya Mikhailova
@@ -1312,108 +1444,6 @@ Alya Mikhailova
 </td>
 <td>
 First chapter all done
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/mitoclub/TemperatureEffectsOnMtDNAspectra/51c225065db00737702e5c6604d9cf9b58a71101/docs/III_Comparison_of_all_Classes.html" target="_blank">51c2250</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-06-06
-</td>
-<td>
-Site update
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/3359d519bdd35636ba19e81d7f4b626cbf814c0f/analysis/III_Comparison_of_all_Classes.Rmd" target="_blank">3359d51</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-06-06
-</td>
-<td>
-Analyses of neutral nuc content only on CYT B
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/mitoclub/TemperatureEffectsOnMtDNAspectra/3359d519bdd35636ba19e81d7f4b626cbf814c0f/docs/III_Comparison_of_all_Classes.html" target="_blank">3359d51</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-06-06
-</td>
-<td>
-Analyses of neutral nuc content only on CYT B
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/530b2a62fc373b56fd5e6ef0b3970c3a6d4e274c/analysis/III_Comparison_of_all_Classes.Rmd" target="_blank">530b2a6</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-06-02
-</td>
-<td>
-fix chunk name after failed render
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/mitoclub/TemperatureEffectsOnMtDNAspectra/530b2a62fc373b56fd5e6ef0b3970c3a6d4e274c/docs/III_Comparison_of_all_Classes.html" target="_blank">530b2a6</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-06-02
-</td>
-<td>
-fix chunk name after failed render
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/ad28257961a99798122a3b968b1be129307f6f34/analysis/III_Comparison_of_all_Classes.Rmd" target="_blank">ad28257</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-06-02
-</td>
-<td>
-Violin plots for tempersture and A&gt;G
 </td>
 </tr>
 </tbody>
@@ -1424,17 +1454,47 @@ Violin plots for tempersture and A&gt;G
 </div>
 </div>
 <div
-id="reading-mutation-spectra-database-l-strand-cytb-nucleotide-database-l-strand-only-actinopteri-and-ecological-databases"
+id="reading-mutation-spectra-database-l-strand-and-ecological-databases"
 class="section level1">
-<h1>Reading mutation spectra database (L-strand), CytB nucleotide
-database (L-strand, only Actinopteri) and ecological databases</h1>
-<pre class="r"><code>mutSpec12all &lt;- read_csv(here(data_dir, &quot;MutSpecVertebrates12all.csv.gz&quot;))
-mutSpec12allCb &lt;- dplyr::filter(mutSpec12all, Gene == &quot;Cytb&quot;)
-
-MutSpecForAnalysisCbAll &lt;- mutSpec12allCb %&gt;% dplyr::select(Class, Species, Mut, MutSpec)
-MutSpecForAnalysisCbAll$Mut &lt;- gsub(&quot;&gt;&quot;, &quot;_&quot;, MutSpecForAnalysisCbAll$Mut)
-MutSpecForAnalysisCbAll &lt;- MutSpecForAnalysisCbAll %&gt;% pivot_wider(names_from = Mut, values_from = MutSpec, , values_fn = median) 
-colnames(MutSpecForAnalysisCbAll) &lt;- c(&quot;Class&quot;,
+<h1>Reading mutation spectra database (L-strand) and ecological
+databases</h1>
+<pre class="r"><code>mutSpec12 &lt;- read_csv(here(data_dir, &quot;MutSpecVertebrates12fish.csv&quot;))
+mutSpec12Cb &lt;- dplyr::filter(mutSpec12, Gene == &quot;Cytb&quot;)
+cat(&quot;N species =&quot;, length(unique(mutSpec12Cb$Species)))</code></pre>
+<pre><code>N species = 840</code></pre>
+<pre class="r"><code>head(mutSpec12Cb)</code></pre>
+<pre><code># A tibble: 6 × 9
+  Gene  Class       Species            Mut   Observed TreeLeaves MSAsize Expected MutSpec
+  &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;              &lt;chr&gt;    &lt;dbl&gt;      &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
+1 Cytb  Actinopteri Scombrops_gilberti A&gt;C        4           68    1140     71.0  0.0326
+2 Cytb  Actinopteri Scombrops_gilberti A&gt;G       21.6         68    1140    111.   0.113 
+3 Cytb  Actinopteri Scombrops_gilberti A&gt;T        2           68    1140     71.0  0.0163
+4 Cytb  Actinopteri Scombrops_gilberti C&gt;A        3           68    1140     86.3  0.0201
+5 Cytb  Actinopteri Scombrops_gilberti C&gt;G        0           68    1140     86.3  0     
+6 Cytb  Actinopteri Scombrops_gilberti C&gt;T       10.7         68    1140    182.   0.0340</code></pre>
+<pre class="r"><code>MutSpecForAnalysisCb &lt;- mutSpec12Cb %&gt;% dplyr::select(Class, Species, Mut, MutSpec)
+MutSpecForAnalysisCb$Mut &lt;- gsub(&quot;&gt;&quot;, &quot;_&quot;, MutSpecForAnalysisCb$Mut)
+MutSpecForAnalysisCb &lt;- MutSpecForAnalysisCb %&gt;% pivot_wider(names_from = Mut, values_from = MutSpec, , values_fn = median) 
+colnames(MutSpecForAnalysisCb) &lt;- c(&quot;Class&quot;,     # Only CytB
+                                  &quot;Species&quot;, 
+                                  &quot;T_G.H&quot;, 
+                                  &quot;T_C.H&quot;, 
+                                  &quot;T_A.H&quot;, 
+                                  &quot;G_T.H&quot;, 
+                                  &quot;G_C.H&quot;, 
+                                  &quot;G_A.H&quot;, 
+                                  &quot;C_T.H&quot;, 
+                                  &quot;C_G.H&quot;, 
+                                  &quot;C_A.H&quot;, 
+                                  &quot;A_T.H&quot;, 
+                                  &quot;A_G.H&quot;, 
+                                  &quot;A_C.H&quot;)</code></pre>
+<pre class="r"><code>MutSpecForAnalysisBoth &lt;- mutSpec12 %&gt;% dplyr::select(Class, Species, Mut, MutSpec)
+MutSpecForAnalysisBoth$Mut &lt;- gsub(&quot;&gt;&quot;, &quot;_&quot;, MutSpecForAnalysisBoth$Mut)
+MutSpecForAnalysisBoth &lt;- MutSpecForAnalysisBoth %&gt;% pivot_wider(names_from = Mut, values_from = MutSpec, , values_fn = median) 
+cat(&quot;N species =&quot;, length(unique(mutSpec12$Species)))</code></pre>
+<pre><code>N species = 1035</code></pre>
+<pre class="r"><code>colnames(MutSpecForAnalysisBoth) &lt;- c(&quot;Class&quot;,      # Both genes
                                   &quot;Species&quot;, 
                                   &quot;T_G.H&quot;, 
                                   &quot;T_C.H&quot;, 
@@ -1464,66 +1524,79 @@ head(fishEcology)</code></pre>
 4         &lt;NA&gt;       NA
 5  subtropical       NA
 6     tropical       NA</code></pre>
-<pre class="r"><code>fishEcologyTemp &lt;- fishEcology %&gt;% dplyr::select(Species, Temp_avg)
-fishEcologyTemp &lt;- na.omit(fishEcologyTemp)
-fishEcologyTemp$Class &lt;- &quot;Fishes&quot;
-allEcology &lt;-read.csv(here(data_dir, &quot;Dataset_S1.csv&quot;), sep=&quot;;&quot;)
-allEcology$Temp_avg &lt;- as.numeric(gsub(&quot;,&quot;, &quot;.&quot;, allEcology$Tb))
-allEcology$Tb &lt;- NULL
-allEcology &lt;- rbind(allEcology, fishEcologyTemp)
-todelete &lt;- c(
-    &quot;Testudines&quot;,
-    &quot;Crocodylia&quot;)
-allEcology &lt;- allEcology[!allEcology$Class %in% todelete,]
-allEcology &lt;- allEcology %&gt;% mutate(
-  Class = fct_relevel(
-    Class,
-    &quot;Fishes&quot;,
-    &quot;Amphibia&quot;,
-    &quot;Lepidosauria&quot;,
-    &quot;Mammalia&quot;, 
-    &quot;Aves&quot;
+<pre class="r"><code>cor.test(fishEcology$tm, fishEcology$Temp_avg, method = &quot;spearman&quot;)</code></pre>
+<pre><code>
+    Spearman&#39;s rank correlation rho
+
+data:  fishEcology$tm and fishEcology$Temp_avg
+S = 232808, p-value = 0.0002596
+alternative hypothesis: true rho is not equal to 0
+sample estimates:
+       rho 
+-0.3558985 </code></pre>
+</div>
+<div id="calculating-of-average-mutspec-for-fisches"
+class="section level1">
+<h1>Calculating of average MutSpec for Fisches</h1>
+<div id="cytb" class="section level2">
+<h2>Cytb</h2>
+<pre class="r"><code>AverageMutSpecCb &lt;- mutSpec12Cb %&gt;% group_by(Mut) %&gt;% summarise(meanmutspec = mean(MutSpec, na.rm = TRUE))
+AverageMutSpecCb$Mut.H &lt;- c(&quot;T_G.H&quot;, 
+                          &quot;T_C.H&quot;, 
+                          &quot;T_A.H&quot;, 
+                          &quot;G_T.H&quot;, 
+                          &quot;G_C.H&quot;, 
+                          &quot;G_A.H&quot;, 
+                          &quot;C_T.H&quot;, 
+                          &quot;C_G.H&quot;, 
+                          &quot;C_A.H&quot;, 
+                          &quot;A_T.H&quot;, 
+                          &quot;A_G.H&quot;, 
+                          &quot;A_C.H&quot;)
+
+f1 = ggplot(AverageMutSpecCb,
+  aes(
+    x = AverageMutSpecCb$Mut.H,
+    y = AverageMutSpecCb$meanmutspec,
+    fill = AverageMutSpecCb$Mut.H
+    )
+  ) +
+  geom_bar(stat = &quot;identity&quot;) +
+  scale_fill_manual(
+    values = c(
+      &quot;#bdbdbd&quot;,
+      &quot;#00a426&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;red&quot;,
+      &quot;#900000&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;darkgreen&quot;,
+      &quot;#bdbdbd&quot;
+    )
+  ) +
+  labs(title = &quot;Average mitochondrial mutational spectrum in Fishes (cytB, N=840)&quot;, x = &quot;Substitution types&quot;, y = &quot;Normalised Frequencies&quot;) + theme(
+    legend.position = &quot;none&quot;,
+    panel.background = element_blank(),
+    axis.line = element_line(color = &quot;black&quot;)
   )
+
+ggsave(here(plots_dir,&quot;Average_mutspec_in_Fishes_CytB.pdf&quot;),
+  plot = f1,
+  width = 6,
+  height = 6
 )
-
-allEcologyNOCLASS &lt;- allEcology 
-allEcologyNOCLASS$Class &lt;- NULL</code></pre>
-<pre class="r"><code>mtDNAcodonUsage &lt;- read.table(here(data_dir, &quot;Codons_of_CytB_gene_Chordata.txt&quot;), header = TRUE)
-Classes &lt;- c(&quot;Actinopteri&quot;, &quot;Amphibia&quot;, &quot;Lepidosauria&quot;, &quot;Mammalia&quot;, &quot;Aves&quot;)
-mtDNAcodonUsage = mtDNAcodonUsage[mtDNAcodonUsage$Class %in% Classes,]
-ToMerge &lt;- mtDNAcodonUsage %&gt;% dplyr::select(Species, Class)
-
-mtDNAcodonUsage = aggregate(list(mtDNAcodonUsage$NeutralA,mtDNAcodonUsage$NeutralT,mtDNAcodonUsage$NeutralG,mtDNAcodonUsage$NeutralC), by = list(mtDNAcodonUsage$Species), FUN = sum)
-names(mtDNAcodonUsage) = c(&#39;Species&#39;,&#39;NeutralA&#39;,&#39;NeutralT&#39;,&#39;NeutralG&#39;,&#39;NeutralC&#39;)
-mtDNAcodonUsage$FrT.H = mtDNAcodonUsage$NeutralA / (mtDNAcodonUsage$NeutralA + mtDNAcodonUsage$NeutralT +
-                                                    mtDNAcodonUsage$NeutralG + mtDNAcodonUsage$NeutralC)
-mtDNAcodonUsage$FrA.H = mtDNAcodonUsage$NeutralT / (mtDNAcodonUsage$NeutralA + mtDNAcodonUsage$NeutralT + 
-                                                    mtDNAcodonUsage$NeutralG + mtDNAcodonUsage$NeutralC) 
-mtDNAcodonUsage$FrC.H = mtDNAcodonUsage$NeutralG / (mtDNAcodonUsage$NeutralA + mtDNAcodonUsage$NeutralT + 
-                                                    mtDNAcodonUsage$NeutralG + mtDNAcodonUsage$NeutralC) 
-mtDNAcodonUsage$FrG.H = mtDNAcodonUsage$NeutralC / (mtDNAcodonUsage$NeutralA + mtDNAcodonUsage$NeutralT + 
-                                                    mtDNAcodonUsage$NeutralG + mtDNAcodonUsage$NeutralC) 
-mtDNAcodonUsage &lt;- merge(mtDNAcodonUsage, ToMerge)
-
-mtDNAcodonUsage$AGskew &lt;- (mtDNAcodonUsage$FrA.H - mtDNAcodonUsage$FrG.H)/(mtDNAcodonUsage$FrG.H + mtDNAcodonUsage$FrA.H)
-mtDNAcodonUsage$CTskew &lt;- (mtDNAcodonUsage$FrC.H - mtDNAcodonUsage$FrT.H)/(mtDNAcodonUsage$FrT.H + mtDNAcodonUsage$FrC.H)</code></pre>
-</div>
-<div id="comparison-temperatures-of-all-classes" class="section level1">
-<h1>Comparison temperatures of all Classes</h1>
-<pre class="r"><code>blue_red_colors &lt;- colorRampPalette(c(&quot;blue&quot;, &quot;red&quot;))(5)
-
-plt &lt;- ggbetweenstats(data = allEcology, x = Class, y = Temp_avg) +
-  labs(x = &quot;Classes&quot;, y = &quot;Temp_avg&quot;) +
-  scale_color_manual(values = blue_red_colors)
-
-plt</code></pre>
-<p><img src="figure/III_Comparison_of_all_Classes.Rmd/violin%20temperature-1.png" width="1344" style="display: block; margin: auto;" /></p>
+f1</code></pre>
+<p><img src="figure/I_CYTB_polymorphic_mutspec_analysis.Rmd/average_mutspec_plot_cytb-1.png" width="1344" style="display: block; margin: auto;" /></p>
 <p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-violin-temperature-1">
-Past versions of "violin temperature-1.png"
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-average_mutspec_plot_cytb-1">
+Past versions of average_mutspec_plot_cytb-1.png
 </button>
 </p>
-<div id="fig-no-spaces-violin-temperature-1" class="collapse">
+<div id="fig-average_mutspec_plot_cytb-1" class="collapse">
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
 <thead>
@@ -1542,7 +1615,7 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/77db01ef622b2f1f41cab6356064e0562a9a41e8/docs/figure/III_Comparison_of_all_Classes.Rmd/violin temperature-1.png" target="_blank">77db01e</a>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/77db01ef622b2f1f41cab6356064e0562a9a41e8/docs/figure/I_CYTB_polymorphic_mutspec_analysis.Rmd/average_mutspec_plot_cytb-1.png" target="_blank">77db01e</a>
 </td>
 <td>
 Alya Mikhailova
@@ -1551,50 +1624,66 @@ Alya Mikhailova
 2025-06-18
 </td>
 </tr>
-<tr>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/530b2a62fc373b56fd5e6ef0b3970c3a6d4e274c/docs/figure/III_Comparison_of_all_Classes.Rmd/violin temperature-1.png" target="_blank">530b2a6</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-06-02
-</td>
-</tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-<div id="comparison-ag-of-all-classes" class="section level1">
-<h1>Comparison A&gt;G of all Classes</h1>
-<pre class="r"><code>merging &lt;- list(MutSpecForAnalysisCbAll, allEcologyNOCLASS)
-MutSpecForAnalysisCbAll &lt;- merging %&gt;% purrr::reduce(left_join, by= &quot;Species&quot;)
-MutSpecForAnalysisCbAll[MutSpecForAnalysisCbAll$Class == &quot;Actinopteri&quot;,]$Class &lt;- &quot;Fishes&quot;
-MutSpecForAnalysisCbAll &lt;- MutSpecForAnalysisCbAll %&gt;% mutate(Class = fct_relevel(
-  Class,
-  &quot;Fishes&quot;,
-  &quot;Amphibia&quot;,
-  &quot;Lepidosauria&quot;,
-  &quot;Mammalia&quot;,
-  &quot;Aves&quot;
-))
+<div id="both-genes" class="section level2">
+<h2>Both genes</h2>
+<pre class="r"><code>AverageMutSpecBoth &lt;- mutSpec12 %&gt;% group_by(Mut) %&gt;% summarise(meanmutspec = mean(MutSpec, na.rm = TRUE))
+AverageMutSpecBoth$Mut.H &lt;- c(&quot;T_G.H&quot;, 
+                          &quot;T_C.H&quot;, 
+                          &quot;T_A.H&quot;, 
+                          &quot;G_T.H&quot;, 
+                          &quot;G_C.H&quot;, 
+                          &quot;G_A.H&quot;, 
+                          &quot;C_T.H&quot;, 
+                          &quot;C_G.H&quot;, 
+                          &quot;C_A.H&quot;, 
+                          &quot;A_T.H&quot;, 
+                          &quot;A_G.H&quot;, 
+                          &quot;A_C.H&quot;)
 
-str(MutSpecForAnalysisCbAll$Class)</code></pre>
-<pre><code> Factor w/ 5 levels &quot;Fishes&quot;,&quot;Amphibia&quot;,..: 4 3 4 1 4 4 4 4 3 4 ...</code></pre>
-<pre class="r"><code>plt2 &lt;- ggbetweenstats(data = MutSpecForAnalysisCbAll, x = Class, y = A_G.H) +
-  labs(x = &quot;Classes&quot;, y = &quot;A&gt;G.heavy&quot;) +
-  scale_color_manual(values = blue_red_colors)
+f1 = ggplot(AverageMutSpecBoth,
+  aes(
+    x = AverageMutSpecBoth$Mut.H,
+    y = AverageMutSpecBoth$meanmutspec,
+    fill = AverageMutSpecBoth$Mut.H
+    )
+  ) +
+  geom_bar(stat = &quot;identity&quot;) +
+  scale_fill_manual(
+    values = c(
+      &quot;#bdbdbd&quot;,
+      &quot;#00a426&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#ff0000&quot;,
+      &quot;#900000&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#005213&quot;,
+      &quot;#bdbdbd&quot;
+    )
+  ) +
+  labs(title = &quot;Average mitochondrial mutational spectrum in Fishes (cytB+COX1, N=1035)&quot;, x = &quot;Substitution types&quot;, y = &quot;Normalised Frequencies&quot;) + theme(
+    legend.position = &quot;none&quot;,
+    # Remove legend
+    panel.background = element_blank(),
+    axis.line = element_line(color = &quot;black&quot;)# Remove background
+  )
 
-plt2</code></pre>
-<p><img src="figure/III_Comparison_of_all_Classes.Rmd/violin-A2G-1.png" width="1344" style="display: block; margin: auto;" /></p>
+f1</code></pre>
+<p><img src="figure/I_CYTB_polymorphic_mutspec_analysis.Rmd/average_mutspec_plot_both-1.png" width="1344" style="display: block; margin: auto;" /></p>
 <p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-violin-A2G-1">
-Past versions of violin-A2G-1.png
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-average_mutspec_plot_both-1">
+Past versions of average_mutspec_plot_both-1.png
 </button>
 </p>
-<div id="fig-violin-A2G-1" class="collapse">
+<div id="fig-average_mutspec_plot_both-1" class="collapse">
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
 <thead>
@@ -1613,7 +1702,7 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/77db01ef622b2f1f41cab6356064e0562a9a41e8/docs/figure/III_Comparison_of_all_Classes.Rmd/violin-A2G-1.png" target="_blank">77db01e</a>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/77db01ef622b2f1f41cab6356064e0562a9a41e8/docs/figure/I_CYTB_polymorphic_mutspec_analysis.Rmd/average_mutspec_plot_both-1.png" target="_blank">77db01e</a>
 </td>
 <td>
 Alya Mikhailova
@@ -1622,48 +1711,188 @@ Alya Mikhailova
 2025-06-18
 </td>
 </tr>
-<tr>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/3359d519bdd35636ba19e81d7f4b626cbf814c0f/docs/figure/III_Comparison_of_all_Classes.Rmd/violin-A2G-1.png" target="_blank">3359d51</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-06-06
-</td>
-</tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-<div id="comparison-agskew-of-all-classes" class="section level1">
-<h1>Comparison AGskew of all Classes</h1>
-<pre class="r"><code>mtDNAcodonUsage[mtDNAcodonUsage$Class == &quot;Actinopteri&quot;,]$Class &lt;- &quot;Fishes&quot;
-mtDNAcodonUsage &lt;- mtDNAcodonUsage %&gt;% mutate(Class = fct_relevel(
-  Class,
-  &quot;Fishes&quot;,
-  &quot;Amphibia&quot;,
-  &quot;Lepidosauria&quot;,
-  &quot;Mammalia&quot;,
-  &quot;Aves&quot;
-))
+</div>
+<div id="comparison-of-average-mutspec-between-cold-and-warm-fisches"
+class="section level1">
+<h1>Comparison of average MutSpec between cold and warm fisches</h1>
+<pre class="r"><code>merging &lt;- list(MutSpecForAnalysisCb, fishEcology)
+MutAndEcoCb &lt;- merging %&gt;% reduce(left_join, by= &quot;Species&quot;)
 
-str(mtDNAcodonUsage$Class)</code></pre>
-<pre><code> Factor w/ 5 levels &quot;Fishes&quot;,&quot;Amphibia&quot;,..: 1 1 1 1 4 3 3 3 4 4 ...</code></pre>
-<pre class="r"><code>plt2 &lt;- ggbetweenstats(data = mtDNAcodonUsage, x = Class, y = AGskew) +
-  labs(x = &quot;Classes&quot;, y = &quot;AGskew&quot;) +
-  scale_color_manual(values = blue_red_colors)
+#write.table(MutAndEcoCb, file = here(tables_dir, &quot;Supplementary_Material_1_Mitochondrial_mutational_spectra_cytb_and_ecology_Fishes.txt&quot;), row.names = FALSE)
 
-plt2</code></pre>
-<p><img src="figure/III_Comparison_of_all_Classes.Rmd/violin-AGskew-1.png" width="1344" style="display: block; margin: auto;" /></p>
+temperaturestat &lt;- summary(MutAndEcoCb$Temp_avg)
+
+WarmFishesCb &lt;- filter(MutAndEcoCb, Temp_avg &gt; as.numeric(temperaturestat[&quot;3rd Qu.&quot;]))
+WarmFishesCb &lt;- WarmFishesCb %&gt;% dplyr::select(Species, T_G.H, 
+                                        T_C.H, 
+                                        T_A.H, 
+                                        G_T.H, 
+                                        G_C.H, 
+                                        G_A.H, 
+                                        C_T.H, 
+                                        C_G.H, 
+                                        C_A.H, 
+                                        A_T.H, 
+                                        A_G.H, 
+                                        A_C.H)
+WarmFishesCb &lt;- pivot_longer(WarmFishesCb, cols = c(&quot;T_G.H&quot;, 
+                                  &quot;T_C.H&quot;, 
+                                  &quot;T_A.H&quot;, 
+                                  &quot;G_T.H&quot;, 
+                                  &quot;G_C.H&quot;, 
+                                  &quot;G_A.H&quot;, 
+                                  &quot;C_T.H&quot;, 
+                                  &quot;C_G.H&quot;, 
+                                  &quot;C_A.H&quot;, 
+                                  &quot;A_T.H&quot;, 
+                                  &quot;A_G.H&quot;, 
+                                  &quot;A_C.H&quot;), names_to = &quot;Mut&quot;, values_to = &quot;MutSpec&quot; )
+NwarmCb &lt;- length(unique(WarmFishesCb$Species))
+
+ColdFishesCb &lt;- filter(MutAndEcoCb, Temp_avg &lt; as.numeric(temperaturestat[&quot;1st Qu.&quot;]))
+ColdFishesCb &lt;- ColdFishesCb %&gt;% dplyr::select(Species, T_G.H, 
+                                        T_C.H, 
+                                        T_A.H, 
+                                        G_T.H, 
+                                        G_C.H, 
+                                        G_A.H, 
+                                        C_T.H, 
+                                        C_G.H, 
+                                        C_A.H, 
+                                        A_T.H, 
+                                        A_G.H, 
+                                        A_C.H)
+ColdFishesCb &lt;- pivot_longer(ColdFishesCb, cols = c(&quot;T_G.H&quot;, 
+                                  &quot;T_C.H&quot;, 
+                                  &quot;T_A.H&quot;, 
+                                  &quot;G_T.H&quot;, 
+                                  &quot;G_C.H&quot;, 
+                                  &quot;G_A.H&quot;, 
+                                  &quot;C_T.H&quot;, 
+                                  &quot;C_G.H&quot;, 
+                                  &quot;C_A.H&quot;, 
+                                  &quot;A_T.H&quot;, 
+                                  &quot;A_G.H&quot;, 
+                                  &quot;A_C.H&quot;), names_to = &quot;Mut&quot;, values_to = &quot;MutSpec&quot; )
+NcoldCb &lt;- length(unique(ColdFishesCb$Species))
+
+f1a &lt;- ggplot(
+  WarmFishesCb,
+  aes(
+    x = Mut,
+    y = MutSpec
+  )
+) +
+  geom_jitter(aes(colour = Mut), width = 0.1) +
+  scale_color_manual(
+    values = c(
+      &quot;#bdbdbd&quot;,
+      &quot;#00a426&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;red&quot;,
+      &quot;#900000&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;darkgreen&quot;,
+      &quot;#bdbdbd&quot;
+    )
+  ) +
+  labs(
+    title = &quot;Warm Fishes, &gt;23C&quot;,
+    x = &quot;Substitution types&quot;,
+    y = &quot;Normalised Frequencies&quot;
+  ) +
+  theme(
+    legend.position = &quot;none&quot;,
+    panel.background = element_blank(),
+    axis.line = element_line(color = &quot;black&quot;)
+  ) +
+  geom_text(
+    x = 2.5,
+    y = 0.63,
+    label = paste(&quot;N warm =&quot;, NwarmCb),
+    size = 7
+  ) +
+  stat_summary(
+    fun = &quot;median&quot;,
+    geom = &quot;line&quot;,        
+    aes(group = 2),      
+    color = &quot;black&quot;,     
+    size = 0.5             
+  )
+
+
+f1b &lt;- ggplot(
+ ColdFishesCb,
+  aes(
+    x = Mut,
+    y = MutSpec
+  )
+) +
+  geom_jitter(aes(colour = Mut), width = 0.1) +
+  scale_color_manual(
+    values = c(
+      &quot;#bdbdbd&quot;,
+      &quot;#00a426&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;red&quot;,
+      &quot;#900000&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;#bdbdbd&quot;,
+      &quot;darkgreen&quot;,
+      &quot;#bdbdbd&quot;
+    )
+  ) +
+  labs(
+    title = &quot;Cold Fishes, &lt;13C&quot;,
+    x = &quot;Substitution types&quot;,
+    y = &quot;Normalised Frequencies&quot;
+  ) +
+  theme(
+    legend.position = &quot;none&quot;,
+    panel.background = element_blank(),
+    axis.line = element_line(color = &quot;black&quot;)
+  ) +
+  geom_text(
+    x = 2.5,
+    y = 0.56,
+    label = paste(&quot;N cold =&quot;, NcoldCb),
+    size = 7
+  ) +
+  stat_summary(
+    fun = &quot;median&quot;,
+    geom = &quot;line&quot;,        
+    aes(group = 2),      
+    color = &quot;black&quot;,     
+    size = 0.5             
+  )
+
+f1 &lt;- ggarrange(f1b, f1a, ncol = 2)
+
+ggsave(here(plots_dir,&quot;Average mitochondrial mutational spectrum in Fishes divided by groups (cytB).pdf&quot;),
+  plot = f1,
+  width = 12,
+  height = 6
+)
+f1</code></pre>
+<p><img src="figure/I_CYTB_polymorphic_mutspec_analysis.Rmd/average_mutspec_cytb_groups-1.png" width="1344" style="display: block; margin: auto;" /></p>
 <p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-violin-AGskew-1">
-Past versions of violin-AGskew-1.png
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-average_mutspec_cytb_groups-1">
+Past versions of average_mutspec_cytb_groups-1.png
 </button>
 </p>
-<div id="fig-violin-AGskew-1" class="collapse">
+<div id="fig-average_mutspec_cytb_groups-1" class="collapse">
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
 <thead>
@@ -1682,7 +1911,7 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/77db01ef622b2f1f41cab6356064e0562a9a41e8/docs/figure/III_Comparison_of_all_Classes.Rmd/violin-AGskew-1.png" target="_blank">77db01e</a>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/77db01ef622b2f1f41cab6356064e0562a9a41e8/docs/figure/I_CYTB_polymorphic_mutspec_analysis.Rmd/average_mutspec_cytb_groups-1.png" target="_blank">77db01e</a>
 </td>
 <td>
 Alya Mikhailova
@@ -1691,36 +1920,92 @@ Alya Mikhailova
 2025-06-18
 </td>
 </tr>
-<tr>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/51c225065db00737702e5c6604d9cf9b58a71101/docs/figure/III_Comparison_of_all_Classes.Rmd/violin-AGskew-1.png" target="_blank">51c2250</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-06-06
-</td>
-</tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-<div id="comparison-a.h-of-all-classes" class="section level1">
-<h1>Comparison A.H of all Classes</h1>
-<pre class="r"><code>plt2 &lt;- ggbetweenstats(data = mtDNAcodonUsage, x = Class, y = FrA.H) +
-  labs(x = &quot;Classes&quot;, y = &quot;Fraction of A.H&quot;) +
-  scale_color_manual(values = blue_red_colors)
+<div
+id="studies-of-a_g-spectra-with-temperature-and-other-parameters-in-fishes"
+class="section level1">
+<h1>Studies of A_G spectra with temperature and other parameters in
+fishes</h1>
+<div id="a_g-freqs-dependence-on-temperature" class="section level2">
+<h2>A_G freqs dependence on temperature</h2>
+<pre class="r"><code>correlation_results &lt;- MutAndEcoCb |&gt;
+  dplyr::select(
+    &quot;A_G.H&quot;,
+    &quot;A_T.H&quot;,
+    &quot;A_C.H&quot;,
+    &quot;T_A.H&quot;,
+    &quot;T_G.H&quot;,
+    &quot;T_C.H&quot;,
+    &quot;C_A.H&quot;,
+    &quot;C_T.H&quot;,
+    &quot;C_G.H&quot;,
+    &quot;G_T.H&quot;,
+    &quot;G_A.H&quot;,
+    &quot;G_C.H&quot;
+  ) |&gt;
+  map_dfr( ~ tidy(cor.test(.x, MutAndEcoCb$Temp_avg), method = &#39;spearman&#39;), .id = &quot;variable&quot;) |&gt;
+  arrange(desc(abs(estimate)))
 
-plt2</code></pre>
-<p><img src="figure/III_Comparison_of_all_Classes.Rmd/violin-Aheavy-1.png" width="1344" style="display: block; margin: auto;" /></p>
+correlation_results</code></pre>
+<pre><code># A tibble: 12 × 9
+   variable estimate statistic   p.value parameter conf.low conf.high method                               alternative
+   &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;int&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;                                &lt;chr&gt;      
+ 1 A_G.H      0.317      4.16  0.0000527       155   0.169     0.451  Pearson&#39;s product-moment correlation two.sided  
+ 2 T_C.H     -0.168     -2.13  0.0351          155  -0.317    -0.0120 Pearson&#39;s product-moment correlation two.sided  
+ 3 G_A.H      0.123      1.55  0.124           155  -0.0339    0.275  Pearson&#39;s product-moment correlation two.sided  
+ 4 A_T.H     -0.119     -1.49  0.137           155  -0.271     0.0382 Pearson&#39;s product-moment correlation two.sided  
+ 5 C_G.H     -0.115     -1.45  0.150           155  -0.267     0.0419 Pearson&#39;s product-moment correlation two.sided  
+ 6 T_A.H      0.0912     1.14  0.256           155  -0.0664    0.244  Pearson&#39;s product-moment correlation two.sided  
+ 7 T_G.H      0.0798     0.997 0.320           155  -0.0778    0.234  Pearson&#39;s product-moment correlation two.sided  
+ 8 A_C.H     -0.0498    -0.621 0.536           155  -0.205     0.108  Pearson&#39;s product-moment correlation two.sided  
+ 9 C_A.H     -0.0489    -0.609 0.543           155  -0.204     0.109  Pearson&#39;s product-moment correlation two.sided  
+10 C_T.H     -0.0413    -0.515 0.607           155  -0.197     0.116  Pearson&#39;s product-moment correlation two.sided  
+11 G_C.H     -0.0364    -0.454 0.651           155  -0.192     0.121  Pearson&#39;s product-moment correlation two.sided  
+12 G_T.H     -0.0325    -0.405 0.686           155  -0.188     0.125  Pearson&#39;s product-moment correlation two.sided  </code></pre>
+<pre class="r"><code>#write.table(correlation_results, file = here(tables_dir, &quot;Table1.txt&quot;), row.names = FALSE)
+
+SubsetClass&lt;- unique(MutAndEcoCb$Class)
+spN &lt;- nrow(MutAndEcoCb[!is.na(MutAndEcoCb$Temp_avg),])
+cat(&quot;N species =&quot;, spN, &quot;Taxa =&quot;, SubsetClass)</code></pre>
+<pre><code>N species = 157 Taxa = Actinopteri Chondrichthyes</code></pre>
+<pre class="r"><code>f1 &lt;- ggplot(MutAndEcoCb, aes(x = Temp_avg, y = A_G.H)) +
+  geom_point(color = &quot;#73514f&quot;) +                  # Scatter plot
+  geom_smooth(
+    method = &quot;lm&quot;,
+    color = &quot;black&quot;,
+    # Regression line + CI
+    fill = &quot;lightgray&quot;,
+    se = TRUE
+  ) +     # Set se=TRUE for confidence interval
+  stat_cor(
+    method = &quot;spearman&quot;,
+    # Spearman correlation stats
+    aes(label = paste(..r.label.., ..p.label.., &quot;N&quot;, spN, sep = &quot;~&quot;))
+  ) +  # Include n
+  labs(title = &quot;Positive assosiation of A&gt;G.H with temperature&quot;, x = &quot;Median annual water temperature, ?C&quot;, y = &quot;AH&gt;GH&quot;) +
+  theme(
+    legend.position = &quot;none&quot;,
+    panel.background = element_blank(),
+    axis.line = element_line(color = &quot;black&quot;)
+  )
+ 
+ggsave(here(plots_dir,&quot;Assosiation_of_A_G_with_temperature.pdf&quot;),
+  plot = f1,
+  width = 6,
+  height = 6
+) 
+f1</code></pre>
+<p><img src="figure/I_CYTB_polymorphic_mutspec_analysis.Rmd/statistics_with_temp_cytb-1.png" width="1344" style="display: block; margin: auto;" /></p>
 <p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-violin-Aheavy-1">
-Past versions of violin-Aheavy-1.png
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-statistics_with_temp_cytb-1">
+Past versions of statistics_with_temp_cytb-1.png
 </button>
 </p>
-<div id="fig-violin-Aheavy-1" class="collapse">
+<div id="fig-statistics_with_temp_cytb-1" class="collapse">
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
 <thead>
@@ -1739,7 +2024,7 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/77db01ef622b2f1f41cab6356064e0562a9a41e8/docs/figure/III_Comparison_of_all_Classes.Rmd/violin-Aheavy-1.png" target="_blank">77db01e</a>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/77db01ef622b2f1f41cab6356064e0562a9a41e8/docs/figure/I_CYTB_polymorphic_mutspec_analysis.Rmd/statistics_with_temp_cytb-1.png" target="_blank">77db01e</a>
 </td>
 <td>
 Alya Mikhailova
@@ -1748,33 +2033,32 @@ Alya Mikhailova
 2025-06-18
 </td>
 </tr>
-<tr>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/51c225065db00737702e5c6604d9cf9b58a71101/docs/figure/III_Comparison_of_all_Classes.Rmd/violin-Aheavy-1.png" target="_blank">51c2250</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-06-06
-</td>
-</tr>
 </tbody>
 </table>
 </div>
 </div>
-<pre class="r"><code>plt2 &lt;- ggbetweenstats(data = mtDNAcodonUsage, x = Class, y = FrG.H) +
-  labs(x = &quot;Classes&quot;, y = &quot;Fraction of G.H&quot;) +
-  scale_color_manual(values = blue_red_colors)
+</div>
+<div id="a_g-freqs-dependence-on-climate-zones" class="section level2">
+<h2>A_G freqs dependence on climate zones</h2>
+<pre class="r"><code>ClimateZonetest &lt;- na.omit(data.frame(subset(MutAndEcoCb, select = c(Species ,A_G.H, Climate_zone))))
 
-plt2</code></pre>
-<p><img src="figure/III_Comparison_of_all_Classes.Rmd/violin-Aheavy-2.png" width="1344" style="display: block; margin: auto;" /></p>
+ClimateZonetest$ClimateGroup &lt;- ifelse(ClimateZonetest$Climate_zone %in% c(&quot;tropical&quot;, &quot;subtropical&quot;), &quot;Warm&quot;, &quot;Cold&quot;)
+ClimateZonetest$Climate_zone &lt;- as.factor(ClimateZonetest$Climate_zone)
+AGmedian &lt;- median(ClimateZonetest$A_G.H)
+ClimateZonetest$A_G.Freq &lt;- &quot;low_A_G&quot;
+ClimateZonetest[ClimateZonetest$A_G.H &gt;= AGmedian,]$A_G.Freq &lt;- &quot;high_A_G&quot;
+ClimateZonetest$A_G.Freq &lt;- as.factor(ClimateZonetest$A_G.Freq)
+ClimateZonePie &lt;- ClimateZonetest[,2-3]
+s1 &lt;- ggpiestats(data = ClimateZonePie, x = Climate_zone, y = A_G.Freq) +
+  scale_fill_manual(values = c(&quot;#F2AF4AFF&quot;, &quot;#C36377FF&quot;, &quot;#EB7F54FF&quot;, &quot;#61599DFF&quot;, &quot;#1D457FFF&quot;))
+s1</code></pre>
+<p><img src="figure/I_CYTB_polymorphic_mutspec_analysis.Rmd/comparison_climate_A_G-1.png" width="1344" style="display: block; margin: auto;" /></p>
 <p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-violin-Aheavy-2">
-Past versions of violin-Aheavy-2.png
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-comparison_climate_A_G-1">
+Past versions of comparison_climate_A_G-1.png
 </button>
 </p>
-<div id="fig-violin-Aheavy-2" class="collapse">
+<div id="fig-comparison_climate_A_G-1" class="collapse">
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
 <thead>
@@ -1793,7 +2077,7 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/77db01ef622b2f1f41cab6356064e0562a9a41e8/docs/figure/III_Comparison_of_all_Classes.Rmd/violin-Aheavy-2.png" target="_blank">77db01e</a>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/77db01ef622b2f1f41cab6356064e0562a9a41e8/docs/figure/I_CYTB_polymorphic_mutspec_analysis.Rmd/comparison_climate_A_G-1.png" target="_blank">77db01e</a>
 </td>
 <td>
 Alya Mikhailova
@@ -1802,21 +2086,144 @@ Alya Mikhailova
 2025-06-18
 </td>
 </tr>
-<tr>
-<td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/51c225065db00737702e5c6604d9cf9b58a71101/docs/figure/III_Comparison_of_all_Classes.Rmd/violin-Aheavy-2.png" target="_blank">51c2250</a>
-</td>
-<td>
-Alya Mikhailova
-</td>
-<td>
-2025-06-06
-</td>
-</tr>
 </tbody>
 </table>
 </div>
 </div>
+<pre class="r"><code>tidy(wilcox.test(ClimateZonetest[ClimateZonetest$ClimateGroup == &quot;Warm&quot;,]$A_G.H, ClimateZonetest[ClimateZonetest$ClimateGroup == &quot;Cold&quot;,]$A_G.H))</code></pre>
+<pre><code># A tibble: 1 × 4
+  statistic    p.value method                                            alternative
+      &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;                                             &lt;chr&gt;      
+1    17568. 0.00000467 Wilcoxon rank sum test with continuity correction two.sided  </code></pre>
+</div>
+<div id="ag-freqs-dependence-on-time-of-maturation"
+class="section level2">
+<h2>A&gt;G freqs dependence on time of maturation</h2>
+<pre class="r"><code>correlation_results1 &lt;- MutAndEcoCb |&gt;
+  dplyr::select(
+    &quot;A_G.H&quot;,
+    &quot;A_T.H&quot;,
+    &quot;A_C.H&quot;,
+    &quot;T_A.H&quot;,
+    &quot;T_G.H&quot;,
+    &quot;T_C.H&quot;,
+    &quot;C_A.H&quot;,
+    &quot;C_T.H&quot;,
+    &quot;C_G.H&quot;,
+    &quot;G_T.H&quot;,
+    &quot;G_A.H&quot;,
+    &quot;G_C.H&quot;
+  ) |&gt;
+  map_dfr( ~ tidy(cor.test(.x, MutAndEcoCb$tm), method = &#39;spearman&#39;), .id = &quot;variable&quot;) |&gt;
+  arrange(desc(abs(estimate)))
+correlation_results1</code></pre>
+<pre><code># A tibble: 12 × 9
+   variable estimate statistic p.value parameter conf.low conf.high method                               alternative
+   &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;int&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;                                &lt;chr&gt;      
+ 1 G_A.H     0.140      1.90    0.0596       181 -0.00562    0.279  Pearson&#39;s product-moment correlation two.sided  
+ 2 T_C.H    -0.124     -1.68    0.0951       181 -0.264      0.0217 Pearson&#39;s product-moment correlation two.sided  
+ 3 T_G.H    -0.0766    -1.03    0.302        181 -0.219      0.0692 Pearson&#39;s product-moment correlation two.sided  
+ 4 C_A.H    -0.0740    -0.999   0.319        181 -0.217      0.0718 Pearson&#39;s product-moment correlation two.sided  
+ 5 T_A.H    -0.0648    -0.873   0.384        181 -0.208      0.0810 Pearson&#39;s product-moment correlation two.sided  
+ 6 A_G.H     0.0644     0.868   0.386        181 -0.0814     0.208  Pearson&#39;s product-moment correlation two.sided  
+ 7 C_G.H    -0.0565    -0.762   0.447        181 -0.200      0.0893 Pearson&#39;s product-moment correlation two.sided  
+ 8 C_T.H     0.0557     0.750   0.454        181 -0.0901     0.199  Pearson&#39;s product-moment correlation two.sided  
+ 9 G_T.H     0.0375     0.505   0.614        181 -0.108      0.182  Pearson&#39;s product-moment correlation two.sided  
+10 G_C.H    -0.0298    -0.401   0.689        181 -0.174      0.116  Pearson&#39;s product-moment correlation two.sided  
+11 A_T.H    -0.0237    -0.319   0.750        181 -0.168      0.122  Pearson&#39;s product-moment correlation two.sided  
+12 A_C.H    -0.00107   -0.0144  0.989        181 -0.146      0.144  Pearson&#39;s product-moment correlation two.sided  </code></pre>
+</div>
+<div id="pgls" class="section level2">
+<h2>PGLS</h2>
+<pre class="r"><code>tree &lt;- read.tree(file = here(data_dir, &quot;chordates_species.nwk&quot;))
+tree &lt;- ape::drop.tip(tree, &quot;Tenebrosternarchus_preto&quot;)
+MutAndEcoPGLS &lt;- MutAndEcoCb %&gt;% dplyr::select(Species, A_G.H, C_T.H, G_A.H, T_C.H, Temp_avg)
+
+row.names(MutAndEcoPGLS) = MutAndEcoPGLS$Species
+tree_pruned = treedata(tree, MutAndEcoPGLS, sort=T, warnings=T)$phy
+data&lt;-as.data.frame(treedata(tree_pruned, MutAndEcoPGLS, sort=T, warnings=T)$data)
+data$Species = as.character(data$Species)
+data$A_G.H = as.numeric(data$A_G.H)
+data$C_T.H = as.numeric(data$C_T.H)
+data$G_A.H = as.numeric(data$G_A.H)
+data$T_C.H = as.numeric(data$T_C.H)
+data$Temp_avg = as.numeric(data$Temp_avg)
+data$Tv &lt;- 1-(data$A_G.H + data$G_A.H + data$T_C.H + data$C_T.H)
+data_comp &lt;- comparative.data(tree_pruned, data, Species, vcv=TRUE)
+
+summary(pgls(A_G.H ~ Temp_avg, data_comp, lambda=&quot;ML&quot;))</code></pre>
+<pre><code>
+Call:
+pgls(formula = A_G.H ~ Temp_avg, data = data_comp, lambda = &quot;ML&quot;)
+
+Residuals:
+       Min         1Q     Median         3Q        Max 
+-0.0081580 -0.0024766 -0.0007092  0.0012258  0.0165195 
+
+Branch length transformations:
+
+kappa  [Fix]  : 1.000
+lambda [ ML]  : 0.000
+   lower bound : 0.000, p = 1    
+   upper bound : 1.000, p = &lt; 2.22e-16
+   95.0% CI   : (NA, 0.119)
+delta  [Fix]  : 1.000
+
+Coefficients:
+             Estimate Std. Error t value  Pr(&gt;|t|)    
+(Intercept) 0.0682919  0.0243949  2.7994  0.005802 ** 
+Temp_avg    0.0053567  0.0012733  4.2069 4.467e-05 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.004066 on 148 degrees of freedom
+Multiple R-squared: 0.1068, Adjusted R-squared: 0.1008 
+F-statistic:  17.7 on 1 and 148 DF,  p-value: 4.467e-05 </code></pre>
+<pre class="r"><code>#la.A_G &lt;- phylosig(tree_pruned, data$A_G.H, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.280122 
+#la.C_T &lt;- phylosig(tree_pruned, data$C_T.H, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.119451 
+#la.G_A &lt;- phylosig(tree_pruned, data$G_A.H, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.719915 
+#la.T_C &lt;- phylosig(tree_pruned, data$T_C.H, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.813846 
+#la.Tv &lt;- phylosig(tree_pruned, data$Tv, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.113722
+#la.temp &lt;- phylosig(tree_pruned, data$Temp_avg, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.92032</code></pre>
+<pre class="r"><code>tree &lt;- read.tree(file = here(data_dir, &quot;chordates_species.nwk&quot;))
+tree &lt;- ape::drop.tip(tree, &quot;Tenebrosternarchus_preto&quot;)
+
+row.names(ClimateZonetest) = ClimateZonetest$Species
+tree_pruned = treedata(tree, ClimateZonetest, sort=T, warnings=T)$phy
+data&lt;-as.data.frame(treedata(tree_pruned, ClimateZonetest, sort=T, warnings=T)$data)
+data$Species = as.character(data$Species)
+data$A_G.H = as.numeric(data$A_G.H)
+data$ClimateGroup = as.factor(data$ClimateGroup)
+data_comp &lt;- comparative.data(tree_pruned, data, Species, vcv=TRUE)
+
+summary(pgls(A_G.H ~ ClimateGroup, data_comp, lambda=&quot;ML&quot;))</code></pre>
+<pre><code>
+Call:
+pgls(formula = A_G.H ~ ClimateGroup, data = data_comp, lambda = &quot;ML&quot;)
+
+Residuals:
+       Min         1Q     Median         3Q        Max 
+-0.0080064 -0.0026449 -0.0007283  0.0013327  0.0172939 
+
+Branch length transformations:
+
+kappa  [Fix]  : 1.000
+lambda [ ML]  : 0.000
+   lower bound : 0.000, p = 1    
+   upper bound : 1.000, p = &lt; 2.22e-16
+   95.0% CI   : (NA, 0.368)
+delta  [Fix]  : 1.000
+
+Coefficients:
+                  Estimate Std. Error t value  Pr(&gt;|t|)    
+(Intercept)      0.1375144  0.0077634 17.7133 &lt; 2.2e-16 ***
+ClimateGroupWarm 0.0346512  0.0103527  3.3471  0.000917 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.004226 on 311 degrees of freedom
+Multiple R-squared: 0.03477,    Adjusted R-squared: 0.03167 
+F-statistic:  11.2 on 1 and 311 DF,  p-value: 0.000917 </code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -1860,22 +2267,23 @@ loaded via a namespace (and not attached):
  [31] lifecycle_1.0.4         iterators_1.0.14        pkgconfig_2.0.3         Matrix_1.7-3            R6_2.6.1               
  [36] fastmap_1.2.0           PMCMRplus_1.9.12        shiny_1.10.0            BayesFactor_0.9.12-4.7  digest_0.6.37          
  [41] numDeriv_2016.8-1.1     rematch2_2.1.2          patchwork_1.3.0         ps_1.9.1                rprojroot_2.0.4        
- [46] textshaping_1.0.1       labeling_0.4.3          clusterGeneration_1.3.8 timechange_0.3.0        httr_1.4.7             
- [51] abind_1.4-8             compiler_4.5.0          bit64_4.6.0-1           withr_3.0.2             doParallel_1.0.17      
- [56] backports_1.5.0         optimParallel_1.0-2     carData_3.0-5           performance_0.14.0      ggsignif_0.6.4         
- [61] scatterplot3d_0.3-44    tools_4.5.0             httpuv_1.6.16           statsExpressions_1.7.0  glue_1.8.0             
- [66] quadprog_1.5-8          callr_3.7.6             nlme_3.1-168            promises_1.3.3          grid_4.5.0             
- [71] rsconnect_1.4.1         getPass_0.2-4           generics_0.1.4          gtable_0.3.6            tzdb_0.5.0             
- [76] hms_1.1.3               car_3.1-3               utf8_1.2.6              foreach_1.5.2           pillar_1.10.2          
- [81] vroom_1.6.5             later_1.4.2             lattice_0.22-7          gmp_0.7-5               bit_4.6.0              
- [86] tidyselect_1.2.1        pbapply_1.7-2           miniUI_0.1.2            git2r_0.36.2            xfun_0.52              
- [91] expm_1.0-0              stringi_1.8.7           boot_1.3-31             yaml_2.3.10             kSamples_1.2-10        
- [96] evaluate_1.0.3          codetools_0.2-20        multcompView_0.1-10     cli_3.6.5               RcppParallel_5.1.10    
-[101] systemfonts_1.2.3       xtable_1.8-4            parameters_0.26.0       repr_1.1.7              processx_3.8.6         
-[106] jquerylib_0.1.4         Rcpp_1.0.14             zeallot_0.2.0           coda_0.19-4.1           parallel_4.5.0         
-[111] MatrixModels_0.5-4      rstantools_2.4.0        bayestestR_0.16.0       Rmpfr_1.1-0             phangorn_2.12.1        
-[116] scales_1.4.0            insight_1.3.0           crayon_1.5.3            combinat_0.0-8          rlang_1.1.6            
-[121] fastmatch_1.1-6         cowplot_1.1.3           mnormt_2.1.1           </code></pre>
+ [46] textshaping_1.0.1       labeling_0.4.3          clusterGeneration_1.3.8 timechange_0.3.0        mgcv_1.9-3             
+ [51] httr_1.4.7              abind_1.4-8             compiler_4.5.0          bit64_4.6.0-1           withr_3.0.2            
+ [56] doParallel_1.0.17       backports_1.5.0         optimParallel_1.0-2     carData_3.0-5           performance_0.14.0     
+ [61] ggsignif_0.6.4          scatterplot3d_0.3-44    tools_4.5.0             httpuv_1.6.16           statsExpressions_1.7.0 
+ [66] glue_1.8.0              quadprog_1.5-8          callr_3.7.6             nlme_3.1-168            promises_1.3.3         
+ [71] grid_4.5.0              rsconnect_1.4.1         getPass_0.2-4           generics_0.1.4          gtable_0.3.6           
+ [76] tzdb_0.5.0              hms_1.1.3               car_3.1-3               utf8_1.2.6              foreach_1.5.2          
+ [81] pillar_1.10.2           vroom_1.6.5             later_1.4.2             splines_4.5.0           lattice_0.22-7         
+ [86] gmp_0.7-5               bit_4.6.0               tidyselect_1.2.1        pbapply_1.7-2           miniUI_0.1.2           
+ [91] git2r_0.36.2            xfun_0.52               expm_1.0-0              stringi_1.8.7           boot_1.3-31            
+ [96] yaml_2.3.10             kSamples_1.2-10         evaluate_1.0.3          codetools_0.2-20        multcompView_0.1-10    
+[101] cli_3.6.5               RcppParallel_5.1.10     systemfonts_1.2.3       xtable_1.8-4            parameters_0.26.0      
+[106] repr_1.1.7              processx_3.8.6          jquerylib_0.1.4         Rcpp_1.0.14             zeallot_0.2.0          
+[111] coda_0.19-4.1           parallel_4.5.0          MatrixModels_0.5-4      rstantools_2.4.0        bayestestR_0.16.0      
+[116] Rmpfr_1.1-0             phangorn_2.12.1         scales_1.4.0            insight_1.3.0           crayon_1.5.3           
+[121] combinat_0.0-8          rlang_1.1.6             fastmatch_1.1-6         cowplot_1.1.3           mnormt_2.1.1           </code></pre>
+</div>
 </div>
 </div>
 </div>

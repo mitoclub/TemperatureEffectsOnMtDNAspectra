@@ -396,7 +396,7 @@ div.tocify {
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-ok text-success"
+workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -407,8 +407,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
-</a>
+class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -417,13 +417,13 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2025-06-13
+<strong>Last updated:</strong> 2025-06-18
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 0
+aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong>
@@ -465,17 +465,1111 @@ results.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongobjectspresent">
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> <strong>Environment:</strong> objects present
+</a>
 </p>
 </div>
-<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div id="strongEnvironmentstrongobjectspresent"
+class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great job! The global environment was empty. Objects defined in the
-global environment can affect the analysis in your R Markdown file in
-unknown ways. For reproduciblity it’s best to always run the code in an
-empty environment.</p>
+<p>
+The global environment had objects present when the code in the R
+Markdown file was run. These objects can affect the analysis in your R
+Markdown file in unknown ways. For reproduciblity it’s best to always
+run the code in an empty environment. Use <code>wflow_publish</code> or
+<code>wflow_build</code> to ensure that the code is always run in an
+empty environment.
+</p>
+<p>
+The following objects were defined in the global environment when these
+results were created:
+</p>
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th style="text-align:left;">
+Name
+</th>
+<th style="text-align:left;">
+Class
+</th>
+<th style="text-align:left;">
+Size
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+AGmedian
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+56 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+allEcology
+</td>
+<td style="text-align:left;">
+data.frame
+</td>
+<td style="text-align:left;">
+393.7 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+allEcologyNOCLASS
+</td>
+<td style="text-align:left;">
+data.frame
+</td>
+<td style="text-align:left;">
+383.1 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AverageMutSpecBoth
+</td>
+<td style="text-align:left;">
+tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+2.8 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AverageMutSpecCb
+</td>
+<td style="text-align:left;">
+tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+2.8 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+blue_red_colors
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:left;">
+376 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+both_freqs
+</td>
+<td style="text-align:left;">
+data.frame
+</td>
+<td style="text-align:left;">
+1.7 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Classes
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:left;">
+408 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ClimateZonePie
+</td>
+<td style="text-align:left;">
+data.frame
+</td>
+<td style="text-align:left;">
+11.5 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ClimateZonetest
+</td>
+<td style="text-align:left;">
+data.frame
+</td>
+<td style="text-align:left;">
+99.8 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+cold_fish_data
+</td>
+<td style="text-align:left;">
+tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+1.3 Mb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ColdFishes
+</td>
+<td style="text-align:left;">
+tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+2.3 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ColdFishesCb
+</td>
+<td style="text-align:left;">
+tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+15.6 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ColdFishesNuc
+</td>
+<td style="text-align:left;">
+tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+1.2 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ColdSubset
+</td>
+<td style="text-align:left;">
+tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+13.6 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ColorA
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:left;">
+112 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ColorC
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:left;">
+120 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ColorG
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:left;">
+120 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ColorT
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:left;">
+112 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CompColdFishes
+</td>
+<td style="text-align:left;">
+tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+2.5 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CompMutspec
+</td>
+<td style="text-align:left;">
+tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+2.6 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CompWarmFishes
+</td>
+<td style="text-align:left;">
+tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+2.5 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+correlation_results
+</td>
+<td style="text-align:left;">
+tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+4.8 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+correlation_results1
+</td>
+<td style="text-align:left;">
+tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+4.8 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+current_iteration_manual
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+56 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+data
+</td>
+<td style="text-align:left;">
+data.frame
+</td>
+<td style="text-align:left;">
+62.7 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+data_comp
+</td>
+<td style="text-align:left;">
+comparative.data
+</td>
+<td style="text-align:left;">
+894.8 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+data_dir
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:left;">
+232 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+docname
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:left;">
+152 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+exp_both
+</td>
+<td style="text-align:left;">
+data.frame
+</td>
+<td style="text-align:left;">
+1.5 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+exp_cold
+</td>
+<td style="text-align:left;">
+data.frame
+</td>
+<td style="text-align:left;">
+1.3 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+exp_warm
+</td>
+<td style="text-align:left;">
+data.frame
+</td>
+<td style="text-align:left;">
+1.3 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+f1
+</td>
+<td style="text-align:left;">
+gg;ggplot
+</td>
+<td style="text-align:left;">
+237 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+f1a
+</td>
+<td style="text-align:left;">
+gg;ggplot
+</td>
+<td style="text-align:left;">
+23.7 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+f1b
+</td>
+<td style="text-align:left;">
+gg;ggplot
+</td>
+<td style="text-align:left;">
+26.2 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+f2
+</td>
+<td style="text-align:left;">
+gg;ggplot
+</td>
+<td style="text-align:left;">
+86.4 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fishEcology
+</td>
+<td style="text-align:left;">
+data.frame
+</td>
+<td style="text-align:left;">
+746.4 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fishEcologyTemp
+</td>
+<td style="text-align:left;">
+data.frame
+</td>
+<td style="text-align:left;">
+335.9 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GenomeLength
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+56 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+hlines_cold
+</td>
+<td style="text-align:left;">
+data.frame
+</td>
+<td style="text-align:left;">
+1.5 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+hlines_warm
+</td>
+<td style="text-align:left;">
+data.frame
+</td>
+<td style="text-align:left;">
+1.5 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+merging
+</td>
+<td style="text-align:left;">
+list
+</td>
+<td style="text-align:left;">
+904.6 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mergingtest
+</td>
+<td style="text-align:left;">
+list
+</td>
+<td style="text-align:left;">
+1.3 Mb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mtDNAcodonUsage
+</td>
+<td style="text-align:left;">
+data.frame
+</td>
+<td style="text-align:left;">
+1.5 Mb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MutAndEcoCb
+</td>
+<td style="text-align:left;">
+tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+225.9 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MutAndEcoPGLS
+</td>
+<td style="text-align:left;">
+tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+174.9 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MutNucAndEcoCb
+</td>
+<td style="text-align:left;">
+tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+266.3 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mutSpec12
+</td>
+<td style="text-align:left;">
+spec_tbl_df;tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+1 Mb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mutSpec12all
+</td>
+<td style="text-align:left;">
+spec_tbl_df;tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+2 Mb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mutSpec12allCb
+</td>
+<td style="text-align:left;">
+spec_tbl_df;tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+1.2 Mb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mutSpec12Cb
+</td>
+<td style="text-align:left;">
+spec_tbl_df;tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+780.9 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MutSpecForAnalysisBoth
+</td>
+<td style="text-align:left;">
+tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+194.5 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MutSpecForAnalysisCb
+</td>
+<td style="text-align:left;">
+tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+158.2 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MutSpecForAnalysisCbAll
+</td>
+<td style="text-align:left;">
+tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+323 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+n_cores
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+56 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ncold
+</td>
+<td style="text-align:left;">
+integer
+</td>
+<td style="text-align:left;">
+56 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NcoldCb
+</td>
+<td style="text-align:left;">
+integer
+</td>
+<td style="text-align:left;">
+56 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NcoldNuc
+</td>
+<td style="text-align:left;">
+integer
+</td>
+<td style="text-align:left;">
+56 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+now
+</td>
+<td style="text-align:left;">
+POSIXct;POSIXt
+</td>
+<td style="text-align:left;">
+344 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NucAndEco
+</td>
+<td style="text-align:left;">
+data.frame
+</td>
+<td style="text-align:left;">
+615.3 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+nucleotide_colors
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:left;">
+736 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Nwarm
+</td>
+<td style="text-align:left;">
+integer
+</td>
+<td style="text-align:left;">
+56 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NwarmCb
+</td>
+<td style="text-align:left;">
+integer
+</td>
+<td style="text-align:left;">
+56 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NwarmNuc
+</td>
+<td style="text-align:left;">
+integer
+</td>
+<td style="text-align:left;">
+56 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+obs_both
+</td>
+<td style="text-align:left;">
+data.frame
+</td>
+<td style="text-align:left;">
+1.5 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+obs_cold
+</td>
+<td style="text-align:left;">
+data.frame
+</td>
+<td style="text-align:left;">
+1.3 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+obs_warm
+</td>
+<td style="text-align:left;">
+data.frame
+</td>
+<td style="text-align:left;">
+1.3 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ObservedCold
+</td>
+<td style="text-align:left;">
+tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+1.2 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ObservedWarm
+</td>
+<td style="text-align:left;">
+tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+1.2 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+output_dir
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:left;">
+232 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+plot_cold_water
+</td>
+<td style="text-align:left;">
+gg;ggplot
+</td>
+<td style="text-align:left;">
+1.4 Mb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+plot_warm_water
+</td>
+<td style="text-align:left;">
+gg;ggplot
+</td>
+<td style="text-align:left;">
+1.4 Mb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+plots_dir
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:left;">
+232 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+plt
+</td>
+<td style="text-align:left;">
+gg;ggplot
+</td>
+<td style="text-align:left;">
+276.9 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+plt2
+</td>
+<td style="text-align:left;">
+gg;ggplot
+</td>
+<td style="text-align:left;">
+208.2 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+progress_bar_width
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+56 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+reseed
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+56 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+s1
+</td>
+<td style="text-align:left;">
+gg;ggplot
+</td>
+<td style="text-align:left;">
+96.8 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sfn
+</td>
+<td style="text-align:left;">
+gg;ggplot;ggarrange
+</td>
+<td style="text-align:left;">
+39.9 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+simulation_data_long
+</td>
+<td style="text-align:left;">
+tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+2.6 Mb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SimulationData
+</td>
+<td style="text-align:left;">
+data.frame
+</td>
+<td style="text-align:left;">
+799.1 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SimulationLengthNumberOfGenerations
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+56 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+spN
+</td>
+<td style="text-align:left;">
+integer
+</td>
+<td style="text-align:left;">
+56 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+src_dir
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:left;">
+232 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SubsetClass
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:left;">
+192 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tables_dir
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:left;">
+232 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+temperaturestat
+</td>
+<td style="text-align:left;">
+summaryDefault;table
+</td>
+<td style="text-align:left;">
+1 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+todelete
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:left;">
+192 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ToMerge
+</td>
+<td style="text-align:left;">
+data.frame
+</td>
+<td style="text-align:left;">
+1.5 Mb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+total_iterations_manual
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+56 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tree
+</td>
+<td style="text-align:left;">
+phylo
+</td>
+<td style="text-align:left;">
+6.6 Mb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tree_pruned
+</td>
+<td style="text-align:left;">
+phylo
+</td>
+<td style="text-align:left;">
+37.1 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+warm_fish_data
+</td>
+<td style="text-align:left;">
+tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+1.3 Mb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+WarmFishes
+</td>
+<td style="text-align:left;">
+tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+2.3 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+WarmFishesCb
+</td>
+<td style="text-align:left;">
+tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+13.1 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+WarmFishesNuc
+</td>
+<td style="text-align:left;">
+tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+1.2 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+WarmSubset
+</td>
+<td style="text-align:left;">
+tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+17.6 Kb
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -549,15 +1643,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree51c225065db00737702e5c6604d9cf9b58a71101targetblank51c2250a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree77db01ef622b2f1f41cab6356064e0562a9a41e8targetblank77db01ea">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/51c225065db00737702e5c6604d9cf9b58a71101" target="_blank">51c2250</a>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/77db01ef622b2f1f41cab6356064e0562a9a41e8" target="_blank">77db01e</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree51c225065db00737702e5c6604d9cf9b58a71101targetblank51c2250a"
+id="strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree77db01ef622b2f1f41cab6356064e0562a9a41e8targetblank77db01ea"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -567,7 +1661,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/51c225065db00737702e5c6604d9cf9b58a71101" target="_blank">51c2250</a>.
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/77db01ef622b2f1f41cab6356064e0562a9a41e8" target="_blank">77db01e</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -601,33 +1695,24 @@ Ignored files:
     Ignored:    data/MIDORI2_LONGEST_NUC_GB265_Cytb_BLAST.fasta
     Ignored:    data/MIDORI2_LONGEST_NUC_GB265_Cytb_BLAST.fasta.fai
     Ignored:    data/MIDORI_WG_CYTB_FISHES.csv
+    Ignored:    data/MolEvolRatesProxy.txt
     Ignored:    data/SimulationData.csv
+    Ignored:    data/SimulationData2.csv
     Ignored:    data/Species_by_climate_zones.txt
     Ignored:    output/.DS_Store
     Ignored:    output/figures/.DS_Store
     Ignored:    output/tables/.DS_Store
 
-Unstaged changes:
-    Unmerged:   output/figures/PolymorphicData.Actinopterygii.A_GwitnTemperatureCytB.pdf
-    Unmerged:   output/figures/PolymorphicData.Actinopterygii.AverageMutSpecColdAndWarmCytB.pdf
-    Unmerged:   output/figures/PolymorphicData.Actinopterygii.AverageMutSpecCytB.pdf
-    Deleted:    output/tables/Mitochondrial_matational_spectra_and_ecology_Fishes.txt
-    Deleted:    output/tables/Mitochondrial_mutational_spectra_and_ecology_Fishes.txt
+Untracked files:
+    Untracked:  output/figures/Observed_vs_Expected_Frequencies.png
+    Untracked:  output/figures/Observed_vs_Expected_Frequencies_subset.png
+    Untracked:  output/figures/Simulation_expected_observed.pdf
+    Untracked:  output/figures/Simulation_expected_observed_subset.pdf
 
-Staged changes:
-    Modified:   analysis/II_Cytb_Data_Analysis.Rmd
-    Modified:   analysis/IIa_Cytb_Data_Analysis_Simulation_Mutagenesis.Rmd
-    Modified:   analysis/I_Polymorphic_Data_Analysis.Rmd
-    Deleted:    cold_water_fish_frequencies.png
-    New:        data/Cytb.nm.Mafft_L-INS-i.pr.Bs.mtVer-F-I-G8.treefile.cut-c0.0001-rr
-    New:        data/Cytb.nm.Mafft_L-INS-i.pr.Bs.mtVer-F-I-G8.treefile.cut-c0.0001-rr.dist
-    New:        data/Cytb.nm.famsa.nj.refine.pr.Bs.mtVer-F-I-G8.treefile.cut-c0.0001-rr.dist
-    Deleted:    output/figures/PolymorphicData.Actinopterygii.A_GwitnTemperature.pdf
-    Deleted:    output/figures/PolymorphicData.Actinopterygii.AverageMutSpec.pdf
-    Deleted:    output/figures/PolymorphicData.Actinopterygii.AverageMutSpecColdAndWarm.pdf
-    Deleted:    output/figures/Simulation_plot.pdf
-    New:        output/tables/Mitochondrial_matational_spectra_and_ecology_Fishes.txt
-    New:        output/tables/Mitochondrial_mutational_spectra_and_ecology_Fishes.txt
+Unstaged changes:
+    Modified:   output/figures/Assosiation_of_A_G_with_temperature.pdf
+    Modified:   output/figures/Average mitochondrial mutational spectrum in Fishes divided by groups (cytB).pdf
+    Modified:   output/figures/Average_mutspec_in_Fishes_CytB.pdf
 
 </code></pre>
 <p>
@@ -674,6 +1759,57 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/77db01ef622b2f1f41cab6356064e0562a9a41e8/analysis/Ia_Polymorphic_Data_Analysis_TrophLevel.KP.Rmd" target="_blank">77db01e</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-06-18
+</td>
+<td>
+First chapter all done
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mitoclub/TemperatureEffectsOnMtDNAspectra/77db01ef622b2f1f41cab6356064e0562a9a41e8/docs/Ia_Polymorphic_Data_Analysis_TrophLevel.KP.html" target="_blank">77db01e</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-06-18
+</td>
+<td>
+First chapter all done
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mitoclub/TemperatureEffectsOnMtDNAspectra/381478f404af863b218688553890802b5ed87962/docs/Ia_Polymorphic_Data_Analysis_TrophLevel.KP.html" target="_blank">381478f</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-06-13
+</td>
+<td>
+New tree added
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -776,7 +1912,7 @@ all analyses on CytB and PGLS for Troph
 <pre class="r"><code>### CLIMATE
 Mut = read_csv(here(data_dir, &quot;MutSpecVertebrates12fish.csv&quot;))</code></pre>
 <pre><code>Rows: 13380 Columns: 9
-── Column specification ────────────────────────────────────────────────────────
+── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
 Delimiter: &quot;,&quot;
 chr (4): Gene, Class, Species, Mut
 dbl (5): Observed, TreeLeaves, MSAsize, Expected, MutSpec
@@ -784,8 +1920,7 @@ dbl (5): Observed, TreeLeaves, MSAsize, Expected, MutSpec
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <pre class="r"><code>names(Mut)</code></pre>
-<pre><code>[1] &quot;Gene&quot;       &quot;Class&quot;      &quot;Species&quot;    &quot;Mut&quot;        &quot;Observed&quot;  
-[6] &quot;TreeLeaves&quot; &quot;MSAsize&quot;    &quot;Expected&quot;   &quot;MutSpec&quot;   </code></pre>
+<pre><code>[1] &quot;Gene&quot;       &quot;Class&quot;      &quot;Species&quot;    &quot;Mut&quot;        &quot;Observed&quot;   &quot;TreeLeaves&quot; &quot;MSAsize&quot;    &quot;Expected&quot;   &quot;MutSpec&quot;   </code></pre>
 <pre class="r"><code>head(Mut)</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
@@ -811,8 +1946,7 @@ MutEco = MutEco[MutEco$Mut == &#39;T&gt;C&#39;,]
 dim(MutEco)</code></pre>
 <pre><code>[1] 333  11</code></pre>
 <pre class="r"><code>cor.test(MutEco$MutSpec,MutEco$WarmClimate, method = &#39;spearman&#39;)</code></pre>
-<pre><code>Warning in cor.test.default(MutEco$MutSpec, MutEco$WarmClimate, method =
-&quot;spearman&quot;): Cannot compute exact p-value with ties</code></pre>
+<pre><code>Warning in cor.test.default(MutEco$MutSpec, MutEco$WarmClimate, method = &quot;spearman&quot;): Cannot compute exact p-value with ties</code></pre>
 <pre><code>
     Spearman&#39;s rank correlation rho
 
@@ -922,7 +2056,7 @@ class="section level2">
 shaping more?)</h2>
 <pre class="r"><code>Mut = read_csv(here(data_dir, &quot;MutSpecVertebrates12fish.csv&quot;)) </code></pre>
 <pre><code>Rows: 13380 Columns: 9
-── Column specification ────────────────────────────────────────────────────────
+── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
 Delimiter: &quot;,&quot;
 chr (4): Gene, Class, Species, Mut
 dbl (5): Observed, TreeLeaves, MSAsize, Expected, MutSpec
@@ -930,8 +2064,7 @@ dbl (5): Observed, TreeLeaves, MSAsize, Expected, MutSpec
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <pre class="r"><code>names(Mut)</code></pre>
-<pre><code>[1] &quot;Gene&quot;       &quot;Class&quot;      &quot;Species&quot;    &quot;Mut&quot;        &quot;Observed&quot;  
-[6] &quot;TreeLeaves&quot; &quot;MSAsize&quot;    &quot;Expected&quot;   &quot;MutSpec&quot;   </code></pre>
+<pre><code>[1] &quot;Gene&quot;       &quot;Class&quot;      &quot;Species&quot;    &quot;Mut&quot;        &quot;Observed&quot;   &quot;TreeLeaves&quot; &quot;MSAsize&quot;    &quot;Expected&quot;   &quot;MutSpec&quot;   </code></pre>
 <pre class="r"><code>head(Mut)</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
@@ -959,9 +2092,8 @@ table(MutEco$Gene)</code></pre>
 MutEco = MutEco[MutEco$Mut == &#39;T&gt;C&#39;,]
 dim(MutEco)</code></pre>
 <pre><code>[1] 381  10</code></pre>
-<pre class="r"><code>cor.test(MutEco$MutSpec,MutEco$FoodTroph, method = &#39;spearman&#39;)</code></pre>
-<pre><code>Warning in cor.test.default(MutEco$MutSpec, MutEco$FoodTroph, method =
-&quot;spearman&quot;): Cannot compute exact p-value with ties</code></pre>
+<pre class="r"><code>cor.test(MutEco$MutSpec, MutEco$FoodTroph, method = &#39;spearman&#39;)</code></pre>
+<pre><code>Warning in cor.test.default(MutEco$MutSpec, MutEco$FoodTroph, method = &quot;spearman&quot;): Cannot compute exact p-value with ties</code></pre>
 <pre><code>
     Spearman&#39;s rank correlation rho
 
@@ -1030,7 +2162,7 @@ F-statistic: 0.01286 on 1 and 358 DF,  p-value: 0.9098 </code></pre>
 <h2>3 A&gt;G ~ Climate + FoodTroph</h2>
 <pre class="r"><code>Mut = read_csv(here(data_dir, &quot;MutSpecVertebrates12fish.csv&quot;))</code></pre>
 <pre><code>Rows: 13380 Columns: 9
-── Column specification ────────────────────────────────────────────────────────
+── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
 Delimiter: &quot;,&quot;
 chr (4): Gene, Class, Species, Mut
 dbl (5): Observed, TreeLeaves, MSAsize, Expected, MutSpec
@@ -1038,8 +2170,7 @@ dbl (5): Observed, TreeLeaves, MSAsize, Expected, MutSpec
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <pre class="r"><code>names(Mut)</code></pre>
-<pre><code>[1] &quot;Gene&quot;       &quot;Class&quot;      &quot;Species&quot;    &quot;Mut&quot;        &quot;Observed&quot;  
-[6] &quot;TreeLeaves&quot; &quot;MSAsize&quot;    &quot;Expected&quot;   &quot;MutSpec&quot;   </code></pre>
+<pre><code>[1] &quot;Gene&quot;       &quot;Class&quot;      &quot;Species&quot;    &quot;Mut&quot;        &quot;Observed&quot;   &quot;TreeLeaves&quot; &quot;MSAsize&quot;    &quot;Expected&quot;   &quot;MutSpec&quot;   </code></pre>
 <pre class="r"><code>head(Mut)</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
@@ -1112,8 +2243,8 @@ Residual standard error: 0.0905 on 261 degrees of freedom
 Multiple R-squared:  0.05439,   Adjusted R-squared:  0.04714 
 F-statistic: 7.506 on 2 and 261 DF,  p-value: 0.0006769</code></pre>
 <pre class="r"><code>cor.test(MutEco$MutSpec[MutEco$WarmClimate == 1],MutEco$FoodTroph[MutEco$WarmClimate == 1], method = &#39;spearman&#39;) # only predators in tropcs are super oxidized!</code></pre>
-<pre><code>Warning in cor.test.default(MutEco$MutSpec[MutEco$WarmClimate == 1],
-MutEco$FoodTroph[MutEco$WarmClimate == : Cannot compute exact p-value with ties</code></pre>
+<pre><code>Warning in cor.test.default(MutEco$MutSpec[MutEco$WarmClimate == 1], MutEco$FoodTroph[MutEco$WarmClimate == : Cannot compute exact
+p-value with ties</code></pre>
 <pre><code>
     Spearman&#39;s rank correlation rho
 
@@ -1124,8 +2255,8 @@ sample estimates:
       rho 
 0.2081101 </code></pre>
 <pre class="r"><code>cor.test(MutEco$MutSpec[MutEco$WarmClimate == 0],MutEco$FoodTroph[MutEco$WarmClimate == 0], method = &#39;spearman&#39;)</code></pre>
-<pre><code>Warning in cor.test.default(MutEco$MutSpec[MutEco$WarmClimate == 0],
-MutEco$FoodTroph[MutEco$WarmClimate == : Cannot compute exact p-value with ties</code></pre>
+<pre><code>Warning in cor.test.default(MutEco$MutSpec[MutEco$WarmClimate == 0], MutEco$FoodTroph[MutEco$WarmClimate == : Cannot compute exact
+p-value with ties</code></pre>
 <pre><code>
     Spearman&#39;s rank correlation rho
 
@@ -1152,25 +2283,44 @@ group4 &lt;- na.omit(MutEco$MutSpec[MutEco$WarmClimate == 1 &amp; MutEco$Predato
 groups &lt;- list(group1, group2, group3, group4)
 labels &lt;- c(&quot;Cold\nNonPredat&quot;, &quot;Cold\nPredat&quot;, &quot;Warm\nNonPredat&quot;, &quot;Warm\nPredat&quot;)
 
-# Run boxplot with notches and vertical labels
-bp &lt;- boxplot(
-  groups,
-  names = labels,
-  notch = TRUE,
-  col = c(&quot;lightblue&quot;, &quot;skyblue&quot;, &quot;lightcoral&quot;, &quot;salmon&quot;),
-  ylab = &quot;MutSpec&quot;,
-  las = 2,
-  main = &quot;MutSpec (Ah&gt;Gh) by Climate and Predator Status&quot;
-)
+plot_data &lt;- groups %&gt;%
+  set_names(labels) %&gt;%
+  map_dfr(~ tibble(MutSpec = .x), .id = &quot;Group&quot;) %&gt;%
+  mutate(Group = factor(Group, levels = labels))
 
-# Add sample sizes above each box
-sample_sizes &lt;- sapply(groups, length)
-text(
-  x = 1:4,
-  y = bp$stats[5, ] + 0.02,  # slightly above top whisker
-  labels = paste0(&quot;n = &quot;, sample_sizes),
-  cex = 0.8
-)</code></pre>
+summary_data &lt;- plot_data %&gt;%
+  group_by(Group) %&gt;%
+  summarise(
+    n = n(),
+    y_pos = max(MutSpec) * 1.05 # Place the label slightly above the max value
+  ) %&gt;% mutate(n_label = paste(&quot;n =&quot;, n))
+
+# Create ggplot2 version
+f1 &lt;- ggplot(plot_data, aes(x = Group, y = MutSpec, fill = Group)) +
+  geom_boxplot(notch = TRUE) +
+  scale_fill_manual(values = c(&quot;lightblue&quot;, &quot;skyblue&quot;, &quot;lightcoral&quot;, &quot;salmon&quot;)) +
+  labs(y = &quot;A_G.H&quot;, title = &quot;MutSpec (Ah&gt;Gh) by Climate and Predator Status&quot;) +
+  theme(
+    axis.text.x = element_text(hjust = 0.5, vjust = 0.5),
+    axis.title.x = element_blank(),
+    legend.position = &quot;none&quot;,
+    panel.background = element_blank(),
+    axis.line = element_line(color = &quot;black&quot;)
+  ) +
+  geom_text(
+    data = summary_data,
+    aes(x = Group, y = y_pos, label = n_label),
+    size = 3.5,
+    color = &quot;black&quot;
+  )
+
+ggsave(here(plots_dir,&quot;Assosiation_of_A_G_with_climate_and_tropf_level.pdf&quot;),
+  plot = f1,
+  width = 6,
+  height = 6
+) 
+
+f1</code></pre>
 <p><img src="figure/Ia_Polymorphic_Data_Analysis_TrophLevel.KP.Rmd/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-5-1">
@@ -1194,6 +2344,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/77db01ef622b2f1f41cab6356064e0562a9a41e8/docs/figure/Ia_Polymorphic_Data_Analysis_TrophLevel.KP.Rmd/unnamed-chunk-5-1.png" target="_blank">77db01e</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-06-18
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/bdaf5f7622b912b7dda1a29557c923639eef7177/docs/figure/Ia_Polymorphic_Data_Analysis_TrophLevel.KP.Rmd/unnamed-chunk-5-1.png" target="_blank">bdaf5f7</a>
@@ -1222,9 +2383,372 @@ tree &lt;- ape::drop.tip(tree, &quot;Tenebrosternarchus_preto&quot;)
 MutEcoPGLS &lt;- MutEco %&gt;% dplyr::select(Species, MutSpec, WarmClimate, Predator, ClimateAndTroph)
 
 row.names(MutEcoPGLS) = MutEcoPGLS$Species
-tree_pruned = treedata(tree, MutEcoPGLS, sort=T, warnings=T)$phy
-data&lt;-as.data.frame(treedata(tree_pruned, MutEcoPGLS, sort=T, warnings=T)$data)
-data$Species = as.character(data$Species)
+tree_pruned = treedata(tree, MutEcoPGLS, sort=T, warnings=T)$phy</code></pre>
+<pre><code>Warning in treedata(tree, MutEcoPGLS, sort = T, warnings = T): The following tips were not found in &#39;data&#39; and were dropped from &#39;phy&#39;:
+    _1895
+    _2005
+    _2005
+    _2011
+    _2011
+    &#39;Boophis sp. ZSM 685_2000&#39;
+    &#39;Centropogon australis (White, 1790)&#39;
+    &#39;Choerodon cf. gymnogenys BOLD:AAJ0249&#39;
+    &#39;Congosorex sp. CNRS_Paimpont&#39;
+    &#39;Ctenotus sp. WAM_R129936&#39;
+    &#39;Galaxias sp. D (Allibone et al., 1996)&#39;
+    &#39;Hisonotus cf. paulinus BOLD:AAC1623&#39;
+    &#39;Kalophrynus sp. BOLD:ACO5852&#39;
+    &#39;Kalophrynus sp. BOLD:ACO5853&#39;
+    &#39;Lefua sp. (sensu Hosoya 1993)&#39;
+    &#39;Mantidactylus sp. ZSM 652_2000&#39;
+    &#39;Neotrygon cf. annotata BOLD:AAE1432&#39;
+    &#39;Nothobranchius aff. janpapi JAP_AG205&#39;
+    &#39;Pristimantis aff. altamazonicus BOLD:AAB3748&#39;
+    &#39;Pristimantis aff. cruentus BOLD:ABA0223&#39;
+    Aaptosyax_grypus
+    Abalistes_stellaris
+    Abalistes_stellatus
+    Abantennarius_coccineus
+    Abavorana_luctuosa
+    Abbottina_liaoningensis
+    Abbottina_rivularis
+    Abeillia_abeillei
+    Abeomelomys_sevia
+    Ablabys_taenianotus
+    Ablennes_hians
+    Ablepharus_budaki
+    Ablepharus_chernovi
+    Ablepharus_grayanus
+    Ablepharus_kitaibelii
+    Ablepharus_pannonicus
+    Ablepharus_rueppellii
+    Aboma_etheostoma
+    Abramites_hypselonotus
+    Abrawayaomys_ruschii
+    Abrocoma_bennettii
+    Abrocoma_boliviensis
+    Abrocoma_cinerea
+    Abronia_anzuetoi
+    Abronia_aurita
+    Abronia_campbelli
+    Abronia_chiszari
+    Abronia_fimbriata
+    Abronia_frosti
+    Abronia_graminea
+    Abronia_lythrochila
+    Abronia_matudai
+    Abronia_mixteca
+    Abronia_oaxacae
+    Abronia_ornelasi
+    Abroscopus_albogularis
+    Abroscopus_schisticeps
+    Abroscopus_superciliaris
+    Abrothrix_andinus
+    Abrothrix_hershkovitzi
+    Abrothrix_illuteus
+    Abrothrix_jelskii
+    Abrothrix_lanosus
+    Abrothrix_longipilis
+    Abrothrix_markhami
+    Abrothrix_olivaceus
+    Abrothrix_sanborni
+    Abudefduf_abdominalis
+    Abudefduf_bengalensis
+    Abudefduf_caudobimaculatus
+    Abudefduf_concolor
+    Abudefduf_conformis
+    Abudefduf_declivifrons
+    Abudefduf_hoefleri
+    Abudefduf_lorenzi
+    Abudefduf_margariteus
+    Abudefduf_natalensis
+    Abudefduf_nigrimargo
+    Abudefduf_notatus
+    Abudefduf_saxatilis
+    Abudefduf_septemfasciatus
+    Abudefduf_sexfasciatus
+    Abudefduf_sordidus
+    Abudefduf_sparoides
+    Abudefduf_taurus
+    Abudefduf_troschelii
+    Abudefduf_whitleyi
+    Aburria_aburri
+    Abyssocottus_gibbosus
+    Abyssocottus_korotneffi
+    Acanthagenys_rufogularis
+    Acanthaluteres_brownii
+    Acanthaluteres_spilomelanurus
+    Acanthaluteres_vittiger
+    Acantharchus_pomotis
+    Acanthemblemaria_aspera
+    Acanthemblemaria_balanorum
+    Acanthemblemaria_betinensis
+    Acanthemblemaria_castroi
+    Acanthemblemaria_chaplini
+    Acanthemblemaria_crockeri
+    Acanthemblemaria_exilispinus
+    Acanthemblemaria_greenfieldi
+    Acanthemblemaria_hancocki
+    Acanthemblemaria_macrospilus
+    Acanthemblemaria_maria
+    Acanthemblemaria_medusa
+    Acanthemblemaria_paula
+    Acanthemblemaria_rivasi
+    Acanthemblemaria_sp._RIE-2011
+    Acanthemblemaria_spinosa
+    Acanthicus_adonis
+    Acanthicus_hystrix
+    Acanthidops_bairdi
+    Acanthis_flammea
+    Acanthis_hornemanni
+    Acanthisitta_chloris
+    Acanthistius_cinctus
+    Acanthistius_ocellatus
+    Acanthixalus_sonjae
+    Acanthixalus_spinosus
+    Acanthiza_apicalis
+    Acanthiza_chrysorrhoa
+    Acanthiza_ewingii
+    Acanthiza_inornata
+    Acanthiza_iredalei
+    Acanthiza_katherina
+    Acanthiza_lineata
+    Acanthiza_murina
+    Acanthiza_nana
+    Acanthiza_pusilla
+    Acanthiza_reguloides
+    Acanthiza_robustirostris
+    Acanthiza_uropygialis
+    Acanthobrama_lissneri
+    Acanthobrama_marmid
+    Acanthobrama_microlepis
+    Acanthobrama_persidis
+    Acanthobunocephalus_nicoi
+    Acanthocepola
+    Acanthocercus_adramitanus
+    Acanthocercus_annectans
+    Acanthocercus_atricollis
+    Acanthocercus_cyanogaster
+    Acanthocercus_yemensis
+    Acanthochaenus_luetkenii
+    Acanthochelys_pallidipectoris
+    Acanthochelys_spixii
+    Acanthochromis_polyacanthus
+    Acanthocobitis_botia
+    Acanthocobitis_pavonacea
+    Acanthocobitis_zonalternans
+    Acanthodactylus_aegyptius
+    Acanthodactylus_arabicus
+    Acanthodactylus_aureus
+    Acanthodactylus_bedriagai
+    Acanthodactylus_beershebensis
+    Acanthodactylus_blanci
+    Acanthodactylus_blanfordii
+    Acanthodactylus_boskianus
+    Acanthodactylus_boueti
+    Acanthodactylus_busacki
+    Acanthodactylus_cantoris
+    Acanthodactylus_dumerilii
+    Acanthodactylus_erythrurus_belli
+    Acanthodactylus_erythrurus_erythrurus
+    Acanthodactylus_erythrurus_lineomaculatus
+    Acanthodactylus_felicis
+    Acanthodactylus_gongrorhynchatus
+    Acanthodactylus_grandis
+    Acanthodactylus_guineensis
+    Acanthodactylus_haasi
+    Acanthodactylus_hardyi
+    Acanthodactylus_harranensis
+    Acanthodactylus_khamirensis
+    Acanthodactylus_longipes
+    Acanthodactylus_maculatus
+    Acanthodactylus_masirae
+    Acanthodactylus_micropholis
+    Acanthodactylus_nilsoni
+    Acanthodactylus_opheodurus
+    Acanthodactylus_orientalis
+    Acanthodactylus_pardalis
+    Acanthodactylus_robustus
+    Acanthodactylus_savignyi
+    Acanthodactylus_schmidti
+    Acanthodactylus_schreiberi
+    Acanthodactylus_scutellatus
+    Acanthodactylus_senegalensis
+    Acanthodactylus_sp._1_NP-2013
+    Acanthodactylus_taghitensis
+    Acanthodactylus_tilburyi
+    Acanthodactylus_tristrami
+    Acanthodoras_cataphractus
+    Acanthodoras_spinosissimus
+    Acanthodraco_dewitti
+    Acanthogobio_guentheri
+    Acanthogobius_flavimanus
+    Acanthogobius_hasta
+    Acanthogobius_lactipes
+    Acantholabrus_palloni
+    Acantholatris_monodactylus
+    Acantholiparis_opercularis
+    Acantholumpenus_mackayi
+    Acanthonus_armatus
+    Acanthopagrus_australis
+    Acanthopagrus_bifasciatus
+    Acanthopagrus_butcheri
+    Acanthopagrus_catenula
+    Acanthopagrus_chinshira
+    Acanthopagrus_morrisoni
+    Acanthopagrus_pacificus
+    Acanthopagrus_palmaris
+    Acanthopagrus_schlegelii
+    Acanthopagrus_sivicolus
+    Acanthopagrus_sp._KPM-NR0043453
+    Acanthopagrus_taiwanensis
+    Acanthophis_antarcticus
+    Acanthophis_cf._laevis
+    Acanthophis_cf._rugosus
+    Acanthophis_hawkei
+    Acanthophis_laevis
+    Acanthophis_praelongus
+    Acanthophis_pyrrhus
+    Acanthophis_rugosus
+    Acanthophis_wellsi
+    Acanthopoma_annectens
+    Acanthorhynchus_superciliosus
+    Acanthorhynchus_tenuirostris
+    Acanthornis_magna
+    Acanthosaura_armata
+    Acanthosaura_capra
+    Acanthosaura_cardamomensis
+    Acanthosaura_crucigera
+    Acanthosaura_lepidogaster
+    Acanthostracion_polygonius
+    Acanthostracion_quadricornis
+    Acanthurus_achilles
+    Acanthurus_auranticavus
+    Acanthurus_bahianus
+    Acanthurus_bariene
+    Acanthurus_blochii
+    Acanthurus_chirurgus
+    Acanthurus_coeruleus
+    Acanthurus_dussumieri
+    Acanthurus_guttatus
+    Acanthurus_japonicus
+    Acanthurus_leucocheilus
+    Acanthurus_leucosternon
+    Acanthurus_lineatus
+    Acanthurus_mata
+    Acanthurus_monroviae
+    Acanthurus_nigricans
+    Acanthurus_nigricauda
+    Acanthurus_nigrofuscus
+    Acanthurus_nigroris
+    Acanthurus_nubilus
+    Acanthurus_olivaceus
+    Acanthurus_polyzona
+    Acanthurus_pyroferus
+    Acanthurus_tennentii
+    Acanthurus_thompsoni
+    Acanthurus_tractus
+    Acanthurus_triostegus
+    Acanthurus_xanthopterus
+    Acantopsis_choirorhynchos
+    Acantopsis_dialuzona
+    Acarichthys_heckelii
+    Acaronia_nassa
+    Acaronia_vultuosa
+    Accipiter_brevipes
+    Accipiter_gentilis
+    Accipiter_nisus
+    Accipiter_virgatus
+    Acentrogobius_audax
+    Acentrogobius_chlorostigmatoides
+    Acentrogobius_janthinopterus
+    Acentrogobius_pflaumii
+    Acentrogobius_viridipunctatus
+    Acentronichthys_leptos
+    Acentronura_tentaculata
+    Acentrophryne_dolichonema
+    Acerodon_celebensis
+    Acerodon_jubatus
+    Aceros_cassidix
+    Aceros_corrugatus
+    Aceros_nipalensis
+    Acestridium_discus
+    Acestridium_gymnogaster
+    Acestridium_martini
+    Acestridium_scutatum
+    Acestridium_sp._LBP7204_35332
+    Acestrocephalus_sardina
+    Acestrorhynchus_abbreviatus
+    Acestrorhynchus_altus
+    Acestrorhynchus_britskii
+    Acestrorhynchus_falcatus
+    Acestrorhynchus_falcirostris
+    Acestrorhynchus_grandoculis
+    Acestrorhynchus_heterolepis
+    Acestrorhynchus_lacustris
+    Acestrorhynchus_microlepis
+    Acestrorhynchus_minimus
+    Acestrorhynchus_nasutus
+    Acestrorhynchus_pantaneiro
+    Achaetops
+    Achalinus_meiguensis
+    Achalinus_rufescens
+    Achalinus_spinalis
+    Acheilognathus_barbatulus
+    Acheilognathus_barbatus
+    Acheilognathus_chankaensis
+    Acheilognathus_cyanostigma
+    Acheilognathus_gracilis
+    Acheilognathus_hypselonotus
+    Acheilognathus_imberbis
+    Acheilognathus_longibarbatus
+    Acheilognathus_longipinnis
+    Acheilognathus_macropterus
+    Acheilognathus_majusculus
+    Acheilognathus_melanogaster
+    Acheilognathus_meridianus
+    Acheilognathus_omeiensis
+    Acheilognathus_polylepis
+    Acheilognathus_rhombeus
+    Acheilognathus_signifer
+    Acheilognathus_somjinensis
+    Acheilognathus_tabira
+    Acheilognathus_tonkinensis
+    Acheilognathus_typus
+    Acheilognathus_yamatsutae
+    Achiroides_leucorhynchos
+    Achiropsetta_tricholepis
+    Achirus_achirus
+    Achirus_declivis
+    Achirus_lineatus
+    Achirus_mucuri
+    Achoer</code></pre>
+<pre><code>Warning in treedata(tree, MutEcoPGLS, sort = T, warnings = T): The following tips were not found in &#39;phy&#39; and were dropped from &#39;data&#39;:
+    Diplodus_hottentotus
+    Dipturus_chinensis
+    Encrasicholina_heteroloba
+    Enteromius_apleurogramma
+    Labeobarbus_bynni
+    Mystus_gulio
+    Prionace_glauca
+    Salmo_trutta
+    Salvelinus_malma
+    Stolephorus_commersonnii
+    Stolephorus_indicus</code></pre>
+<pre class="r"><code>data&lt;-as.data.frame(treedata(tree_pruned, MutEcoPGLS, sort=T, warnings=T)$data)</code></pre>
+<pre><code>Warning in treedata(tree_pruned, MutEcoPGLS, sort = T, warnings = T): The following tips were not found in &#39;phy&#39; and were dropped from &#39;data&#39;:
+    Diplodus_hottentotus
+    Dipturus_chinensis
+    Encrasicholina_heteroloba
+    Enteromius_apleurogramma
+    Labeobarbus_bynni
+    Mystus_gulio
+    Prionace_glauca
+    Salmo_trutta
+    Salvelinus_malma
+    Stolephorus_commersonnii
+    Stolephorus_indicus</code></pre>
+<pre class="r"><code>data$Species = as.character(data$Species)
 data$WarmClimate = as.numeric(data$WarmClimate)
 data$Predator = as.numeric(data$Predator)
 data$ClimateAndTroph = as.numeric(data$ClimateAndTroph)
@@ -1292,9 +2816,353 @@ F-statistic: 11.01 on 1 and 251 DF,  p-value: 0.00104 </code></pre>
 <pre class="r"><code>MutEcoPGLS &lt;- MutEcoPGLS[MutEcoPGLS$WarmClimate == 0,] # if WarmClimate == 1, Predator: est = 0.0088876,  p =  0.5845   
 
 row.names(MutEcoPGLS) = MutEcoPGLS$Species
-tree_pruned = treedata(tree, MutEcoPGLS, sort=T, warnings=T)$phy
-data&lt;-as.data.frame(treedata(tree_pruned, MutEcoPGLS, sort=T, warnings=T)$data)
-data$Species = as.character(data$Species)
+tree_pruned = treedata(tree, MutEcoPGLS, sort=T, warnings=T)$phy</code></pre>
+<pre><code>Warning in treedata(tree, MutEcoPGLS, sort = T, warnings = T): The following tips were not found in &#39;data&#39; and were dropped from &#39;phy&#39;:
+    _1895
+    _2005
+    _2005
+    _2011
+    _2011
+    &#39;Boophis sp. ZSM 685_2000&#39;
+    &#39;Centropogon australis (White, 1790)&#39;
+    &#39;Choerodon cf. gymnogenys BOLD:AAJ0249&#39;
+    &#39;Congosorex sp. CNRS_Paimpont&#39;
+    &#39;Ctenotus sp. WAM_R129936&#39;
+    &#39;Galaxias sp. D (Allibone et al., 1996)&#39;
+    &#39;Hisonotus cf. paulinus BOLD:AAC1623&#39;
+    &#39;Kalophrynus sp. BOLD:ACO5852&#39;
+    &#39;Kalophrynus sp. BOLD:ACO5853&#39;
+    &#39;Lefua sp. (sensu Hosoya 1993)&#39;
+    &#39;Mantidactylus sp. ZSM 652_2000&#39;
+    &#39;Neotrygon cf. annotata BOLD:AAE1432&#39;
+    &#39;Nothobranchius aff. janpapi JAP_AG205&#39;
+    &#39;Pristimantis aff. altamazonicus BOLD:AAB3748&#39;
+    &#39;Pristimantis aff. cruentus BOLD:ABA0223&#39;
+    Aaptosyax_grypus
+    Abalistes_stellaris
+    Abalistes_stellatus
+    Abantennarius_coccineus
+    Abavorana_luctuosa
+    Abbottina_liaoningensis
+    Abbottina_rivularis
+    Abeillia_abeillei
+    Abeomelomys_sevia
+    Ablabys_taenianotus
+    Ablennes_hians
+    Ablepharus_budaki
+    Ablepharus_chernovi
+    Ablepharus_grayanus
+    Ablepharus_kitaibelii
+    Ablepharus_pannonicus
+    Ablepharus_rueppellii
+    Aboma_etheostoma
+    Abramites_hypselonotus
+    Abrawayaomys_ruschii
+    Abrocoma_bennettii
+    Abrocoma_boliviensis
+    Abrocoma_cinerea
+    Abronia_anzuetoi
+    Abronia_aurita
+    Abronia_campbelli
+    Abronia_chiszari
+    Abronia_fimbriata
+    Abronia_frosti
+    Abronia_graminea
+    Abronia_lythrochila
+    Abronia_matudai
+    Abronia_mixteca
+    Abronia_oaxacae
+    Abronia_ornelasi
+    Abroscopus_albogularis
+    Abroscopus_schisticeps
+    Abroscopus_superciliaris
+    Abrothrix_andinus
+    Abrothrix_hershkovitzi
+    Abrothrix_illuteus
+    Abrothrix_jelskii
+    Abrothrix_lanosus
+    Abrothrix_longipilis
+    Abrothrix_markhami
+    Abrothrix_olivaceus
+    Abrothrix_sanborni
+    Abudefduf_abdominalis
+    Abudefduf_bengalensis
+    Abudefduf_caudobimaculatus
+    Abudefduf_concolor
+    Abudefduf_conformis
+    Abudefduf_declivifrons
+    Abudefduf_hoefleri
+    Abudefduf_lorenzi
+    Abudefduf_margariteus
+    Abudefduf_natalensis
+    Abudefduf_nigrimargo
+    Abudefduf_notatus
+    Abudefduf_saxatilis
+    Abudefduf_septemfasciatus
+    Abudefduf_sexfasciatus
+    Abudefduf_sordidus
+    Abudefduf_sparoides
+    Abudefduf_taurus
+    Abudefduf_troschelii
+    Abudefduf_vaigiensis
+    Abudefduf_whitleyi
+    Aburria_aburri
+    Abyssocottus_gibbosus
+    Abyssocottus_korotneffi
+    Acanthagenys_rufogularis
+    Acanthaluteres_brownii
+    Acanthaluteres_spilomelanurus
+    Acanthaluteres_vittiger
+    Acantharchus_pomotis
+    Acanthemblemaria_aspera
+    Acanthemblemaria_balanorum
+    Acanthemblemaria_betinensis
+    Acanthemblemaria_castroi
+    Acanthemblemaria_chaplini
+    Acanthemblemaria_crockeri
+    Acanthemblemaria_exilispinus
+    Acanthemblemaria_greenfieldi
+    Acanthemblemaria_hancocki
+    Acanthemblemaria_macrospilus
+    Acanthemblemaria_maria
+    Acanthemblemaria_medusa
+    Acanthemblemaria_paula
+    Acanthemblemaria_rivasi
+    Acanthemblemaria_sp._RIE-2011
+    Acanthemblemaria_spinosa
+    Acanthicus_adonis
+    Acanthicus_hystrix
+    Acanthidops_bairdi
+    Acanthis_flammea
+    Acanthis_hornemanni
+    Acanthisitta_chloris
+    Acanthistius_cinctus
+    Acanthistius_ocellatus
+    Acanthixalus_sonjae
+    Acanthixalus_spinosus
+    Acanthiza_apicalis
+    Acanthiza_chrysorrhoa
+    Acanthiza_ewingii
+    Acanthiza_inornata
+    Acanthiza_iredalei
+    Acanthiza_katherina
+    Acanthiza_lineata
+    Acanthiza_murina
+    Acanthiza_nana
+    Acanthiza_pusilla
+    Acanthiza_reguloides
+    Acanthiza_robustirostris
+    Acanthiza_uropygialis
+    Acanthobrama_lissneri
+    Acanthobrama_marmid
+    Acanthobrama_microlepis
+    Acanthobrama_persidis
+    Acanthobunocephalus_nicoi
+    Acanthocepola
+    Acanthocercus_adramitanus
+    Acanthocercus_annectans
+    Acanthocercus_atricollis
+    Acanthocercus_cyanogaster
+    Acanthocercus_yemensis
+    Acanthochaenus_luetkenii
+    Acanthochelys_pallidipectoris
+    Acanthochelys_spixii
+    Acanthochromis_polyacanthus
+    Acanthocobitis_botia
+    Acanthocobitis_pavonacea
+    Acanthocobitis_zonalternans
+    Acanthocybium_solandri
+    Acanthodactylus_aegyptius
+    Acanthodactylus_arabicus
+    Acanthodactylus_aureus
+    Acanthodactylus_bedriagai
+    Acanthodactylus_beershebensis
+    Acanthodactylus_blanci
+    Acanthodactylus_blanfordii
+    Acanthodactylus_boskianus
+    Acanthodactylus_boueti
+    Acanthodactylus_busacki
+    Acanthodactylus_cantoris
+    Acanthodactylus_dumerilii
+    Acanthodactylus_erythrurus_belli
+    Acanthodactylus_erythrurus_erythrurus
+    Acanthodactylus_erythrurus_lineomaculatus
+    Acanthodactylus_felicis
+    Acanthodactylus_gongrorhynchatus
+    Acanthodactylus_grandis
+    Acanthodactylus_guineensis
+    Acanthodactylus_haasi
+    Acanthodactylus_hardyi
+    Acanthodactylus_harranensis
+    Acanthodactylus_khamirensis
+    Acanthodactylus_longipes
+    Acanthodactylus_maculatus
+    Acanthodactylus_masirae
+    Acanthodactylus_micropholis
+    Acanthodactylus_nilsoni
+    Acanthodactylus_opheodurus
+    Acanthodactylus_orientalis
+    Acanthodactylus_pardalis
+    Acanthodactylus_robustus
+    Acanthodactylus_savignyi
+    Acanthodactylus_schmidti
+    Acanthodactylus_schreiberi
+    Acanthodactylus_scutellatus
+    Acanthodactylus_senegalensis
+    Acanthodactylus_sp._1_NP-2013
+    Acanthodactylus_taghitensis
+    Acanthodactylus_tilburyi
+    Acanthodactylus_tristrami
+    Acanthodoras_cataphractus
+    Acanthodoras_spinosissimus
+    Acanthodraco_dewitti
+    Acanthogobio_guentheri
+    Acanthogobius_flavimanus
+    Acanthogobius_hasta
+    Acanthogobius_lactipes
+    Acantholabrus_palloni
+    Acantholatris_monodactylus
+    Acantholiparis_opercularis
+    Acantholumpenus_mackayi
+    Acanthonus_armatus
+    Acanthopagrus_australis
+    Acanthopagrus_berda
+    Acanthopagrus_bifasciatus
+    Acanthopagrus_butcheri
+    Acanthopagrus_catenula
+    Acanthopagrus_chinshira
+    Acanthopagrus_latus
+    Acanthopagrus_morrisoni
+    Acanthopagrus_pacificus
+    Acanthopagrus_palmaris
+    Acanthopagrus_schlegelii
+    Acanthopagrus_sivicolus
+    Acanthopagrus_sp._KPM-NR0043453
+    Acanthopagrus_taiwanensis
+    Acanthophis_antarcticus
+    Acanthophis_cf._laevis
+    Acanthophis_cf._rugosus
+    Acanthophis_hawkei
+    Acanthophis_laevis
+    Acanthophis_praelongus
+    Acanthophis_pyrrhus
+    Acanthophis_rugosus
+    Acanthophis_wellsi
+    Acanthopoma_annectens
+    Acanthorhynchus_superciliosus
+    Acanthorhynchus_tenuirostris
+    Acanthornis_magna
+    Acanthosaura_armata
+    Acanthosaura_capra
+    Acanthosaura_cardamomensis
+    Acanthosaura_crucigera
+    Acanthosaura_lepidogaster
+    Acanthostracion_polygonius
+    Acanthostracion_quadricornis
+    Acanthurus_achilles
+    Acanthurus_auranticavus
+    Acanthurus_bahianus
+    Acanthurus_bariene
+    Acanthurus_blochii
+    Acanthurus_chirurgus
+    Acanthurus_coeruleus
+    Acanthurus_dussumieri
+    Acanthurus_guttatus
+    Acanthurus_japonicus
+    Acanthurus_leucocheilus
+    Acanthurus_leucosternon
+    Acanthurus_lineatus
+    Acanthurus_mata
+    Acanthurus_monroviae
+    Acanthurus_nigricans
+    Acanthurus_nigricauda
+    Acanthurus_nigrofuscus
+    Acanthurus_nigroris
+    Acanthurus_nubilus
+    Acanthurus_olivaceus
+    Acanthurus_polyzona
+    Acanthurus_pyroferus
+    Acanthurus_tennentii
+    Acanthurus_thompsoni
+    Acanthurus_tractus
+    Acanthurus_triostegus
+    Acanthurus_xanthopterus
+    Acantopsis_choirorhynchos
+    Acantopsis_dialuzona
+    Acarichthys_heckelii
+    Acaronia_nassa
+    Acaronia_vultuosa
+    Accipiter_brevipes
+    Accipiter_gentilis
+    Accipiter_nisus
+    Accipiter_virgatus
+    Acentrogobius_audax
+    Acentrogobius_chlorostigmatoides
+    Acentrogobius_janthinopterus
+    Acentrogobius_pflaumii
+    Acentrogobius_viridipunctatus
+    Acentronichthys_leptos
+    Acentronura_tentaculata
+    Acentrophryne_dolichonema
+    Acerodon_celebensis
+    Acerodon_jubatus
+    Aceros_cassidix
+    Aceros_corrugatus
+    Aceros_nipalensis
+    Acestridium_discus
+    Acestridium_gymnogaster
+    Acestridium_martini
+    Acestridium_scutatum
+    Acestridium_sp._LBP7204_35332
+    Acestrocephalus_sardina
+    Acestrorhynchus_abbreviatus
+    Acestrorhynchus_altus
+    Acestrorhynchus_britskii
+    Acestrorhynchus_falcatus
+    Acestrorhynchus_falcirostris
+    Acestrorhynchus_grandoculis
+    Acestrorhynchus_heterolepis
+    Acestrorhynchus_lacustris
+    Acestrorhynchus_microlepis
+    Acestrorhynchus_minimus
+    Acestrorhynchus_nasutus
+    Acestrorhynchus_pantaneiro
+    Achaetops
+    Achalinus_meiguensis
+    Achalinus_rufescens
+    Achalinus_spinalis
+    Acheilognathus_barbatulus
+    Acheilognathus_barbatus
+    Acheilognathus_chankaensis
+    Acheilognathus_cyanostigma
+    Acheilognathus_gracilis
+    Acheilognathus_hypselonotus
+    Acheilognathus_imberbis
+    Acheilognathus_longibarbatus
+    Acheilognathus_longipinnis
+    Acheilognathus_macropterus
+    Acheilognathus_majusculus
+    Acheilognathus_melanogaster
+    Acheilognathus_meridianus
+    Acheilognathus_omeiensis
+    Acheilognathus_polylepis
+    Acheilognathus_rhombeus
+    Acheilognathus_signifer
+    Acheilognathus_somjinensis
+    Acheilognathus_tabira
+    Acheilognathus_tonkinensis
+    Acheilognathus_typus
+    Acheilognathus_yamatsutae
+    Achiroides_leucorhynchos
+    Achiropsetta_</code></pre>
+<pre><code>Warning in treedata(tree, MutEcoPGLS, sort = T, warnings = T): The following tips were not found in &#39;phy&#39; and were dropped from &#39;data&#39;:
+    Salmo_trutta
+    Salvelinus_malma</code></pre>
+<pre class="r"><code>data&lt;-as.data.frame(treedata(tree_pruned, MutEcoPGLS, sort=T, warnings=T)$data)</code></pre>
+<pre><code>Warning in treedata(tree_pruned, MutEcoPGLS, sort = T, warnings = T): The following tips were not found in &#39;phy&#39; and were dropped from &#39;data&#39;:
+    Salmo_trutta
+    Salvelinus_malma</code></pre>
+<pre class="r"><code>data$Species = as.character(data$Species)
 data$WarmClimate = as.numeric(data$WarmClimate)
 data$Predator = as.numeric(data$Predator)
 data$ClimateAndTroph = as.numeric(data$ClimateAndTroph)
@@ -1343,7 +3211,7 @@ Platform: aarch64-apple-darwin20
 Running under: macOS Sequoia 15.5
 
 Matrix products: default
-BLAS:   /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRblas.0.dylib 
+BLAS:   /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib 
 LAPACK: /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.1
 
 locale:
@@ -1353,50 +3221,44 @@ time zone: Europe/Vienna
 tzcode source: internal
 
 attached base packages:
-[1] stats4    stats     graphics  grDevices utils     datasets  methods  
-[8] base     
+[1] stats4    stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] geiger_2.0.11       phytools_2.4-4      maps_3.4.3         
- [4] caper_1.0.3         mvtnorm_1.3-3       ape_5.8-1          
- [7] here_1.0.1          reshape2_1.4.4      MASS_7.3-65        
-[10] factoextra_1.0.7    lsa_0.73.3          SnowballC_0.7.1    
-[13] Biostrings_2.76.0   GenomeInfoDb_1.44.0 XVector_0.48.0     
-[16] IRanges_2.42.0      S4Vectors_0.46.0    BiocGenerics_0.54.0
-[19] generics_0.1.4      lubridate_1.9.4     forcats_1.0.0      
-[22] stringr_1.5.1       dplyr_1.1.4         purrr_1.0.4        
-[25] readr_2.1.5         tidyr_1.3.1         tibble_3.2.1       
-[28] ggplot2_3.5.2       tidyverse_2.0.0     knitr_1.50         
-[31] workflowr_1.7.1    
+ [1] reshape2_1.4.4      factoextra_1.0.7    lsa_0.73.3          SnowballC_0.7.1     Biostrings_2.76.0   GenomeInfoDb_1.44.0
+ [7] XVector_0.48.0      IRanges_2.42.0      S4Vectors_0.46.0    BiocGenerics_0.54.0 generics_0.1.4      RColorBrewer_1.1-3 
+[13] skimr_2.1.5         ggrepel_0.9.6       rfishbase_5.0.1     ggstatsplot_0.13.1  broom_1.0.8         ggpubr_0.6.0       
+[19] ggExtra_0.10.1      geiger_2.0.11       phytools_2.4-4      maps_3.4.3          caper_1.0.3         mvtnorm_1.3-3      
+[25] MASS_7.3-65         ape_5.8-1           magrittr_2.0.3      lubridate_1.9.4     forcats_1.0.0       stringr_1.5.1      
+[31] dplyr_1.1.4         purrr_1.0.4         readr_2.1.5         tidyr_1.3.1         tibble_3.3.0        ggplot2_3.5.2      
+[37] tidyverse_2.0.0     knitr_1.50          here_1.0.1          workflowr_1.7.1    
 
 loaded via a namespace (and not attached):
- [1] subplex_1.9             tidyselect_1.2.1        farver_2.1.2           
- [4] optimParallel_1.0-2     fastmap_1.2.0           combinat_0.0-8         
- [7] promises_1.3.3          digest_0.6.37           timechange_0.3.0       
-[10] lifecycle_1.0.4         processx_3.8.6          magrittr_2.0.3         
-[13] compiler_4.5.0          rlang_1.1.6             sass_0.4.10            
-[16] tools_4.5.0             igraph_2.1.4            yaml_2.3.10            
-[19] phangorn_2.12.1         clusterGeneration_1.3.8 bit_4.6.0              
-[22] scatterplot3d_0.3-44    mnormt_2.1.1            plyr_1.8.9             
-[25] RColorBrewer_1.1-3      expm_1.0-0              numDeriv_2016.8-1.1    
-[28] withr_3.0.2             grid_4.5.0              git2r_0.36.2           
-[31] iterators_1.0.14        scales_1.4.0            cli_3.6.5              
-[34] rmarkdown_2.29          crayon_1.5.3            rstudioapi_0.17.1      
-[37] httr_1.4.7              tzdb_0.5.0              cachem_1.1.0           
-[40] parallel_4.5.0          vctrs_0.6.5             Matrix_1.7-3           
-[43] jsonlite_2.0.0          callr_3.7.6             hms_1.1.3              
-[46] bit64_4.6.0-1           ggrepel_0.9.6           foreach_1.5.2          
-[49] jquerylib_0.1.4         glue_1.8.0              codetools_0.2-20       
-[52] ps_1.9.1                DEoptim_2.2-8           stringi_1.8.7          
-[55] gtable_0.3.6            later_1.4.2             quadprog_1.5-8         
-[58] UCSC.utils_1.4.0        pillar_1.10.2           htmltools_0.5.8.1      
-[61] deSolve_1.40            GenomeInfoDbData_1.2.14 R6_2.6.1               
-[64] doParallel_1.0.17       rprojroot_2.0.4         vroom_1.6.5            
-[67] evaluate_1.0.3          lattice_0.22-7          httpuv_1.6.16          
-[70] bslib_0.9.0             fastmatch_1.1-6         Rcpp_1.0.14            
-[73] coda_0.19-4.1           nlme_3.1-168            whisker_0.4.1          
-[76] xfun_0.52               fs_1.6.6                getPass_0.2-4          
-[79] pkgconfig_2.0.3        </code></pre>
+  [1] splines_4.5.0           later_1.4.2             datawizard_1.1.0        deSolve_1.40            lifecycle_1.0.4        
+  [6] rstatix_0.7.2           doParallel_1.0.17       rprojroot_2.0.4         processx_3.8.6          lattice_0.22-7         
+ [11] vroom_1.6.5             insight_1.3.0           backports_1.5.0         sass_0.4.10             rmarkdown_2.29         
+ [16] jquerylib_0.1.4         yaml_2.3.10             httpuv_1.6.16           cowplot_1.1.3           pbapply_1.7-2          
+ [21] abind_1.4-8             expm_1.0-0              quadprog_1.5-8          git2r_0.36.2            GenomeInfoDbData_1.2.14
+ [26] correlation_0.8.7       MatrixModels_0.5-4      performance_0.14.0      codetools_0.2-20        tidyselect_1.2.1       
+ [31] SuppDists_1.1-9.9       UCSC.utils_1.4.0        farver_2.1.2            gmp_0.7-5               effectsize_1.0.1       
+ [36] base64enc_0.1-3         jsonlite_2.0.0          Formula_1.2-5           iterators_1.0.14        emmeans_1.11.1         
+ [41] systemfonts_1.2.3       foreach_1.5.2           BWStest_0.2.3           tools_4.5.0             ragg_1.4.0             
+ [46] PMCMRplus_1.9.12        Rcpp_1.0.14             glue_1.8.0              mnormt_2.1.1            xfun_0.52              
+ [51] mgcv_1.9-3              kSamples_1.2-10         withr_3.0.2             numDeriv_2016.8-1.1     combinat_0.0-8         
+ [56] fastmap_1.2.0           boot_1.3-31             callr_3.7.6             digest_0.6.37           timechange_0.3.0       
+ [61] R6_2.6.1                mime_0.13               estimability_1.5.1      textshaping_1.0.1       utf8_1.2.6             
+ [66] clusterGeneration_1.3.8 httr_1.4.7              parameters_0.26.0       scatterplot3d_0.3-44    whisker_0.4.1          
+ [71] pkgconfig_2.0.3         gtable_0.3.6            rsconnect_1.4.1         Rmpfr_1.1-0             statsExpressions_1.7.0 
+ [76] BayesFactor_0.9.12-4.7  htmltools_0.5.8.1       carData_3.0-5           multcompView_0.1-10     scales_1.4.0           
+ [81] rstudioapi_0.17.1       tzdb_0.5.0              coda_0.19-4.1           nlme_3.1-168            repr_1.1.7             
+ [86] cachem_1.1.0            DEoptim_2.2-8           parallel_4.5.0          miniUI_0.1.2            pillar_1.10.2          
+ [91] grid_4.5.0              vctrs_0.6.5             promises_1.3.3          car_3.1-3               xtable_1.8-4           
+ [96] paletteer_1.6.0         evaluate_1.0.3          zeallot_0.2.0           cli_3.6.5               compiler_4.5.0         
+[101] rlang_1.1.6             crayon_1.5.3            rstantools_2.4.0        ggsignif_0.6.4          labeling_0.4.3         
+[106] rematch2_2.1.2          ps_1.9.1                plyr_1.8.9              getPass_0.2-4           fs_1.6.6               
+[111] stringi_1.8.7           subplex_1.9             optimParallel_1.0-2     bayestestR_0.16.0       Matrix_1.7-3           
+[116] hms_1.1.3               patchwork_1.3.0         bit64_4.6.0-1           shiny_1.10.0            fontawesome_0.5.3      
+[121] igraph_2.1.4            memoise_2.0.1           RcppParallel_5.1.10     bslib_0.9.0             phangorn_2.12.1        
+[126] fastmatch_1.1-6         bit_4.6.0              </code></pre>
 </div>
 </div>
 </div>

@@ -15,6 +15,7 @@ library(tidyverse)
 library(dplyr)
 library(tidyr)
 library(ggplot2)
+library(ggpubr)
 library(Biostrings)
 library(lsa) # install.packages("lsa"); install.packages("SnowballC")
 library(factoextra) #  install.packages("factoextra")
@@ -67,7 +68,6 @@ wilcox.test(MutEco$MutSpec[MutEco$WarmClimate == 0],MutEco$MutSpec[MutEco$WarmCl
 ## PGLS1: A>G ~ WarmClimate for 333 fishes
 
 ```{r warning=FALSE}
-
 tree = read.tree(file = here(data_dir, "chordates_species.nwk"))
 tree <- ape::drop.tip(tree, "Tenebrosternarchus_preto")
 MutEcoPGLS <- MutEco %>% dplyr::select(Species, MutSpec, WarmClimate)
@@ -109,7 +109,7 @@ table(MutEco$Gene)
 MutEco = MutEco[MutEco$Gene == 'Cytb',]
 MutEco = MutEco[MutEco$Mut == 'T>C',]
 dim(MutEco)
-cor.test(MutEco$MutSpec,MutEco$FoodTroph, method = 'spearman')
+cor.test(MutEco$MutSpec, MutEco$FoodTroph, method = 'spearman')
 wilcox.test(MutEco$MutSpec[MutEco$FoodTroph >= 3.5],MutEco$MutSpec[MutEco$FoodTroph < 3.5])
 
 # PGLS2: A>G ~ FoodTroph for 381 fishes
@@ -186,25 +186,44 @@ group4 <- na.omit(MutEco$MutSpec[MutEco$WarmClimate == 1 & MutEco$Predator == 1]
 groups <- list(group1, group2, group3, group4)
 labels <- c("Cold\nNonPredat", "Cold\nPredat", "Warm\nNonPredat", "Warm\nPredat")
 
-# Run boxplot with notches and vertical labels
-bp <- boxplot(
-  groups,
-  names = labels,
-  notch = TRUE,
-  col = c("lightblue", "skyblue", "lightcoral", "salmon"),
-  ylab = "MutSpec",
-  las = 2,
-  main = "MutSpec (Ah>Gh) by Climate and Predator Status"
-)
+plot_data <- groups %>%
+  set_names(labels) %>%
+  map_dfr(~ tibble(MutSpec = .x), .id = "Group") %>%
+  mutate(Group = factor(Group, levels = labels))
 
-# Add sample sizes above each box
-sample_sizes <- sapply(groups, length)
-text(
-  x = 1:4,
-  y = bp$stats[5, ] + 0.02,  # slightly above top whisker
-  labels = paste0("n = ", sample_sizes),
-  cex = 0.8
-)
+summary_data <- plot_data %>%
+  group_by(Group) %>%
+  summarise(
+    n = n(),
+    y_pos = max(MutSpec) * 1.05 # Place the label slightly above the max value
+  ) %>% mutate(n_label = paste("n =", n))
+
+# Create ggplot2 version
+f1 <- ggplot(plot_data, aes(x = Group, y = MutSpec, fill = Group)) +
+  geom_boxplot(notch = TRUE) +
+  scale_fill_manual(values = c("lightblue", "skyblue", "lightcoral", "salmon")) +
+  labs(y = "A_G.H", title = "MutSpec (Ah>Gh) by Climate and Predator Status") +
+  theme(
+    axis.text.x = element_text(hjust = 0.5, vjust = 0.5),
+    axis.title.x = element_blank(),
+    legend.position = "none",
+    panel.background = element_blank(),
+    axis.line = element_line(color = "black")
+  ) +
+  geom_text(
+    data = summary_data,
+    aes(x = Group, y = y_pos, label = n_label),
+    size = 3.5,
+    color = "black"
+  )
+
+ggsave(here(plots_dir,"Assosiation_of_A_G_with_climate_and_tropf_level.pdf"),
+  plot = f1,
+  width = 6,
+  height = 6
+) 
+
+f1
 
 # PGLS3: A>G ~ WarmClimate + Predator for 264 species
 # PGLS4: A>G ~ ClimateAndTroph   # little hope for 264 
@@ -213,7 +232,7 @@ text(
 
 ## PGLS3-4: A>G ~ WarmClimate + Predator for 264 species; A>G ~ ClimateAndTroph   # little hope for 264 
 
-```{r warning=FALSE}
+```{r mutspec_troph_climate}
 tree = read.tree(file = here(data_dir, "chordates_species.nwk"))
 tree <- ape::drop.tip(tree, "Tenebrosternarchus_preto")
 MutEcoPGLS <- MutEco %>% dplyr::select(Species, MutSpec, WarmClimate, Predator, ClimateAndTroph)

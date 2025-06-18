@@ -11,7 +11,7 @@
 
 <meta name="author" content="Alina G. Mikhailova" />
 
-<meta name="date" content="2025-06-13" />
+<meta name="date" content="2025-06-18" />
 
 <title>Analysis of the Cyt B neutral nucleotide data in Fishes</title>
 
@@ -300,7 +300,7 @@ $(document).ready(function () {
 <h1 class="title toc-ignore">Analysis of the Cyt B neutral nucleotide
 data in Fishes</h1>
 <h4 class="author">Alina G. Mikhailova</h4>
-<h4 class="date">2025-06-13</h4>
+<h4 class="date">2025-06-18</h4>
 
 </div>
 
@@ -329,7 +329,7 @@ aria-hidden="true"></span> </a>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2025-06-13
+<strong>Last updated:</strong> 2025-06-18
 </p>
 <p>
 <strong>Checks:</strong> <span
@@ -359,38 +359,315 @@ versions</em> tab lists the development history.
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
-<span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
-changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges"
+<div id="strongRMarkdownfilestronguptodate"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has staged changes. To know which version of the
-R Markdown file created these results, you’ll want to first commit it to
-the Git repo. If you’re still working on the analysis, you can ignore
-this warning. When you’re finished, you can run
-<code>wflow_publish</code> to commit the R Markdown file and build the
-HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongobjectspresent">
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> <strong>Environment:</strong> objects present
+</a>
 </p>
 </div>
-<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div id="strongEnvironmentstrongobjectspresent"
+class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great job! The global environment was empty. Objects defined in the
-global environment can affect the analysis in your R Markdown file in
-unknown ways. For reproduciblity it’s best to always run the code in an
-empty environment.</p>
+<p>
+The global environment had objects present when the code in the R
+Markdown file was run. These objects can affect the analysis in your R
+Markdown file in unknown ways. For reproduciblity it’s best to always
+run the code in an empty environment. Use <code>wflow_publish</code> or
+<code>wflow_build</code> to ensure that the code is always run in an
+empty environment.
+</p>
+<p>
+The following objects were defined in the global environment when these
+results were created:
+</p>
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th style="text-align:left;">
+Name
+</th>
+<th style="text-align:left;">
+Class
+</th>
+<th style="text-align:left;">
+Size
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+data
+</td>
+<td style="text-align:left;">
+data.frame
+</td>
+<td style="text-align:left;">
+22 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+data_comp
+</td>
+<td style="text-align:left;">
+comparative.data
+</td>
+<td style="text-align:left;">
+133 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+data_dir
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:left;">
+232 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Eco
+</td>
+<td style="text-align:left;">
+data.frame
+</td>
+<td style="text-align:left;">
+31.3 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+f1
+</td>
+<td style="text-align:left;">
+gg;ggplot
+</td>
+<td style="text-align:left;">
+17.5 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+group1
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+568 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+group2
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+384 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+group3
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+784 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+group4
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+568 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groups
+</td>
+<td style="text-align:left;">
+list
+</td>
+<td style="text-align:left;">
+2.3 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+labels
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:left;">
+336 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+model
+</td>
+<td style="text-align:left;">
+lm
+</td>
+<td style="text-align:left;">
+92.3 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mut
+</td>
+<td style="text-align:left;">
+spec_tbl_df;tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+1 Mb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MutEco
+</td>
+<td style="text-align:left;">
+data.frame
+</td>
+<td style="text-align:left;">
+52.5 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MutEcoPGLS
+</td>
+<td style="text-align:left;">
+data.frame
+</td>
+<td style="text-align:left;">
+22.4 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+output_dir
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:left;">
+232 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+plot_data
+</td>
+<td style="text-align:left;">
+tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+4.7 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+plots_dir
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:left;">
+232 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+src_dir
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:left;">
+232 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+summary_data
+</td>
+<td style="text-align:left;">
+tbl_df;tbl;data.frame
+</td>
+<td style="text-align:left;">
+2.1 Kb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tables_dir
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:left;">
+232 bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tree
+</td>
+<td style="text-align:left;">
+phylo
+</td>
+<td style="text-align:left;">
+6.6 Mb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tree_pruned
+</td>
+<td style="text-align:left;">
+phylo
+</td>
+<td style="text-align:left;">
+13.3 Kb
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -464,15 +741,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree51c225065db00737702e5c6604d9cf9b58a71101targetblank51c2250a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree77db01ef622b2f1f41cab6356064e0562a9a41e8targetblank77db01ea">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/51c225065db00737702e5c6604d9cf9b58a71101" target="_blank">51c2250</a>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/77db01ef622b2f1f41cab6356064e0562a9a41e8" target="_blank">77db01e</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree51c225065db00737702e5c6604d9cf9b58a71101targetblank51c2250a"
+id="strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree77db01ef622b2f1f41cab6356064e0562a9a41e8targetblank77db01ea"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -482,7 +759,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/51c225065db00737702e5c6604d9cf9b58a71101" target="_blank">51c2250</a>.
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/77db01ef622b2f1f41cab6356064e0562a9a41e8" target="_blank">77db01e</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -516,33 +793,25 @@ Ignored files:
     Ignored:    data/MIDORI2_LONGEST_NUC_GB265_Cytb_BLAST.fasta
     Ignored:    data/MIDORI2_LONGEST_NUC_GB265_Cytb_BLAST.fasta.fai
     Ignored:    data/MIDORI_WG_CYTB_FISHES.csv
+    Ignored:    data/MolEvolRatesProxy.txt
     Ignored:    data/SimulationData.csv
+    Ignored:    data/SimulationData2.csv
     Ignored:    data/Species_by_climate_zones.txt
     Ignored:    output/.DS_Store
     Ignored:    output/figures/.DS_Store
     Ignored:    output/tables/.DS_Store
 
-Unstaged changes:
-    Unmerged:   output/figures/PolymorphicData.Actinopterygii.A_GwitnTemperatureCytB.pdf
-    Unmerged:   output/figures/PolymorphicData.Actinopterygii.AverageMutSpecColdAndWarmCytB.pdf
-    Unmerged:   output/figures/PolymorphicData.Actinopterygii.AverageMutSpecCytB.pdf
-    Deleted:    output/tables/Mitochondrial_matational_spectra_and_ecology_Fishes.txt
-    Deleted:    output/tables/Mitochondrial_mutational_spectra_and_ecology_Fishes.txt
+Untracked files:
+    Untracked:  output/figures/Observed_vs_Expected_Frequencies.png
+    Untracked:  output/figures/Observed_vs_Expected_Frequencies_subset.png
+    Untracked:  output/figures/Simulation_expected_observed.pdf
+    Untracked:  output/figures/Simulation_expected_observed_subset.pdf
 
-Staged changes:
-    Modified:   analysis/II_Cytb_Data_Analysis.Rmd
-    Modified:   analysis/IIa_Cytb_Data_Analysis_Simulation_Mutagenesis.Rmd
-    Modified:   analysis/I_Polymorphic_Data_Analysis.Rmd
-    Deleted:    cold_water_fish_frequencies.png
-    New:        data/Cytb.nm.Mafft_L-INS-i.pr.Bs.mtVer-F-I-G8.treefile.cut-c0.0001-rr
-    New:        data/Cytb.nm.Mafft_L-INS-i.pr.Bs.mtVer-F-I-G8.treefile.cut-c0.0001-rr.dist
-    New:        data/Cytb.nm.famsa.nj.refine.pr.Bs.mtVer-F-I-G8.treefile.cut-c0.0001-rr.dist
-    Deleted:    output/figures/PolymorphicData.Actinopterygii.A_GwitnTemperature.pdf
-    Deleted:    output/figures/PolymorphicData.Actinopterygii.AverageMutSpec.pdf
-    Deleted:    output/figures/PolymorphicData.Actinopterygii.AverageMutSpecColdAndWarm.pdf
-    Deleted:    output/figures/Simulation_plot.pdf
-    New:        output/tables/Mitochondrial_matational_spectra_and_ecology_Fishes.txt
-    New:        output/tables/Mitochondrial_mutational_spectra_and_ecology_Fishes.txt
+Unstaged changes:
+    Modified:   output/figures/Assosiation_of_A_G_with_climate_and_tropf_level.pdf
+    Modified:   output/figures/Assosiation_of_A_G_with_temperature.pdf
+    Modified:   output/figures/Average mitochondrial mutational spectrum in Fishes divided by groups (cytB).pdf
+    Modified:   output/figures/Average_mutspec_in_Fishes_CytB.pdf
 
 </code></pre>
 <p>
@@ -587,6 +856,74 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/77db01ef622b2f1f41cab6356064e0562a9a41e8/analysis/II_Cytb_Data_Analysis.Rmd" target="_blank">77db01e</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-06-18
+</td>
+<td>
+First chapter all done
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mitoclub/TemperatureEffectsOnMtDNAspectra/77db01ef622b2f1f41cab6356064e0562a9a41e8/docs/II_Cytb_Data_Analysis.html" target="_blank">77db01e</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-06-18
+</td>
+<td>
+First chapter all done
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/381478f404af863b218688553890802b5ed87962/analysis/II_Cytb_Data_Analysis.Rmd" target="_blank">381478f</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-06-13
+</td>
+<td>
+New tree added
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mitoclub/TemperatureEffectsOnMtDNAspectra/381478f404af863b218688553890802b5ed87962/docs/II_Cytb_Data_Analysis.html" target="_blank">381478f</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-06-13
+</td>
+<td>
+New tree added
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -648,36 +985,22 @@ mtDNAcodonUsage$FrG.H = mtDNAcodonUsage$NeutralC / (mtDNAcodonUsage$NeutralA + m
                                                     mtDNAcodonUsage$NeutralG + mtDNAcodonUsage$NeutralC) 
 
 head(mtDNAcodonUsage)</code></pre>
-<pre><code>                     Species NeutralA NeutralT NeutralG NeutralC     FrT.H
-1           Aaptosyax_grypus      125       18        9       42 0.6443299
-2    Abantennarius_coccineus       67       56       14       64 0.3333333
-3       Abbottina_lalinensis      107       30       22       45 0.5245098
-4    Abbottina_liaoningensis      100       28       21       54 0.4926108
-5 Abudefduf_caudobimaculatus       68       27        8       75 0.3820225
-6         Abudefduf_concolor       79       34        9       86 0.3798077
-       FrA.H      FrC.H     FrG.H
-1 0.09278351 0.04639175 0.2164948
-2 0.27860697 0.06965174 0.3184080
-3 0.14705882 0.10784314 0.2205882
-4 0.13793103 0.10344828 0.2660099
-5 0.15168539 0.04494382 0.4213483
-6 0.16346154 0.04326923 0.4134615</code></pre>
+<pre><code>                     Species NeutralA NeutralT NeutralG NeutralC     FrT.H      FrA.H      FrC.H     FrG.H
+1           Aaptosyax_grypus      125       18        9       42 0.6443299 0.09278351 0.04639175 0.2164948
+2    Abantennarius_coccineus       67       56       14       64 0.3333333 0.27860697 0.06965174 0.3184080
+3       Abbottina_lalinensis      107       30       22       45 0.5245098 0.14705882 0.10784314 0.2205882
+4    Abbottina_liaoningensis      100       28       21       54 0.4926108 0.13793103 0.10344828 0.2660099
+5 Abudefduf_caudobimaculatus       68       27        8       75 0.3820225 0.15168539 0.04494382 0.4213483
+6         Abudefduf_concolor       79       34        9       86 0.3798077 0.16346154 0.04326923 0.4134615</code></pre>
 <pre class="r"><code>fishEcology &lt;- read.csv(here(data_dir, &quot;Full_fish_ecology_table_2025.csv&quot;))
 head(fishEcology)</code></pre>
-<pre><code>                  Species     Wmax      Lmax     tmax
-1     Abbottina_rivularis       NA   9.10000  2.00000
-2           Abramis_brama 4112.167  46.91111 14.41667
-3    Abudefduf_vaigiensis       NA  18.96667       NA
-4 Acanthemblemaria_aspera       NA   3.00000  4.00000
-5  Acanthocybium_solandri 7200.000 177.88000  9.30000
-6     Acanthopagrus_berda  660.000  56.00000 12.50000
-                    FeedingType FoodTroph    tm       Lm Temp_min Temp_max
-1                          &lt;NA&gt;        NA 1.000  4.50000       NA       NA
-2 hunting macrofauna (predator)      3.15 4.125 28.75000       10       24
-3     grazing on aquatic plants      3.39    NA 12.00000       NA       NA
-4 hunting macrofauna (predator)      3.12    NA       NA       NA       NA
-5 hunting macrofauna (predator)      4.45 2.000 99.33333       NA       NA
-6 hunting macrofauna (predator)      3.50    NA 21.00000       NA       NA
+<pre><code>                  Species     Wmax      Lmax     tmax                   FeedingType FoodTroph    tm       Lm Temp_min Temp_max
+1     Abbottina_rivularis       NA   9.10000  2.00000                          &lt;NA&gt;        NA 1.000  4.50000       NA       NA
+2           Abramis_brama 4112.167  46.91111 14.41667 hunting macrofauna (predator)      3.15 4.125 28.75000       10       24
+3    Abudefduf_vaigiensis       NA  18.96667       NA     grazing on aquatic plants      3.39    NA 12.00000       NA       NA
+4 Acanthemblemaria_aspera       NA   3.00000  4.00000 hunting macrofauna (predator)      3.12    NA       NA       NA       NA
+5  Acanthocybium_solandri 7200.000 177.88000  9.30000 hunting macrofauna (predator)      4.45 2.000 99.33333       NA       NA
+6     Acanthopagrus_berda  660.000  56.00000 12.50000 hunting macrofauna (predator)      3.50    NA 21.00000       NA       NA
   Climate_zone Temp_avg
 1  subtropical       NA
 2    temperate       17
@@ -691,58 +1014,57 @@ class="section level1">
 <h1>Studies of neutral nucleotide content with temperature</h1>
 <p>##Correlating neutral nucleotide content and nucleotide skews with
 temperature</p>
-<pre class="r"><code>distances &lt;- read.table(here(data_dir, &quot;Cytb.nm.Mafft_L-INS-i.pr.Bs.mtVer-F-I-G8.treefile.cut-c0.0001-rr.dist&quot;), header = FALSE)
-colnames(distances) &lt;- c(&quot;Species&quot;, &quot;Rates&quot;)
+<pre class="r"><code>RatesProxySet &lt;- read.table(here(data_dir, &quot;MolEvolRatesProxy.txt&quot;), header = TRUE)
 
 taxonomy &lt;- rfishbase::species_names()
 taxonomy$Species &lt;- gsub(&quot; &quot;, &quot;_&quot;, taxonomy$Species)
 
-merging &lt;- list(mtDNAcodonUsage, fishEcology, distances, taxonomy)
+merging &lt;- list(mtDNAcodonUsage, fishEcology, RatesProxySet, taxonomy)
 NucAndEco &lt;- merging %&gt;% purrr::reduce(left_join, by= &quot;Species&quot;)
 
 spN &lt;- nrow(NucAndEco[!is.na(NucAndEco$Temp_avg),])
 cat(&quot;N Species with temperature = &quot;, spN)</code></pre>
 <pre><code>N Species with temperature =  155</code></pre>
-<pre class="r"><code>cor.test(NucAndEco$FrA.H, NucAndEco$Rates, method=&quot;spearman&quot;)</code></pre>
+<pre class="r"><code>cor.test(NucAndEco$FrA.H, NucAndEco$MolEvolRates, method=&quot;spearman&quot;)</code></pre>
 <pre><code>
     Spearman&#39;s rank correlation rho
 
-data:  NucAndEco$FrA.H and NucAndEco$Rates
-S = 468064, p-value = 0.001035
+data:  NucAndEco$FrA.H and NucAndEco$MolEvolRates
+S = 734120, p-value = 0.04999
 alternative hypothesis: true rho is not equal to 0
 sample estimates:
       rho 
-0.2602232 </code></pre>
-<pre class="r"><code>cor.test(NucAndEco$FrG.H, NucAndEco$Rates, method=&quot;spearman&quot;)</code></pre>
+0.1492642 </code></pre>
+<pre class="r"><code>cor.test(NucAndEco$FrG.H, NucAndEco$MolEvolRates, method=&quot;spearman&quot;)</code></pre>
 <pre><code>
     Spearman&#39;s rank correlation rho
 
-data:  NucAndEco$FrG.H and NucAndEco$Rates
-S = 365375, p-value = 3.92e-08
+data:  NucAndEco$FrG.H and NucAndEco$MolEvolRates
+S = 960228, p-value = 0.1396
+alternative hypothesis: true rho is not equal to 0
+sample estimates:
+       rho 
+-0.1127606 </code></pre>
+<pre class="r"><code>cor.test(NucAndEco$FrC.H, NucAndEco$MolEvolRates, method=&quot;spearman&quot;)</code></pre>
+<pre><code>
+    Spearman&#39;s rank correlation rho
+
+data:  NucAndEco$FrC.H and NucAndEco$MolEvolRates
+S = 1046540, p-value = 0.004943
 alternative hypothesis: true rho is not equal to 0
 sample estimates:
       rho 
-0.4225243 </code></pre>
-<pre class="r"><code>cor.test(NucAndEco$FrC.H, NucAndEco$Rates, method=&quot;spearman&quot;)</code></pre>
+-0.212784 </code></pre>
+<pre class="r"><code>cor.test(NucAndEco$FrT.H, NucAndEco$MolEvolRates, method=&quot;spearman&quot;)</code></pre>
 <pre><code>
     Spearman&#39;s rank correlation rho
 
-data:  NucAndEco$FrC.H and NucAndEco$Rates
-S = 823962, p-value = 0.0001255
+data:  NucAndEco$FrT.H and NucAndEco$MolEvolRates
+S = 770431, p-value = 0.1604
 alternative hypothesis: true rho is not equal to 0
 sample estimates:
-       rho 
--0.3022748 </code></pre>
-<pre class="r"><code>cor.test(NucAndEco$FrT.H, NucAndEco$Rates, method=&quot;spearman&quot;)</code></pre>
-<pre><code>
-    Spearman&#39;s rank correlation rho
-
-data:  NucAndEco$FrT.H and NucAndEco$Rates
-S = 803041, p-value = 0.000678
-alternative hypothesis: true rho is not equal to 0
-sample estimates:
-       rho 
--0.2692084 </code></pre>
+      rho 
+0.1071857 </code></pre>
 <pre class="r"><code>tidy(cor.test(NucAndEco$FrA.H, NucAndEco$Temp_avg, method = &#39;spearman&#39;))</code></pre>
 <pre><code># A tibble: 1 × 5
   estimate statistic p.value method                          alternative
@@ -776,26 +1098,26 @@ tidy(cor.test(NucAndEco$AGskew, NucAndEco$Temp_avg, method = &#39;spearman&#39;)
   estimate statistic   p.value method                          alternative
      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;                           &lt;chr&gt;      
 1   -0.330   825338. 0.0000277 Spearman&#39;s rank correlation rho two.sided  </code></pre>
-<pre class="r"><code>cor.test(NucAndEco$AGskew, NucAndEco$Rates, method=&quot;spearman&quot;)</code></pre>
+<pre class="r"><code>cor.test(NucAndEco$AGskew, NucAndEco$MolEvolRates, method=&quot;spearman&quot;)</code></pre>
 <pre><code>
     Spearman&#39;s rank correlation rho
 
-data:  NucAndEco$AGskew and NucAndEco$Rates
-S = 695711, p-value = 0.2162
+data:  NucAndEco$AGskew and NucAndEco$MolEvolRates
+S = 719148, p-value = 0.02846
 alternative hypothesis: true rho is not equal to 0
 sample estimates:
-        rho 
--0.09957318 </code></pre>
-<pre class="r"><code>cor.test(NucAndEco$CTskew, NucAndEco$Rates, method=&quot;spearman&quot;)</code></pre>
+      rho 
+0.1666155 </code></pre>
+<pre class="r"><code>cor.test(NucAndEco$CTskew, NucAndEco$MolEvolRates, method=&quot;spearman&quot;)</code></pre>
 <pre><code>
     Spearman&#39;s rank correlation rho
 
-data:  NucAndEco$CTskew and NucAndEco$Rates
-S = 734071, p-value = 0.04574
+data:  NucAndEco$CTskew and NucAndEco$MolEvolRates
+S = 1049842, p-value = 0.004203
 alternative hypothesis: true rho is not equal to 0
 sample estimates:
        rho 
--0.1602012 </code></pre>
+-0.2166103 </code></pre>
 <p>##Correlating neutral nucleotide content and nucleotide skews with
 time of maturation</p>
 <pre class="r"><code>nrow(NucAndEco[!is.na(NucAndEco$tm),])</code></pre>
@@ -963,9 +1285,9 @@ F-statistic: 4.045 on 2 and 17 DF,  p-value: 0.03655</code></pre>
 </div>
 <div id="pgls" class="section level2">
 <h2>PGLS</h2>
-<pre class="r"><code>tree = read.tree(file = here(data_dir, &quot;Cytb.nm.Mafft_L-INS-i.pr.Bs.mtVer-F-I-G8.treefile.cut-c0.0001-rr&quot;))
-NucAndEcoPGLS &lt;- NucAndEco %&gt;% dplyr::select(Species, FrA.H, FrG.H, FrT.H, FrC.H, AGskew, CTskew, Rates)
-#NucAndEcoPGLS &lt;- NucAndEcoPGLS[!is.na(NucAndEcoPGLS$Temp_avg),]
+<pre class="r"><code>tree = read.tree(file = here(data_dir, &quot;chordates_species.nwk&quot;))
+NucAndEcoPGLS &lt;- NucAndEco %&gt;% dplyr::select(Species, FrA.H, FrG.H, FrT.H, FrC.H, AGskew, CTskew, MolEvolRates)
+tree &lt;- ape::drop.tip(tree, &quot;Tenebrosternarchus_preto&quot;)
 
 row.names(NucAndEcoPGLS) = NucAndEcoPGLS$Species
 tree_pruned = treedata(tree, NucAndEcoPGLS, sort=T, warnings=T)$phy
@@ -977,177 +1299,150 @@ data$FrT.H = as.numeric(data$FrT.H)
 data$FrC.H = as.numeric(data$FrC.H)
 data$AGskew = as.numeric(data$AGskew)
 data$CTskew = as.numeric(data$CTskew)
-data$Rates = as.numeric(data$Rates)
+data$MolEvolRates = as.numeric(data$MolEvolRates)
 data_comp &lt;- comparative.data(tree_pruned, data, Species, vcv=TRUE)
 
 
-summary(pgls(FrA.H ~ Rates, data_comp, lambda=&quot;ML&quot;))</code></pre>
+summary(pgls(FrA.H ~ MolEvolRates, data_comp, lambda=&quot;ML&quot;))</code></pre>
 <pre><code>
 Call:
-pgls(formula = FrA.H ~ Rates, data = data_comp, lambda = &quot;ML&quot;)
+pgls(formula = FrA.H ~ MolEvolRates, data = data_comp, lambda = &quot;ML&quot;)
 
 Residuals:
-      Min        1Q    Median        3Q       Max 
--0.134413 -0.034945  0.000561  0.038245  0.239194 
-
-Branch length transformations:
-
-kappa  [Fix]  : 1.000
-lambda [ ML]  : 0.948
-   lower bound : 0.000, p = &lt; 2.22e-16
-   upper bound : 1.000, p = &lt; 2.22e-16
-   95.0% CI   : (0.885, 0.978)
-delta  [Fix]  : 1.000
-
-Coefficients:
-             Estimate Std. Error t value Pr(&gt;|t|)   
-(Intercept) 0.1461912  0.0451950  3.2347  0.00149 **
-Rates       0.0096724  0.0158533  0.6101  0.54268   
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-
-Residual standard error: 0.05706 on 154 degrees of freedom
-Multiple R-squared: 0.002411,   Adjusted R-squared: -0.004067 
-F-statistic: 0.3722 on 1 and 154 DF,  p-value: 0.5427 </code></pre>
-<pre class="r"><code>summary(pgls(FrT.H ~ Rates, data_comp, lambda=&quot;ML&quot;))</code></pre>
-<pre><code>
-Call:
-pgls(formula = FrT.H ~ Rates, data = data_comp, lambda = &quot;ML&quot;)
-
-Residuals:
-     Min       1Q   Median       3Q      Max 
--0.25237 -0.07452  0.00224  0.04737  0.28656 
-
-Branch length transformations:
-
-kappa  [Fix]  : 1.000
-lambda [ ML]  : 0.996
-   lower bound : 0.000, p = &lt; 2.22e-16
-   upper bound : 1.000, p = &lt; 2.22e-16
-   95.0% CI   : (0.986, 0.999)
-delta  [Fix]  : 1.000
-
-Coefficients:
-               Estimate  Std. Error t value  Pr(&gt;|t|)    
-(Intercept)  0.46840609  0.07554080  6.2007 4.938e-09 ***
-Rates       -0.00061356  0.02515427 -0.0244    0.9806    
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-
-Residual standard error: 0.09611 on 154 degrees of freedom
-Multiple R-squared: 3.863e-06,  Adjusted R-squared: -0.00649 
-F-statistic: 0.000595 on 1 and 154 DF,  p-value: 0.9806 </code></pre>
-<pre class="r"><code>summary(pgls(FrG.H ~ Rates, data_comp, lambda=&quot;ML&quot;))</code></pre>
-<pre><code>
-Call:
-pgls(formula = FrG.H ~ Rates, data = data_comp, lambda = &quot;ML&quot;)
-
-Residuals:
-      Min        1Q    Median        3Q       Max 
--0.198540 -0.045238  0.000891  0.047705  0.194096 
-
-Branch length transformations:
-
-kappa  [Fix]  : 1.000
-lambda [ ML]  : 0.967
-   lower bound : 0.000, p = &lt; 2.22e-16
-   upper bound : 1.000, p = &lt; 2.22e-16
-   95.0% CI   : (0.930, 0.985)
-delta  [Fix]  : 1.000
-
-Coefficients:
-             Estimate Std. Error t value  Pr(&gt;|t|)    
-(Intercept)  0.343691   0.061202  5.6157 8.906e-08 ***
-Rates       -0.018330   0.021140 -0.8671    0.3872    
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-
-Residual standard error: 0.07739 on 154 degrees of freedom
-Multiple R-squared: 0.004858,   Adjusted R-squared: -0.001604 
-F-statistic: 0.7518 on 1 and 154 DF,  p-value: 0.3872 </code></pre>
-<pre class="r"><code>summary(pgls(FrC.H ~ Rates, data_comp, lambda=&quot;ML&quot;))</code></pre>
-<pre><code>
-Call:
-pgls(formula = FrC.H ~ Rates, data = data_comp, lambda = &quot;ML&quot;)
-
-Residuals:
-      Min        1Q    Median        3Q       Max 
--0.117564 -0.028574 -0.004647  0.022483  0.260971 
-
-Branch length transformations:
-
-kappa  [Fix]  : 1.000
-lambda [ ML]  : 0.985
-   lower bound : 0.000, p = &lt; 2.22e-16
-   upper bound : 1.000, p = &lt; 2.22e-16
-   95.0% CI   : (0.923, 0.999)
-delta  [Fix]  : 1.000
-
-Coefficients:
-             Estimate Std. Error t value Pr(&gt;|t|)
-(Intercept) 0.0464994  0.0442354  1.0512   0.2948
-Rates       0.0051865  0.0149952  0.3459   0.7299
-
-Residual standard error: 0.05609 on 154 degrees of freedom
-Multiple R-squared: 0.0007762,  Adjusted R-squared: -0.005712 
-F-statistic: 0.1196 on 1 and 154 DF,  p-value: 0.7299 </code></pre>
-<pre class="r"><code>summary(pgls(AGskew ~ Rates, data_comp, lambda=&quot;ML&quot;))</code></pre>
-<pre><code>
-Call:
-pgls(formula = AGskew ~ Rates, data = data_comp, lambda = &quot;ML&quot;)
-
-Residuals:
-     Min       1Q   Median       3Q      Max 
--0.42507 -0.12451 -0.00408  0.12435  0.62154 
-
-Branch length transformations:
-
-kappa  [Fix]  : 1.000
-lambda [ ML]  : 0.939
-   lower bound : 0.000, p = &lt; 2.22e-16
-   upper bound : 1.000, p = &lt; 2.22e-16
-   95.0% CI   : (0.871, 0.973)
-delta  [Fix]  : 1.000
-
-Coefficients:
-             Estimate Std. Error t value Pr(&gt;|t|)  
-(Intercept) -0.385619   0.150573 -2.5610   0.0114 *
-Rates        0.039028   0.053119  0.7347   0.4636  
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-
-Residual standard error: 0.19 on 154 degrees of freedom
-Multiple R-squared: 0.003493,   Adjusted R-squared: -0.002978 
-F-statistic: 0.5398 on 1 and 154 DF,  p-value: 0.4636 </code></pre>
-<pre class="r"><code>summary(pgls(CTskew ~ Rates, data_comp, lambda=&quot;ML&quot;))</code></pre>
-<pre><code>
-Call:
-pgls(formula = CTskew ~ Rates, data = data_comp, lambda = &quot;ML&quot;)
-
-Residuals:
-     Min       1Q   Median       3Q      Max 
--0.56244 -0.14358 -0.01597  0.14060  0.87865 
+       Min         1Q     Median         3Q        Max 
+-0.0145440 -0.0027546 -0.0001187  0.0034654  0.0238443 
 
 Branch length transformations:
 
 kappa  [Fix]  : 1.000
 lambda [ ML]  : 0.989
    lower bound : 0.000, p = &lt; 2.22e-16
-   upper bound : 1.000, p = &lt; 2.22e-16
-   95.0% CI   : (0.950, 0.999)
+   upper bound : 1.000, p = 0.095729
+   95.0% CI   : (0.942, NA)
 delta  [Fix]  : 1.000
 
 Coefficients:
-             Estimate Std. Error t value  Pr(&gt;|t|)    
-(Intercept) -0.826245   0.206549 -4.0002 9.799e-05 ***
-Rates        0.023698   0.069565  0.3407    0.7338    
+              Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)  0.1696749  0.0864170  1.9634   0.0514 .
+MolEvolRates 0.0013007  0.0022205  0.5858   0.5589  
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Residual standard error: 0.2622 on 154 degrees of freedom
-Multiple R-squared: 0.000753,   Adjusted R-squared: -0.005736 
-F-statistic: 0.116 on 1 and 154 DF,  p-value: 0.7338 </code></pre>
-<pre class="r"><code>tree = read.tree(file = here(data_dir, &quot;Cytb.nm.Mafft_L-INS-i.pr.Bs.mtVer-F-I-G8.treefile.cut-c0.0001-rr&quot;))
+Residual standard error: 0.005261 on 154 degrees of freedom
+Multiple R-squared: 0.002223,   Adjusted R-squared: -0.004256 
+F-statistic: 0.3431 on 1 and 154 DF,  p-value: 0.5589 </code></pre>
+<pre class="r"><code>summary(pgls(FrT.H ~ MolEvolRates, data_comp, lambda=&quot;ML&quot;))</code></pre>
+<pre><code>
+Call:
+pgls(formula = FrT.H ~ MolEvolRates, data = data_comp, lambda = &quot;ML&quot;)
+
+Residuals:
+       Min         1Q     Median         3Q        Max 
+-0.0180642 -0.0052674 -0.0002195  0.0037905  0.0209365 
+
+Branch length transformations:
+
+kappa  [Fix]  : 1.000
+lambda [ ML]  : 1.000
+   lower bound : 0.000, p = &lt; 2.22e-16
+   upper bound : 1.000, p = 1    
+   95.0% CI   : (0.998, NA)
+delta  [Fix]  : 1.000
+
+Coefficients:
+              Estimate Std. Error t value  Pr(&gt;|t|)    
+(Intercept)  0.4526042  0.1162357  3.8938 0.0001466 ***
+MolEvolRates 0.0019816  0.0020188  0.9816 0.3278352    
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.007054 on 154 degrees of freedom
+Multiple R-squared: 0.006218,   Adjusted R-squared: -0.0002353 
+F-statistic: 0.9635 on 1 and 154 DF,  p-value: 0.3278 </code></pre>
+<pre class="r"><code>summary(pgls(FrG.H ~ MolEvolRates, data_comp, lambda=&quot;ML&quot;))</code></pre>
+<pre><code>
+Call:
+pgls(formula = FrG.H ~ MolEvolRates, data = data_comp, lambda = &quot;ML&quot;)
+
+Residuals:
+       Min         1Q     Median         3Q        Max 
+-0.0214155 -0.0046881  0.0000375  0.0044416  0.0218100 
+
+Branch length transformations:
+
+kappa  [Fix]  : 1.000
+lambda [ ML]  : 1.000
+   lower bound : 0.000, p = &lt; 2.22e-16
+   upper bound : 1.000, p = 1    
+   95.0% CI   : (0.994, NA)
+delta  [Fix]  : 1.000
+
+Coefficients:
+                Estimate  Std. Error t value Pr(&gt;|t|)   
+(Intercept)   0.32143272  0.12153402  2.6448 0.009021 **
+MolEvolRates -0.00095076  0.00211081 -0.4504 0.653039   
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.007376 on 154 degrees of freedom
+Multiple R-squared: 0.001316,   Adjusted R-squared: -0.005169 
+F-statistic: 0.2029 on 1 and 154 DF,  p-value: 0.653 </code></pre>
+<pre class="r"><code>summary(pgls(FrC.H ~ MolEvolRates, data_comp, lambda=&quot;ML&quot;))</code></pre>
+<pre><code>
+Call:
+pgls(formula = FrC.H ~ MolEvolRates, data = data_comp, lambda = &quot;ML&quot;)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.009829 -0.002685 -0.000348  0.002941  0.012388 
+
+Branch length transformations:
+
+kappa  [Fix]  : 1.000
+lambda [ ML]  : 0.999
+   lower bound : 0.000, p = &lt; 2.22e-16
+   upper bound : 1.000, p = 0.75927
+   95.0% CI   : (0.981, NA)
+delta  [Fix]  : 1.000
+
+Coefficients:
+               Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept)   0.0557485  0.0713551  0.7813   0.4358
+MolEvolRates -0.0018158  0.0013406 -1.3545   0.1776
+
+Residual standard error: 0.004332 on 154 degrees of freedom
+Multiple R-squared: 0.01177,    Adjusted R-squared: 0.005356 
+F-statistic: 1.835 on 1 and 154 DF,  p-value: 0.1776 </code></pre>
+<pre class="r"><code>#summary(pgls(AGskew ~ MolEvolRates, data_comp, lambda=&quot;ML&quot;))
+summary(pgls(CTskew ~ MolEvolRates, data_comp, lambda=&quot;ML&quot;))</code></pre>
+<pre><code>
+Call:
+pgls(formula = CTskew ~ MolEvolRates, data = data_comp, lambda = &quot;ML&quot;)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.040707 -0.013189 -0.001175  0.013754  0.056149 
+
+Branch length transformations:
+
+kappa  [Fix]  : 1.000
+lambda [ ML]  : 1.000
+   lower bound : 0.000, p = &lt; 2.22e-16
+   upper bound : 1.000, p = 1    
+   95.0% CI   : (0.991, NA)
+delta  [Fix]  : 1.000
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)  -0.777154   0.336938 -2.3065  0.02241 *
+MolEvolRates -0.006694   0.005852 -1.1439  0.25444  
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.02045 on 154 degrees of freedom
+Multiple R-squared: 0.008425,   Adjusted R-squared: 0.001986 
+F-statistic: 1.308 on 1 and 154 DF,  p-value: 0.2544 </code></pre>
+<pre class="r"><code>tree = read.tree(file = here(data_dir, &quot;chordates_species.nwk&quot;))
 NucAndEcoPGLS &lt;- NucAndEco %&gt;% dplyr::select(Species, FrA.H, FrG.H, FrT.H, FrC.H, AGskew, CTskew, Temp_avg)
 
 row.names(NucAndEcoPGLS) = NucAndEcoPGLS$Species
@@ -1169,168 +1464,168 @@ Call:
 pgls(formula = FrA.H ~ Temp_avg, data = data_comp, lambda = &quot;ML&quot;)
 
 Residuals:
-      Min        1Q    Median        3Q       Max 
--0.078796 -0.028434  0.007344  0.029109  0.099069 
+       Min         1Q     Median         3Q        Max 
+-0.0090940 -0.0028310  0.0000716  0.0022571  0.0143847 
 
 Branch length transformations:
 
 kappa  [Fix]  : 1.000
-lambda [ ML]  : 0.765
-   lower bound : 0.000, p = 0.025831
-   upper bound : 1.000, p = 0.078092
-   95.0% CI   : (0.157, NA)
+lambda [ ML]  : 0.949
+   lower bound : 0.000, p = 2.2204e-16
+   upper bound : 1.000, p = 8.3613e-08
+   95.0% CI   : (0.865, 0.983)
 delta  [Fix]  : 1.000
 
 Coefficients:
-              Estimate Std. Error t value  Pr(&gt;|t|)    
-(Intercept)  0.1995810  0.0491293  4.0624 0.0003071 ***
-Temp_avg    -0.0016085  0.0015638 -1.0286 0.3116129    
+               Estimate  Std. Error t value  Pr(&gt;|t|)    
+(Intercept)  0.23603591  0.06854208  3.4437 0.0007632 ***
+Temp_avg    -0.00260764  0.00090793 -2.8721 0.0047321 ** 
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Residual standard error: 0.04324 on 31 degrees of freedom
-Multiple R-squared: 0.03301,    Adjusted R-squared: 0.001812 
-F-statistic: 1.058 on 1 and 31 DF,  p-value: 0.3116 </code></pre>
+Residual standard error: 0.004367 on 136 degrees of freedom
+Multiple R-squared: 0.05718,    Adjusted R-squared: 0.05025 
+F-statistic: 8.249 on 1 and 136 DF,  p-value: 0.004732 </code></pre>
 <pre class="r"><code>summary(pgls(AGskew ~ Temp_avg, data_comp, lambda=&quot;ML&quot;))</code></pre>
 <pre><code>
 Call:
 pgls(formula = AGskew ~ Temp_avg, data = data_comp, lambda = &quot;ML&quot;)
 
 Residuals:
-     Min       1Q   Median       3Q      Max 
--0.14045 -0.05781  0.01621  0.06613  0.17971 
+      Min        1Q    Median        3Q       Max 
+-0.033601 -0.008608  0.000003  0.009334  0.039249 
 
 Branch length transformations:
 
 kappa  [Fix]  : 1.000
-lambda [ ML]  : 0.000
-   lower bound : 0.000, p = 1    
-   upper bound : 1.000, p = 0.0013809
-   95.0% CI   : (NA, 0.468)
+lambda [ ML]  : 0.968
+   lower bound : 0.000, p = 2.9045e-08
+   upper bound : 1.000, p = 0.00014788
+   95.0% CI   : (0.899, 0.993)
 delta  [Fix]  : 1.000
 
 Coefficients:
               Estimate Std. Error t value Pr(&gt;|t|)  
-(Intercept) -0.1040402  0.0786767 -1.3224  0.19572  
-Temp_avg    -0.0083862  0.0039915 -2.1010  0.04387 *
+(Intercept) -0.1641512  0.2415100 -0.6797  0.49786  
+Temp_avg    -0.0062928  0.0029674 -2.1207  0.03577 *
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Residual standard error: 0.0887 on 31 degrees of freedom
-Multiple R-squared: 0.1246, Adjusted R-squared: 0.09641 
-F-statistic: 4.414 on 1 and 31 DF,  p-value: 0.04387 </code></pre>
+Residual standard error: 0.01531 on 136 degrees of freedom
+Multiple R-squared: 0.03201,    Adjusted R-squared: 0.02489 
+F-statistic: 4.497 on 1 and 136 DF,  p-value: 0.03577 </code></pre>
 <pre class="r"><code>summary(pgls(FrG.H ~ Temp_avg, data_comp, lambda=&quot;ML&quot;))</code></pre>
 <pre><code>
 Call:
 pgls(formula = FrG.H ~ Temp_avg, data = data_comp, lambda = &quot;ML&quot;)
 
 Residuals:
-      Min        1Q    Median        3Q       Max 
--0.179832 -0.029035 -0.001907  0.044647  0.176937 
+       Min         1Q     Median         3Q        Max 
+-0.0231234 -0.0043055  0.0000203  0.0037943  0.0167485 
 
 Branch length transformations:
 
 kappa  [Fix]  : 1.000
-lambda [ ML]  : 1.000
-   lower bound : 0.000, p = 0.0017354
-   upper bound : 1.000, p = 1    
-   95.0% CI   : (0.574, NA)
+lambda [ ML]  : 0.995
+   lower bound : 0.000, p = &lt; 2.22e-16
+   upper bound : 1.000, p = 0.21519
+   95.0% CI   : (0.968, NA)
 delta  [Fix]  : 1.000
 
 Coefficients:
-             Estimate Std. Error t value Pr(&gt;|t|)  
-(Intercept) 0.2255396  0.0957406  2.3557  0.02499 *
-Temp_avg    0.0027882  0.0022835  1.2210  0.23128  
+              Estimate Std. Error t value Pr(&gt;|t|)   
+(Intercept) 0.31425352 0.10608039  2.9624 0.003604 **
+Temp_avg    0.00073135 0.00105708  0.6919 0.490207   
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Residual standard error: 0.08209 on 31 degrees of freedom
-Multiple R-squared: 0.04589,    Adjusted R-squared: 0.01511 
-F-statistic: 1.491 on 1 and 31 DF,  p-value: 0.2313 </code></pre>
+Residual standard error: 0.006695 on 136 degrees of freedom
+Multiple R-squared: 0.003507,   Adjusted R-squared: -0.00382 
+F-statistic: 0.4787 on 1 and 136 DF,  p-value: 0.4902 </code></pre>
 <pre class="r"><code>summary(pgls(FrT.H ~ Temp_avg, data_comp, lambda=&quot;ML&quot;))</code></pre>
 <pre><code>
 Call:
 pgls(formula = FrT.H ~ Temp_avg, data = data_comp, lambda = &quot;ML&quot;)
 
 Residuals:
-     Min       1Q   Median       3Q      Max 
--0.19321 -0.06051 -0.01982  0.01958  0.17782 
+       Min         1Q     Median         3Q        Max 
+-0.0150164 -0.0037735 -0.0003861  0.0031970  0.0175522 
 
 Branch length transformations:
 
 kappa  [Fix]  : 1.000
-lambda [ ML]  : 1.000
-   lower bound : 0.000, p = 7.0356e-06
-   upper bound : 1.000, p = 1    
-   95.0% CI   : (0.763, NA)
+lambda [ ML]  : 0.983
+   lower bound : 0.000, p = &lt; 2.22e-16
+   upper bound : 1.000, p = 0.00018885
+   95.0% CI   : (0.948, 0.996)
 delta  [Fix]  : 1.000
 
 Coefficients:
-              Estimate Std. Error t value  Pr(&gt;|t|)    
-(Intercept) 0.47700765 0.10518478  4.5349 8.106e-05 ***
-Temp_avg    0.00032725 0.00250874  0.1304    0.8971    
+             Estimate Std. Error t value  Pr(&gt;|t|)    
+(Intercept) 0.3722683  0.0984312  3.7820 0.0002322 ***
+Temp_avg    0.0028567  0.0011120  2.5691 0.0112757 *  
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Residual standard error: 0.09018 on 31 degrees of freedom
-Multiple R-squared: 0.0005486,  Adjusted R-squared: -0.03169 
-F-statistic: 0.01702 on 1 and 31 DF,  p-value: 0.8971 </code></pre>
+Residual standard error: 0.00622 on 136 degrees of freedom
+Multiple R-squared: 0.04628,    Adjusted R-squared: 0.03927 
+F-statistic:   6.6 on 1 and 136 DF,  p-value: 0.01128 </code></pre>
 <pre class="r"><code>summary(pgls(FrC.H ~ Temp_avg, data_comp, lambda=&quot;ML&quot;))</code></pre>
 <pre><code>
 Call:
 pgls(formula = FrC.H ~ Temp_avg, data = data_comp, lambda = &quot;ML&quot;)
 
 Residuals:
-      Min        1Q    Median        3Q       Max 
--0.030891 -0.011558 -0.000492  0.012727  0.041163 
+       Min         1Q     Median         3Q        Max 
+-0.0044157 -0.0015095 -0.0002426  0.0013611  0.0057975 
 
 Branch length transformations:
 
 kappa  [Fix]  : 1.000
-lambda [ ML]  : 0.000
-   lower bound : 0.000, p = 1    
-   upper bound : 1.000, p = 4.1457e-07
-   95.0% CI   : (NA, 0.583)
+lambda [ ML]  : 0.895
+   lower bound : 0.000, p = 1.265e-07
+   upper bound : 1.000, p = 5.9555e-10
+   95.0% CI   : (0.739, 0.962)
 delta  [Fix]  : 1.000
 
 Coefficients:
-               Estimate  Std. Error t value  Pr(&gt;|t|)    
-(Intercept)  0.09502759  0.01526494  6.2252 6.475e-07 ***
-Temp_avg    -0.00149565  0.00077444 -1.9313   0.06264 .  
+               Estimate  Std. Error t value Pr(&gt;|t|)  
+(Intercept)  0.08018674  0.03345572  2.3968   0.0179 *
+Temp_avg    -0.00114178  0.00050763 -2.2493   0.0261 *
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Residual standard error: 0.01721 on 31 degrees of freedom
-Multiple R-squared: 0.1074, Adjusted R-squared: 0.0786 
-F-statistic:  3.73 on 1 and 31 DF,  p-value: 0.06264 </code></pre>
+Residual standard error: 0.002168 on 136 degrees of freedom
+Multiple R-squared: 0.03587,    Adjusted R-squared: 0.02878 
+F-statistic: 5.059 on 1 and 136 DF,  p-value: 0.0261 </code></pre>
 <pre class="r"><code>summary(pgls(CTskew ~ Temp_avg, data_comp, lambda=&quot;ML&quot;))</code></pre>
 <pre><code>
 Call:
 pgls(formula = CTskew ~ Temp_avg, data = data_comp, lambda = &quot;ML&quot;)
 
 Residuals:
-     Min       1Q   Median       3Q      Max 
--0.16758 -0.05639  0.00665  0.03210  0.21158 
+      Min        1Q    Median        3Q       Max 
+-0.018089 -0.006312 -0.001381  0.006280  0.026754 
 
 Branch length transformations:
 
 kappa  [Fix]  : 1.000
-lambda [ ML]  : 0.000
-   lower bound : 0.000, p = 1    
-   upper bound : 1.000, p = 1.644e-06
-   95.0% CI   : (NA, 0.552)
+lambda [ ML]  : 0.835
+   lower bound : 0.000, p = 1.2688e-05
+   upper bound : 1.000, p = 9.992e-16
+   95.0% CI   : (0.611, 0.934)
 delta  [Fix]  : 1.000
 
 Coefficients:
               Estimate Std. Error t value  Pr(&gt;|t|)    
-(Intercept) -0.6180279  0.0713207 -8.6655 8.722e-10 ***
-Temp_avg    -0.0043890  0.0036183 -1.2130    0.2343    
+(Intercept) -0.6325301  0.1395478 -4.5327 1.264e-05 ***
+Temp_avg    -0.0065915  0.0023496 -2.8053  0.005764 ** 
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Residual standard error: 0.08041 on 31 degrees of freedom
-Multiple R-squared: 0.04531,    Adjusted R-squared: 0.01452 
-F-statistic: 1.471 on 1 and 31 DF,  p-value: 0.2343 </code></pre>
+Residual standard error: 0.009234 on 136 degrees of freedom
+Multiple R-squared: 0.0547, Adjusted R-squared: 0.04775 
+F-statistic:  7.87 on 1 and 136 DF,  p-value: 0.005764 </code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -1345,7 +1640,7 @@ Platform: aarch64-apple-darwin20
 Running under: macOS Sequoia 15.5
 
 Matrix products: default
-BLAS:   /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRblas.0.dylib 
+BLAS:   /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib 
 LAPACK: /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.1
 
 locale:
@@ -1355,54 +1650,45 @@ time zone: Europe/Vienna
 tzcode source: internal
 
 attached base packages:
-[1] stats     graphics  grDevices utils     datasets  methods   base     
+[1] stats4    stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] rfishbase_5.0.1    ggstatsplot_0.13.1 broom_1.0.8        ggpubr_0.6.0      
- [5] ggExtra_0.10.1     geiger_2.0.11      phytools_2.4-4     maps_3.4.3        
- [9] caper_1.0.3        mvtnorm_1.3-3      MASS_7.3-65        ape_5.8-1         
-[13] magrittr_2.0.3     lubridate_1.9.4    forcats_1.0.0      stringr_1.5.1     
-[17] dplyr_1.1.4        purrr_1.0.4        readr_2.1.5        tidyr_1.3.1       
-[21] tibble_3.2.1       ggplot2_3.5.2      tidyverse_2.0.0    knitr_1.50        
-[25] here_1.0.1         workflowr_1.7.1   
+ [1] reshape2_1.4.4      factoextra_1.0.7    lsa_0.73.3          SnowballC_0.7.1     Biostrings_2.76.0   GenomeInfoDb_1.44.0
+ [7] XVector_0.48.0      IRanges_2.42.0      S4Vectors_0.46.0    BiocGenerics_0.54.0 generics_0.1.4      RColorBrewer_1.1-3 
+[13] skimr_2.1.5         ggrepel_0.9.6       rfishbase_5.0.1     ggstatsplot_0.13.1  broom_1.0.8         ggpubr_0.6.0       
+[19] ggExtra_0.10.1      geiger_2.0.11       phytools_2.4-4      maps_3.4.3          caper_1.0.3         mvtnorm_1.3-3      
+[25] MASS_7.3-65         ape_5.8-1           magrittr_2.0.3      lubridate_1.9.4     forcats_1.0.0       stringr_1.5.1      
+[31] dplyr_1.1.4         purrr_1.0.4         readr_2.1.5         tidyr_1.3.1         tibble_3.3.0        ggplot2_3.5.2      
+[37] tidyverse_2.0.0     knitr_1.50          here_1.0.1          workflowr_1.7.1    
 
 loaded via a namespace (and not attached):
-  [1] RColorBrewer_1.1-3      rstudioapi_0.17.1       jsonlite_2.0.0         
-  [4] datawizard_1.1.0        correlation_0.8.7       subplex_1.9            
-  [7] estimability_1.5.1      farver_2.1.2            rmarkdown_2.29         
- [10] fs_1.6.6                vctrs_0.6.5             memoise_2.0.1          
- [13] paletteer_1.6.0         effectsize_1.0.1        rstatix_0.7.2          
- [16] htmltools_0.5.8.1       curl_6.2.3              DEoptim_2.2-8          
- [19] deSolve_1.40            Formula_1.2-5           sass_0.4.10            
- [22] bslib_0.9.0             emmeans_1.11.1          cachem_1.1.0           
- [25] whisker_0.4.1           igraph_2.1.4            mime_0.13              
- [28] lifecycle_1.0.4         iterators_1.0.14        pkgconfig_2.0.3        
- [31] Matrix_1.7-3            R6_2.6.1                fastmap_1.2.0          
- [34] shiny_1.10.0            digest_0.6.37           numDeriv_2016.8-1.1    
- [37] rematch2_2.1.2          patchwork_1.3.0         ps_1.9.1               
- [40] rprojroot_2.0.4         labeling_0.4.3          clusterGeneration_1.3.8
- [43] timechange_0.3.0        httr_1.4.7              abind_1.4-8            
- [46] mgcv_1.9-3              compiler_4.5.0          withr_3.0.2            
- [49] doParallel_1.0.17       duckdbfs_0.1.0          backports_1.5.0        
- [52] optimParallel_1.0-2     carData_3.0-5           DBI_1.2.3              
- [55] duckdb_1.3.0            ggsignif_0.6.4          scatterplot3d_0.3-44   
- [58] tools_4.5.0             httpuv_1.6.16           statsExpressions_1.7.0 
- [61] glue_1.8.0              quadprog_1.5-8          callr_3.7.6            
- [64] nlme_3.1-168            promises_1.3.3          grid_4.5.0             
- [67] getPass_0.2-4           generics_0.1.4          gtable_0.3.6           
- [70] tzdb_0.5.0              hms_1.1.3               car_3.1-3              
- [73] utf8_1.2.5              foreach_1.5.2           pillar_1.10.2          
- [76] later_1.4.2             splines_4.5.0           lattice_0.22-7         
- [79] tidyselect_1.2.1        miniUI_0.1.2            git2r_0.36.2           
- [82] xfun_0.52               expm_1.0-0              stringi_1.8.7          
- [85] yaml_2.3.10             evaluate_1.0.3          codetools_0.2-20       
- [88] cli_3.6.5               RcppParallel_5.1.10     xtable_1.8-4           
- [91] parameters_0.26.0       processx_3.8.6          jquerylib_0.1.4        
- [94] Rcpp_1.0.14             zeallot_0.2.0           dbplyr_2.5.0           
- [97] coda_0.19-4.1           parallel_4.5.0          rstantools_2.4.0       
-[100] blob_1.2.4              bayestestR_0.16.0       phangorn_2.12.1        
-[103] scales_1.4.0            insight_1.3.0           combinat_0.0-8         
-[106] rlang_1.1.6             fastmatch_1.1-6         mnormt_2.1.1           </code></pre>
+  [1] splines_4.5.0           later_1.4.2             datawizard_1.1.0        deSolve_1.40            lifecycle_1.0.4        
+  [6] rstatix_0.7.2           doParallel_1.0.17       rprojroot_2.0.4         processx_3.8.6          lattice_0.22-7         
+ [11] vroom_1.6.5             insight_1.3.0           backports_1.5.0         sass_0.4.10             rmarkdown_2.29         
+ [16] jquerylib_0.1.4         yaml_2.3.10             httpuv_1.6.16           DBI_1.2.3               cowplot_1.1.3          
+ [21] pbapply_1.7-2           abind_1.4-8             expm_1.0-0              quadprog_1.5-8          git2r_0.36.2           
+ [26] GenomeInfoDbData_1.2.14 correlation_0.8.7       MatrixModels_0.5-4      performance_0.14.0      codetools_0.2-20       
+ [31] tidyselect_1.2.1        SuppDists_1.1-9.9       UCSC.utils_1.4.0        farver_2.1.2            gmp_0.7-5              
+ [36] effectsize_1.0.1        base64enc_0.1-3         duckdb_1.3.0            jsonlite_2.0.0          Formula_1.2-5          
+ [41] iterators_1.0.14        emmeans_1.11.1          systemfonts_1.2.3       foreach_1.5.2           BWStest_0.2.3          
+ [46] tools_4.5.0             ragg_1.4.0              PMCMRplus_1.9.12        Rcpp_1.0.14             glue_1.8.0             
+ [51] mnormt_2.1.1            xfun_0.52               mgcv_1.9-3              kSamples_1.2-10         withr_3.0.2            
+ [56] numDeriv_2016.8-1.1     combinat_0.0-8          fastmap_1.2.0           boot_1.3-31             callr_3.7.6            
+ [61] digest_0.6.37           timechange_0.3.0        R6_2.6.1                mime_0.13               estimability_1.5.1     
+ [66] textshaping_1.0.1       utf8_1.2.6              clusterGeneration_1.3.8 httr_1.4.7              parameters_0.26.0      
+ [71] scatterplot3d_0.3-44    whisker_0.4.1           pkgconfig_2.0.3         gtable_0.3.6            rsconnect_1.4.1        
+ [76] blob_1.2.4              Rmpfr_1.1-0             statsExpressions_1.7.0  BayesFactor_0.9.12-4.7  htmltools_0.5.8.1      
+ [81] carData_3.0-5           multcompView_0.1-10     scales_1.4.0            rstudioapi_0.17.1       tzdb_0.5.0             
+ [86] curl_6.2.3              coda_0.19-4.1           nlme_3.1-168            duckdbfs_0.1.0          repr_1.1.7             
+ [91] cachem_1.1.0            DEoptim_2.2-8           parallel_4.5.0          miniUI_0.1.2            pillar_1.10.2          
+ [96] grid_4.5.0              vctrs_0.6.5             promises_1.3.3          car_3.1-3               dbplyr_2.5.0           
+[101] xtable_1.8-4            paletteer_1.6.0         evaluate_1.0.3          zeallot_0.2.0           cli_3.6.5              
+[106] compiler_4.5.0          rlang_1.1.6             crayon_1.5.3            rstantools_2.4.0        ggsignif_0.6.4         
+[111] labeling_0.4.3          rematch2_2.1.2          ps_1.9.1                plyr_1.8.9              getPass_0.2-4          
+[116] fs_1.6.6                stringi_1.8.7           subplex_1.9             optimParallel_1.0-2     bayestestR_0.16.0      
+[121] Matrix_1.7-3            hms_1.1.3               patchwork_1.3.0         bit64_4.6.0-1           shiny_1.10.0           
+[126] fontawesome_0.5.3       igraph_2.1.4            memoise_2.0.1           RcppParallel_5.1.10     bslib_0.9.0            
+[131] phangorn_2.12.1         fastmatch_1.1-6         bit_4.6.0              </code></pre>
 </div>
 </div>
 </div>
