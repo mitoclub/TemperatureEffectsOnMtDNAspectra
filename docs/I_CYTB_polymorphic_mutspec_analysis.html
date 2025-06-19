@@ -11,7 +11,7 @@
 
 <meta name="author" content="Alina G. Mikhailova" />
 
-<meta name="date" content="2025-06-18" />
+<meta name="date" content="2025-06-19" />
 
 <title>Analysis of cytochrome b mutational spectra in fishes</title>
 
@@ -270,7 +270,19 @@ $(document).ready(function () {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="I_Polymorphic_Data_Analysis.html">Analysis of the polymorphic data in Fishes obtained by NeMu pipeline</a>
+      <a href="I_CYTB_polymorphic_mutspec_analysis.html">Analysis of cytochrome b mutational spectra in fishes</a>
+    </li>
+    <li>
+      <a href="Ia_Polymorphic_Data_Analysis_TrophLevel.KP.html">Analysis of the Cyt B neutral nucleotide data in Fishes</a>
+    </li>
+    <li>
+      <a href="II_Cytb_Data_Analysis.html">Analysis of the Cyt B neutral nucleotide data in Fishes</a>
+    </li>
+    <li>
+      <a href="IIa_Cytb_Data_Analysis_Simulation_Mutagenesis.html">Simulation of the mutagenesis in the Cyt B gene in Fishes</a>
+    </li>
+    <li>
+      <a href="III_Comparison_of_all_Classes.html">SAnalysis of the mitochondrial mutational spectra between different classes</a>
     </li>
   </ul>
 </li>
@@ -300,7 +312,7 @@ $(document).ready(function () {
 <h1 class="title toc-ignore">Analysis of cytochrome b mutational spectra
 in fishes</h1>
 <h4 class="author">Alina G. Mikhailova</h4>
-<h4 class="date">2025-06-18</h4>
+<h4 class="date">2025-06-19</h4>
 
 </div>
 
@@ -308,7 +320,7 @@ in fishes</h1>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
+workflowr <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -319,8 +331,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> </a>
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -329,13 +341,13 @@ aria-hidden="true"></span> </a>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2025-06-18
+<strong>Last updated:</strong> 2025-06-19
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 1
+aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong>
@@ -377,858 +389,17 @@ results.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongobjectspresent">
-<span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> <strong>Environment:</strong> objects present
-</a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
 </p>
 </div>
-<div id="strongEnvironmentstrongobjectspresent"
-class="panel-collapse collapse">
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
 <div class="panel-body">
-<p>
-The global environment had objects present when the code in the R
-Markdown file was run. These objects can affect the analysis in your R
-Markdown file in unknown ways. For reproduciblity it’s best to always
-run the code in an empty environment. Use <code>wflow_publish</code> or
-<code>wflow_build</code> to ensure that the code is always run in an
-empty environment.
-</p>
-<p>
-The following objects were defined in the global environment when these
-results were created:
-</p>
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th style="text-align:left;">
-Name
-</th>
-<th style="text-align:left;">
-Class
-</th>
-<th style="text-align:left;">
-Size
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-allEcology
-</td>
-<td style="text-align:left;">
-data.frame
-</td>
-<td style="text-align:left;">
-393.7 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-allEcologyNOCLASS
-</td>
-<td style="text-align:left;">
-data.frame
-</td>
-<td style="text-align:left;">
-383.1 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-blue_red_colors
-</td>
-<td style="text-align:left;">
-character
-</td>
-<td style="text-align:left;">
-376 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-both_freqs
-</td>
-<td style="text-align:left;">
-data.frame
-</td>
-<td style="text-align:left;">
-1.7 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Classes
-</td>
-<td style="text-align:left;">
-character
-</td>
-<td style="text-align:left;">
-408 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-cold_fish_data
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-1.3 Mb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ColdFishes
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-2.3 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ColdFishesNuc
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-1.2 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ColdSubset
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-13.6 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ColorA
-</td>
-<td style="text-align:left;">
-character
-</td>
-<td style="text-align:left;">
-112 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ColorC
-</td>
-<td style="text-align:left;">
-character
-</td>
-<td style="text-align:left;">
-120 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ColorG
-</td>
-<td style="text-align:left;">
-character
-</td>
-<td style="text-align:left;">
-120 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ColorT
-</td>
-<td style="text-align:left;">
-character
-</td>
-<td style="text-align:left;">
-112 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CompColdFishes
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-2.5 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CompMutspec
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-2.6 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CompWarmFishes
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-2.5 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-current_iteration_manual
-</td>
-<td style="text-align:left;">
-numeric
-</td>
-<td style="text-align:left;">
-56 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-data_dir
-</td>
-<td style="text-align:left;">
-character
-</td>
-<td style="text-align:left;">
-232 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-docname
-</td>
-<td style="text-align:left;">
-character
-</td>
-<td style="text-align:left;">
-136 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-exp_both
-</td>
-<td style="text-align:left;">
-data.frame
-</td>
-<td style="text-align:left;">
-1.5 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-exp_cold
-</td>
-<td style="text-align:left;">
-data.frame
-</td>
-<td style="text-align:left;">
-1.3 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-exp_warm
-</td>
-<td style="text-align:left;">
-data.frame
-</td>
-<td style="text-align:left;">
-1.3 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-f2
-</td>
-<td style="text-align:left;">
-gg;ggplot
-</td>
-<td style="text-align:left;">
-86.4 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-fishEcology
-</td>
-<td style="text-align:left;">
-data.frame
-</td>
-<td style="text-align:left;">
-746.4 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-fishEcologyTemp
-</td>
-<td style="text-align:left;">
-data.frame
-</td>
-<td style="text-align:left;">
-335.9 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-GenomeLength
-</td>
-<td style="text-align:left;">
-numeric
-</td>
-<td style="text-align:left;">
-56 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-hlines_cold
-</td>
-<td style="text-align:left;">
-data.frame
-</td>
-<td style="text-align:left;">
-1.5 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-hlines_warm
-</td>
-<td style="text-align:left;">
-data.frame
-</td>
-<td style="text-align:left;">
-1.5 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-merging
-</td>
-<td style="text-align:left;">
-list
-</td>
-<td style="text-align:left;">
-699 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-mergingtest
-</td>
-<td style="text-align:left;">
-list
-</td>
-<td style="text-align:left;">
-1.3 Mb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-mtDNAcodonUsage
-</td>
-<td style="text-align:left;">
-data.frame
-</td>
-<td style="text-align:left;">
-1.5 Mb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-MutAndEcoCb
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-225.9 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-MutNucAndEcoCb
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-266.3 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-mutSpec12
-</td>
-<td style="text-align:left;">
-spec_tbl_df;tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-1 Mb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-mutSpec12all
-</td>
-<td style="text-align:left;">
-spec_tbl_df;tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-2 Mb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-mutSpec12allCb
-</td>
-<td style="text-align:left;">
-spec_tbl_df;tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-1.2 Mb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-mutSpec12Cb
-</td>
-<td style="text-align:left;">
-spec_tbl_df;tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-780.9 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-MutSpecForAnalysisCb
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-158.2 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-MutSpecForAnalysisCbAll
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-323 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-n_cores
-</td>
-<td style="text-align:left;">
-numeric
-</td>
-<td style="text-align:left;">
-56 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Ncold
-</td>
-<td style="text-align:left;">
-integer
-</td>
-<td style="text-align:left;">
-56 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-NcoldNuc
-</td>
-<td style="text-align:left;">
-integer
-</td>
-<td style="text-align:left;">
-56 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-now
-</td>
-<td style="text-align:left;">
-POSIXct;POSIXt
-</td>
-<td style="text-align:left;">
-344 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-NucAndEco
-</td>
-<td style="text-align:left;">
-data.frame
-</td>
-<td style="text-align:left;">
-615.3 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-nucleotide_colors
-</td>
-<td style="text-align:left;">
-character
-</td>
-<td style="text-align:left;">
-736 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Nwarm
-</td>
-<td style="text-align:left;">
-integer
-</td>
-<td style="text-align:left;">
-56 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-NwarmNuc
-</td>
-<td style="text-align:left;">
-integer
-</td>
-<td style="text-align:left;">
-56 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-obs_both
-</td>
-<td style="text-align:left;">
-data.frame
-</td>
-<td style="text-align:left;">
-1.5 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-obs_cold
-</td>
-<td style="text-align:left;">
-data.frame
-</td>
-<td style="text-align:left;">
-1.3 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-obs_warm
-</td>
-<td style="text-align:left;">
-data.frame
-</td>
-<td style="text-align:left;">
-1.3 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ObservedCold
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-1.2 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ObservedWarm
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-1.2 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-output_dir
-</td>
-<td style="text-align:left;">
-character
-</td>
-<td style="text-align:left;">
-232 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-plot_cold_water
-</td>
-<td style="text-align:left;">
-gg;ggplot
-</td>
-<td style="text-align:left;">
-1.4 Mb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-plot_warm_water
-</td>
-<td style="text-align:left;">
-gg;ggplot
-</td>
-<td style="text-align:left;">
-1.4 Mb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-plots_dir
-</td>
-<td style="text-align:left;">
-character
-</td>
-<td style="text-align:left;">
-232 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-plt
-</td>
-<td style="text-align:left;">
-gg;ggplot
-</td>
-<td style="text-align:left;">
-276.9 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-plt2
-</td>
-<td style="text-align:left;">
-gg;ggplot
-</td>
-<td style="text-align:left;">
-208.2 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-progress_bar_width
-</td>
-<td style="text-align:left;">
-numeric
-</td>
-<td style="text-align:left;">
-56 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-reseed
-</td>
-<td style="text-align:left;">
-numeric
-</td>
-<td style="text-align:left;">
-56 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-sfn
-</td>
-<td style="text-align:left;">
-gg;ggplot;ggarrange
-</td>
-<td style="text-align:left;">
-39.9 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-simulation_data_long
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-2.6 Mb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SimulationData
-</td>
-<td style="text-align:left;">
-data.frame
-</td>
-<td style="text-align:left;">
-799.1 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SimulationLengthNumberOfGenerations
-</td>
-<td style="text-align:left;">
-numeric
-</td>
-<td style="text-align:left;">
-56 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-src_dir
-</td>
-<td style="text-align:left;">
-character
-</td>
-<td style="text-align:left;">
-232 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-tables_dir
-</td>
-<td style="text-align:left;">
-character
-</td>
-<td style="text-align:left;">
-232 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-temperaturestat
-</td>
-<td style="text-align:left;">
-summaryDefault;table
-</td>
-<td style="text-align:left;">
-1 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-todelete
-</td>
-<td style="text-align:left;">
-character
-</td>
-<td style="text-align:left;">
-192 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ToMerge
-</td>
-<td style="text-align:left;">
-data.frame
-</td>
-<td style="text-align:left;">
-1.5 Mb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-total_iterations_manual
-</td>
-<td style="text-align:left;">
-numeric
-</td>
-<td style="text-align:left;">
-56 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-warm_fish_data
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-1.3 Mb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-WarmFishes
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-2.3 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-WarmFishesNuc
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-1.2 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-WarmSubset
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-17.6 Kb
-</td>
-</tr>
-</tbody>
-</table>
+<p>Great job! The global environment was empty. Objects defined in the
+global environment can affect the analysis in your R Markdown file in
+unknown ways. For reproduciblity it’s best to always run the code in an
+empty environment.</p>
 </div>
 </div>
 </div>
@@ -1302,15 +473,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree77db01ef622b2f1f41cab6356064e0562a9a41e8targetblank77db01ea">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree4c79558748eab7f1d8d614feecd8f12d908c0faftargetblank4c79558a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/77db01ef622b2f1f41cab6356064e0562a9a41e8" target="_blank">77db01e</a>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/4c79558748eab7f1d8d614feecd8f12d908c0faf" target="_blank">4c79558</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree77db01ef622b2f1f41cab6356064e0562a9a41e8targetblank77db01ea"
+id="strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree4c79558748eab7f1d8d614feecd8f12d908c0faftargetblank4c79558a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -1320,7 +491,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/77db01ef622b2f1f41cab6356064e0562a9a41e8" target="_blank">77db01e</a>.
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/4c79558748eab7f1d8d614feecd8f12d908c0faf" target="_blank">4c79558</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -1363,10 +534,21 @@ Ignored files:
     Ignored:    output/tables/.DS_Store
 
 Untracked files:
-    Untracked:  output/figures/Observed_vs_Expected_Frequencies.png
-    Untracked:  output/figures/Observed_vs_Expected_Frequencies_subset.png
-    Untracked:  output/figures/Simulation_expected_observed.pdf
-    Untracked:  output/figures/Simulation_expected_observed_subset.pdf
+    Untracked:  output/chordata_order.afdesign
+    Untracked:  output/chordata_order.pdf
+    Untracked:  output/figures/Lambda_temperature_and_Tv.pdf
+    Untracked:  output/figures/Lambda_transitions.pdf
+    Untracked:  output/new scheme.pdf
+    Untracked:  output/tables/Supplementary_Material_1_Mitochondrial_mutational_spectra_cytb_and_ecology_Fishes.csv
+    Untracked:  output/tables/Table2a.txt
+    Untracked:  output/tables/Table2b.txt
+    Untracked:  output/tables/Table3.txt
+    Untracked:  output/tables/Table4a.txt
+    Untracked:  output/tables/Table4a2.txt
+    Untracked:  output/tables/Table4a3.txt
+    Untracked:  output/tables/Table4b.txt
+    Untracked:  output/tables/Table4b2.txt
+    Untracked:  output/tables/Table4b3.txt
 
 </code></pre>
 <p>
@@ -1417,7 +599,24 @@ Message
 Rmd
 </td>
 <td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/77db01ef622b2f1f41cab6356064e0562a9a41e8/analysis/I_CYTB_polymorphic_mutspec_analysis.Rmd" target="_blank">77db01e</a>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/4c79558748eab7f1d8d614feecd8f12d908c0faf/analysis/I_CYTB_polymorphic_mutspec_analysis.Rmd" target="_blank">4c79558</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-06-19
+</td>
+<td>
+Added some updates
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/6ece1e577d495976c4a50a8619c489d8402654d3/analysis/I_CYTB_polymorphic_mutspec_analysis.Rmd" target="_blank">6ece1e5</a>
 </td>
 <td>
 Alya Mikhailova
@@ -1434,7 +633,7 @@ First chapter all done
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/mitoclub/TemperatureEffectsOnMtDNAspectra/77db01ef622b2f1f41cab6356064e0562a9a41e8/docs/I_CYTB_polymorphic_mutspec_analysis.html" target="_blank">77db01e</a>
+<a href="https://rawcdn.githack.com/mitoclub/TemperatureEffectsOnMtDNAspectra/6ece1e577d495976c4a50a8619c489d8402654d3/docs/I_CYTB_polymorphic_mutspec_analysis.html" target="_blank">6ece1e5</a>
 </td>
 <td>
 Alya Mikhailova
@@ -1462,16 +661,101 @@ databases</h1>
 mutSpec12Cb &lt;- dplyr::filter(mutSpec12, Gene == &quot;Cytb&quot;)
 cat(&quot;N species =&quot;, length(unique(mutSpec12Cb$Species)))</code></pre>
 <pre><code>N species = 840</code></pre>
-<pre class="r"><code>head(mutSpec12Cb)</code></pre>
-<pre><code># A tibble: 6 × 9
-  Gene  Class       Species            Mut   Observed TreeLeaves MSAsize Expected MutSpec
-  &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;              &lt;chr&gt;    &lt;dbl&gt;      &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
-1 Cytb  Actinopteri Scombrops_gilberti A&gt;C        4           68    1140     71.0  0.0326
-2 Cytb  Actinopteri Scombrops_gilberti A&gt;G       21.6         68    1140    111.   0.113 
-3 Cytb  Actinopteri Scombrops_gilberti A&gt;T        2           68    1140     71.0  0.0163
-4 Cytb  Actinopteri Scombrops_gilberti C&gt;A        3           68    1140     86.3  0.0201
-5 Cytb  Actinopteri Scombrops_gilberti C&gt;G        0           68    1140     86.3  0     
-6 Cytb  Actinopteri Scombrops_gilberti C&gt;T       10.7         68    1140    182.   0.0340</code></pre>
+<pre class="r"><code>kable(head(mutSpec12Cb))</code></pre>
+<table>
+<colgroup>
+<col width="5%" />
+<col width="13%" />
+<col width="21%" />
+<col width="4%" />
+<col width="10%" />
+<col width="12%" />
+<col width="9%" />
+<col width="11%" />
+<col width="11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Gene</th>
+<th align="left">Class</th>
+<th align="left">Species</th>
+<th align="left">Mut</th>
+<th align="right">Observed</th>
+<th align="right">TreeLeaves</th>
+<th align="right">MSAsize</th>
+<th align="right">Expected</th>
+<th align="right">MutSpec</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Cytb</td>
+<td align="left">Actinopteri</td>
+<td align="left">Scombrops_gilberti</td>
+<td align="left">A&gt;C</td>
+<td align="right">4.00000</td>
+<td align="right">68</td>
+<td align="right">1140</td>
+<td align="right">70.95588</td>
+<td align="right">0.0326476</td>
+</tr>
+<tr class="even">
+<td align="left">Cytb</td>
+<td align="left">Actinopteri</td>
+<td align="left">Scombrops_gilberti</td>
+<td align="left">A&gt;G</td>
+<td align="right">21.60250</td>
+<td align="right">68</td>
+<td align="right">1140</td>
+<td align="right">111.14706</td>
+<td align="right">0.1125605</td>
+</tr>
+<tr class="odd">
+<td align="left">Cytb</td>
+<td align="left">Actinopteri</td>
+<td align="left">Scombrops_gilberti</td>
+<td align="left">A&gt;T</td>
+<td align="right">2.00000</td>
+<td align="right">68</td>
+<td align="right">1140</td>
+<td align="right">70.95588</td>
+<td align="right">0.0163238</td>
+</tr>
+<tr class="even">
+<td align="left">Cytb</td>
+<td align="left">Actinopteri</td>
+<td align="left">Scombrops_gilberti</td>
+<td align="left">C&gt;A</td>
+<td align="right">3.00000</td>
+<td align="right">68</td>
+<td align="right">1140</td>
+<td align="right">86.32353</td>
+<td align="right">0.0201267</td>
+</tr>
+<tr class="odd">
+<td align="left">Cytb</td>
+<td align="left">Actinopteri</td>
+<td align="left">Scombrops_gilberti</td>
+<td align="left">C&gt;G</td>
+<td align="right">0.00000</td>
+<td align="right">68</td>
+<td align="right">1140</td>
+<td align="right">86.32353</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">Cytb</td>
+<td align="left">Actinopteri</td>
+<td align="left">Scombrops_gilberti</td>
+<td align="left">C&gt;T</td>
+<td align="right">10.66127</td>
+<td align="right">68</td>
+<td align="right">1140</td>
+<td align="right">181.58824</td>
+<td align="right">0.0340018</td>
+</tr>
+</tbody>
+</table>
 <pre class="r"><code>MutSpecForAnalysisCb &lt;- mutSpec12Cb %&gt;% dplyr::select(Class, Species, Mut, MutSpec)
 MutSpecForAnalysisCb$Mut &lt;- gsub(&quot;&gt;&quot;, &quot;_&quot;, MutSpecForAnalysisCb$Mut)
 MutSpecForAnalysisCb &lt;- MutSpecForAnalysisCb %&gt;% pivot_wider(names_from = Mut, values_from = MutSpec, , values_fn = median) 
@@ -1509,21 +793,125 @@ cat(&quot;N species =&quot;, length(unique(mutSpec12$Species)))</code></pre>
                                   &quot;A_G.H&quot;, 
                                   &quot;A_C.H&quot;)</code></pre>
 <pre class="r"><code>fishEcology &lt;- read.csv(here(data_dir, &quot;Full_fish_ecology_table_2025.csv&quot;))
-head(fishEcology)</code></pre>
-<pre><code>                  Species     Wmax      Lmax     tmax                   FeedingType FoodTroph    tm       Lm Temp_min Temp_max
-1     Abbottina_rivularis       NA   9.10000  2.00000                          &lt;NA&gt;        NA 1.000  4.50000       NA       NA
-2           Abramis_brama 4112.167  46.91111 14.41667 hunting macrofauna (predator)      3.15 4.125 28.75000       10       24
-3    Abudefduf_vaigiensis       NA  18.96667       NA     grazing on aquatic plants      3.39    NA 12.00000       NA       NA
-4 Acanthemblemaria_aspera       NA   3.00000  4.00000 hunting macrofauna (predator)      3.12    NA       NA       NA       NA
-5  Acanthocybium_solandri 7200.000 177.88000  9.30000 hunting macrofauna (predator)      4.45 2.000 99.33333       NA       NA
-6     Acanthopagrus_berda  660.000  56.00000 12.50000 hunting macrofauna (predator)      3.50    NA 21.00000       NA       NA
-  Climate_zone Temp_avg
-1  subtropical       NA
-2    temperate       17
-3     tropical       NA
-4         &lt;NA&gt;       NA
-5  subtropical       NA
-6     tropical       NA</code></pre>
+kable(head(fishEcology))</code></pre>
+<table style="width:100%;">
+<colgroup>
+<col width="16%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="20%" />
+<col width="6%" />
+<col width="4%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="8%" />
+<col width="6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Species</th>
+<th align="right">Wmax</th>
+<th align="right">Lmax</th>
+<th align="right">tmax</th>
+<th align="left">FeedingType</th>
+<th align="right">FoodTroph</th>
+<th align="right">tm</th>
+<th align="right">Lm</th>
+<th align="right">Temp_min</th>
+<th align="right">Temp_max</th>
+<th align="left">Climate_zone</th>
+<th align="right">Temp_avg</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Abbottina_rivularis</td>
+<td align="right">NA</td>
+<td align="right">9.10000</td>
+<td align="right">2.00000</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">1.000</td>
+<td align="right">4.50000</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="left">subtropical</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">Abramis_brama</td>
+<td align="right">4112.167</td>
+<td align="right">46.91111</td>
+<td align="right">14.41667</td>
+<td align="left">hunting macrofauna (predator)</td>
+<td align="right">3.15</td>
+<td align="right">4.125</td>
+<td align="right">28.75000</td>
+<td align="right">10</td>
+<td align="right">24</td>
+<td align="left">temperate</td>
+<td align="right">17</td>
+</tr>
+<tr class="odd">
+<td align="left">Abudefduf_vaigiensis</td>
+<td align="right">NA</td>
+<td align="right">18.96667</td>
+<td align="right">NA</td>
+<td align="left">grazing on aquatic plants</td>
+<td align="right">3.39</td>
+<td align="right">NA</td>
+<td align="right">12.00000</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="left">tropical</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">Acanthemblemaria_aspera</td>
+<td align="right">NA</td>
+<td align="right">3.00000</td>
+<td align="right">4.00000</td>
+<td align="left">hunting macrofauna (predator)</td>
+<td align="right">3.12</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">Acanthocybium_solandri</td>
+<td align="right">7200.000</td>
+<td align="right">177.88000</td>
+<td align="right">9.30000</td>
+<td align="left">hunting macrofauna (predator)</td>
+<td align="right">4.45</td>
+<td align="right">2.000</td>
+<td align="right">99.33333</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="left">subtropical</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">Acanthopagrus_berda</td>
+<td align="right">660.000</td>
+<td align="right">56.00000</td>
+<td align="right">12.50000</td>
+<td align="left">hunting macrofauna (predator)</td>
+<td align="right">3.50</td>
+<td align="right">NA</td>
+<td align="right">21.00000</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="left">tropical</td>
+<td align="right">NA</td>
+</tr>
+</tbody>
+</table>
 <pre class="r"><code>cor.test(fishEcology$tm, fishEcology$Temp_avg, method = &quot;spearman&quot;)</code></pre>
 <pre><code>
     Spearman&#39;s rank correlation rho
@@ -1615,7 +1003,7 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/77db01ef622b2f1f41cab6356064e0562a9a41e8/docs/figure/I_CYTB_polymorphic_mutspec_analysis.Rmd/average_mutspec_plot_cytb-1.png" target="_blank">77db01e</a>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/6ece1e577d495976c4a50a8619c489d8402654d3/docs/figure/I_CYTB_polymorphic_mutspec_analysis.Rmd/average_mutspec_plot_cytb-1.png" target="_blank">6ece1e5</a>
 </td>
 <td>
 Alya Mikhailova
@@ -1702,7 +1090,7 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/77db01ef622b2f1f41cab6356064e0562a9a41e8/docs/figure/I_CYTB_polymorphic_mutspec_analysis.Rmd/average_mutspec_plot_both-1.png" target="_blank">77db01e</a>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/6ece1e577d495976c4a50a8619c489d8402654d3/docs/figure/I_CYTB_polymorphic_mutspec_analysis.Rmd/average_mutspec_plot_both-1.png" target="_blank">6ece1e5</a>
 </td>
 <td>
 Alya Mikhailova
@@ -1721,9 +1109,10 @@ Alya Mikhailova
 class="section level1">
 <h1>Comparison of average MutSpec between cold and warm fisches</h1>
 <pre class="r"><code>merging &lt;- list(MutSpecForAnalysisCb, fishEcology)
-MutAndEcoCb &lt;- merging %&gt;% reduce(left_join, by= &quot;Species&quot;)
+MutAndEcoCb &lt;- merging %&gt;% purrr::reduce(left_join, by= &quot;Species&quot;)
 
 #write.table(MutAndEcoCb, file = here(tables_dir, &quot;Supplementary_Material_1_Mitochondrial_mutational_spectra_cytb_and_ecology_Fishes.txt&quot;), row.names = FALSE)
+#write_csv(MutAndEcoCb, file = here(tables_dir, &quot;Supplementary_Material_1_Mitochondrial_mutational_spectra_cytb_and_ecology_Fishes.csv&quot;))
 
 temperaturestat &lt;- summary(MutAndEcoCb$Temp_avg)
 
@@ -1911,7 +1300,7 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/77db01ef622b2f1f41cab6356064e0562a9a41e8/docs/figure/I_CYTB_polymorphic_mutspec_analysis.Rmd/average_mutspec_cytb_groups-1.png" target="_blank">77db01e</a>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/6ece1e577d495976c4a50a8619c489d8402654d3/docs/figure/I_CYTB_polymorphic_mutspec_analysis.Rmd/average_mutspec_cytb_groups-1.png" target="_blank">6ece1e5</a>
 </td>
 <td>
 Alya Mikhailova
@@ -1950,23 +1339,168 @@ fishes</h1>
   map_dfr( ~ tidy(cor.test(.x, MutAndEcoCb$Temp_avg), method = &#39;spearman&#39;), .id = &quot;variable&quot;) |&gt;
   arrange(desc(abs(estimate)))
 
-correlation_results</code></pre>
-<pre><code># A tibble: 12 × 9
-   variable estimate statistic   p.value parameter conf.low conf.high method                               alternative
-   &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;int&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;                                &lt;chr&gt;      
- 1 A_G.H      0.317      4.16  0.0000527       155   0.169     0.451  Pearson&#39;s product-moment correlation two.sided  
- 2 T_C.H     -0.168     -2.13  0.0351          155  -0.317    -0.0120 Pearson&#39;s product-moment correlation two.sided  
- 3 G_A.H      0.123      1.55  0.124           155  -0.0339    0.275  Pearson&#39;s product-moment correlation two.sided  
- 4 A_T.H     -0.119     -1.49  0.137           155  -0.271     0.0382 Pearson&#39;s product-moment correlation two.sided  
- 5 C_G.H     -0.115     -1.45  0.150           155  -0.267     0.0419 Pearson&#39;s product-moment correlation two.sided  
- 6 T_A.H      0.0912     1.14  0.256           155  -0.0664    0.244  Pearson&#39;s product-moment correlation two.sided  
- 7 T_G.H      0.0798     0.997 0.320           155  -0.0778    0.234  Pearson&#39;s product-moment correlation two.sided  
- 8 A_C.H     -0.0498    -0.621 0.536           155  -0.205     0.108  Pearson&#39;s product-moment correlation two.sided  
- 9 C_A.H     -0.0489    -0.609 0.543           155  -0.204     0.109  Pearson&#39;s product-moment correlation two.sided  
-10 C_T.H     -0.0413    -0.515 0.607           155  -0.197     0.116  Pearson&#39;s product-moment correlation two.sided  
-11 G_C.H     -0.0364    -0.454 0.651           155  -0.192     0.121  Pearson&#39;s product-moment correlation two.sided  
-12 G_T.H     -0.0325    -0.405 0.686           155  -0.188     0.125  Pearson&#39;s product-moment correlation two.sided  </code></pre>
-<pre class="r"><code>#write.table(correlation_results, file = here(tables_dir, &quot;Table1.txt&quot;), row.names = FALSE)
+kable(correlation_results)</code></pre>
+<table>
+<colgroup>
+<col width="7%" />
+<col width="9%" />
+<col width="9%" />
+<col width="8%" />
+<col width="8%" />
+<col width="9%" />
+<col width="9%" />
+<col width="30%" />
+<col width="9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">variable</th>
+<th align="right">estimate</th>
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+<th align="right">parameter</th>
+<th align="right">conf.low</th>
+<th align="right">conf.high</th>
+<th align="left">method</th>
+<th align="left">alternative</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">A_G.H</td>
+<td align="right">0.3168787</td>
+<td align="right">4.1594615</td>
+<td align="right">0.0000527</td>
+<td align="right">155</td>
+<td align="right">0.1686096</td>
+<td align="right">0.4511251</td>
+<td align="left">Pearson’s product-moment correlation</td>
+<td align="left">two.sided</td>
+</tr>
+<tr class="even">
+<td align="left">T_C.H</td>
+<td align="right">-0.1682837</td>
+<td align="right">-2.1254273</td>
+<td align="right">0.0351359</td>
+<td align="right">155</td>
+<td align="right">-0.3165770</td>
+<td align="right">-0.0119609</td>
+<td align="left">Pearson’s product-moment correlation</td>
+<td align="left">two.sided</td>
+</tr>
+<tr class="odd">
+<td align="left">G_A.H</td>
+<td align="right">0.1233894</td>
+<td align="right">1.5480154</td>
+<td align="right">0.1236579</td>
+<td align="right">155</td>
+<td align="right">-0.0339040</td>
+<td align="right">0.2747180</td>
+<td align="left">Pearson’s product-moment correlation</td>
+<td align="left">two.sided</td>
+</tr>
+<tr class="even">
+<td align="left">A_T.H</td>
+<td align="right">-0.1191124</td>
+<td align="right">-1.4935699</td>
+<td align="right">0.1373209</td>
+<td align="right">155</td>
+<td align="right">-0.2706999</td>
+<td align="right">0.0382392</td>
+<td align="left">Pearson’s product-moment correlation</td>
+<td align="left">two.sided</td>
+</tr>
+<tr class="odd">
+<td align="left">C_G.H</td>
+<td align="right">-0.1154942</td>
+<td align="right">-1.4475779</td>
+<td align="right">0.1497547</td>
+<td align="right">155</td>
+<td align="right">-0.2672967</td>
+<td align="right">0.0419020</td>
+<td align="left">Pearson’s product-moment correlation</td>
+<td align="left">two.sided</td>
+</tr>
+<tr class="even">
+<td align="left">T_A.H</td>
+<td align="right">0.0911624</td>
+<td align="right">1.1397078</td>
+<td align="right">0.2561662</td>
+<td align="right">155</td>
+<td align="right">-0.0664243</td>
+<td align="right">0.2443118</td>
+<td align="left">Pearson’s product-moment correlation</td>
+<td align="left">two.sided</td>
+</tr>
+<tr class="odd">
+<td align="left">T_G.H</td>
+<td align="right">0.0798204</td>
+<td align="right">0.9969366</td>
+<td align="right">0.3203491</td>
+<td align="right">155</td>
+<td align="right">-0.0777904</td>
+<td align="right">0.2335386</td>
+<td align="left">Pearson’s product-moment correlation</td>
+<td align="left">two.sided</td>
+</tr>
+<tr class="even">
+<td align="left">A_C.H</td>
+<td align="right">-0.0498000</td>
+<td align="right">-0.6207752</td>
+<td align="right">0.5356593</td>
+<td align="right">155</td>
+<td align="right">-0.2048403</td>
+<td align="right">0.1076781</td>
+<td align="left">Pearson’s product-moment correlation</td>
+<td align="left">two.sided</td>
+</tr>
+<tr class="odd">
+<td align="left">C_A.H</td>
+<td align="right">-0.0488585</td>
+<td align="right">-0.6090109</td>
+<td align="right">0.5434088</td>
+<td align="right">155</td>
+<td align="right">-0.2039359</td>
+<td align="right">0.1086108</td>
+<td align="left">Pearson’s product-moment correlation</td>
+<td align="left">two.sided</td>
+</tr>
+<tr class="even">
+<td align="left">C_T.H</td>
+<td align="right">-0.0413337</td>
+<td align="right">-0.5150406</td>
+<td align="right">0.6072583</td>
+<td align="right">155</td>
+<td align="right">-0.1966983</td>
+<td align="right">0.1160558</td>
+<td align="left">Pearson’s product-moment correlation</td>
+<td align="left">two.sided</td>
+</tr>
+<tr class="odd">
+<td align="left">G_C.H</td>
+<td align="right">-0.0364204</td>
+<td align="right">-0.4537317</td>
+<td align="right">0.6506566</td>
+<td align="right">155</td>
+<td align="right">-0.1919634</td>
+<td align="right">0.1209075</td>
+<td align="left">Pearson’s product-moment correlation</td>
+<td align="left">two.sided</td>
+</tr>
+<tr class="even">
+<td align="left">G_T.H</td>
+<td align="right">-0.0325314</td>
+<td align="right">-0.4052270</td>
+<td align="right">0.6858694</td>
+<td align="right">155</td>
+<td align="right">-0.1882105</td>
+<td align="right">0.1247424</td>
+<td align="left">Pearson’s product-moment correlation</td>
+<td align="left">two.sided</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>#write.table(kable(correlation_results), file = here(tables_dir, &quot;Table1.txt&quot;), row.names = FALSE, col.names = FALSE)
 
 SubsetClass&lt;- unique(MutAndEcoCb$Class)
 spN &lt;- nrow(MutAndEcoCb[!is.na(MutAndEcoCb$Temp_avg),])
@@ -2024,7 +1558,7 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/77db01ef622b2f1f41cab6356064e0562a9a41e8/docs/figure/I_CYTB_polymorphic_mutspec_analysis.Rmd/statistics_with_temp_cytb-1.png" target="_blank">77db01e</a>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/6ece1e577d495976c4a50a8619c489d8402654d3/docs/figure/I_CYTB_polymorphic_mutspec_analysis.Rmd/statistics_with_temp_cytb-1.png" target="_blank">6ece1e5</a>
 </td>
 <td>
 Alya Mikhailova
@@ -2043,14 +1577,16 @@ Alya Mikhailova
 <pre class="r"><code>ClimateZonetest &lt;- na.omit(data.frame(subset(MutAndEcoCb, select = c(Species ,A_G.H, Climate_zone))))
 
 ClimateZonetest$ClimateGroup &lt;- ifelse(ClimateZonetest$Climate_zone %in% c(&quot;tropical&quot;, &quot;subtropical&quot;), &quot;Warm&quot;, &quot;Cold&quot;)
-ClimateZonetest$Climate_zone &lt;- as.factor(ClimateZonetest$Climate_zone)
+ClimateZonetest$Climate_zone &lt;- factor(ClimateZonetest$Climate_zone, levels = c(&quot;tropical&quot;, &quot;subtropical&quot;, &quot;temperate&quot;, &quot;boreal&quot;, &quot;polar&quot;), ordered = TRUE)
 AGmedian &lt;- median(ClimateZonetest$A_G.H)
 ClimateZonetest$A_G.Freq &lt;- &quot;low_A_G&quot;
 ClimateZonetest[ClimateZonetest$A_G.H &gt;= AGmedian,]$A_G.Freq &lt;- &quot;high_A_G&quot;
 ClimateZonetest$A_G.Freq &lt;- as.factor(ClimateZonetest$A_G.Freq)
 ClimateZonePie &lt;- ClimateZonetest[,2-3]
+ClimPl &lt;- c(&quot;#F2AF4AFF&quot;, &quot;#EB7F54FF&quot;, &quot;#C36377FF&quot;, &quot;#61599DFF&quot;, &quot;#1D457FFF&quot;)
+names(ClimPl) &lt;- c(&quot;tropical&quot;, &quot;subtropical&quot;, &quot;temperate&quot;, &quot;boreal&quot;, &quot;polar&quot;) 
 s1 &lt;- ggpiestats(data = ClimateZonePie, x = Climate_zone, y = A_G.Freq) +
-  scale_fill_manual(values = c(&quot;#F2AF4AFF&quot;, &quot;#C36377FF&quot;, &quot;#EB7F54FF&quot;, &quot;#61599DFF&quot;, &quot;#1D457FFF&quot;))
+  scale_fill_manual(values = ClimPl)
 s1</code></pre>
 <p><img src="figure/I_CYTB_polymorphic_mutspec_analysis.Rmd/comparison_climate_A_G-1.png" width="1344" style="display: block; margin: auto;" /></p>
 <p>
@@ -2077,7 +1613,7 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/77db01ef622b2f1f41cab6356064e0562a9a41e8/docs/figure/I_CYTB_polymorphic_mutspec_analysis.Rmd/comparison_climate_A_G-1.png" target="_blank">77db01e</a>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/6ece1e577d495976c4a50a8619c489d8402654d3/docs/figure/I_CYTB_polymorphic_mutspec_analysis.Rmd/comparison_climate_A_G-1.png" target="_blank">6ece1e5</a>
 </td>
 <td>
 Alya Mikhailova
@@ -2092,9 +1628,9 @@ Alya Mikhailova
 </div>
 <pre class="r"><code>tidy(wilcox.test(ClimateZonetest[ClimateZonetest$ClimateGroup == &quot;Warm&quot;,]$A_G.H, ClimateZonetest[ClimateZonetest$ClimateGroup == &quot;Cold&quot;,]$A_G.H))</code></pre>
 <pre><code># A tibble: 1 × 4
-  statistic    p.value method                                            alternative
-      &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;                                             &lt;chr&gt;      
-1    17568. 0.00000467 Wilcoxon rank sum test with continuity correction two.sided  </code></pre>
+  statistic    p.value method                                        alternative
+      &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;                                         &lt;chr&gt;      
+1    17568. 0.00000467 Wilcoxon rank sum test with continuity corre… two.sided  </code></pre>
 </div>
 <div id="ag-freqs-dependence-on-time-of-maturation"
 class="section level2">
@@ -2116,25 +1652,214 @@ class="section level2">
   ) |&gt;
   map_dfr( ~ tidy(cor.test(.x, MutAndEcoCb$tm), method = &#39;spearman&#39;), .id = &quot;variable&quot;) |&gt;
   arrange(desc(abs(estimate)))
-correlation_results1</code></pre>
-<pre><code># A tibble: 12 × 9
-   variable estimate statistic p.value parameter conf.low conf.high method                               alternative
-   &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;int&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;                                &lt;chr&gt;      
- 1 G_A.H     0.140      1.90    0.0596       181 -0.00562    0.279  Pearson&#39;s product-moment correlation two.sided  
- 2 T_C.H    -0.124     -1.68    0.0951       181 -0.264      0.0217 Pearson&#39;s product-moment correlation two.sided  
- 3 T_G.H    -0.0766    -1.03    0.302        181 -0.219      0.0692 Pearson&#39;s product-moment correlation two.sided  
- 4 C_A.H    -0.0740    -0.999   0.319        181 -0.217      0.0718 Pearson&#39;s product-moment correlation two.sided  
- 5 T_A.H    -0.0648    -0.873   0.384        181 -0.208      0.0810 Pearson&#39;s product-moment correlation two.sided  
- 6 A_G.H     0.0644     0.868   0.386        181 -0.0814     0.208  Pearson&#39;s product-moment correlation two.sided  
- 7 C_G.H    -0.0565    -0.762   0.447        181 -0.200      0.0893 Pearson&#39;s product-moment correlation two.sided  
- 8 C_T.H     0.0557     0.750   0.454        181 -0.0901     0.199  Pearson&#39;s product-moment correlation two.sided  
- 9 G_T.H     0.0375     0.505   0.614        181 -0.108      0.182  Pearson&#39;s product-moment correlation two.sided  
-10 G_C.H    -0.0298    -0.401   0.689        181 -0.174      0.116  Pearson&#39;s product-moment correlation two.sided  
-11 A_T.H    -0.0237    -0.319   0.750        181 -0.168      0.122  Pearson&#39;s product-moment correlation two.sided  
-12 A_C.H    -0.00107   -0.0144  0.989        181 -0.146      0.144  Pearson&#39;s product-moment correlation two.sided  </code></pre>
+kable(correlation_results1)</code></pre>
+<table>
+<colgroup>
+<col width="7%" />
+<col width="9%" />
+<col width="9%" />
+<col width="8%" />
+<col width="8%" />
+<col width="9%" />
+<col width="8%" />
+<col width="30%" />
+<col width="9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">variable</th>
+<th align="right">estimate</th>
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+<th align="right">parameter</th>
+<th align="right">conf.low</th>
+<th align="right">conf.high</th>
+<th align="left">method</th>
+<th align="left">alternative</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">G_A.H</td>
+<td align="right">0.1395474</td>
+<td align="right">1.8959691</td>
+<td align="right">0.0595575</td>
+<td align="right">181</td>
+<td align="right">-0.0056231</td>
+<td align="right">0.2789573</td>
+<td align="left">Pearson’s product-moment correlation</td>
+<td align="left">two.sided</td>
+</tr>
+<tr class="even">
+<td align="left">T_C.H</td>
+<td align="right">-0.1237639</td>
+<td align="right">-1.6779743</td>
+<td align="right">0.0950779</td>
+<td align="right">181</td>
+<td align="right">-0.2640796</td>
+<td align="right">0.0216820</td>
+<td align="left">Pearson’s product-moment correlation</td>
+<td align="left">two.sided</td>
+</tr>
+<tr class="odd">
+<td align="left">T_G.H</td>
+<td align="right">-0.0766398</td>
+<td align="right">-1.0341248</td>
+<td align="right">0.3024575</td>
+<td align="right">181</td>
+<td align="right">-0.2192589</td>
+<td align="right">0.0691860</td>
+<td align="left">Pearson’s product-moment correlation</td>
+<td align="left">two.sided</td>
+</tr>
+<tr class="even">
+<td align="left">C_A.H</td>
+<td align="right">-0.0740346</td>
+<td align="right">-0.9987746</td>
+<td align="right">0.3192373</td>
+<td align="right">181</td>
+<td align="right">-0.2167634</td>
+<td align="right">0.0717931</td>
+<td align="left">Pearson’s product-moment correlation</td>
+<td align="left">two.sided</td>
+</tr>
+<tr class="odd">
+<td align="left">T_A.H</td>
+<td align="right">-0.0647810</td>
+<td align="right">-0.8733736</td>
+<td align="right">0.3836167</td>
+<td align="right">181</td>
+<td align="right">-0.2078842</td>
+<td align="right">0.0810372</td>
+<td align="left">Pearson’s product-moment correlation</td>
+<td align="left">two.sided</td>
+</tr>
+<tr class="even">
+<td align="left">A_G.H</td>
+<td align="right">0.0643911</td>
+<td align="right">0.8680947</td>
+<td align="right">0.3864920</td>
+<td align="right">181</td>
+<td align="right">-0.0814261</td>
+<td align="right">0.2075095</td>
+<td align="left">Pearson’s product-moment correlation</td>
+<td align="left">two.sided</td>
+</tr>
+<tr class="odd">
+<td align="left">C_G.H</td>
+<td align="right">-0.0565248</td>
+<td align="right">-0.7616810</td>
+<td align="right">0.4472417</td>
+<td align="right">181</td>
+<td align="right">-0.1999421</td>
+<td align="right">0.0892638</td>
+<td align="left">Pearson’s product-moment correlation</td>
+<td align="left">two.sided</td>
+</tr>
+<tr class="even">
+<td align="left">C_T.H</td>
+<td align="right">0.0556726</td>
+<td align="right">0.7501620</td>
+<td align="right">0.4541311</td>
+<td align="right">181</td>
+<td align="right">-0.0901117</td>
+<td align="right">0.1991212</td>
+<td align="left">Pearson’s product-moment correlation</td>
+<td align="left">two.sided</td>
+</tr>
+<tr class="odd">
+<td align="left">G_T.H</td>
+<td align="right">0.0374879</td>
+<td align="right">0.5047025</td>
+<td align="right">0.6143817</td>
+<td align="right">181</td>
+<td align="right">-0.1081569</td>
+<td align="right">0.1815572</td>
+<td align="left">Pearson’s product-moment correlation</td>
+<td align="left">two.sided</td>
+</tr>
+<tr class="even">
+<td align="left">G_C.H</td>
+<td align="right">-0.0298235</td>
+<td align="right">-0.4014128</td>
+<td align="right">0.6885898</td>
+<td align="right">181</td>
+<td align="right">-0.1741269</td>
+<td align="right">0.1157338</td>
+<td align="left">Pearson’s product-moment correlation</td>
+<td align="left">two.sided</td>
+</tr>
+<tr class="odd">
+<td align="left">A_T.H</td>
+<td align="right">-0.0236919</td>
+<td align="right">-0.3188316</td>
+<td align="right">0.7502219</td>
+<td align="right">181</td>
+<td align="right">-0.1681706</td>
+<td align="right">0.1217833</td>
+<td align="left">Pearson’s product-moment correlation</td>
+<td align="left">two.sided</td>
+</tr>
+<tr class="even">
+<td align="left">A_C.H</td>
+<td align="right">-0.0010672</td>
+<td align="right">-0.0143581</td>
+<td align="right">0.9885601</td>
+<td align="right">181</td>
+<td align="right">-0.1461013</td>
+<td align="right">0.1440117</td>
+<td align="left">Pearson’s product-moment correlation</td>
+<td align="left">two.sided</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="pgls" class="section level2">
 <h2>PGLS</h2>
+<pre class="r"><code>create_enhanced_summary_table &lt;- function(model_summary, pgls_model) {
+  # Extract coefficients
+  coef_table &lt;- model_summary$coefficients
+  
+  # Create enhanced dataframe
+  enhanced_df &lt;- data.frame(
+    Parameter = rownames(coef_table),
+    Estimate = round(coef_table[, &quot;Estimate&quot;], 6),
+    Std_Error = round(coef_table[, &quot;Std. Error&quot;], 6),
+    t_value = round(coef_table[, &quot;t value&quot;], 3),
+    p_value = format.pval(coef_table[, &quot;Pr(&gt;|t|)&quot;], digits = 3),
+    Significance = case_when(
+      coef_table[, &quot;Pr(&gt;|t|)&quot;] &lt; 0.001 ~ &quot;***&quot;,
+      coef_table[, &quot;Pr(&gt;|t|)&quot;] &lt; 0.01 ~ &quot;**&quot;,
+      coef_table[, &quot;Pr(&gt;|t|)&quot;] &lt; 0.05 ~ &quot;*&quot;,
+      coef_table[, &quot;Pr(&gt;|t|)&quot;] &lt; 0.1 ~ &quot;.&quot;,
+      TRUE ~ &quot;&quot;
+    ),
+    CI_Lower = round(coef_table[, &quot;Estimate&quot;] - 1.96 * coef_table[, &quot;Std. Error&quot;], 6),
+    CI_Upper = round(coef_table[, &quot;Estimate&quot;] + 1.96 * coef_table[, &quot;Std. Error&quot;], 6)
+  )
+  
+  # Model fit statistics
+  model_stats &lt;- data.frame(
+    Statistic = c(
+      &quot;R-squared&quot;,
+      &quot;Adjusted R-squared&quot;,
+      &quot;F-statistic&quot;,
+      &quot;Lambda&quot;,
+      &quot;AIC&quot;,
+      &quot;BIC&quot;
+    ),
+    Value = c(
+      round(model_summary$r.squared, 4),
+      round(model_summary$adj.r.squared, 4),
+      round(model_summary$fstatistic[1], 3),
+      round(pgls_model$param[&quot;lambda&quot;], 6),
+      round(AIC(pgls_model), 2),
+      round(BIC(pgls_model), 2)
+    )
+  )
+  
+  return(list(coefficients = enhanced_df, model_stats = model_stats))
+}</code></pre>
 <pre class="r"><code>tree &lt;- read.tree(file = here(data_dir, &quot;chordates_species.nwk&quot;))
 tree &lt;- ape::drop.tip(tree, &quot;Tenebrosternarchus_preto&quot;)
 MutAndEcoPGLS &lt;- MutAndEcoCb %&gt;% dplyr::select(Species, A_G.H, C_T.H, G_A.H, T_C.H, Temp_avg)
@@ -2151,40 +1876,100 @@ data$Temp_avg = as.numeric(data$Temp_avg)
 data$Tv &lt;- 1-(data$A_G.H + data$G_A.H + data$T_C.H + data$C_T.H)
 data_comp &lt;- comparative.data(tree_pruned, data, Species, vcv=TRUE)
 
-summary(pgls(A_G.H ~ Temp_avg, data_comp, lambda=&quot;ML&quot;))</code></pre>
-<pre><code>
-Call:
-pgls(formula = A_G.H ~ Temp_avg, data = data_comp, lambda = &quot;ML&quot;)
+mod &lt;- pgls(A_G.H ~ Temp_avg, data_comp, lambda=&quot;ML&quot;)
+summ &lt;- summary( pgls(A_G.H ~ Temp_avg, data_comp, lambda=&quot;ML&quot;))
 
-Residuals:
-       Min         1Q     Median         3Q        Max 
--0.0081580 -0.0024766 -0.0007092  0.0012258  0.0165195 
 
-Branch length transformations:
+pgls_results &lt;- create_enhanced_summary_table(summ, mod)
 
-kappa  [Fix]  : 1.000
-lambda [ ML]  : 0.000
-   lower bound : 0.000, p = 1    
-   upper bound : 1.000, p = &lt; 2.22e-16
-   95.0% CI   : (NA, 0.119)
-delta  [Fix]  : 1.000
-
-Coefficients:
-             Estimate Std. Error t value  Pr(&gt;|t|)    
-(Intercept) 0.0682919  0.0243949  2.7994  0.005802 ** 
-Temp_avg    0.0053567  0.0012733  4.2069 4.467e-05 ***
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-
-Residual standard error: 0.004066 on 148 degrees of freedom
-Multiple R-squared: 0.1068, Adjusted R-squared: 0.1008 
-F-statistic:  17.7 on 1 and 148 DF,  p-value: 4.467e-05 </code></pre>
-<pre class="r"><code>#la.A_G &lt;- phylosig(tree_pruned, data$A_G.H, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.280122 
-#la.C_T &lt;- phylosig(tree_pruned, data$C_T.H, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.119451 
-#la.G_A &lt;- phylosig(tree_pruned, data$G_A.H, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.719915 
-#la.T_C &lt;- phylosig(tree_pruned, data$T_C.H, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.813846 
-#la.Tv &lt;- phylosig(tree_pruned, data$Tv, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.113722
-#la.temp &lt;- phylosig(tree_pruned, data$Temp_avg, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.92032</code></pre>
+kable(pgls_results$coefficients)</code></pre>
+<table>
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="9%" />
+<col width="10%" />
+<col width="8%" />
+<col width="9%" />
+<col width="14%" />
+<col width="9%" />
+<col width="9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">Parameter</th>
+<th align="right">Estimate</th>
+<th align="right">Std_Error</th>
+<th align="right">t_value</th>
+<th align="left">p_value</th>
+<th align="left">Significance</th>
+<th align="right">CI_Lower</th>
+<th align="right">CI_Upper</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="left">(Intercept)</td>
+<td align="right">0.068292</td>
+<td align="right">0.024395</td>
+<td align="right">2.799</td>
+<td align="left">0.0058</td>
+<td align="left">**</td>
+<td align="right">0.020478</td>
+<td align="right">0.116106</td>
+</tr>
+<tr class="even">
+<td align="left">Temp_avg</td>
+<td align="left">Temp_avg</td>
+<td align="right">0.005357</td>
+<td align="right">0.001273</td>
+<td align="right">4.207</td>
+<td align="left">4.47e-05</td>
+<td align="left">***</td>
+<td align="right">0.002861</td>
+<td align="right">0.007852</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>kable(pgls_results$model)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Statistic</th>
+<th align="right">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">R-squared</td>
+<td align="right">0.106800</td>
+</tr>
+<tr class="even">
+<td align="left">Adjusted R-squared</td>
+<td align="right">0.100800</td>
+</tr>
+<tr class="odd">
+<td align="left">F-statistic</td>
+<td align="right">17.698000</td>
+</tr>
+<tr class="even">
+<td align="left">Lambda</td>
+<td align="right">0.000001</td>
+</tr>
+<tr class="odd">
+<td align="left">AIC</td>
+<td align="right">-303.430000</td>
+</tr>
+<tr class="even">
+<td align="left">BIC</td>
+<td align="right">-297.410000</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>#write.table(kable(pgls_results$coefficients), file = here(tables_dir, &quot;Table2a.txt&quot;), row.names = FALSE, col.names = FALSE)
+#write.table(kable(pgls_results$model), file = here(tables_dir, &quot;Table2b.txt&quot;), row.names = FALSE, col.names = FALSE)</code></pre>
 <pre class="r"><code>tree &lt;- read.tree(file = here(data_dir, &quot;chordates_species.nwk&quot;))
 tree &lt;- ape::drop.tip(tree, &quot;Tenebrosternarchus_preto&quot;)
 
@@ -2196,34 +1981,220 @@ data$A_G.H = as.numeric(data$A_G.H)
 data$ClimateGroup = as.factor(data$ClimateGroup)
 data_comp &lt;- comparative.data(tree_pruned, data, Species, vcv=TRUE)
 
-summary(pgls(A_G.H ~ ClimateGroup, data_comp, lambda=&quot;ML&quot;))</code></pre>
-<pre><code>
-Call:
-pgls(formula = A_G.H ~ ClimateGroup, data = data_comp, lambda = &quot;ML&quot;)
 
-Residuals:
-       Min         1Q     Median         3Q        Max 
--0.0080064 -0.0026449 -0.0007283  0.0013327  0.0172939 
 
-Branch length transformations:
+mod &lt;- pgls(A_G.H ~ ClimateGroup, data_comp, lambda=&quot;ML&quot;)
+summ &lt;- summary(pgls(A_G.H ~ ClimateGroup, data_comp, lambda=&quot;ML&quot;))
 
-kappa  [Fix]  : 1.000
-lambda [ ML]  : 0.000
-   lower bound : 0.000, p = 1    
-   upper bound : 1.000, p = &lt; 2.22e-16
-   95.0% CI   : (NA, 0.368)
-delta  [Fix]  : 1.000
 
-Coefficients:
-                  Estimate Std. Error t value  Pr(&gt;|t|)    
-(Intercept)      0.1375144  0.0077634 17.7133 &lt; 2.2e-16 ***
-ClimateGroupWarm 0.0346512  0.0103527  3.3471  0.000917 ***
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+pgls_results &lt;- create_enhanced_summary_table(summ, mod)
 
-Residual standard error: 0.004226 on 311 degrees of freedom
-Multiple R-squared: 0.03477,    Adjusted R-squared: 0.03167 
-F-statistic:  11.2 on 1 and 311 DF,  p-value: 0.000917 </code></pre>
+kable(pgls_results$coefficients)</code></pre>
+<table style="width:100%;">
+<colgroup>
+<col width="16%" />
+<col width="16%" />
+<col width="8%" />
+<col width="9%" />
+<col width="7%" />
+<col width="8%" />
+<col width="12%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">Parameter</th>
+<th align="right">Estimate</th>
+<th align="right">Std_Error</th>
+<th align="right">t_value</th>
+<th align="left">p_value</th>
+<th align="left">Significance</th>
+<th align="right">CI_Lower</th>
+<th align="right">CI_Upper</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="left">(Intercept)</td>
+<td align="right">0.137514</td>
+<td align="right">0.007763</td>
+<td align="right">17.713</td>
+<td align="left">&lt; 2e-16</td>
+<td align="left">***</td>
+<td align="right">0.122298</td>
+<td align="right">0.152731</td>
+</tr>
+<tr class="even">
+<td align="left">ClimateGroupWarm</td>
+<td align="left">ClimateGroupWarm</td>
+<td align="right">0.034651</td>
+<td align="right">0.010353</td>
+<td align="right">3.347</td>
+<td align="left">0.000917</td>
+<td align="left">***</td>
+<td align="right">0.014360</td>
+<td align="right">0.054942</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>kable(pgls_results$model)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Statistic</th>
+<th align="right">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">R-squared</td>
+<td align="right">0.034800</td>
+</tr>
+<tr class="even">
+<td align="left">Adjusted R-squared</td>
+<td align="right">0.031700</td>
+</tr>
+<tr class="odd">
+<td align="left">F-statistic</td>
+<td align="right">11.203000</td>
+</tr>
+<tr class="even">
+<td align="left">Lambda</td>
+<td align="right">0.000001</td>
+</tr>
+<tr class="odd">
+<td align="left">AIC</td>
+<td align="right">-611.130000</td>
+</tr>
+<tr class="even">
+<td align="left">BIC</td>
+<td align="right">-603.640000</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>la.A_G &lt;- phylosig(tree_pruned, data$A_G.H, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.30935 , P-value (based on LR test) : 3.47115e-05
+la.C_T &lt;- phylosig(tree_pruned, data$C_T.H, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.216484, P-value (based on LR test) : 0.000556152 
+la.G_A &lt;- phylosig(tree_pruned, data$G_A.H, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.522227, P-value (based on LR test) : 5.35018e-05 
+la.T_C &lt;- phylosig(tree_pruned, data$T_C.H, method = &quot;lambda&quot;, test = TRUE) #Phylogenetic signal lambda : 0.853065 
+la.Tv &lt;- phylosig(tree_pruned, data$Tv, method = &quot;lambda&quot;, test = TRUE)     #Phylogenetic signal lambda : 0.138137 
+                                                                            #####################################
+
+signal_strength &lt;- data.frame(
+  Level = c(&quot;None&quot;, &quot;Weak&quot;, &quot;Moderate&quot;, &quot;Strong&quot;),
+  Range = c(&quot;0-0.15&quot;, &quot;0.15-0.35&quot;, &quot;0.35-0.75&quot;, &quot;0.75-1.0&quot;)
+)
+signal_strength$Level &lt;- factor(
+  signal_strength$Level,
+  levels = c(&quot;None&quot;, &quot;Weak&quot;, &quot;Moderate&quot;, &quot;Strong&quot;),
+  ordered = TRUE
+)
+
+f1a &lt;- ggplot(signal_strength, aes(x=2, y=Level, fill=Level)) +
+  geom_col(alpha=0.8, width=1) +
+  geom_point(aes(x=1, y=2), size=15, color=&quot;#e74c3c&quot;) + 
+  annotate(&quot;text&quot;, x=1, y=2, label=paste(&quot;λ =&quot;, la.A_G$lambda), size=5, fontface=&quot;bold&quot;) +
+  scale_fill_manual(values=c(&quot;#ecf0f1&quot;, &quot;#bdc3c7&quot;, &quot;#3498db&quot;, &quot;#2c3e50&quot;)) +
+  labs(title=&quot;Phylogenetic Signal Strength of A_G.H&quot;, ) +
+  theme_void() +
+  theme(legend.position = &quot;none&quot;)
+
+f1b &lt;- ggplot(signal_strength, aes(x=2, y=Level, fill=Level)) +
+  geom_col(alpha=0.8, width=1) +
+  geom_point(aes(x=1, y=2), size=15, color=&quot;#e74c3c&quot;) + 
+  annotate(&quot;text&quot;, x=1, y=2, label=paste(&quot;λ =&quot;, la.C_T$lambda), size=5, fontface=&quot;bold&quot;) +
+  scale_fill_manual(values=c(&quot;#ecf0f1&quot;, &quot;#bdc3c7&quot;, &quot;#3498db&quot;, &quot;#2c3e50&quot;)) +
+  labs(title=&quot;Phylogenetic Signal Strength of C_T.H&quot;) +
+  theme_void()
+
+f1c &lt;- ggplot(signal_strength, aes(x=2, y=Level, fill=Level)) +
+  geom_col(alpha=0.8, width=1) +
+  geom_point(aes(x=1, y=3), size=15, color=&quot;#e74c3c&quot;) + 
+  annotate(&quot;text&quot;, x=1, y=3, label=paste(&quot;λ =&quot;, la.G_A$lambda), size=5, fontface=&quot;bold&quot;) +
+  scale_fill_manual(values=c(&quot;#ecf0f1&quot;, &quot;#bdc3c7&quot;, &quot;#3498db&quot;, &quot;#2c3e50&quot;)) +
+  labs(title=&quot;Phylogenetic Signal Strength of G_A.H&quot;) +
+  theme_void() +
+  theme(legend.position = &quot;none&quot;)
+
+f1d &lt;- ggplot(signal_strength, aes(x=2, y=Level, fill=Level)) +
+  geom_col(alpha=0.8, width=1) +
+  geom_point(aes(x=1, y=4), size=15, color=&quot;#e74c3c&quot;) + 
+  annotate(&quot;text&quot;, x=1, y=4, label=paste(&quot;λ =&quot;, la.T_C$lambda), size=5, fontface=&quot;bold&quot;) +
+  scale_fill_manual(values=c(&quot;#ecf0f1&quot;, &quot;#bdc3c7&quot;, &quot;#3498db&quot;, &quot;#2c3e50&quot;)) +
+  labs(title=&quot;Phylogenetic Signal Strength of T_C.H&quot;) +
+  theme_void() +
+  theme(legend.position = &quot;none&quot;)
+
+fig &lt;- (f1a | f1b) / (f1c | f1d) 
+
+MutAndEcoPGLS &lt;- MutAndEcoPGLS[!is.na(MutAndEcoPGLS$Temp_avg),]
+row.names(MutAndEcoPGLS) = MutAndEcoPGLS$Species
+tree_pruned = treedata(tree, MutAndEcoPGLS, sort=T, warnings=T)$phy
+data&lt;-as.data.frame(treedata(tree_pruned, MutAndEcoPGLS, sort=T, warnings=T)$data)
+data$Species = as.character(data$Species)
+data$A_G.H = as.numeric(data$A_G.H)
+data$C_T.H = as.numeric(data$C_T.H)
+data$G_A.H = as.numeric(data$G_A.H)
+data$T_C.H = as.numeric(data$T_C.H)
+data$Temp_avg = as.numeric(data$Temp_avg)
+data$Tv &lt;- 1-(data$A_G.H + data$G_A.H + data$T_C.H + data$C_T.H)
+
+la.temp &lt;- phylosig(tree_pruned, data$Temp_avg, method = &quot;lambda&quot;, test = TRUE) ########Phylogenetic signal lambda : 0.921383, P-value (based on LR test) : 8.81583e-12 
+
+
+f1e &lt;- ggplot(signal_strength, aes(x=2, y=Level, fill=Level)) +
+  geom_col(alpha=0.8, width=1) +
+  geom_point(aes(x=1, y=4), size=15, color=&quot;#e74c3c&quot;) + # Position at &quot;Moderate&quot;
+  annotate(&quot;text&quot;, x=1, y=4, label=paste(&quot;λ =&quot;, la.temp$lambda), size=7, fontface=&quot;bold&quot;) +
+  scale_fill_manual(values=c(&quot;#ecf0f1&quot;, &quot;#bdc3c7&quot;, &quot;#3498db&quot;, &quot;#2c3e50&quot;)) +
+  labs(title=&quot;Phylogenetic Signal Strength of temperature&quot;) +
+  theme_void() +
+  theme(legend.position = &quot;none&quot;)
+
+f1f &lt;- ggplot(signal_strength, aes(x=2, y=Level, fill=Level)) +
+  geom_col(alpha=0.8, width=1) +
+  geom_point(aes(x=1, y=1), size=20, color=&quot;#e74c3c&quot;) + # Position at &quot;Moderate&quot;
+  annotate(&quot;text&quot;, x=1, y=1, label=paste(&quot;λ =&quot;, la.Tv$lambda), size=7, fontface=&quot;bold&quot;) +
+  scale_fill_manual(values=c(&quot;#ecf0f1&quot;, &quot;#bdc3c7&quot;, &quot;#3498db&quot;, &quot;#2c3e50&quot;)) +
+  labs(title=&quot;Phylogenetic Signal Strength of transversions&quot;) +
+  theme_void() 
+
+figf &lt;- (f1e | f1f)
+
+ggsave(here(plots_dir,&quot;Lambda_temperature_and_Tv.pdf&quot;),
+  plot = figf,
+  width = 9,
+  height = 9
+) 
+
+ggsave(here(plots_dir,&quot;Lambda_transitions.pdf&quot;),
+  plot = fig,
+  width = 8,
+  height = 8
+) 
+
+create_lambda_summary_table &lt;- function(la_result, varia) {
+  values &lt;- c(&quot;variable&quot; = varia,
+    `Lambda (λ) estimate` = la_result$lambda,
+    `Log-likelihood (λ)` = la_result$logL,
+    `Likelihood Ratio (λ=0)` = la_result$logL0,
+    `P-value (LR test)` = la_result$P
+  )
+  df_wide &lt;- as.data.frame(t(values), check.names = FALSE)
+  rownames(df_wide) &lt;- NULL
+  return(df_wide)
+}
+
+AG &lt;- create_lambda_summary_table(la.A_G, &quot;A&gt;G.H&quot;)
+TC &lt;- create_lambda_summary_table(la.T_C, &quot;T&gt;C.H&quot;)
+GA &lt;- create_lambda_summary_table(la.G_A, &quot;G&gt;A.H&quot;)
+CT &lt;- create_lambda_summary_table(la.C_T, &quot;C&gt;T.H&quot;) 
+
+lambda_results &lt;- bind_rows(AG, TC, GA, CT, .id = NULL)
+
+#write.table(kable(lambda_results), file = here(tables_dir, &quot;Table3.txt&quot;), row.names = FALSE, col.names = FALSE)</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -2238,7 +2209,7 @@ Platform: aarch64-apple-darwin20
 Running under: macOS Sequoia 15.5
 
 Matrix products: default
-BLAS:   /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib 
+BLAS:   /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRblas.0.dylib 
 LAPACK: /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.1
 
 locale:
@@ -2251,38 +2222,53 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] RColorBrewer_1.1-3 skimr_2.1.5        ggrepel_0.9.6      rfishbase_5.0.1    ggstatsplot_0.13.1 broom_1.0.8       
- [7] ggpubr_0.6.0       ggExtra_0.10.1     geiger_2.0.11      phytools_2.4-4     maps_3.4.3         caper_1.0.3       
-[13] mvtnorm_1.3-3      MASS_7.3-65        ape_5.8-1          magrittr_2.0.3     lubridate_1.9.4    forcats_1.0.0     
-[19] stringr_1.5.1      dplyr_1.1.4        purrr_1.0.4        readr_2.1.5        tidyr_1.3.1        tibble_3.3.0      
-[25] ggplot2_3.5.2      tidyverse_2.0.0    knitr_1.50         here_1.0.1         workflowr_1.7.1   
+ [1] rfishbase_5.0.1    ggstatsplot_0.13.1 broom_1.0.8        ggpubr_0.6.0      
+ [5] ggExtra_0.10.1     geiger_2.0.11      phytools_2.4-4     maps_3.4.3        
+ [9] caper_1.0.3        mvtnorm_1.3-3      MASS_7.3-65        ape_5.8-1         
+[13] magrittr_2.0.3     lubridate_1.9.4    forcats_1.0.0      stringr_1.5.1     
+[17] dplyr_1.1.4        purrr_1.0.4        readr_2.1.5        tidyr_1.3.1       
+[21] tibble_3.3.0       ggplot2_3.5.2      tidyverse_2.0.0    knitr_1.50        
+[25] here_1.0.1         workflowr_1.7.1   
 
 loaded via a namespace (and not attached):
-  [1] rstudioapi_0.17.1       jsonlite_2.0.0          datawizard_1.1.0        correlation_0.8.7       subplex_1.9            
-  [6] SuppDists_1.1-9.9       estimability_1.5.1      farver_2.1.2            rmarkdown_2.29          ragg_1.4.0             
- [11] fs_1.6.6                vctrs_0.6.5             memoise_2.0.1           paletteer_1.6.0         base64enc_0.1-3        
- [16] effectsize_1.0.1        rstatix_0.7.2           htmltools_0.5.8.1       DEoptim_2.2-8           deSolve_1.40           
- [21] BWStest_0.2.3           Formula_1.2-5           sass_0.4.10             bslib_0.9.0             fontawesome_0.5.3      
- [26] emmeans_1.11.1          cachem_1.1.0            whisker_0.4.1           igraph_2.1.4            mime_0.13              
- [31] lifecycle_1.0.4         iterators_1.0.14        pkgconfig_2.0.3         Matrix_1.7-3            R6_2.6.1               
- [36] fastmap_1.2.0           PMCMRplus_1.9.12        shiny_1.10.0            BayesFactor_0.9.12-4.7  digest_0.6.37          
- [41] numDeriv_2016.8-1.1     rematch2_2.1.2          patchwork_1.3.0         ps_1.9.1                rprojroot_2.0.4        
- [46] textshaping_1.0.1       labeling_0.4.3          clusterGeneration_1.3.8 timechange_0.3.0        mgcv_1.9-3             
- [51] httr_1.4.7              abind_1.4-8             compiler_4.5.0          bit64_4.6.0-1           withr_3.0.2            
- [56] doParallel_1.0.17       backports_1.5.0         optimParallel_1.0-2     carData_3.0-5           performance_0.14.0     
- [61] ggsignif_0.6.4          scatterplot3d_0.3-44    tools_4.5.0             httpuv_1.6.16           statsExpressions_1.7.0 
- [66] glue_1.8.0              quadprog_1.5-8          callr_3.7.6             nlme_3.1-168            promises_1.3.3         
- [71] grid_4.5.0              rsconnect_1.4.1         getPass_0.2-4           generics_0.1.4          gtable_0.3.6           
- [76] tzdb_0.5.0              hms_1.1.3               car_3.1-3               utf8_1.2.6              foreach_1.5.2          
- [81] pillar_1.10.2           vroom_1.6.5             later_1.4.2             splines_4.5.0           lattice_0.22-7         
- [86] gmp_0.7-5               bit_4.6.0               tidyselect_1.2.1        pbapply_1.7-2           miniUI_0.1.2           
- [91] git2r_0.36.2            xfun_0.52               expm_1.0-0              stringi_1.8.7           boot_1.3-31            
- [96] yaml_2.3.10             kSamples_1.2-10         evaluate_1.0.3          codetools_0.2-20        multcompView_0.1-10    
-[101] cli_3.6.5               RcppParallel_5.1.10     systemfonts_1.2.3       xtable_1.8-4            parameters_0.26.0      
-[106] repr_1.1.7              processx_3.8.6          jquerylib_0.1.4         Rcpp_1.0.14             zeallot_0.2.0          
-[111] coda_0.19-4.1           parallel_4.5.0          MatrixModels_0.5-4      rstantools_2.4.0        bayestestR_0.16.0      
-[116] Rmpfr_1.1-0             phangorn_2.12.1         scales_1.4.0            insight_1.3.0           crayon_1.5.3           
-[121] combinat_0.0-8          rlang_1.1.6             fastmatch_1.1-6         cowplot_1.1.3           mnormt_2.1.1           </code></pre>
+  [1] RColorBrewer_1.1-3      rstudioapi_0.17.1       jsonlite_2.0.0         
+  [4] datawizard_1.1.0        correlation_0.8.7       subplex_1.9            
+  [7] estimability_1.5.1      farver_2.1.2            rmarkdown_2.29         
+ [10] fs_1.6.6                ragg_1.4.0              vctrs_0.6.5            
+ [13] paletteer_1.6.0         effectsize_1.0.1        rstatix_0.7.2          
+ [16] htmltools_0.5.8.1       DEoptim_2.2-8           deSolve_1.40           
+ [19] Formula_1.2-5           sass_0.4.10             bslib_0.9.0            
+ [22] emmeans_1.11.1          cachem_1.1.0            whisker_0.4.1          
+ [25] igraph_2.1.4            mime_0.13               lifecycle_1.0.4        
+ [28] iterators_1.0.14        pkgconfig_2.0.3         Matrix_1.7-3           
+ [31] R6_2.6.1                fastmap_1.2.0           shiny_1.10.0           
+ [34] BayesFactor_0.9.12-4.7  digest_0.6.37           numDeriv_2016.8-1.1    
+ [37] rematch2_2.1.2          patchwork_1.3.0         ps_1.9.1               
+ [40] rprojroot_2.0.4         textshaping_1.0.1       labeling_0.4.3         
+ [43] clusterGeneration_1.3.8 timechange_0.3.0        mgcv_1.9-3             
+ [46] httr_1.4.7              abind_1.4-8             compiler_4.5.0         
+ [49] bit64_4.6.0-1           withr_3.0.2             doParallel_1.0.17      
+ [52] backports_1.5.0         optimParallel_1.0-2     carData_3.0-5          
+ [55] ggsignif_0.6.4          scatterplot3d_0.3-44    tools_4.5.0            
+ [58] httpuv_1.6.16           statsExpressions_1.7.0  glue_1.8.0             
+ [61] quadprog_1.5-8          callr_3.7.6             nlme_3.1-168           
+ [64] promises_1.3.3          grid_4.5.0              getPass_0.2-4          
+ [67] generics_0.1.4          gtable_0.3.6            tzdb_0.5.0             
+ [70] hms_1.1.3               utf8_1.2.6              car_3.1-3              
+ [73] foreach_1.5.2           pillar_1.10.2           vroom_1.6.5            
+ [76] later_1.4.2             splines_4.5.0           lattice_0.22-7         
+ [79] bit_4.6.0               tidyselect_1.2.1        pbapply_1.7-2          
+ [82] miniUI_0.1.2            git2r_0.36.2            xfun_0.52              
+ [85] expm_1.0-0              stringi_1.8.7           yaml_2.3.10            
+ [88] evaluate_1.0.3          codetools_0.2-20        cli_3.6.5              
+ [91] RcppParallel_5.1.10     xtable_1.8-4            parameters_0.26.0      
+ [94] systemfonts_1.2.3       processx_3.8.6          jquerylib_0.1.4        
+ [97] Rcpp_1.0.14             zeallot_0.2.0           coda_0.19-4.1          
+[100] parallel_4.5.0          MatrixModels_0.5-4      rstantools_2.4.0       
+[103] bayestestR_0.16.0       phangorn_2.12.1         scales_1.4.0           
+[106] insight_1.3.0           crayon_1.5.3            combinat_0.0-8         
+[109] rlang_1.1.6             fastmatch_1.1-6         cowplot_1.1.3          
+[112] mnormt_2.1.1           </code></pre>
 </div>
 </div>
 </div>
