@@ -11,7 +11,7 @@
 
 <meta name="author" content="Alina G. Mikhailova" />
 
-<meta name="date" content="2025-06-18" />
+<meta name="date" content="2025-06-19" />
 
 <title>Analysis of the mitochondrial mutational spectra between different classes</title>
 
@@ -270,7 +270,19 @@ $(document).ready(function () {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="I_Polymorphic_Data_Analysis.html">Analysis of the polymorphic data in Fishes obtained by NeMu pipeline</a>
+      <a href="I_CYTB_polymorphic_mutspec_analysis.html">Analysis of cytochrome b mutational spectra in fishes</a>
+    </li>
+    <li>
+      <a href="Ia_Polymorphic_Data_Analysis_TrophLevel.KP.html">Analysis of the Cyt B neutral nucleotide data in Fishes</a>
+    </li>
+    <li>
+      <a href="II_Cytb_Data_Analysis.html">Analysis of the Cyt B neutral nucleotide data in Fishes</a>
+    </li>
+    <li>
+      <a href="IIa_Cytb_Data_Analysis_Simulation_Mutagenesis.html">Simulation of the mutagenesis in the Cyt B gene in Fishes</a>
+    </li>
+    <li>
+      <a href="III_Comparison_of_all_Classes.html">SAnalysis of the mitochondrial mutational spectra between different classes</a>
     </li>
   </ul>
 </li>
@@ -300,7 +312,7 @@ $(document).ready(function () {
 <h1 class="title toc-ignore">Analysis of the mitochondrial mutational
 spectra between different classes</h1>
 <h4 class="author">Alina G. Mikhailova</h4>
-<h4 class="date">2025-06-18</h4>
+<h4 class="date">2025-06-19</h4>
 
 </div>
 
@@ -308,7 +320,7 @@ spectra between different classes</h1>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
+workflowr <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -319,8 +331,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> </a>
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -329,13 +341,13 @@ aria-hidden="true"></span> </a>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2025-06-18
+<strong>Last updated:</strong> 2025-06-19
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 1
+aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong>
@@ -377,726 +389,17 @@ results.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongobjectspresent">
-<span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> <strong>Environment:</strong> objects present
-</a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
 </p>
 </div>
-<div id="strongEnvironmentstrongobjectspresent"
-class="panel-collapse collapse">
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
 <div class="panel-body">
-<p>
-The global environment had objects present when the code in the R
-Markdown file was run. These objects can affect the analysis in your R
-Markdown file in unknown ways. For reproduciblity it’s best to always
-run the code in an empty environment. Use <code>wflow_publish</code> or
-<code>wflow_build</code> to ensure that the code is always run in an
-empty environment.
-</p>
-<p>
-The following objects were defined in the global environment when these
-results were created:
-</p>
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th style="text-align:left;">
-Name
-</th>
-<th style="text-align:left;">
-Class
-</th>
-<th style="text-align:left;">
-Size
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-both_freqs
-</td>
-<td style="text-align:left;">
-data.frame
-</td>
-<td style="text-align:left;">
-1.7 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-cold_fish_data
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-1.3 Mb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ColdFishes
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-2.3 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ColdFishesNuc
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-1.2 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ColdSubset
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-13.6 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ColorA
-</td>
-<td style="text-align:left;">
-character
-</td>
-<td style="text-align:left;">
-112 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ColorC
-</td>
-<td style="text-align:left;">
-character
-</td>
-<td style="text-align:left;">
-120 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ColorG
-</td>
-<td style="text-align:left;">
-character
-</td>
-<td style="text-align:left;">
-120 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ColorT
-</td>
-<td style="text-align:left;">
-character
-</td>
-<td style="text-align:left;">
-112 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CompColdFishes
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-2.5 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CompMutspec
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-2.6 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CompWarmFishes
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-2.5 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-current_iteration_manual
-</td>
-<td style="text-align:left;">
-numeric
-</td>
-<td style="text-align:left;">
-56 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-data_dir
-</td>
-<td style="text-align:left;">
-character
-</td>
-<td style="text-align:left;">
-232 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-docname
-</td>
-<td style="text-align:left;">
-character
-</td>
-<td style="text-align:left;">
-152 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-exp_both
-</td>
-<td style="text-align:left;">
-data.frame
-</td>
-<td style="text-align:left;">
-1.5 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-exp_cold
-</td>
-<td style="text-align:left;">
-data.frame
-</td>
-<td style="text-align:left;">
-1.3 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-exp_warm
-</td>
-<td style="text-align:left;">
-data.frame
-</td>
-<td style="text-align:left;">
-1.3 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-f2
-</td>
-<td style="text-align:left;">
-gg;ggplot
-</td>
-<td style="text-align:left;">
-86.4 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-fishEcology
-</td>
-<td style="text-align:left;">
-data.frame
-</td>
-<td style="text-align:left;">
-746.4 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-GenomeLength
-</td>
-<td style="text-align:left;">
-numeric
-</td>
-<td style="text-align:left;">
-56 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-hlines_cold
-</td>
-<td style="text-align:left;">
-data.frame
-</td>
-<td style="text-align:left;">
-1.5 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-hlines_warm
-</td>
-<td style="text-align:left;">
-data.frame
-</td>
-<td style="text-align:left;">
-1.5 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-merging
-</td>
-<td style="text-align:left;">
-list
-</td>
-<td style="text-align:left;">
-1.1 Mb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-mergingtest
-</td>
-<td style="text-align:left;">
-list
-</td>
-<td style="text-align:left;">
-1.3 Mb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-mtDNAcodonUsage
-</td>
-<td style="text-align:left;">
-data.frame
-</td>
-<td style="text-align:left;">
-385.2 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-MutAndEcoCb
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-225.9 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-MutNucAndEcoCb
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-266.3 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-mutSpec12
-</td>
-<td style="text-align:left;">
-spec_tbl_df;tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-1 Mb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-mutSpec12Cb
-</td>
-<td style="text-align:left;">
-spec_tbl_df;tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-780.9 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-MutSpecForAnalysisCb
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-158.2 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-n_cores
-</td>
-<td style="text-align:left;">
-numeric
-</td>
-<td style="text-align:left;">
-56 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Ncold
-</td>
-<td style="text-align:left;">
-integer
-</td>
-<td style="text-align:left;">
-56 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-NcoldNuc
-</td>
-<td style="text-align:left;">
-integer
-</td>
-<td style="text-align:left;">
-56 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-now
-</td>
-<td style="text-align:left;">
-POSIXct;POSIXt
-</td>
-<td style="text-align:left;">
-344 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-NucAndEco
-</td>
-<td style="text-align:left;">
-data.frame
-</td>
-<td style="text-align:left;">
-615.3 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-nucleotide_colors
-</td>
-<td style="text-align:left;">
-character
-</td>
-<td style="text-align:left;">
-736 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Nwarm
-</td>
-<td style="text-align:left;">
-integer
-</td>
-<td style="text-align:left;">
-56 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-NwarmNuc
-</td>
-<td style="text-align:left;">
-integer
-</td>
-<td style="text-align:left;">
-56 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-obs_both
-</td>
-<td style="text-align:left;">
-data.frame
-</td>
-<td style="text-align:left;">
-1.5 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-obs_cold
-</td>
-<td style="text-align:left;">
-data.frame
-</td>
-<td style="text-align:left;">
-1.3 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-obs_warm
-</td>
-<td style="text-align:left;">
-data.frame
-</td>
-<td style="text-align:left;">
-1.3 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ObservedCold
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-1.2 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ObservedWarm
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-1.2 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-output_dir
-</td>
-<td style="text-align:left;">
-character
-</td>
-<td style="text-align:left;">
-232 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-plot_cold_water
-</td>
-<td style="text-align:left;">
-gg;ggplot
-</td>
-<td style="text-align:left;">
-1.4 Mb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-plot_warm_water
-</td>
-<td style="text-align:left;">
-gg;ggplot
-</td>
-<td style="text-align:left;">
-1.4 Mb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-plots_dir
-</td>
-<td style="text-align:left;">
-character
-</td>
-<td style="text-align:left;">
-232 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-progress_bar_width
-</td>
-<td style="text-align:left;">
-numeric
-</td>
-<td style="text-align:left;">
-56 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-reseed
-</td>
-<td style="text-align:left;">
-numeric
-</td>
-<td style="text-align:left;">
-56 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-sfn
-</td>
-<td style="text-align:left;">
-gg;ggplot;ggarrange
-</td>
-<td style="text-align:left;">
-39.9 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-simulation_data_long
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-2.6 Mb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SimulationData
-</td>
-<td style="text-align:left;">
-data.frame
-</td>
-<td style="text-align:left;">
-799.1 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SimulationLengthNumberOfGenerations
-</td>
-<td style="text-align:left;">
-numeric
-</td>
-<td style="text-align:left;">
-56 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-src_dir
-</td>
-<td style="text-align:left;">
-character
-</td>
-<td style="text-align:left;">
-232 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-tables_dir
-</td>
-<td style="text-align:left;">
-character
-</td>
-<td style="text-align:left;">
-232 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-temperaturestat
-</td>
-<td style="text-align:left;">
-summaryDefault;table
-</td>
-<td style="text-align:left;">
-1 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-total_iterations_manual
-</td>
-<td style="text-align:left;">
-numeric
-</td>
-<td style="text-align:left;">
-56 bytes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-warm_fish_data
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-1.3 Mb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-WarmFishes
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-2.3 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-WarmFishesNuc
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-1.2 Kb
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-WarmSubset
-</td>
-<td style="text-align:left;">
-tbl_df;tbl;data.frame
-</td>
-<td style="text-align:left;">
-17.6 Kb
-</td>
-</tr>
-</tbody>
-</table>
+<p>Great job! The global environment was empty. Objects defined in the
+global environment can affect the analysis in your R Markdown file in
+unknown ways. For reproduciblity it’s best to always run the code in an
+empty environment.</p>
 </div>
 </div>
 </div>
@@ -1170,15 +473,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree77db01ef622b2f1f41cab6356064e0562a9a41e8targetblank77db01ea">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree14d12386eb61777a4587a52337c2d95577dea4dftargetblank14d1238a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/77db01ef622b2f1f41cab6356064e0562a9a41e8" target="_blank">77db01e</a>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/14d12386eb61777a4587a52337c2d95577dea4df" target="_blank">14d1238</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree77db01ef622b2f1f41cab6356064e0562a9a41e8targetblank77db01ea"
+id="strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree14d12386eb61777a4587a52337c2d95577dea4dftargetblank14d1238a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -1188,7 +491,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/77db01ef622b2f1f41cab6356064e0562a9a41e8" target="_blank">77db01e</a>.
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/14d12386eb61777a4587a52337c2d95577dea4df" target="_blank">14d1238</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -1230,11 +533,13 @@ Ignored files:
     Ignored:    output/figures/.DS_Store
     Ignored:    output/tables/.DS_Store
 
-Untracked files:
-    Untracked:  output/figures/Observed_vs_Expected_Frequencies.png
-    Untracked:  output/figures/Observed_vs_Expected_Frequencies_subset.png
-    Untracked:  output/figures/Simulation_expected_observed.pdf
-    Untracked:  output/figures/Simulation_expected_observed_subset.pdf
+Unstaged changes:
+    Modified:   output/figures/Assosiation_of_A_G_with_climate_and_tropf_level.pdf
+    Modified:   output/figures/Assosiation_of_A_G_with_temperature.pdf
+    Modified:   output/figures/Average mitochondrial mutational spectrum in Fishes divided by groups (cytB).pdf
+    Modified:   output/figures/Average_mutspec_in_Fishes_CytB.pdf
+    Modified:   output/figures/Simulation_expected_observed.pdf
+    Modified:   output/figures/Simulation_expected_observed_subset.pdf
 
 </code></pre>
 <p>
@@ -1285,7 +590,7 @@ Message
 Rmd
 </td>
 <td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/77db01ef622b2f1f41cab6356064e0562a9a41e8/analysis/III_Comparison_of_all_Classes.Rmd" target="_blank">77db01e</a>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/6ece1e577d495976c4a50a8619c489d8402654d3/analysis/III_Comparison_of_all_Classes.Rmd" target="_blank">6ece1e5</a>
 </td>
 <td>
 Alya Mikhailova
@@ -1302,7 +607,7 @@ First chapter all done
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/mitoclub/TemperatureEffectsOnMtDNAspectra/77db01ef622b2f1f41cab6356064e0562a9a41e8/docs/III_Comparison_of_all_Classes.html" target="_blank">77db01e</a>
+<a href="https://rawcdn.githack.com/mitoclub/TemperatureEffectsOnMtDNAspectra/6ece1e577d495976c4a50a8619c489d8402654d3/docs/III_Comparison_of_all_Classes.html" target="_blank">6ece1e5</a>
 </td>
 <td>
 Alya Mikhailova
@@ -1450,13 +755,20 @@ colnames(MutSpecForAnalysisCbAll) &lt;- c(&quot;Class&quot;,
                                   &quot;A_C.H&quot;)</code></pre>
 <pre class="r"><code>fishEcology &lt;- read.csv(here(data_dir, &quot;Full_fish_ecology_table_2025.csv&quot;))
 head(fishEcology)</code></pre>
-<pre><code>                  Species     Wmax      Lmax     tmax                   FeedingType FoodTroph    tm       Lm Temp_min Temp_max
-1     Abbottina_rivularis       NA   9.10000  2.00000                          &lt;NA&gt;        NA 1.000  4.50000       NA       NA
-2           Abramis_brama 4112.167  46.91111 14.41667 hunting macrofauna (predator)      3.15 4.125 28.75000       10       24
-3    Abudefduf_vaigiensis       NA  18.96667       NA     grazing on aquatic plants      3.39    NA 12.00000       NA       NA
-4 Acanthemblemaria_aspera       NA   3.00000  4.00000 hunting macrofauna (predator)      3.12    NA       NA       NA       NA
-5  Acanthocybium_solandri 7200.000 177.88000  9.30000 hunting macrofauna (predator)      4.45 2.000 99.33333       NA       NA
-6     Acanthopagrus_berda  660.000  56.00000 12.50000 hunting macrofauna (predator)      3.50    NA 21.00000       NA       NA
+<pre><code>                  Species     Wmax      Lmax     tmax
+1     Abbottina_rivularis       NA   9.10000  2.00000
+2           Abramis_brama 4112.167  46.91111 14.41667
+3    Abudefduf_vaigiensis       NA  18.96667       NA
+4 Acanthemblemaria_aspera       NA   3.00000  4.00000
+5  Acanthocybium_solandri 7200.000 177.88000  9.30000
+6     Acanthopagrus_berda  660.000  56.00000 12.50000
+                    FeedingType FoodTroph    tm       Lm Temp_min Temp_max
+1                          &lt;NA&gt;        NA 1.000  4.50000       NA       NA
+2 hunting macrofauna (predator)      3.15 4.125 28.75000       10       24
+3     grazing on aquatic plants      3.39    NA 12.00000       NA       NA
+4 hunting macrofauna (predator)      3.12    NA       NA       NA       NA
+5 hunting macrofauna (predator)      4.45 2.000 99.33333       NA       NA
+6 hunting macrofauna (predator)      3.50    NA 21.00000       NA       NA
   Climate_zone Temp_avg
 1  subtropical       NA
 2    temperate       17
@@ -1542,7 +854,7 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/77db01ef622b2f1f41cab6356064e0562a9a41e8/docs/figure/III_Comparison_of_all_Classes.Rmd/violin temperature-1.png" target="_blank">77db01e</a>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/6ece1e577d495976c4a50a8619c489d8402654d3/docs/figure/III_Comparison_of_all_Classes.Rmd/violin temperature-1.png" target="_blank">6ece1e5</a>
 </td>
 <td>
 Alya Mikhailova
@@ -1613,7 +925,7 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/77db01ef622b2f1f41cab6356064e0562a9a41e8/docs/figure/III_Comparison_of_all_Classes.Rmd/violin-A2G-1.png" target="_blank">77db01e</a>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/6ece1e577d495976c4a50a8619c489d8402654d3/docs/figure/III_Comparison_of_all_Classes.Rmd/violin-A2G-1.png" target="_blank">6ece1e5</a>
 </td>
 <td>
 Alya Mikhailova
@@ -1682,7 +994,7 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/77db01ef622b2f1f41cab6356064e0562a9a41e8/docs/figure/III_Comparison_of_all_Classes.Rmd/violin-AGskew-1.png" target="_blank">77db01e</a>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/6ece1e577d495976c4a50a8619c489d8402654d3/docs/figure/III_Comparison_of_all_Classes.Rmd/violin-AGskew-1.png" target="_blank">6ece1e5</a>
 </td>
 <td>
 Alya Mikhailova
@@ -1739,7 +1051,7 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/77db01ef622b2f1f41cab6356064e0562a9a41e8/docs/figure/III_Comparison_of_all_Classes.Rmd/violin-Aheavy-1.png" target="_blank">77db01e</a>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/6ece1e577d495976c4a50a8619c489d8402654d3/docs/figure/III_Comparison_of_all_Classes.Rmd/violin-Aheavy-1.png" target="_blank">6ece1e5</a>
 </td>
 <td>
 Alya Mikhailova
@@ -1793,7 +1105,7 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/77db01ef622b2f1f41cab6356064e0562a9a41e8/docs/figure/III_Comparison_of_all_Classes.Rmd/violin-Aheavy-2.png" target="_blank">77db01e</a>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/blob/6ece1e577d495976c4a50a8619c489d8402654d3/docs/figure/III_Comparison_of_all_Classes.Rmd/violin-Aheavy-2.png" target="_blank">6ece1e5</a>
 </td>
 <td>
 Alya Mikhailova
@@ -1831,7 +1143,7 @@ Platform: aarch64-apple-darwin20
 Running under: macOS Sequoia 15.5
 
 Matrix products: default
-BLAS:   /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib 
+BLAS:   /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRblas.0.dylib 
 LAPACK: /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.1
 
 locale:
@@ -1844,38 +1156,54 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] RColorBrewer_1.1-3 skimr_2.1.5        ggrepel_0.9.6      rfishbase_5.0.1    ggstatsplot_0.13.1 broom_1.0.8       
- [7] ggpubr_0.6.0       ggExtra_0.10.1     geiger_2.0.11      phytools_2.4-4     maps_3.4.3         caper_1.0.3       
-[13] mvtnorm_1.3-3      MASS_7.3-65        ape_5.8-1          magrittr_2.0.3     lubridate_1.9.4    forcats_1.0.0     
-[19] stringr_1.5.1      dplyr_1.1.4        purrr_1.0.4        readr_2.1.5        tidyr_1.3.1        tibble_3.3.0      
-[25] ggplot2_3.5.2      tidyverse_2.0.0    knitr_1.50         here_1.0.1         workflowr_1.7.1   
+ [1] RColorBrewer_1.1-3 skimr_2.1.5        ggstatsplot_0.13.1 broom_1.0.8       
+ [5] ggpubr_0.6.0       ggExtra_0.10.1     geiger_2.0.11      phytools_2.4-4    
+ [9] maps_3.4.3         caper_1.0.3        mvtnorm_1.3-3      MASS_7.3-65       
+[13] ape_5.8-1          magrittr_2.0.3     lubridate_1.9.4    forcats_1.0.0     
+[17] stringr_1.5.1      dplyr_1.1.4        purrr_1.0.4        readr_2.1.5       
+[21] tidyr_1.3.1        tibble_3.3.0       ggplot2_3.5.2      tidyverse_2.0.0   
+[25] knitr_1.50         here_1.0.1         workflowr_1.7.1   
 
 loaded via a namespace (and not attached):
-  [1] rstudioapi_0.17.1       jsonlite_2.0.0          datawizard_1.1.0        correlation_0.8.7       subplex_1.9            
-  [6] SuppDists_1.1-9.9       estimability_1.5.1      farver_2.1.2            rmarkdown_2.29          ragg_1.4.0             
- [11] fs_1.6.6                vctrs_0.6.5             memoise_2.0.1           paletteer_1.6.0         base64enc_0.1-3        
- [16] effectsize_1.0.1        rstatix_0.7.2           htmltools_0.5.8.1       DEoptim_2.2-8           deSolve_1.40           
- [21] BWStest_0.2.3           Formula_1.2-5           sass_0.4.10             bslib_0.9.0             fontawesome_0.5.3      
- [26] emmeans_1.11.1          cachem_1.1.0            whisker_0.4.1           igraph_2.1.4            mime_0.13              
- [31] lifecycle_1.0.4         iterators_1.0.14        pkgconfig_2.0.3         Matrix_1.7-3            R6_2.6.1               
- [36] fastmap_1.2.0           PMCMRplus_1.9.12        shiny_1.10.0            BayesFactor_0.9.12-4.7  digest_0.6.37          
- [41] numDeriv_2016.8-1.1     rematch2_2.1.2          patchwork_1.3.0         ps_1.9.1                rprojroot_2.0.4        
- [46] textshaping_1.0.1       labeling_0.4.3          clusterGeneration_1.3.8 timechange_0.3.0        httr_1.4.7             
- [51] abind_1.4-8             compiler_4.5.0          bit64_4.6.0-1           withr_3.0.2             doParallel_1.0.17      
- [56] backports_1.5.0         optimParallel_1.0-2     carData_3.0-5           performance_0.14.0      ggsignif_0.6.4         
- [61] scatterplot3d_0.3-44    tools_4.5.0             httpuv_1.6.16           statsExpressions_1.7.0  glue_1.8.0             
- [66] quadprog_1.5-8          callr_3.7.6             nlme_3.1-168            promises_1.3.3          grid_4.5.0             
- [71] rsconnect_1.4.1         getPass_0.2-4           generics_0.1.4          gtable_0.3.6            tzdb_0.5.0             
- [76] hms_1.1.3               car_3.1-3               utf8_1.2.6              foreach_1.5.2           pillar_1.10.2          
- [81] vroom_1.6.5             later_1.4.2             lattice_0.22-7          gmp_0.7-5               bit_4.6.0              
- [86] tidyselect_1.2.1        pbapply_1.7-2           miniUI_0.1.2            git2r_0.36.2            xfun_0.52              
- [91] expm_1.0-0              stringi_1.8.7           boot_1.3-31             yaml_2.3.10             kSamples_1.2-10        
- [96] evaluate_1.0.3          codetools_0.2-20        multcompView_0.1-10     cli_3.6.5               RcppParallel_5.1.10    
-[101] systemfonts_1.2.3       xtable_1.8-4            parameters_0.26.0       repr_1.1.7              processx_3.8.6         
-[106] jquerylib_0.1.4         Rcpp_1.0.14             zeallot_0.2.0           coda_0.19-4.1           parallel_4.5.0         
-[111] MatrixModels_0.5-4      rstantools_2.4.0        bayestestR_0.16.0       Rmpfr_1.1-0             phangorn_2.12.1        
-[116] scales_1.4.0            insight_1.3.0           crayon_1.5.3            combinat_0.0-8          rlang_1.1.6            
-[121] fastmatch_1.1-6         cowplot_1.1.3           mnormt_2.1.1           </code></pre>
+  [1] rstudioapi_0.17.1       jsonlite_2.0.0          datawizard_1.1.0       
+  [4] correlation_0.8.7       subplex_1.9             SuppDists_1.1-9.9      
+  [7] estimability_1.5.1      farver_2.1.2            rmarkdown_2.29         
+ [10] fs_1.6.6                vctrs_0.6.5             memoise_2.0.1          
+ [13] paletteer_1.6.0         base64enc_0.1-3         effectsize_1.0.1       
+ [16] rstatix_0.7.2           htmltools_0.5.8.1       DEoptim_2.2-8          
+ [19] deSolve_1.40            BWStest_0.2.3           Formula_1.2-5          
+ [22] sass_0.4.10             bslib_0.9.0             emmeans_1.11.1         
+ [25] cachem_1.1.0            whisker_0.4.1           igraph_2.1.4           
+ [28] mime_0.13               lifecycle_1.0.4         iterators_1.0.14       
+ [31] pkgconfig_2.0.3         Matrix_1.7-3            R6_2.6.1               
+ [34] fastmap_1.2.0           PMCMRplus_1.9.12        shiny_1.10.0           
+ [37] BayesFactor_0.9.12-4.7  digest_0.6.37           numDeriv_2016.8-1.1    
+ [40] rematch2_2.1.2          patchwork_1.3.0         ps_1.9.1               
+ [43] rprojroot_2.0.4         labeling_0.4.3          clusterGeneration_1.3.8
+ [46] timechange_0.3.0        httr_1.4.7              abind_1.4-8            
+ [49] compiler_4.5.0          bit64_4.6.0-1           withr_3.0.2            
+ [52] doParallel_1.0.17       backports_1.5.0         optimParallel_1.0-2    
+ [55] carData_3.0-5           performance_0.14.0      ggsignif_0.6.4         
+ [58] scatterplot3d_0.3-44    tools_4.5.0             httpuv_1.6.16          
+ [61] statsExpressions_1.7.0  glue_1.8.0              quadprog_1.5-8         
+ [64] callr_3.7.6             nlme_3.1-168            promises_1.3.3         
+ [67] grid_4.5.0              getPass_0.2-4           generics_0.1.4         
+ [70] gtable_0.3.6            tzdb_0.5.0              hms_1.1.3              
+ [73] car_3.1-3               ggrepel_0.9.6           foreach_1.5.2          
+ [76] pillar_1.10.2           vroom_1.6.5             later_1.4.2            
+ [79] lattice_0.22-7          gmp_0.7-5               bit_4.6.0              
+ [82] tidyselect_1.2.1        miniUI_0.1.2            pbapply_1.7-2          
+ [85] git2r_0.36.2            xfun_0.52               expm_1.0-0             
+ [88] stringi_1.8.7           boot_1.3-31             yaml_2.3.10            
+ [91] kSamples_1.2-10         evaluate_1.0.3          codetools_0.2-20       
+ [94] multcompView_0.1-10     cli_3.6.5               RcppParallel_5.1.10    
+ [97] xtable_1.8-4            parameters_0.26.0       repr_1.1.7             
+[100] processx_3.8.6          jquerylib_0.1.4         Rcpp_1.0.14            
+[103] zeallot_0.2.0           coda_0.19-4.1           parallel_4.5.0         
+[106] rstantools_2.4.0        MatrixModels_0.5-4      bayestestR_0.16.0      
+[109] Rmpfr_1.1-0             phangorn_2.12.1         scales_1.4.0           
+[112] insight_1.3.0           crayon_1.5.3            combinat_0.0-8         
+[115] rlang_1.1.6             fastmatch_1.1-6         mnormt_2.1.1           </code></pre>
 </div>
 </div>
 </div>

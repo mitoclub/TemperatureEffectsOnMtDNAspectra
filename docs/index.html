@@ -35,8 +35,8 @@
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
-<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
 
 <link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
 <!-- Add a small amount of space between sections. -->
@@ -274,7 +274,19 @@ $(document).ready(function () {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="I_Polymorphic_Data_Analysis.html">Analysis of the polymorphic data in Fishes obtained by NeMu pipeline</a>
+      <a href="I_CYTB_polymorphic_mutspec_analysis.html">Analysis of cytochrome b mutational spectra in fishes</a>
+    </li>
+    <li>
+      <a href="Ia_Polymorphic_Data_Analysis_TrophLevel.KP.html">Analysis of the Cyt B neutral nucleotide data in Fishes</a>
+    </li>
+    <li>
+      <a href="II_Cytb_Data_Analysis.html">Analysis of the Cyt B neutral nucleotide data in Fishes</a>
+    </li>
+    <li>
+      <a href="IIa_Cytb_Data_Analysis_Simulation_Mutagenesis.html">Simulation of the mutagenesis in the Cyt B gene in Fishes</a>
+    </li>
+    <li>
+      <a href="III_Comparison_of_all_Classes.html">SAnalysis of the mitochondrial mutational spectra between different classes</a>
     </li>
   </ul>
 </li>
@@ -338,7 +350,7 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2025-05-23
+<strong>Last updated:</strong> 2025-06-19
 </p>
 <p>
 <strong>Checks:</strong> <span
@@ -386,15 +398,15 @@ results.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree8f5f58cd988819a2c2bbb481846483a95022eaf9targetblank8f5f58ca">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree14d12386eb61777a4587a52337c2d95577dea4dftargetblank14d1238a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/8f5f58cd988819a2c2bbb481846483a95022eaf9" target="_blank">8f5f58c</a>
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/14d12386eb61777a4587a52337c2d95577dea4df" target="_blank">14d1238</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree8f5f58cd988819a2c2bbb481846483a95022eaf9targetblank8f5f58ca"
+id="strongRepositoryversionstrongahrefhttpsgithubcommitoclubTemperatureEffectsOnMtDNAspectratree14d12386eb61777a4587a52337c2d95577dea4dftargetblank14d1238a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -404,7 +416,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/8f5f58cd988819a2c2bbb481846483a95022eaf9" target="_blank">8f5f58c</a>.
+<a href="https://github.com/mitoclub/TemperatureEffectsOnMtDNAspectra/tree/14d12386eb61777a4587a52337c2d95577dea4df" target="_blank">14d1238</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -423,15 +435,36 @@ Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
     Ignored:    analysis/.DS_Store
+    Ignored:    analysis/.RData
     Ignored:    analysis/.Rhistory
     Ignored:    code/.DS_Store
     Ignored:    data/.DS_Store
+    Ignored:    data/Codons_of_CytB_gene_Chordata.txt
+    Ignored:    data/ColdAndWarmFishesSpectra.txt
+    Ignored:    data/Dataset_S1.csv
+    Ignored:    data/ExpectedFractions.txt
+    Ignored:    data/Extra_climate_data_2025.csv
+    Ignored:    data/Extra_temperature_grow_data_2025.csv
+    Ignored:    data/Extra_temperature_popQB_data_2025.csv
+    Ignored:    data/Full_fish_ecology_table_2025.csv
+    Ignored:    data/MIDORI2_LONGEST_NUC_GB265_Cytb_BLAST.fasta
+    Ignored:    data/MIDORI2_LONGEST_NUC_GB265_Cytb_BLAST.fasta.fai
+    Ignored:    data/MIDORI_WG_CYTB_FISHES.csv
+    Ignored:    data/MolEvolRatesProxy.txt
+    Ignored:    data/SimulationData.csv
+    Ignored:    data/SimulationData2.csv
+    Ignored:    data/Species_by_climate_zones.txt
     Ignored:    output/.DS_Store
+    Ignored:    output/figures/.DS_Store
+    Ignored:    output/tables/.DS_Store
 
 Unstaged changes:
-    Modified:   output/figures/PolymorphicData.Actinopterygii.A_GwitnTemperature.pdf
-    Modified:   output/figures/PolymorphicData.Actinopterygii.AverageMutSpec.pdf
-    Modified:   output/figures/PolymorphicData.Actinopterygii.AverageMutSpecColdAndWarm.pdf
+    Modified:   output/figures/Assosiation_of_A_G_with_climate_and_tropf_level.pdf
+    Modified:   output/figures/Assosiation_of_A_G_with_temperature.pdf
+    Modified:   output/figures/Average mitochondrial mutational spectrum in Fishes divided by groups (cytB).pdf
+    Modified:   output/figures/Average_mutspec_in_Fishes_CytB.pdf
+    Modified:   output/figures/Simulation_expected_observed.pdf
+    Modified:   output/figures/Simulation_expected_observed_subset.pdf
 
 </code></pre>
 <p>
@@ -475,6 +508,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mitoclub/TemperatureEffectsOnMtDNAspectra/1bd7c34389d68ab36e344b3cb575d13fdee9c036/docs/index.html" target="_blank">1bd7c34</a>
+</td>
+<td>
+Alya Mikhailova
+</td>
+<td>
+2025-05-23
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
