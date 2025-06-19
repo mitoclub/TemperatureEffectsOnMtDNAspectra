@@ -9,8 +9,16 @@ navbar:
       href: about.html
     - text: Analysis
       menu:
-        - text: "Analysis of the polymorphic data in Fishes obtained by NeMu pipeline"
-          href: I_Polymorphic_Data_Analysis.html
+        - text: "Analysis of cytochrome b mutational spectra in fishes"
+          href: I_CYTB_polymorphic_mutspec_analysis.html
+        - text: "Analysis of the Cyt B neutral nucleotide data in Fishes"
+          href: Ia_Polymorphic_Data_Analysis_TrophLevel.KP.html
+        - text: "Analysis of the Cyt B neutral nucleotide data in Fishes"
+          href: II_Cytb_Data_Analysis.html
+        - text: "Simulation of the mutagenesis in the Cyt B gene in Fishes"
+          href: IIa_Cytb_Data_Analysis_Simulation_Mutagenesis.html
+        - text: "SAnalysis of the mitochondrial mutational spectra between different classes"
+          href: III_Comparison_of_all_Classes.html
     - text: "Methods"
       href: methods.html
   right:

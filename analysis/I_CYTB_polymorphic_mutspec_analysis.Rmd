@@ -77,7 +77,7 @@ set.seed(seed = reseed)
 mutSpec12 <- read_csv(here(data_dir, "MutSpecVertebrates12fish.csv"))
 mutSpec12Cb <- dplyr::filter(mutSpec12, Gene == "Cytb")
 cat("N species =", length(unique(mutSpec12Cb$Species)))
-head(mutSpec12Cb)
+kable(head(mutSpec12Cb))
 
 MutSpecForAnalysisCb <- mutSpec12Cb %>% dplyr::select(Class, Species, Mut, MutSpec)
 MutSpecForAnalysisCb$Mut <- gsub(">", "_", MutSpecForAnalysisCb$Mut)
@@ -122,7 +122,7 @@ colnames(MutSpecForAnalysisBoth) <- c("Class",      # Both genes
 
 ```{r fish_ecology}
 fishEcology <- read.csv(here(data_dir, "Full_fish_ecology_table_2025.csv"))
-head(fishEcology)
+kable(head(fishEcology))
 cor.test(fishEcology$tm, fishEcology$Temp_avg, method = "spearman")
 ```
 
@@ -236,9 +236,10 @@ f1
 # Comparison of average MutSpec between cold and warm fisches
 ```{r average_mutspec_cytb_groups}
 merging <- list(MutSpecForAnalysisCb, fishEcology)
-MutAndEcoCb <- merging %>% reduce(left_join, by= "Species")
+MutAndEcoCb <- merging %>% purrr::reduce(left_join, by= "Species")
 
 #write.table(MutAndEcoCb, file = here(tables_dir, "Supplementary_Material_1_Mitochondrial_mutational_spectra_cytb_and_ecology_Fishes.txt"), row.names = FALSE)
+#write_csv(MutAndEcoCb, file = here(tables_dir, "Supplementary_Material_1_Mitochondrial_mutational_spectra_cytb_and_ecology_Fishes.csv"))
 
 temperaturestat <- summary(MutAndEcoCb$Temp_avg)
 
@@ -426,8 +427,8 @@ correlation_results <- MutAndEcoCb |>
   map_dfr( ~ tidy(cor.test(.x, MutAndEcoCb$Temp_avg), method = 'spearman'), .id = "variable") |>
   arrange(desc(abs(estimate)))
 
-correlation_results
-#write.table(correlation_results, file = here(tables_dir, "Table1.txt"), row.names = FALSE)
+kable(correlation_results)
+#write.table(kable(correlation_results), file = here(tables_dir, "Table1.txt"), row.names = FALSE, col.names = FALSE)
 
 SubsetClass<- unique(MutAndEcoCb$Class)
 spN <- nrow(MutAndEcoCb[!is.na(MutAndEcoCb$Temp_avg),])
@@ -470,14 +471,16 @@ f1
 ClimateZonetest <- na.omit(data.frame(subset(MutAndEcoCb, select = c(Species ,A_G.H, Climate_zone))))
 
 ClimateZonetest$ClimateGroup <- ifelse(ClimateZonetest$Climate_zone %in% c("tropical", "subtropical"), "Warm", "Cold")
-ClimateZonetest$Climate_zone <- as.factor(ClimateZonetest$Climate_zone)
+ClimateZonetest$Climate_zone <- factor(ClimateZonetest$Climate_zone, levels = c("tropical", "subtropical", "temperate", "boreal", "polar"), ordered = TRUE)
 AGmedian <- median(ClimateZonetest$A_G.H)
 ClimateZonetest$A_G.Freq <- "low_A_G"
 ClimateZonetest[ClimateZonetest$A_G.H >= AGmedian,]$A_G.Freq <- "high_A_G"
 ClimateZonetest$A_G.Freq <- as.factor(ClimateZonetest$A_G.Freq)
 ClimateZonePie <- ClimateZonetest[,2-3]
+ClimPl <- c("#F2AF4AFF", "#EB7F54FF", "#C36377FF", "#61599DFF", "#1D457FFF")
+names(ClimPl) <- c("tropical", "subtropical", "temperate", "boreal", "polar") 
 s1 <- ggpiestats(data = ClimateZonePie, x = Climate_zone, y = A_G.Freq) +
-  scale_fill_manual(values = c("#F2AF4AFF", "#C36377FF", "#EB7F54FF", "#61599DFF", "#1D457FFF"))
+  scale_fill_manual(values = ClimPl)
 s1
 
 tidy(wilcox.test(ClimateZonetest[ClimateZonetest$ClimateGroup == "Warm",]$A_G.H, ClimateZonetest[ClimateZonetest$ClimateGroup == "Cold",]$A_G.H))
@@ -504,10 +507,57 @@ correlation_results1 <- MutAndEcoCb |>
   ) |>
   map_dfr( ~ tidy(cor.test(.x, MutAndEcoCb$tm), method = 'spearman'), .id = "variable") |>
   arrange(desc(abs(estimate)))
-correlation_results1
+kable(correlation_results1)
 ```
 
 ## PGLS
+
+```{r}
+create_enhanced_summary_table <- function(model_summary, pgls_model) {
+  # Extract coefficients
+  coef_table <- model_summary$coefficients
+  
+  # Create enhanced dataframe
+  enhanced_df <- data.frame(
+    Parameter = rownames(coef_table),
+    Estimate = round(coef_table[, "Estimate"], 6),
+    Std_Error = round(coef_table[, "Std. Error"], 6),
+    t_value = round(coef_table[, "t value"], 3),
+    p_value = format.pval(coef_table[, "Pr(>|t|)"], digits = 3),
+    Significance = case_when(
+      coef_table[, "Pr(>|t|)"] < 0.001 ~ "***",
+      coef_table[, "Pr(>|t|)"] < 0.01 ~ "**",
+      coef_table[, "Pr(>|t|)"] < 0.05 ~ "*",
+      coef_table[, "Pr(>|t|)"] < 0.1 ~ ".",
+      TRUE ~ ""
+    ),
+    CI_Lower = round(coef_table[, "Estimate"] - 1.96 * coef_table[, "Std. Error"], 6),
+    CI_Upper = round(coef_table[, "Estimate"] + 1.96 * coef_table[, "Std. Error"], 6)
+  )
+  
+  # Model fit statistics
+  model_stats <- data.frame(
+    Statistic = c(
+      "R-squared",
+      "Adjusted R-squared",
+      "F-statistic",
+      "Lambda",
+      "AIC",
+      "BIC"
+    ),
+    Value = c(
+      round(model_summary$r.squared, 4),
+      round(model_summary$adj.r.squared, 4),
+      round(model_summary$fstatistic[1], 3),
+      round(pgls_model$param["lambda"], 6),
+      round(AIC(pgls_model), 2),
+      round(BIC(pgls_model), 2)
+    )
+  )
+  
+  return(list(coefficients = enhanced_df, model_stats = model_stats))
+}
+```
 
 ```{r inertia_analysis_temperature, message=FALSE, warning=FALSE}
 tree <- read.tree(file = here(data_dir, "chordates_species.nwk"))
@@ -526,17 +576,17 @@ data$Temp_avg = as.numeric(data$Temp_avg)
 data$Tv <- 1-(data$A_G.H + data$G_A.H + data$T_C.H + data$C_T.H)
 data_comp <- comparative.data(tree_pruned, data, Species, vcv=TRUE)
 
-summary(pgls(A_G.H ~ Temp_avg, data_comp, lambda="ML"))
+mod <- pgls(A_G.H ~ Temp_avg, data_comp, lambda="ML")
+summ <- summary( pgls(A_G.H ~ Temp_avg, data_comp, lambda="ML"))
 
 
+pgls_results <- create_enhanced_summary_table(summ, mod)
 
-#la.A_G <- phylosig(tree_pruned, data$A_G.H, method = "lambda", test = TRUE) #Phylogenetic signal lambda : 0.280122 
-#la.C_T <- phylosig(tree_pruned, data$C_T.H, method = "lambda", test = TRUE) #Phylogenetic signal lambda : 0.119451 
-#la.G_A <- phylosig(tree_pruned, data$G_A.H, method = "lambda", test = TRUE) #Phylogenetic signal lambda : 0.719915 
-#la.T_C <- phylosig(tree_pruned, data$T_C.H, method = "lambda", test = TRUE) #Phylogenetic signal lambda : 0.813846 
-#la.Tv <- phylosig(tree_pruned, data$Tv, method = "lambda", test = TRUE) #Phylogenetic signal lambda : 0.113722
-#la.temp <- phylosig(tree_pruned, data$Temp_avg, method = "lambda", test = TRUE) #Phylogenetic signal lambda : 0.92032
+kable(pgls_results$coefficients)
+kable(pgls_results$model)
 
+#write.table(kable(pgls_results$coefficients), file = here(tables_dir, "Table2a.txt"), row.names = FALSE, col.names = FALSE)
+#write.table(kable(pgls_results$model), file = here(tables_dir, "Table2b.txt"), row.names = FALSE, col.names = FALSE)
 ```
 
 ```{r inertia_analysis_climate, message=FALSE, warning=FALSE}
@@ -551,6 +601,139 @@ data$A_G.H = as.numeric(data$A_G.H)
 data$ClimateGroup = as.factor(data$ClimateGroup)
 data_comp <- comparative.data(tree_pruned, data, Species, vcv=TRUE)
 
-summary(pgls(A_G.H ~ ClimateGroup, data_comp, lambda="ML"))
+
+
+mod <- pgls(A_G.H ~ ClimateGroup, data_comp, lambda="ML")
+summ <- summary(pgls(A_G.H ~ ClimateGroup, data_comp, lambda="ML"))
+
+
+pgls_results <- create_enhanced_summary_table(summ, mod)
+
+kable(pgls_results$coefficients)
+kable(pgls_results$model)
+
+```
+
+```{r lambda, eval=FALSE}
+la.A_G <- phylosig(tree_pruned, data$A_G.H, method = "lambda", test = TRUE) #Phylogenetic signal lambda : 0.30935 , P-value (based on LR test) : 3.47115e-05
+la.C_T <- phylosig(tree_pruned, data$C_T.H, method = "lambda", test = TRUE) #Phylogenetic signal lambda : 0.216484, P-value (based on LR test) : 0.000556152 
+la.G_A <- phylosig(tree_pruned, data$G_A.H, method = "lambda", test = TRUE) #Phylogenetic signal lambda : 0.522227, P-value (based on LR test) : 5.35018e-05 
+la.T_C <- phylosig(tree_pruned, data$T_C.H, method = "lambda", test = TRUE) #Phylogenetic signal lambda : 0.853065 
+la.Tv <- phylosig(tree_pruned, data$Tv, method = "lambda", test = TRUE)     #Phylogenetic signal lambda : 0.138137 
+                                                                            #####################################
+
+signal_strength <- data.frame(
+  Level = c("None", "Weak", "Moderate", "Strong"),
+  Range = c("0-0.15", "0.15-0.35", "0.35-0.75", "0.75-1.0")
+)
+signal_strength$Level <- factor(
+  signal_strength$Level,
+  levels = c("None", "Weak", "Moderate", "Strong"),
+  ordered = TRUE
+)
+
+f1a <- ggplot(signal_strength, aes(x=2, y=Level, fill=Level)) +
+  geom_col(alpha=0.8, width=1) +
+  geom_point(aes(x=1, y=2), size=15, color="#e74c3c") + 
+  annotate("text", x=1, y=2, label=paste("λ =", la.A_G$lambda), size=5, fontface="bold") +
+  scale_fill_manual(values=c("#ecf0f1", "#bdc3c7", "#3498db", "#2c3e50")) +
+  labs(title="Phylogenetic Signal Strength of A_G.H", ) +
+  theme_void() +
+  theme(legend.position = "none")
+
+f1b <- ggplot(signal_strength, aes(x=2, y=Level, fill=Level)) +
+  geom_col(alpha=0.8, width=1) +
+  geom_point(aes(x=1, y=2), size=15, color="#e74c3c") + 
+  annotate("text", x=1, y=2, label=paste("λ =", la.C_T$lambda), size=5, fontface="bold") +
+  scale_fill_manual(values=c("#ecf0f1", "#bdc3c7", "#3498db", "#2c3e50")) +
+  labs(title="Phylogenetic Signal Strength of C_T.H") +
+  theme_void()
+
+f1c <- ggplot(signal_strength, aes(x=2, y=Level, fill=Level)) +
+  geom_col(alpha=0.8, width=1) +
+  geom_point(aes(x=1, y=3), size=15, color="#e74c3c") + 
+  annotate("text", x=1, y=3, label=paste("λ =", la.G_A$lambda), size=5, fontface="bold") +
+  scale_fill_manual(values=c("#ecf0f1", "#bdc3c7", "#3498db", "#2c3e50")) +
+  labs(title="Phylogenetic Signal Strength of G_A.H") +
+  theme_void() +
+  theme(legend.position = "none")
+
+f1d <- ggplot(signal_strength, aes(x=2, y=Level, fill=Level)) +
+  geom_col(alpha=0.8, width=1) +
+  geom_point(aes(x=1, y=4), size=15, color="#e74c3c") + 
+  annotate("text", x=1, y=4, label=paste("λ =", la.T_C$lambda), size=5, fontface="bold") +
+  scale_fill_manual(values=c("#ecf0f1", "#bdc3c7", "#3498db", "#2c3e50")) +
+  labs(title="Phylogenetic Signal Strength of T_C.H") +
+  theme_void() +
+  theme(legend.position = "none")
+
+fig <- (f1a | f1b) / (f1c | f1d) 
+
+MutAndEcoPGLS <- MutAndEcoPGLS[!is.na(MutAndEcoPGLS$Temp_avg),]
+row.names(MutAndEcoPGLS) = MutAndEcoPGLS$Species
+tree_pruned = treedata(tree, MutAndEcoPGLS, sort=T, warnings=T)$phy
+data<-as.data.frame(treedata(tree_pruned, MutAndEcoPGLS, sort=T, warnings=T)$data)
+data$Species = as.character(data$Species)
+data$A_G.H = as.numeric(data$A_G.H)
+data$C_T.H = as.numeric(data$C_T.H)
+data$G_A.H = as.numeric(data$G_A.H)
+data$T_C.H = as.numeric(data$T_C.H)
+data$Temp_avg = as.numeric(data$Temp_avg)
+data$Tv <- 1-(data$A_G.H + data$G_A.H + data$T_C.H + data$C_T.H)
+
+la.temp <- phylosig(tree_pruned, data$Temp_avg, method = "lambda", test = TRUE) ########Phylogenetic signal lambda : 0.921383, P-value (based on LR test) : 8.81583e-12 
+
+
+f1e <- ggplot(signal_strength, aes(x=2, y=Level, fill=Level)) +
+  geom_col(alpha=0.8, width=1) +
+  geom_point(aes(x=1, y=4), size=15, color="#e74c3c") + # Position at "Moderate"
+  annotate("text", x=1, y=4, label=paste("λ =", la.temp$lambda), size=7, fontface="bold") +
+  scale_fill_manual(values=c("#ecf0f1", "#bdc3c7", "#3498db", "#2c3e50")) +
+  labs(title="Phylogenetic Signal Strength of temperature") +
+  theme_void() +
+  theme(legend.position = "none")
+
+f1f <- ggplot(signal_strength, aes(x=2, y=Level, fill=Level)) +
+  geom_col(alpha=0.8, width=1) +
+  geom_point(aes(x=1, y=1), size=20, color="#e74c3c") + # Position at "Moderate"
+  annotate("text", x=1, y=1, label=paste("λ =", la.Tv$lambda), size=7, fontface="bold") +
+  scale_fill_manual(values=c("#ecf0f1", "#bdc3c7", "#3498db", "#2c3e50")) +
+  labs(title="Phylogenetic Signal Strength of transversions") +
+  theme_void() 
+
+figf <- (f1e | f1f)
+
+ggsave(here(plots_dir,"Lambda_temperature_and_Tv.pdf"),
+  plot = figf,
+  width = 9,
+  height = 9
+) 
+
+ggsave(here(plots_dir,"Lambda_transitions.pdf"),
+  plot = fig,
+  width = 8,
+  height = 8
+) 
+
+create_lambda_summary_table <- function(la_result, varia) {
+  values <- c("variable" = varia,
+    `Lambda (λ) estimate` = la_result$lambda,
+    `Log-likelihood (λ)` = la_result$logL,
+    `Likelihood Ratio (λ=0)` = la_result$logL0,
+    `P-value (LR test)` = la_result$P
+  )
+  df_wide <- as.data.frame(t(values), check.names = FALSE)
+  rownames(df_wide) <- NULL
+  return(df_wide)
+}
+
+AG <- create_lambda_summary_table(la.A_G, "A>G.H")
+TC <- create_lambda_summary_table(la.T_C, "T>C.H")
+GA <- create_lambda_summary_table(la.G_A, "G>A.H")
+CT <- create_lambda_summary_table(la.C_T, "C>T.H") 
+
+lambda_results <- bind_rows(AG, TC, GA, CT, .id = NULL)
+
+#write.table(kable(lambda_results), file = here(tables_dir, "Table3.txt"), row.names = FALSE, col.names = FALSE)
 
 ```
